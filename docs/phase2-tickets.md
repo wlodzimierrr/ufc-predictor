@@ -29,7 +29,7 @@ Recommended execution order:
 - **Description:** Provision a local Postgres instance for development and define the connection
   configuration pattern. All Phase 2 scripts must connect via a shared config so no connection
   strings are hardcoded.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - A `docker-compose.yml` at the repo root (or `infra/`) starts a Postgres 16 container with
     a named volume for persistence.
@@ -41,8 +41,11 @@ Recommended execution order:
 - **Dependencies:** T1.6.2
 - **Complexity:** S
 - **Risk:** Low
-- **Notes:** Use Postgres 16. Store the compose file at repo root so it is easy to find. A real
-  `.env` file must be in `.gitignore`.
+- **Notes:** docker-compose skipped — Postgres 17 already running on homelab at
+  `homelab-database.homelab.local`. Connection config implemented instead: `.env.example`
+  documents the five required vars; real `.env` is gitignored. `warehouse/db.py` exposes
+  `get_connection()` reading from env vars (with optional python-dotenv support).
+  `python3 warehouse/db.py` confirmed connection to Postgres 17.9 on homelab.
 
 ---
 
