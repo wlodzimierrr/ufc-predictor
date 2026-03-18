@@ -3,7 +3,7 @@
 Entry-point reference for running, updating, and validating Phase 1 data acquisition.
 All commands are run from `scraper/UFC-Web-Scraping-main/` unless stated otherwise.
 
-_Implements T1.1.3–T1.2.4. See `docs/acquisition-contract.md` for the full output layout and schema._
+_Implements T1.1.3–T1.6.2. See `docs/acquisition-contract.md` for the full output layout and schema._
 
 ---
 
@@ -34,17 +34,33 @@ cd ufc_scraper && python -m scrapy list
 
 | Output type | Path | Written by |
 |---|---|---|
-| Parsed CSV tables | `data/*.csv` | All spiders (unchanged) |
-| Raw HTML pages | `data/raw/ufcstats/{entity_type}/{id}.html` | `RawCaptureMiddleware` (T1.2.2) |
-| Fetch manifest | `data/manifests/fetch_manifest.csv` | `RawCaptureMiddleware` (T1.2.2) |
-| Entity manifests | `data/manifests/events_manifest.csv` etc. | T1.3.2, T1.4.1, T1.5.1 (not yet implemented) |
-| Coverage reports | `data/reports/*_YYYYMMDD.csv` | T1.3.4, T1.4.3, T1.5.4 (not yet implemented) |
+| Parsed CSV tables | `data/*.csv` | All spiders |
+| Raw HTML pages | `data/raw/ufcstats/{entity_type}/{id}.html` | `RawCaptureMiddleware` |
+| Fetch manifest | `data/manifests/fetch_manifest.csv` | `RawCaptureMiddleware` |
+| Events manifest | `data/manifests/events_manifest.csv` | `EventsManifestPipeline` |
+| Fighter queue | `data/manifests/fighter_queue.csv` | `build_fighter_queue.py` |
+| Fight stats queue | `data/manifests/fight_stats_queue.csv` | `build_fight_stats_queue.py` |
+| Coverage reports | `data/reports/*.csv` | Report scripts |
 
 `DATA_DIR` in the Makefile resolves to `../../data` (repo root `data/`).
 
 ---
 
 ## Commands
+
+### Bounded end-to-end backfill (~50 events)
+
+Validates the full pipeline: events → queues → incremental stats fetch → all reports.
+Use this after a schema or spider change before running a full-history crawl.
+
+```bash
+make backfill_sample              # default: ~50 most recent events
+make backfill_sample BACKFILL_N=26  # ~25 events
+```
+
+`BACKFILL_N` sets `CLOSESPIDER_PAGECOUNT` on the events spider.
+The events listing page at `ufcstats.com/statistics/events/completed?page=all` is one response;
+each event detail page is one more. So `BACKFILL_N=51` → 1 listing + 50 event pages ≈ 50 events.
 
 ### Full crawl (all spiders, write CSV)
 
@@ -79,6 +95,62 @@ make update_fighters
 make update_fight_stats
 make update_fight_stats_by_round
 ```
+
+### Single-URL debug run
+
+Each spider accepts an optional URL argument for targeted single-page debug runs.
+
+```bash
+# Events spider — crawl one event page
+make crawl_events ARGS="-a event_url=http://ufcstats.com/event-details/<id>"
+
+# Fighters spider — crawl one fighter profile
+make crawl_fighters ARGS="-a fighter_url=http://ufcstats.com/fighter-details/<id>"
+
+# Fight stats spider — crawl one fight detail page
+make crawl_fight_stats ARGS="-a fight_url=http://ufcstats.com/fight-details/<id>"
+make crawl_fight_stats_by_round ARGS="-a fight_url=http://ufcstats.com/fight-details/<id>"
+```
+
+### Queue build commands
+
+Queue files are inputs to the incremental stats and fighters spiders. Rebuild after a fresh
+events/fights crawl, or whenever the source CSVs change.
+
+```bash
+make build_stats_queue   # builds data/manifests/fight_stats_queue.csv
+make build_queue         # builds data/manifests/fighter_queue.csv
+```
+
+`build_stats_queue` reads `data/fights.csv` (primary), `data/manifests/events_manifest.csv`,
+and `data/events.csv`. It excludes upcoming events and is idempotent (preserves existing
+`queued_at` timestamps).
+
+`build_queue` reads `data/fighters.csv` and globs `data/raw/ufcstats/fights/*.html` to extract
+fighter URLs from raw fight pages. No network calls.
+
+### Coverage and review reports
+
+Run these after any acquisition job to validate output completeness.
+
+```bash
+make report_events                     # event coverage; exits 1 if miss rate > 5%
+make report_events THRESHOLD=0.10      # override threshold
+
+make review_fighters                   # fighter bio/identity review; always exits 0
+                                       # writes data/reports/fighter_review.csv
+
+make report_stats                      # fight stats coverage; exits 1 if miss rate > 5%
+make report_stats THRESHOLD=0.10       # override threshold
+```
+
+Report outputs:
+
+| Report | Path | Exits non-zero |
+|---|---|---|
+| Event coverage | `data/reports/stats_coverage.csv` (gap rows only) | Yes — if miss rate > threshold |
+| Fighter review | `data/reports/fighter_review.csv` (flagged fighters only) | No — flags are informational |
+| Stats coverage | `data/reports/stats_coverage.csv` (gap rows only) | Yes — if agg or round miss rate > threshold |
 
 ### Bounded sample run
 
@@ -172,16 +244,34 @@ make smoke ARGS="-s LOG_LEVEL=DEBUG"
 The `ARGS` variable is forwarded to the Scrapy command for any target.
 
 ```bash
-# Pass a custom Scrapy setting
 make crawl_csv_events ARGS="-s LOG_LEVEL=DEBUG"
 ```
 
-Spider-level argument filtering by event URL or event ID will be added in T1.3.x once canonical
-manifests exist. At that point the pattern will be:
+---
+
+## Restart and resume
+
+All spiders support incremental mode — they skip IDs already present in the output CSV. If a
+run is interrupted, re-running with `update_%` continues from where it left off without
+duplicating rows.
+
+The stats spiders also use `fight_stats_queue.csv` for seeding. If the queue was built before
+the interruption, the re-run will pick up all un-processed fight URLs automatically.
 
 ```bash
-# Future — not yet implemented
-make update_fights ARGS="-a event_url=http://ufcstats.com/event-details/<id>"
+# Resume an interrupted stats fetch:
+make update_fight_stats
+make update_fight_stats_by_round
+
+# Resume an interrupted fighters fetch:
+make update_fighters
+```
+
+If the queue file itself is missing or corrupt, rebuild it first:
+
+```bash
+make build_stats_queue
+make build_queue
 ```
 
 ---
@@ -192,9 +282,14 @@ make update_fights ARGS="-a event_url=http://ufcstats.com/event-details/<id>"
 |---|---|---|
 | `ModuleNotFoundError: scrapy` | Virtualenv not activated | `source .venv/bin/activate` |
 | Empty CSV after crawl | Spider name mismatch or 0 items parsed | Run with `ARGS="-s LOG_LEVEL=DEBUG"` and check spider logs |
-| Duplicate rows in CSV | `crawl_csv_%` used instead of `update_%` on an existing file | Use `update_%` for incremental runs; `crawl_csv_%` always overwrites |
+| Duplicate rows in CSV | `crawl_csv_%` used instead of `update_%` on existing file | Use `update_%` for incremental runs; `crawl_csv_%` always overwrites |
 | Crawl stops early unexpectedly | `CLOSESPIDER_PAGECOUNT` set (sample/smoke targets only) | Expected for `sample_%` and `smoke`; use `crawl_csv_%` for a full run |
 | `FileNotFoundError` for `data/` | Working directory wrong | Run from `scraper/UFC-Web-Scraping-main/`; Makefile creates `data/` if missing |
+| `fight_stats_queue.csv not found` logged by spider | Queue not built yet | Run `make build_stats_queue` before the stats spiders |
+| `fight_stats_by_round` produces 0 rows in incremental mode | Cross-spider dedup via shared `fetch_manifest.csv` | This is prevented by `_load_captured_uuids()` override; if it recurs check the override is intact |
+| Stats coverage report exits 1 | Miss rate above threshold | Check `data/reports/stats_coverage.csv` gap rows; re-run `make update_fight_stats` to retry `not_fetched` fights |
+| Report script says `fight_stats_queue.csv` absent | Queue not built | Run `make build_stats_queue` |
+| `NO_STATS_PAGE` or `NO_ROUND_TABLE` in spider logs | Fight page has no stats table | Expected for old fights with no recorded stats; these appear as `missing_stats` in the coverage report |
 
 ---
 
@@ -202,10 +297,85 @@ make update_fights ARGS="-a event_url=http://ufcstats.com/event-details/<id>"
 
 | Goal | Command |
 |---|---|
+| Bounded end-to-end validation (~50 events) | `make backfill_sample` |
 | Full crawl, all spiders → CSV | `make crawl_csv_all` |
 | Full crawl, one spider → CSV | `make crawl_csv_<spider>` |
 | Incremental update, all spiders | `make update_all` |
 | Incremental update, one spider | `make update_<spider>` |
+| Rebuild fight stats queue | `make build_stats_queue` |
+| Rebuild fighter queue | `make build_queue` |
+| Event coverage report | `make report_events` |
+| Fighter bio/identity review | `make review_fighters` |
+| Fight stats coverage report | `make report_stats` |
 | Bounded sample, one spider | `make sample_<spider> N=<pages>` |
 | Smoke test (5 event pages + validate) | `make smoke` |
 | Validate outputs only (no crawl) | `make check` |
+
+---
+
+## Phase 1 handoff checklist
+
+Phase 2 (parsing, feature engineering, warehouse ingestion) may proceed when all items below
+are satisfied.
+
+### Required files
+
+- [ ] `data/events.csv` — complete event registry, including `fight_urls` column
+- [ ] `data/fights.csv` — complete fight results with `finish_method`
+- [ ] `data/fighters.csv` — fighter profiles (bio fields may be sparse for historical fighters)
+- [ ] `data/fight_stats.csv` — aggregate per-fighter stats per fight
+- [ ] `data/fight_stats_by_round.csv` — per-round per-fighter stats
+
+### Required manifests
+
+- [ ] `data/manifests/fetch_manifest.csv` — audit trail of every HTTP fetch
+- [ ] `data/manifests/events_manifest.csv` — canonical event registry with fight URLs
+- [ ] `data/manifests/fight_stats_queue.csv` — canonical queue of completed fights (used to measure coverage)
+- [ ] `data/manifests/fighter_queue.csv` — canonical queue of fighter profiles
+
+### Required reports (must pass thresholds)
+
+- [ ] `make report_events` exits 0 — event miss rate ≤ 5%
+- [ ] `make report_stats` exits 0 — fight stats miss rate ≤ 5% for both aggregate and round-level
+- [ ] `make review_fighters` has run — `data/reports/fighter_review.csv` reviewed; no unexpected identity collisions
+
+### Validation baseline (Phase 1 completion run, 2026-03-18)
+
+| Metric | Value |
+|---|---|
+| Events | All completed events in manifest; coverage threshold passes |
+| Fights | 8 550 queued |
+| Fight stats (aggregate) | 8 531 / 8 550 (99.8%) |
+| Fight stats (round-level) | 8 531 / 8 550 (99.8%) |
+| Not-yet-fetched fights | 19 (0.2%) — within 5% threshold; retry with `update_fight_stats` |
+| Fighters in queue | 4 452 |
+| Fighters flagged (informational) | 636 (14.3%) — sparse bios and duplicate names; see `fighter_review.csv` |
+
+Phase 2 **may rely on**:
+
+- All `data/*.csv` columns documented in `docs/acquisition-contract.md` being present and UTF-8 encoded.
+- `fight_id`, `event_id`, and `fighter_id` being deterministic UUID5 values derived from ufcstats.com URLs via `utils.get_uuid_string()`.
+- Raw HTML files in `data/raw/ufcstats/fights/` being available for re-parsing without network calls (SHA-256 dedup ensures idempotency).
+- `fight_stats_queue.csv` correctly reflecting `finish_method` for all queued fights (sourced from `fights.csv`).
+
+Phase 2 **must not assume**:
+
+- Fighter bio fields (height, weight, reach, stance, DOB) are complete — ~14% of profiles are sparse.
+- All fight stats are present — 0.2% of fights have no stats page on ufcstats.com (old bouts).
+- Round-level stats are present for every fight that has aggregate stats — some fights with aggregate stats have no round breakdown.
+
+---
+
+## Unresolved acquisition risks
+
+These are open items that did not block Phase 1 sign-off but may affect Phase 2 work.
+
+| Risk | Severity | Detail |
+|---|---|---|
+| 19 fights have no fetched stats page | Low | The `not_fetched` gap (0.2%) persists after the full crawl. A single `make update_fight_stats` re-run should close it; if fights remain missing they likely have no stats table on the source. |
+| ~14% sparse fighter bios | Low | ufcstats.com does not expose full bio data for older or less-prominent fighters. Height, weight, reach, stance, and DOB can all be absent. Phase 2 models must handle nulls in these fields. |
+| 7 duplicate-name fighter pairs | Low | Seven `full_name` values map to more than one `fighter_id`. These are likely distinct fighters sharing a name (e.g. regional vs UFC). Identity resolution requires manual review or a secondary disambiguation signal (e.g. DOB, nationality). |
+| Nationality field absent | Low | ufcstats.com fighter pages do not expose nationality. If nationality is needed for features it must be sourced elsewhere (e.g. Wikipedia, Tapology). |
+| `fight_stats_by_round` shares `fetch_manifest` with `fight_stats` | Medium | The by-round spider overrides `_load_captured_uuids()` to return `set()` to prevent cross-spider dedup collision. If this override is inadvertently removed in a future refactor, the by-round spider will silently produce zero output in incremental mode. The override is documented in the spider docstring. |
+| No rate-limit handling beyond Scrapy throttle | Low | The scraper relies on Scrapy's `AutoThrottle` and `DOWNLOAD_DELAY`. If ufcstats.com introduces rate-limiting or CAPTCHAs, the spider will accumulate `failed` rows in the fetch manifest rather than retrying with backoff. Monitor `fetch_failed` counts in `stats_coverage_report`. |
+| Full-history crawl not yet executed | Low | The Phase 1 validation run confirmed pipeline integrity at 99.8% coverage. A full-history crawl from scratch has not been timed or stress-tested. Estimate conservatively and monitor `CLOSESPIDER_ERRORCOUNT` for sustained failure. |

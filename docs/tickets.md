@@ -293,16 +293,17 @@ Recommended execution order:
 
 #### T1.6.2 Publish the Phase 1 acquisition runbook and handoff checklist
 - **Description:** Document how to run, monitor, resume, and validate Phase 1 acquisition, and define the explicit handoff conditions for Phase 2 parsing and warehouse ingestion work.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
-  - A runbook exists covering setup, crawl commands, incremental updates, output locations, and failure triage.
-  - The runbook includes restart/resume instructions and expected report outputs.
-  - A Phase 1 handoff checklist states what files and reports Phase 2 can rely on.
-  - The document names unresolved acquisition risks that remain open after Phase 1.
+  - A runbook exists covering setup, crawl commands, incremental updates, output locations, and failure triage. ✓
+  - The runbook includes restart/resume instructions and expected report outputs. ✓
+  - A Phase 1 handoff checklist states what files and reports Phase 2 can rely on. ✓
+  - The document names unresolved acquisition risks that remain open after Phase 1. ✓
 - **Dependencies:** T1.6.1
 - **Complexity:** S
 - **Risk:** Low
 - **Notes:** This closes Phase 1. If the handoff contract is unclear, Phase 2 will waste time reverse-engineering acquisition behavior.
+- **Implementation:** Updated `docs/runbook.md` (previously covered T1.1.3–T1.2.4 only) to reflect full Phase 1 completion. Added: queue build commands, report commands, `backfill_sample`, single-URL debug runs, restart/resume section, expanded failure modes table, updated quick-reference table, Phase 1 handoff checklist with validation baseline, and unresolved acquisition risks table.
 
 ---
 
