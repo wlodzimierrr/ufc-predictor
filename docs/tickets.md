@@ -241,7 +241,7 @@ Recommended execution order:
 
 #### T1.5.3 Capture round-level fight stats pages
 - **Description:** Extend the round-level acquisition path so the project stores raw fight pages once and emits parsed per-round fighter statistics where round tables exist.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - Round-level stats are produced for fights where round tables are available.
   - Parsed round-level outputs carry fight ID, fighter ID or side, and round number.
