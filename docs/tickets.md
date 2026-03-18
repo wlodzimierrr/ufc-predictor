@@ -174,7 +174,7 @@ Recommended execution order:
 
 #### T1.4.1 Build the fighter profile queue from current acquisition outputs
 - **Description:** Create a single fighter queue from fighter listing pages, event-linked fighter URLs, and existing CSV seeds. The queue should represent the set of fighter profile pages Phase 1 intends to capture.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - A fighter queue exists at a stable path such as `data/manifests/fighter_queue.csv`.
   - The queue deduplicates fighter URLs across A-Z roster pages and event-linked references.

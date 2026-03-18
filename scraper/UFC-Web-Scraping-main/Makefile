@@ -79,6 +79,13 @@ smoke:
 	$(MAKE) check
 
 
+# Build the canonical fighter profile queue from local data sources.
+# Reads data/fighters.csv and data/raw/ufcstats/fights/*.html; no network calls.
+# Usage: make build_queue
+build_queue:
+	$(PYTHON) build_fighter_queue.py
+
+
 # Event coverage report: reconciles manifest, fetch log, and parsed CSV.
 # Pass THRESHOLD=0.10 to override the default 5% miss-rate tolerance.
 # Usage: make report_events  |  make report_events THRESHOLD=0.10
