@@ -228,7 +228,7 @@ Recommended execution order:
 
 #### T1.5.2 Capture fight-level stats pages
 - **Description:** Extend the fight stats acquisition path so each eligible completed bout writes a raw fight page artifact plus parsed aggregate fighter-vs-fighter statistics.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - Each eligible fight stats page is stored as a raw artifact with fetch metadata.
   - Parsed outputs include both fighter rows for the bout and carry the fight ID needed for joins.
