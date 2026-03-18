@@ -1,5 +1,5 @@
 PROJECT_DIR := ufc_scraper
-PYTHON ?= python3
+PYTHON ?= $(abspath .venv/bin/python)
 CRAWL := $(PYTHON) -m scrapy crawl
 CRAWL_LIST := events fighters fights fight_stats fight_stats_by_round
 DATA_DIR := ../../data
