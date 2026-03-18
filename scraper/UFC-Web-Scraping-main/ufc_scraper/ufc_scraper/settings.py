@@ -50,6 +50,17 @@ RETRY_HTTP_CODES = [500, 502, 503, 504, 522, 524, 408, 429]
 DOWNLOAD_TIMEOUT = 30
 
 # ---------------------------------------------------------------------------
+# Downloader middlewares
+# ---------------------------------------------------------------------------
+# RawCaptureMiddleware must run at a lower priority number than RetryMiddleware
+# (550) so that, on process_response (called in decreasing priority order),
+# the retry middleware executes first.  Only the final response — after
+# retries succeed or are exhausted — reaches RawCaptureMiddleware at 200.
+DOWNLOADER_MIDDLEWARES = {
+    "ufc_scraper.middlewares.RawCaptureMiddleware": 200,
+}
+
+# ---------------------------------------------------------------------------
 # Output encoding
 # ---------------------------------------------------------------------------
 FEED_EXPORT_ENCODING = "utf-8"

@@ -79,7 +79,7 @@ Recommended execution order:
 
 #### T1.2.2 Implement raw page capture and fetch metadata pipeline
 - **Description:** Add a shared pipeline that stores raw responses before or alongside parsed records. Today the project primarily writes parsed CSV outputs; Phase 1 needs raw HTML plus fetch metadata for auditability and reprocessing.
-- **Status:** TODO
+- **Status:** DONE — see `RawCaptureMiddleware` in `scraper/UFC-Web-Scraping-main/ufc_scraper/ufc_scraper/middlewares.py`.
 - **Acceptance Criteria:**
   - Successful fetches write raw content to `data/raw/ufcstats/<entity_type>/...`.
   - A manifest row is written for every raw capture with `source_url`, `fetched_at`, `http_status`, `content_hash`, `job_run_id`, and `storage_path`.
