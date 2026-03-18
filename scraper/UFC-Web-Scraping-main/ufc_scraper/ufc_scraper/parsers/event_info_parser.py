@@ -41,19 +41,28 @@ class EventInfoParser(Parser):
         self._name = clean_string(event_name_raw)
 
     def _get_event_date(self) -> None:
-        event_date_raw = self._event_date_location[1]
-        self._event_date = clean_string(event_date_raw)
-        event_date_dt = datetime.strptime(self._event_date, "%B %d, %Y")
-        self._event_date_formatted = datetime.strftime(event_date_dt, "%Y-%m-%d")
+        # Upcoming event pages may have incomplete or differently structured
+        # metadata; guard against missing list items and unrecognised formats.
+        try:
+            event_date_raw = self._event_date_location[1]
+            self._event_date = clean_string(event_date_raw)
+            event_date_dt = datetime.strptime(self._event_date, "%B %d, %Y")
+            self._event_date_formatted = datetime.strftime(event_date_dt, "%Y-%m-%d")
+        except (IndexError, ValueError):
+            self._event_date = ""
+            self._event_date_formatted = ""
 
     def _get_event_location(self) -> None:
-        event_location_raw: str = self._event_date_location[3]
-        event_location_clean: str = clean_string(event_location_raw)
-        event_location_split = event_location_clean.split(", ")
-
         self._city = ""
         self._state = ""
         self._country = ""
+        try:
+            event_location_raw: str = self._event_date_location[3]
+        except IndexError:
+            return
+        event_location_clean: str = clean_string(event_location_raw)
+        event_location_split = event_location_clean.split(", ")
+
         if len(event_location_split) == 3:
             self._city = event_location_split[0]
             self._state = event_location_split[1]
@@ -67,11 +76,12 @@ class EventInfoParser(Parser):
         fight_ids = [get_uuid_string(fight_url) for fight_url in fight_urls]
         self._fights = ", ".join(fight_ids)
 
-    def parse_response(self) -> Event:
+    def parse_response(self, event_status: str = "completed") -> Event:
         """Parse the HTML response to get key event attributes.
 
         Args:
-            response (Response): The response object to query.
+            event_status: "completed" or "upcoming", passed through from the
+                spider based on which listing page the event was discovered on.
 
         Returns:
             Event: Dataclass containing all key event attributes.
@@ -93,4 +103,5 @@ class EventInfoParser(Parser):
             state=self._state,
             country=self._country,
             fights=self._fights,
+            event_status=event_status,
         )

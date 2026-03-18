@@ -43,6 +43,7 @@ class RawCaptureMiddleware:
         "fight-details": "fight",
         "fighter-details": "fighter",
         "statistics/events/completed": "event_listing",
+        "statistics/events/upcoming": "event_listing",
     }
 
     _ENTITY_SUBDIRS: dict[str, str] = {

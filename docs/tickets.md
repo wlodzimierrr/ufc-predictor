@@ -120,7 +120,7 @@ Recommended execution order:
 
 #### T1.3.1 Extend event discovery to cover the full Phase 1 event scope
 - **Description:** The current event spider starts from completed events. Extend discovery so Phase 1 can build a canonical registry for both historical and upcoming UFC events, or document a fallback seed path if the public source only fully exposes completed events.
-- **Status:** TODO
+- **Status:** DONE — see `spiders/events.py`, `entities.py`, `parsers/event_info_parser.py`.
 - **Acceptance Criteria:**
   - Event discovery supports completed events and an explicit strategy for upcoming events.
   - Event URLs are normalized into a canonical manifest.

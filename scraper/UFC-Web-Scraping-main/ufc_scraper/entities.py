@@ -141,3 +141,6 @@ class Event:
     state: str
     country: str
     fights: str
+    # "completed" or "upcoming" — determined by which listing page the event
+    # was discovered from.  Serves as source_event_status in the events manifest.
+    event_status: str
