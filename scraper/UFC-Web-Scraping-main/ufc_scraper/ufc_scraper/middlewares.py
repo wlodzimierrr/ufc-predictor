@@ -69,6 +69,12 @@ class RawCaptureMiddleware:
         self._job_run_id = str(uuid.uuid4())
         self._manifest_path = data_dir / "manifests" / "fetch_manifest.csv"
         self._lock = threading.Lock()
+        self._stats: dict[str, int] = {
+            "fetched": 0,
+            "unchanged": 0,
+            "updated": 0,
+            "failed": 0,
+        }
 
     @classmethod
     def from_crawler(cls, crawler):
@@ -78,6 +84,7 @@ class RawCaptureMiddleware:
         data_dir = Path(__file__).resolve().parents[4] / "data"
         instance = cls(data_dir=data_dir)
         crawler.signals.connect(instance._spider_opened, signal=signals.spider_opened)
+        crawler.signals.connect(instance._spider_closed, signal=signals.spider_closed)
         return instance
 
     # ------------------------------------------------------------------
@@ -100,6 +107,17 @@ class RawCaptureMiddleware:
             self._manifest_path,
         )
 
+    def _spider_closed(self, spider) -> None:
+        spider.logger.info(
+            "RawCaptureMiddleware summary | job_run_id=%s | fetched=%d | "
+            "unchanged=%d | updated=%d | failed=%d",
+            self._job_run_id,
+            self._stats["fetched"],
+            self._stats["unchanged"],
+            self._stats["updated"],
+            self._stats["failed"],
+        )
+
     def process_response(self, request, response, spider):
         entity_type = self._classify_url(response.url)
         if entity_type is None:
@@ -109,6 +127,7 @@ class RawCaptureMiddleware:
         now = _utc_now()
 
         if response.status >= 400:
+            self._stats["failed"] += 1
             self._append_manifest(
                 entity_type=entity_type,
                 source_url=response.url,
@@ -125,6 +144,7 @@ class RawCaptureMiddleware:
         content_hash = hashlib.sha256(content).hexdigest()
         raw_path, fetch_status = self._write_raw(entity_type, response.url, content, content_hash)
 
+        self._stats[fetch_status] += 1
         self._append_manifest(
             entity_type=entity_type,
             source_url=response.url,
@@ -140,6 +160,7 @@ class RawCaptureMiddleware:
     def process_exception(self, request, exception, spider):
         """Record network-level failures after retries are exhausted."""
         entity_type = self._classify_url(request.url) or "unknown"
+        self._stats["failed"] += 1
         self._append_manifest(
             entity_type=entity_type,
             source_url=request.url,

@@ -92,7 +92,7 @@ Recommended execution order:
 
 #### T1.2.3 Replace CSV-only incremental logic with manifest-aware idempotency
 - **Description:** The current `IncrementalCrawlMixin` skips records by existing parsed CSV IDs. Extend this so reruns and resume behavior are driven by canonical manifests and content hashes, not only by current CSV contents.
-- **Status:** TODO
+- **Status:** DONE — see `scraper/UFC-Web-Scraping-main/ufc_scraper/ufc_scraper/spiders/incremental.py`.
 - **Acceptance Criteria:**
   - Incremental mode can skip already-captured pages using manifest state, not only parsed CSV IDs.
   - Restarting an interrupted job does not duplicate raw artifacts or manifest entries.
