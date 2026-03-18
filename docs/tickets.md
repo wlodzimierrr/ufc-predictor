@@ -133,7 +133,7 @@ Recommended execution order:
 
 #### T1.3.2 Build the canonical events manifest
 - **Description:** Persist discovery results into one canonical manifest that downstream jobs read instead of rediscovering event URLs independently.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - A manifest file exists at a stable path such as `data/manifests/events_manifest.csv`.
   - Each record includes canonical event URL, source event ID, event status, discovery timestamp, and dedupe key.

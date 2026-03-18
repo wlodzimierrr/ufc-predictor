@@ -61,6 +61,15 @@ DOWNLOADER_MIDDLEWARES = {
 }
 
 # ---------------------------------------------------------------------------
+# Item pipelines
+# ---------------------------------------------------------------------------
+# EventsManifestPipeline maintains data/manifests/events_manifest.csv as a
+# canonical event registry with discovered_at / last_seen_at tracking.
+ITEM_PIPELINES = {
+    "ufc_scraper.pipelines.EventsManifestPipeline": 300,
+}
+
+# ---------------------------------------------------------------------------
 # Output encoding
 # ---------------------------------------------------------------------------
 FEED_EXPORT_ENCODING = "utf-8"
