@@ -3,7 +3,7 @@
 Entry-point reference for running, updating, and validating Phase 1 data acquisition.
 All commands are run from `scraper/UFC-Web-Scraping-main/` unless stated otherwise.
 
-_Implements T1.1.3. See `docs/acquisition-contract.md` for the full output layout and schema._
+_Implements T1.1.3–T1.2.4. See `docs/acquisition-contract.md` for the full output layout and schema._
 
 ---
 
@@ -34,9 +34,9 @@ cd ufc_scraper && python -m scrapy list
 
 | Output type | Path | Written by |
 |---|---|---|
-| Parsed CSV tables | `data/*.csv` | All spiders |
-| Raw HTML pages | `data/raw/ufcstats/{entity_type}/{id}.html` | T1.2.2 (not yet implemented) |
-| Fetch manifest | `data/manifests/fetch_manifest.csv` | T1.2.2 (not yet implemented) |
+| Parsed CSV tables | `data/*.csv` | All spiders (unchanged) |
+| Raw HTML pages | `data/raw/ufcstats/{entity_type}/{id}.html` | `RawCaptureMiddleware` (T1.2.2) |
+| Fetch manifest | `data/manifests/fetch_manifest.csv` | `RawCaptureMiddleware` (T1.2.2) |
 | Entity manifests | `data/manifests/events_manifest.csv` etc. | T1.3.2, T1.4.1, T1.5.1 (not yet implemented) |
 | Coverage reports | `data/reports/*_YYYYMMDD.csv` | T1.3.4, T1.4.3, T1.5.4 (not yet implemented) |
 
@@ -95,23 +95,76 @@ make sample_fight_stats_by_round N=5
 
 ### Smoke run
 
-Fetches 5 events pages and exits. Confirms the crawler, parser, and CSV write path all work.
+Fetches 5 events pages then runs the output validator. Confirms the crawler,
+`RawCaptureMiddleware`, incremental mixin, and CSV write path all work together.
 
 ```bash
 make smoke
 ```
 
-Expected output: `data/events.csv` exists and contains at least one data row.
+`make smoke` does two things in sequence:
+1. `make sample_events N=5` — bounded crawl
+2. `make check` — output validator (see below)
 
-To confirm source-safety controls are active, run with debug logging and check the output:
+The run passes only when **all** of the following are produced:
+- `data/manifests/fetch_manifest.csv` with at least one captured row
+- `data/raw/ufcstats/event_listing/` with at least one `.html` file
+- `data/raw/ufcstats/events/` with at least one `.html` file
+- `data/events.csv` with at least one data row
+
+### Output validator
+
+Run the validator independently after any acquisition job:
+
+```bash
+make check
+```
+
+Or directly:
+
+```bash
+python3 smoke_check.py
+```
+
+The validator checks three sections and prints a PASS/FAIL line per check.
+Optional artifacts (fights, fighters, other CSVs) are always reported but
+never counted as failures. Exit code is `0` on all mandatory passes, `1`
+if any mandatory check fails.
+
+Example output after a successful events smoke run:
+
+```
+── Manifest ────────────────────────────────────────────────
+  PASS  fetch_manifest.csv exists
+  PASS  fetch_manifest.csv has data rows (6 total)
+  PASS  manifest has all required fields
+  PASS  manifest has captured rows  (5 captured, 1 failed/other)
+
+── Raw artifacts ───────────────────────────────────────────
+  PASS  data/raw/ufcstats/event_listing/  (1 .html files)
+  PASS  data/raw/ufcstats/events/  (4 .html files)
+  PASS  data/raw/ufcstats/fights/  (0 .html files)  [optional]
+  PASS  data/raw/ufcstats/fighters/  (0 .html files)  [optional]
+
+── Parsed CSV outputs ──────────────────────────────────────
+  PASS  data/events.csv  (12 rows)
+  PASS  data/fights.csv  (8551 rows)  [optional]
+  ...
+
+════════════════════════════════════════════════════════════
+  ALL CHECKS PASSED
+════════════════════════════════════════════════════════════
+```
+
+To confirm source-safety controls are active during the crawl:
 
 ```bash
 make smoke ARGS="-s LOG_LEVEL=DEBUG"
 # Look for lines like:
-#   Crawled (200) ... (referer: ...)          <- requests being made
-#   Throttle  slot=ufcstats.com ...           <- AutoThrottle adjusting delay
-#   Retrying <GET ...> (failed 1 times)       <- retry middleware active
-# Confirm only one in-flight request at a time (no parallel fetches to same domain)
+#   RawCaptureMiddleware active | job_run_id=...
+#   Throttle  slot=ufcstats.com ...
+#   RawCaptureMiddleware summary | fetched=5 | unchanged=0 | ...
+#   IncrementalCrawlMixin summary | skipped=0 | reason=finished
 ```
 
 ### Filtered run (pass extra Scrapy args)
@@ -154,4 +207,5 @@ make update_fights ARGS="-a event_url=http://ufcstats.com/event-details/<id>"
 | Incremental update, all spiders | `make update_all` |
 | Incremental update, one spider | `make update_<spider>` |
 | Bounded sample, one spider | `make sample_<spider> N=<pages>` |
-| Smoke test (5 event pages) | `make smoke` |
+| Smoke test (5 event pages + validate) | `make smoke` |
+| Validate outputs only (no crawl) | `make check` |

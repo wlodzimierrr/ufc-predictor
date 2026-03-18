@@ -4,7 +4,7 @@ CRAWL := $(PYTHON) -m scrapy crawl
 CRAWL_LIST := events fighters fights fight_stats fight_stats_by_round
 DATA_DIR := ../../data
 N ?= 10
-.PHONY: crawl_all crawl_all_output update_all crawl_csv_all smoke
+.PHONY: crawl_all crawl_all_output update_all crawl_csv_all smoke check
 
 # Crawl and output to a specific format, e.g. csv, json
 crawl_with_output_%:
@@ -66,6 +66,14 @@ sample_%:
 	$(CRAWL) crawl_$* -s CLOSESPIDER_PAGECOUNT=$(N) -O $(DATA_DIR)/$*.csv $(ARGS)
 
 
-# Smoke run: events spider only, 5 pages. Quick check that the pipeline works.
+# Validate output artifacts from the most recent acquisition run.
+# Checks manifest, raw HTML files, and parsed CSVs.  Exits non-zero on failure.
+check:
+	$(PYTHON) smoke_check.py
+
+
+# Smoke run: events spider (5 pages) then output validation.
+# Passes only when all mandatory artifacts are produced.
 smoke:
 	$(MAKE) sample_events N=5
+	$(MAKE) check

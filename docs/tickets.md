@@ -105,7 +105,7 @@ Recommended execution order:
 
 #### T1.2.4 Add smoke-run harness for acquisition jobs
 - **Description:** Create a minimal test/run harness that executes a constrained sample of each acquisition path and verifies files land in the expected locations. This should be fast enough to run during development.
-- **Status:** TODO
+- **Status:** DONE — see `scraper/UFC-Web-Scraping-main/smoke_check.py` and updated `make smoke` / `make check` targets.
 - **Acceptance Criteria:**
   - A sample run can fetch a small number of events, fighters, and fight stats without running a full backfill.
   - The smoke harness verifies raw artifacts, manifest rows, and parsed outputs are all produced.
