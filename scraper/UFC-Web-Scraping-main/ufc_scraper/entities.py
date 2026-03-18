@@ -141,6 +141,10 @@ class Event:
     state: str
     country: str
     fights: str
+    # Comma-separated fight detail URLs in card order (mirrors fights IDs above).
+    # Stored alongside fight IDs so downstream spiders can seed directly without
+    # re-crawling event pages.
+    fight_urls: str
     # "completed" or "upcoming" — determined by which listing page the event
     # was discovered from.  Serves as source_event_status in the events manifest.
     event_status: str

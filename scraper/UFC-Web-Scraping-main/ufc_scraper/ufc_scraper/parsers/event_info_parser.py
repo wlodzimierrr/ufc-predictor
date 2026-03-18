@@ -75,6 +75,7 @@ class EventInfoParser(Parser):
         fight_urls = self._safe_css_get_all(self._css_queries.fight_urls_query)
         fight_ids = [get_uuid_string(fight_url) for fight_url in fight_urls]
         self._fights = ", ".join(fight_ids)
+        self._fight_urls = ", ".join(fight_urls)
 
     def parse_response(self, event_status: str = "completed") -> Event:
         """Parse the HTML response to get key event attributes.
@@ -103,5 +104,6 @@ class EventInfoParser(Parser):
             state=self._state,
             country=self._country,
             fights=self._fights,
+            fight_urls=self._fight_urls,
             event_status=event_status,
         )

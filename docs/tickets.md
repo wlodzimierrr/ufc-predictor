@@ -146,7 +146,7 @@ Recommended execution order:
 
 #### T1.3.3 Capture event detail pages and ordered fight-card listings
 - **Description:** Extend the event-detail acquisition flow so each event page is captured raw and its parsed output includes event metadata plus ordered fight-card references for all bouts on the card.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - Each event detail page is stored as a raw artifact with fetch metadata.
   - Parsed event output includes event name, date, location, and ordered fight-card rows.

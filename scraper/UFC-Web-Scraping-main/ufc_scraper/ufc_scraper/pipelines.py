@@ -35,6 +35,7 @@ class EventsManifestPipeline:
         "event_name",
         "event_date",
         "event_status",
+        "fight_urls",
         "discovered_at",
         "last_seen_at",
     ]
@@ -84,6 +85,7 @@ class EventsManifestPipeline:
             existing["event_status"] = item.event_status
             existing["event_name"] = item.name
             existing["event_date"] = item.date_formatted
+            existing["fight_urls"] = item.fight_urls
             existing["last_seen_at"] = now
             # discovered_at is preserved as-is
         else:
@@ -93,6 +95,7 @@ class EventsManifestPipeline:
                 "event_name": item.name,
                 "event_date": item.date_formatted,
                 "event_status": item.event_status,
+                "fight_urls": item.fight_urls,
                 "discovered_at": now,
                 "last_seen_at": now,
             }
