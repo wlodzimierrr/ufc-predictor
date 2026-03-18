@@ -1,5 +1,6 @@
 """Defines the spider to crawl all event URLs ufcstats.com and parse event overview metrics."""
 
+import csv
 from typing import Any
 
 import scrapy
@@ -38,6 +39,47 @@ class CrawlEvents(IncrementalCrawlMixin, scrapy.Spider):
         # Prevents double-scheduling when the same event appears on both
         # the completed and upcoming listing pages.
         self._seen_event_uuids: set[str] = set()
+
+    # ------------------------------------------------------------------
+    # Incremental skip overrides
+    # ------------------------------------------------------------------
+
+    def _load_known_ids(self) -> set[str]:
+        """Only skip completed events in incremental mode.
+
+        Upcoming events are always re-fetched so that the completed
+        transition (and the populated fight card that comes with it)
+        is captured on the next run.
+        """
+        if not self.incremental or not self.existing_csv.exists():
+            return set()
+        with self.existing_csv.open(newline="", encoding="utf-8") as fh:
+            reader = csv.DictReader(fh)
+            return {
+                row[self.id_column].strip()
+                for row in reader
+                if row.get(self.id_column, "").strip()
+                and row.get("event_status", "completed") == "completed"
+            }
+
+    def _load_captured_uuids(self) -> set[str]:
+        """Exclude upcoming-event UUIDs from the manifest-based skip set.
+
+        The manifest does not carry event_status, so we subtract the
+        UUIDs of events the CSV knows as upcoming before returning.
+        """
+        captured = super()._load_captured_uuids()
+        if not captured or not self.existing_csv.exists():
+            return captured
+        with self.existing_csv.open(newline="", encoding="utf-8") as fh:
+            reader = csv.DictReader(fh)
+            upcoming_uuids = {
+                row[self.id_column].strip()
+                for row in reader
+                if row.get(self.id_column, "").strip()
+                and row.get("event_status", "") == "upcoming"
+            }
+        return captured - upcoming_uuids
 
     def parse(self, response: Response) -> Any:
         """Parse an events listing page and schedule requests to event pages."""
