@@ -103,6 +103,17 @@ make smoke
 
 Expected output: `data/events.csv` exists and contains at least one data row.
 
+To confirm source-safety controls are active, run with debug logging and check the output:
+
+```bash
+make smoke ARGS="-s LOG_LEVEL=DEBUG"
+# Look for lines like:
+#   Crawled (200) ... (referer: ...)          <- requests being made
+#   Throttle  slot=ufcstats.com ...           <- AutoThrottle adjusting delay
+#   Retrying <GET ...> (failed 1 times)       <- retry middleware active
+# Confirm only one in-flight request at a time (no parallel fetches to same domain)
+```
+
 ### Filtered run (pass extra Scrapy args)
 
 The `ARGS` variable is forwarded to the Scrapy command for any target.

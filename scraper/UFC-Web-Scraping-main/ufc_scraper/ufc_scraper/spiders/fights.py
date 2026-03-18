@@ -16,14 +16,6 @@ class CrawlFights(IncrementalCrawlMixin, scrapy.Spider):
     data_filename = "fights.csv"
     id_column = "fight_id"
 
-    custom_settings = {
-        "AUTOTHROTTLE_ENABLED": True,
-        "AUTOTHROTTLE_START_DELAY": 1,
-        "AUTOTHROTTLE_MAX_DELAY": 10,
-        "AUTOTHROTTLE_TARGET_CONCURRENCY": 1.0,
-        "RANDOMIZE_DOWNLOAD_DELAY": True,
-    }
-
     start_urls = ["http://www.ufcstats.com/statistics/events/completed?page=all"]
 
     def parse(self, response: Response) -> Any:

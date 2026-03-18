@@ -16,12 +16,13 @@ class CrawlFighters(IncrementalCrawlMixin, scrapy.Spider):
     data_filename = "fighters.csv"
     id_column = "fighter_id"
 
+    # Fighter profile pages change infrequently (record updates aside).
+    # HTTP caching avoids redundant fetches during iterative development runs
+    # and is safe to enable here because the fighter spider is always run
+    # separately from the event/fight/stats spiders.
+    # Expiration is intentionally unbounded (None); invalidate manually by
+    # deleting httpcache/ when a full profile refresh is required.
     custom_settings = {
-        "AUTOTHROTTLE_ENABLED": True,
-        "AUTOTHROTTLE_START_DELAY": 1,
-        "AUTOTHROTTLE_MAX_DELAY": 10,
-        "AUTOTHROTTLE_TARGET_CONCURRENCY": 1.0,
-        "RANDOMIZE_DOWNLOAD_DELAY": True,
         "HTTPCACHE_ENABLED": True,
         "HTTPCACHE_DIR": "httpcache",
         "HTTPCACHE_EXPIRATION_SECS": None,

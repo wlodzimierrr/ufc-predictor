@@ -66,7 +66,7 @@ Recommended execution order:
 
 #### T1.2.1 Harden shared crawl settings for source safety
 - **Description:** Review and harden the shared crawler settings so all Phase 1 jobs use the same rate limits, retry behavior, timeouts, and caching policy. Current settings already include `ROBOTSTXT_OBEY = True`, `CONCURRENT_REQUESTS_PER_DOMAIN = 1`, and `DOWNLOAD_DELAY = 1`; this ticket makes that behavior explicit and consistent across spiders.
-- **Status:** TODO
+- **Status:** DONE — see `scraper/UFC-Web-Scraping-main/ufc_scraper/ufc_scraper/settings.py`.
 - **Acceptance Criteria:**
   - Shared settings define retry count, request timeout, user agent, and throttling behavior centrally.
   - All acquisition spiders inherit the same baseline source-safety controls.
