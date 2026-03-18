@@ -4,7 +4,11 @@ CRAWL := $(PYTHON) -m scrapy crawl
 CRAWL_LIST := events fighters fights fight_stats fight_stats_by_round
 DATA_DIR := ../../data
 N ?= 10
-.PHONY: crawl_all crawl_all_output update_all crawl_csv_all smoke check
+# Bounded backfill: CLOSESPIDER_PAGECOUNT for the events spider.
+# 1 listing page + N-1 event detail pages ≈ N-1 events.
+# Default 51 → ~50 events.  Override: make backfill_sample BACKFILL_N=26
+BACKFILL_N ?= 51
+.PHONY: crawl_all crawl_all_output update_all crawl_csv_all smoke check backfill_sample
 
 # Crawl and output to a specific format, e.g. csv, json
 crawl_with_output_%:
@@ -112,3 +116,25 @@ report_stats:
 # Usage: make report_events  |  make report_events THRESHOLD=0.10
 report_events:
 	$(PYTHON) event_coverage_report.py $(if $(THRESHOLD),--threshold $(THRESHOLD))
+
+
+# Bounded end-to-end backfill (T1.6.1).
+# Runs the full acquisition pipeline over the most recent ~50 events:
+#   1. events spider   — capped at BACKFILL_N HTTP responses (default 51 ≈ 50 events)
+#   2. build queues    — fight stats queue + fighter queue from local data
+#   3. incremental fetch — fight_stats + fight_stats_by_round for newly queued fights
+#   4. all reports     — event coverage, fighter review, stats coverage
+#
+# Override event sample size:  make backfill_sample BACKFILL_N=26   (~25 events)
+# Usage: make backfill_sample
+backfill_sample:
+	@echo "=== T1.6.1 Bounded backfill  (CLOSESPIDER_PAGECOUNT=$(BACKFILL_N)) ==="
+	$(MAKE) sample_events N=$(BACKFILL_N)
+	$(MAKE) build_stats_queue
+	$(MAKE) build_queue
+	$(MAKE) update_fight_stats
+	$(MAKE) update_fight_stats_by_round
+	$(MAKE) report_events
+	$(MAKE) review_fighters
+	$(MAKE) report_stats
+	@echo "=== Bounded backfill complete — review report output above. ==="
