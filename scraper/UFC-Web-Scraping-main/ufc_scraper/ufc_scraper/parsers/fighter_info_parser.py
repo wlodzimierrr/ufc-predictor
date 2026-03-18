@@ -32,17 +32,27 @@ class FighterInfoParser(Parser):
 
     def __init__(self, response: Response):
         super().__init__(response)
-        self._fighter_stats = self._safe_css_get_all(
-            self._css_queries.fighter_stats_query
-        )
+        try:
+            self._fighter_stats = self._safe_css_get_all(
+                self._css_queries.fighter_stats_query
+            )
+        except ValueError:
+            # Some fighter pages (debutants, removed profiles) have no stat
+            # list at all.  Downstream methods treat missing indices as None.
+            self._fighter_stats = []
 
     def _get_fighter_name(self) -> None:
-        name_raw = self._safe_css_get(self._css_queries.fighter_name_query)
-        name_clean = clean_string(name_raw)
-        names = name_clean.split(" ")
-        self._full_name = " ".join(names)
-        self._first_name = names[0]
-        self._last_names = " ".join(names[1:])
+        try:
+            name_raw = self._safe_css_get(self._css_queries.fighter_name_query)
+            name_clean = clean_string(name_raw)
+            names = name_clean.split(" ")
+            self._full_name = " ".join(names)
+            self._first_name = names[0]
+            self._last_names = " ".join(names[1:])
+        except (ValueError, IndexError):
+            self._full_name = ""
+            self._first_name = ""
+            self._last_names = ""
 
         nickname_raw = self._response.css(
             self._css_queries.fighter_nickname_query
@@ -53,46 +63,69 @@ class FighterInfoParser(Parser):
         self._height_ft = None
         self._height_in = None
         self._height_cm = None
-        height = clean_string(self._fighter_stats[1])
-        if height != "--":
-            self._height_ft = int(height.split("'")[0])
-            self._height_in = int(height.split("'")[1].replace('"', "").strip())
-            self._height_cm = float(
-                ((self._height_ft * 12.0) * 2.54) + (self._height_in * 2.54)
-            )
+        try:
+            height = clean_string(self._fighter_stats[1])
+            if height != "--":
+                self._height_ft = int(height.split("'")[0])
+                self._height_in = int(height.split("'")[1].replace('"', "").strip())
+                self._height_cm = float(
+                    ((self._height_ft * 12.0) * 2.54) + (self._height_in * 2.54)
+                )
+        except (IndexError, ValueError):
+            pass
 
     def _get_fighter_weight(self) -> None:
         self._weight_lbs = None
-        weight = clean_string(self._fighter_stats[3]).replace("lbs.", "")
-        if weight != "--":
-            self._weight_lbs = int(weight)
+        try:
+            weight = clean_string(self._fighter_stats[3]).replace("lbs.", "")
+            if weight != "--":
+                self._weight_lbs = int(weight)
+        except (IndexError, ValueError):
+            pass
 
     def _get_fighter_reach(self) -> None:
         self._reach_in = None
         self._reach_cm = None
-        reach = clean_string(self._fighter_stats[5]).replace('"', "")
-        if reach != "--":
-            self._reach_in = int(reach)
-            self._reach_cm = int(float(reach) * 2.54)
+        try:
+            reach = clean_string(self._fighter_stats[5]).replace('"', "")
+            if reach != "--":
+                self._reach_in = int(reach)
+                self._reach_cm = int(float(reach) * 2.54)
+        except (IndexError, ValueError):
+            pass
 
     def _get_fighter_stance(self) -> None:
-        self._stance = clean_string(self._fighter_stats[7])
+        try:
+            self._stance = clean_string(self._fighter_stats[7])
+        except (IndexError, ValueError):
+            self._stance = ""
 
     def _get_fighter_dob(self) -> None:
         self._dob = None
         self._dob_formatted = None
-        dob_string = clean_string(self._fighter_stats[9])
-        if dob_string != "--":
-            self._dob = dob_string
-            dob_dt = datetime.strptime(dob_string, "%b %d, %Y")
-            self._dob_formatted = datetime.strftime(dob_dt, "%Y-%m-%d")
+        try:
+            dob_string = clean_string(self._fighter_stats[9])
+            if dob_string != "--":
+                self._dob = dob_string
+                dob_dt = datetime.strptime(dob_string, "%b %d, %Y")
+                self._dob_formatted = datetime.strftime(dob_dt, "%Y-%m-%d")
+        except (IndexError, ValueError):
+            pass
 
     def _get_fighter_record(self) -> None:
-        record_raw = self._safe_css_get(self._css_queries.fighter_record_query)
-        record_clean = clean_string(record_raw)
-        self._record = record_clean.split(": ")[1]
-        self._wins = int(self._record.split("-")[0])
-        self._losses = int(self._record.split("-")[1])
+        try:
+            record_raw = self._safe_css_get(self._css_queries.fighter_record_query)
+            record_clean = clean_string(record_raw)
+            self._record = record_clean.split(": ")[1]
+            self._wins = int(self._record.split("-")[0])
+            self._losses = int(self._record.split("-")[1])
+        except (ValueError, IndexError):
+            self._record = ""
+            self._wins = 0
+            self._losses = 0
+            self._draws = 0
+            self._no_contests = 0
+            return
 
         # If a fighter has > 0 no contests, the record looks like 'Record: 28-1-0 (1 NC)'
         try:

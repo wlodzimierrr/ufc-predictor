@@ -187,7 +187,7 @@ Recommended execution order:
 
 #### T1.4.2 Capture fighter profile pages and source IDs
 - **Description:** Extend fighter acquisition so each fighter profile page is stored raw and parsed into a structured row carrying identity fields needed later for joins and deduplication.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - Each queued fighter profile page is stored as raw HTML with fetch metadata.
   - Parsed fighter output includes `fighter_id` or source-equivalent ID when available, fighter name, nickname if present, DOB if present, height, reach, stance, nationality, and profile URL.
