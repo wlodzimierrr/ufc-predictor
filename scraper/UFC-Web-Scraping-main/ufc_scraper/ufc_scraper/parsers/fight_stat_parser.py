@@ -166,11 +166,13 @@ class FightStatParser(Parser):
             fighter_stat_dict["Td"]
         )
         control_time_raw = clean_string(fighter_stat_dict["Ctrl"])
-        (control_time_minutes_string, control_time_seconds_string) = (
-            control_time_raw.split(":")
-        )
-        control_time_minutes = int(control_time_minutes_string)
-        control_time_seconds = int(control_time_seconds_string)
+        ctrl_parts = control_time_raw.split(":")
+        if len(ctrl_parts) == 2 and ctrl_parts[0].isdigit() and ctrl_parts[1].isdigit():
+            control_time_minutes = int(ctrl_parts[0])
+            control_time_seconds = int(ctrl_parts[1])
+        else:
+            control_time_minutes = 0
+            control_time_seconds = 0
         submissions_attempted = int(fighter_stat_dict["Sub. att"])
         reversals = int(fighter_stat_dict["Rev."])
 
@@ -280,11 +282,13 @@ class FightStatByRoundParser(FightStatParser):
             fighter_stat_dict[f"Td_round_{round}"]
         )
         control_time_raw = clean_string(fighter_stat_dict[f"Ctrl_round_{round}"])
-        (control_time_minutes_string, control_time_seconds_string) = (
-            control_time_raw.split(":")
-        )
-        control_time_minutes = int(control_time_minutes_string)
-        control_time_seconds = int(control_time_seconds_string)
+        ctrl_parts = control_time_raw.split(":")
+        if len(ctrl_parts) == 2 and ctrl_parts[0].isdigit() and ctrl_parts[1].isdigit():
+            control_time_minutes = int(ctrl_parts[0])
+            control_time_seconds = int(ctrl_parts[1])
+        else:
+            control_time_minutes = 0
+            control_time_seconds = 0
         submissions_attempted = int(fighter_stat_dict[f"Sub. att_round_{round}"])
         reversals = int(fighter_stat_dict[f"Rev._round_{round}"])
 

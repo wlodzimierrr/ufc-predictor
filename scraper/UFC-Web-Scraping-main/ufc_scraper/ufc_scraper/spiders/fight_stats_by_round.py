@@ -48,6 +48,9 @@ class CrawlFightStatsByRound(IncrementalCrawlMixin, scrapy.Spider):
         )
 
     def _get_fight_stats_by_round(self, response: Response) -> Any:
+        if not response.css("thead.b-fight-details__table-head"):
+            self.logger.warning("No stats table found, skipping: %s", response.url)
+            return
         fight_stat_by_round_parser = FightStatByRoundParser(response)
         fight_stats_by_round = fight_stat_by_round_parser.parse_response()
 

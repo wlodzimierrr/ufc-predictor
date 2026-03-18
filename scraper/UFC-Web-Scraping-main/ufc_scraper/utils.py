@@ -78,9 +78,7 @@ def get_strikes_landed_attempted(fight_stat: str) -> Tuple[int, int]:
     strikes_attempted_landed_pattern = re.compile(r"^\d+\s+of\s+\d+$")
     fight_stat_clean = clean_string(fight_stat)
     if not strikes_attempted_landed_pattern.fullmatch(fight_stat_clean):
-        raise ValueError(
-            f"Invalid fight_stat format: {fight_stat!r}. Expected 'X of Y'."
-        )
+        return 0, 0
     fight_stat_split: List[str] = fight_stat_clean.split(" of ")
     landed = int(fight_stat_split[0])
     attempted = int(fight_stat_split[1])

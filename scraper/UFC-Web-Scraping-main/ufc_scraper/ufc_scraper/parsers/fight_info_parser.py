@@ -82,13 +82,12 @@ class FightInfoParser(Parser):
             self._secondary_finish_method = decision[1].lower()
         else:
             self._primary_finish_method = finish_method_clean.lower()
-            secondary_finish_method_raw = self._safe_css_get(
-                query=self._css_queries.secondary_finish_method_query,
-                xpath=self._css_queries.secondary_finish_method_xpath,
+            result = (
+                self._response.css(self._css_queries.secondary_finish_method_query)
+                .xpath(self._css_queries.secondary_finish_method_xpath)
+                .get()
             )
-            self._secondary_finish_method = clean_string(
-                secondary_finish_method_raw
-            ).lower()
+            self._secondary_finish_method = clean_string(result).lower() if result else ""
 
     def _get_finish_round(self) -> None:
         finish_round_raw = self._safe_css_get(
