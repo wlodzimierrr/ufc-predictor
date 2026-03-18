@@ -1,0 +1,20 @@
+fight_id,event_id,fight_url,finish_method,fetch_status,agg_stats,round_stats,gap_reason
+1530bad5-cf1b-58d0-9363-ab40636efb41,0e82897d-6b87-5363-9a0b-415b6101275c,http://ufcstats.com/fight-details/a5c90086fb65f58e,KO/TKO,not_fetched,no,no,not_fetched
+27047779-94d9-5404-b9cd-98f8f8616d3a,0e82897d-6b87-5363-9a0b-415b6101275c,http://ufcstats.com/fight-details/d93c8c77e1091a16,Submission,not_fetched,no,no,not_fetched
+3c2e38a2-598c-5ae1-b8fb-63bf838363fd,0e82897d-6b87-5363-9a0b-415b6101275c,http://ufcstats.com/fight-details/2f449bd58b3d9a99,KO/TKO,not_fetched,no,no,not_fetched
+4efe1339-8a0b-598c-91f0-44e9b29fca95,1a004590-2eb7-5157-a6f6-760941a6e842,http://ufcstats.com/fight-details/f59b1215176636f6,Decision - Unanimous,not_fetched,no,no,not_fetched
+575a9caf-7586-5040-9556-945df7f35474,52ba42ca-1f6e-5a71-9398-5802a5f122cf,http://ufcstats.com/fight-details/4bce0ce561a65288,Submission,not_fetched,no,no,not_fetched
+fe535710-1ba0-50e5-b2e5-f3b6d01a1079,52ba42ca-1f6e-5a71-9398-5802a5f122cf,http://ufcstats.com/fight-details/b80872821bc4f6ba,KO/TKO,not_fetched,no,no,not_fetched
+2a9bdab4-6059-5a5e-b7ab-e0ea5a7f285c,578cbea8-6b82-51dd-b7c5-86c5352b02fd,http://ufcstats.com/fight-details/c413b0abc04358c3,Submission,not_fetched,no,no,not_fetched
+52589757-5adf-5362-9ef9-ddda6d33ee23,578cbea8-6b82-51dd-b7c5-86c5352b02fd,http://ufcstats.com/fight-details/3badedeb2c5533f4,KO/TKO,not_fetched,no,no,not_fetched
+d79a8784-074e-5660-8e66-b5e70e451838,5a5bbd54-47c3-5adc-92b4-9ccb6b4d8027,http://ufcstats.com/fight-details/8b258bbb37f74a66,Decision - Unanimous,not_fetched,no,no,not_fetched
+4b7e2d6e-6e19-5c7b-895f-d7166febe3eb,84bde30e-8fdb-5bcc-b645-708064b6aaff,http://ufcstats.com/fight-details/635fbf57001897c7,KO/TKO,not_fetched,no,no,not_fetched
+0cd4c195-dc52-58eb-88e2-1b608310c471,84f52e0a-9bd6-5806-9fe5-ef6f8b4d2ccf,http://ufcstats.com/fight-details/565ecefd8a37ad7e,KO/TKO,not_fetched,no,no,not_fetched
+f66ed4a8-f0c7-5d44-9302-6e93774826b9,84f52e0a-9bd6-5806-9fe5-ef6f8b4d2ccf,http://ufcstats.com/fight-details/77bf1e37929b0d59,Submission,not_fetched,no,no,not_fetched
+5c51a98d-9d59-5c8e-b1cb-6974d7394765,9f0a2833-4d74-5ed2-98b8-cdf5f651ae85,http://ufcstats.com/fight-details/b80e6a799c95d499,KO/TKO,not_fetched,no,no,not_fetched
+8283a45e-d00d-5dce-b3f5-d4e2dcb67870,9f0a2833-4d74-5ed2-98b8-cdf5f651ae85,http://ufcstats.com/fight-details/a1db4c917777aa79,Submission,not_fetched,no,no,not_fetched
+263de3b4-1f55-51d3-9501-52225d09edee,b4860508-b353-5965-a30a-3cd1c783a35e,http://ufcstats.com/fight-details/e4fe950846b51bdf,KO/TKO,not_fetched,no,no,not_fetched
+1e982494-7840-5da8-a6ea-67c57a6d11f9,b5328742-96c5-52e9-8f7c-49d66df6ba40,http://ufcstats.com/fight-details/6449a1a9a69a830c,Submission,not_fetched,no,no,not_fetched
+10ecb38f-dab1-56f3-bce8-b344b0a68887,d303da68-045c-5987-bf62-3a9f6223034a,http://ufcstats.com/fight-details/8e03db41687d9132,KO/TKO,not_fetched,no,no,not_fetched
+6c049843-cb23-5c77-9bad-b60ca9e0153c,d303da68-045c-5987-bf62-3a9f6223034a,http://ufcstats.com/fight-details/b297c3e938e1005e,KO/TKO,not_fetched,no,no,not_fetched
+cfdfee71-c77c-50df-b2be-c843371b6a54,ecac8d55-6a0e-5ec5-add9-ae2647306657,http://ufcstats.com/fight-details/5701dbbbfa4f8313,KO/TKO,not_fetched,no,no,not_fetched

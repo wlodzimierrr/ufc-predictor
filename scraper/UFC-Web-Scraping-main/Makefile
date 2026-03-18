@@ -100,6 +100,13 @@ build_queue:
 	$(PYTHON) build_fighter_queue.py
 
 
+# Fight stats coverage report: reconciles queue, fetch log, and parsed CSVs.
+# Writes data/reports/stats_coverage.csv.  Exits non-zero if miss rate > threshold.
+# Usage: make report_stats  |  make report_stats THRESHOLD=0.10
+report_stats:
+	$(PYTHON) stats_coverage_report.py $(if $(THRESHOLD),--threshold $(THRESHOLD))
+
+
 # Event coverage report: reconciles manifest, fetch log, and parsed CSV.
 # Pass THRESHOLD=0.10 to override the default 5% miss-rate tolerance.
 # Usage: make report_events  |  make report_events THRESHOLD=0.10

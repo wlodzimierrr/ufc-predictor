@@ -254,7 +254,7 @@ Recommended execution order:
 
 #### T1.5.4 Add stats coverage reconciliation report
 - **Description:** Produce a coverage report reconciling completed fights, aggregate stats coverage, round-level stats coverage, and failure reasons. This closes the loop on whether acquisition is good enough for Phase 2.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - A report shows total completed fights, fights with aggregate stats, fights with round-level stats, and missing/failed pages.
   - The report identifies whether missing data is source absence, fetch failure, or parse failure.
