@@ -215,7 +215,7 @@ Recommended execution order:
 
 #### T1.5.1 Build the completed-fight stats queue
 - **Description:** Generate a queue of completed fights that should have stats pages or explicit no-stats status, using the event-detail outputs as the source of truth.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - A stats queue exists at a stable path such as `data/manifests/fight_stats_queue.csv`.
   - Each row contains event ID, fight ID, fight detail URL, and a target stats status field.

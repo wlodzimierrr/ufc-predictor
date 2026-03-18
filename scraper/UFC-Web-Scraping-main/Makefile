@@ -79,6 +79,13 @@ smoke:
 	$(MAKE) check
 
 
+# Build the canonical fight stats queue from local data sources.
+# Reads fights.csv, events_manifest.csv, and events.csv; no network calls.
+# Usage: make build_stats_queue
+build_stats_queue:
+	$(PYTHON) build_fight_stats_queue.py
+
+
 # Fighter missing-data and identity review: flags sparse bios, duplicate names,
 # and missing critical fields.  Always exits 0 — flags are informational.
 # Writes data/reports/fighter_review.csv.
