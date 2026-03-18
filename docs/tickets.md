@@ -200,7 +200,7 @@ Recommended execution order:
 
 #### T1.4.3 Add fighter missing-data and identity review flags
 - **Description:** Build review outputs for fighters with sparse bios, conflicting names, or incomplete physical attributes. Phase 1 should not try to solve all identity problems, but it must surface them explicitly.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - Fighters missing critical fields such as name or source ID are flagged.
   - Fighters with duplicate names but different source URLs or IDs are flagged for review.

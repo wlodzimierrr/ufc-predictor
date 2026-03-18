@@ -79,6 +79,13 @@ smoke:
 	$(MAKE) check
 
 
+# Fighter missing-data and identity review: flags sparse bios, duplicate names,
+# and missing critical fields.  Always exits 0 — flags are informational.
+# Writes data/reports/fighter_review.csv.
+review_fighters:
+	$(PYTHON) fighter_review.py
+
+
 # Build the canonical fighter profile queue from local data sources.
 # Reads data/fighters.csv and data/raw/ufcstats/fights/*.html; no network calls.
 # Usage: make build_queue
