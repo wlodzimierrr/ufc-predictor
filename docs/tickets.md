@@ -22,7 +22,7 @@ Recommended execution order:
 
 #### T1.1.1 Audit current scraper/data baseline
 - **Description:** Inventory the existing Scrapy project, current spiders, Makefile commands, exported CSVs, and known gaps versus the Phase 1 scope in `ufc-predictor.md`. This ticket exists to stop the team from building a second scraping path when there is already one in the repo.
-- **Status:** TODO
+- **Status:** DONE — see appendix.
 - **Acceptance Criteria:**
   - A short audit note is added to `docs/` or `tickets.md` appendix listing the current spiders: `crawl_events`, `crawl_fights`, `crawl_fighters`, `crawl_fight_stats`, `crawl_fight_stats_by_round`.
   - The audit identifies what is already covered, what is missing, and what must be extended for Phase 1.
@@ -35,7 +35,7 @@ Recommended execution order:
 
 #### T1.1.2 Define the Phase 1 acquisition contract
 - **Description:** Define the file layout, naming rules, and metadata contract for raw artifacts, manifests, and scrape reports. This should become the single contract all Phase 1 acquisition jobs write to.
-- **Status:** TODO
+- **Status:** DONE — see `docs/acquisition-contract.md`.
 - **Acceptance Criteria:**
   - A documented output contract exists for:
     - raw pages under `data/raw/ufcstats/`;
@@ -51,7 +51,7 @@ Recommended execution order:
 
 #### T1.1.3 Standardize local execution commands
 - **Description:** Normalize how the team runs acquisition jobs locally so all future tickets have one entrypoint. The existing Makefile and Scrapy commands should be reused, not replaced without reason.
-- **Status:** TODO
+- **Status:** DONE — see `docs/runbook.md` and extended `scraper/UFC-Web-Scraping-main/Makefile`.
 - **Acceptance Criteria:**
   - One documented command exists for each Phase 1 acquisition flow.
   - The command surface supports full runs and filtered runs by event URL, event ID, or small sample.
@@ -292,6 +292,88 @@ Recommended execution order:
 - **Complexity:** S
 - **Risk:** Low
 - **Notes:** This closes Phase 1. If the handoff contract is unclear, Phase 2 will waste time reverse-engineering acquisition behavior.
+
+---
+
+## Appendix: T1.1.1 Scraper/Data Baseline Audit
+
+_Completed 2026-03-17._
+
+### Spiders
+
+| Spider name | Class | Source URL(s) | Output file |
+|---|---|---|---|
+| `crawl_events` | `CrawlEvents` | `ufcstats.com/statistics/events/completed?page=all` | `data/events.csv` |
+| `crawl_fights` | `CrawlFights` | Same event listing → individual fight-detail pages | `data/fights.csv` |
+| `crawl_fighters` | `CrawlFighters` | `ufcstats.com/statistics/fighters?char={a-z}&page=all` → profile pages | `data/fighters.csv` |
+| `crawl_fight_stats` | `CrawlFightStats` | Events → fights → aggregate stats tables | `data/fight_stats.csv` |
+| `crawl_fight_stats_by_round` | `CrawlFightStatsByRound` | Events → fights → round-by-round stats tables | `data/fight_stats_by_round.csv` |
+
+All five spiders inherit `IncrementalCrawlMixin` (in `spiders/incremental.py`), which deduplicates by loading known IDs from the existing parsed CSV before crawling.
+
+### Makefile entry points (`scraper/UFC-Web-Scraping-main/Makefile`)
+
+| Command | Effect |
+|---|---|
+| `make crawl_all` | Full crawl of all five spiders |
+| `make crawl_<spider>` | Single-spider crawl |
+| `make update_all` | Incremental crawl of all five spiders |
+| `make update_<spider>` | Incremental single-spider crawl |
+
+`DATA_DIR` is set to `../../data`, so outputs land in the repo-root `data/` directory.
+
+### CSV outputs mapped to spiders and source pages
+
+| File | Grain | Row count (repo-root `data/`) | Key fields |
+|---|---|---|---|
+| `data/events.csv` | One row per event | 765 | `event_id`, `name`, `date`, `city`, `state`, `country`, `fights` (comma-sep fight IDs) |
+| `data/fights.csv` | One row per fight | 8,551 | `fight_id`, `event_id`, `fighter_1_id`, `fighter_2_id`, `finish_method`, `weight_class`, `referee` |
+| `data/fighters.csv` | One row per fighter | 4,453 | `fighter_id`, `full_name`, `height_*`, `reach_*`, `stance`, `dob`, `record` |
+| `data/fight_stats.csv` | One row per fighter per fight (aggregate) | 17,103 | `fight_stat_id`, `fight_id`, `fighter_id`, full strike/takedown/control breakdown |
+| `data/fight_stats_by_round.csv` | One row per fighter per round per fight | 40,321 | `fight_stat_by_round_id`, `fight_id`, `fighter_id`, `round`, same stat columns as aggregate |
+
+A secondary copy exists under `scraper/data/` (4 events, 40 fights, 441 fight_stats, 559 fight_stats_by_round rows — recent partial scrapes from March 2026). `scraper/data/fighters.csv` is header-only.
+
+### What is already covered
+
+- Complete historical event listing and per-event metadata (name, date, location, ordered fight IDs).
+- Per-fight metadata: fighters, outcome, weight class, finish method, round, time, referee, judges.
+- Fighter roster via A-Z listing pages plus profile detail parsing (name, nickname, DOB, height, weight, reach, stance, record).
+- Aggregate (fight-level) strike, takedown, control, and knockdown statistics per fighter.
+- Round-by-round statistics with the same stat dimensions.
+- Incremental update support via ID-based deduplication.
+- Rate limiting, autothrottle, and `ROBOTSTXT_OBEY` controls already in place.
+- Deterministic UUID5 IDs stable across re-runs.
+
+### What is missing or must be extended for Phase 1
+
+| Gap | Relevant Phase 1 tickets |
+|---|---|
+| **Raw page capture absent.** No raw HTML is stored. Parsers write directly to CSV. Reprocessing or auditing requires a full re-crawl. | T1.2.2 |
+| **No fetch metadata.** `scraped_at` is present in CSVs but there is no per-fetch record of `http_status`, `content_hash`, `job_run_id`, or `storage_path`. | T1.2.2, T1.1.2 |
+| **Incremental logic is CSV-only.** `IncrementalCrawlMixin` deduplicates against current parsed CSV contents, not a manifest. Interrupted runs can silently miss pages. | T1.2.3 |
+| **No canonical events manifest.** Downstream spiders each rediscover event URLs independently rather than reading from a single authoritative event list. | T1.3.1, T1.3.2 |
+| **Upcoming events not in scope.** `crawl_events` seeds only from the completed-events page; there is no discovery path for scheduled upcoming cards. | T1.3.1 |
+| **No manifest or report outputs.** There is no machine-readable record of what was attempted, what succeeded, and what failed per run. | T1.1.2, T1.3.4, T1.4.3, T1.5.4 |
+| **Fighter queue is implicit.** The fighter spider self-discovers via A-Z pages with no explicit queue file that downstream jobs can inspect or filter. | T1.4.1 |
+| **No fight-stats queue.** Stats spiders rediscover fights via event traversal; there is no stable queue of fights that are eligible for stats capture. | T1.5.1 |
+| **No smoke-run harness.** There is no documented constrained test run to validate the full acquisition path without a full historical crawl. | T1.2.4 |
+| **Missing fighter data.** `reach_in`/`reach_cm`, `stance`, and `dob` are optional and sparse for many fighters; no review flags are generated. | T1.4.3 |
+| **`title_fight` and `bonus` flags absent.** The `fights` entity and `Fight` dataclass have no `is_title_fight` or `is_bonus` fields despite these being relevant features in `ufc-predictor.md`. | Scope TBD |
+| **No `card_order` field.** Fight ordering within a card is not stored; the event entity holds a comma-separated `fights` list but no position index per fight. | Scope TBD |
+| **`nationality` and `gym` absent from fighter profiles.** `ufc-predictor.md` calls for `nationality` and `gym_name`; these are not parsed by `FighterInfoParser`. | Scope TBD |
+
+### Key architectural note: parsed CSVs, not raw-page captures
+
+**The current scraper produces only parsed tabular CSV outputs.** There are no stored raw HTML files, no per-fetch status records, and no content hashes. Every row in `data/*.csv` is a post-parse Python dataclass serialised to CSV at crawl time. This means:
+
+- Any change to parser logic requires a full re-crawl to reprocess historical data.
+- There is no audit trail linking a CSV row back to the exact HTTP response that produced it.
+- Failures during parsing are not persisted; they appear only in Scrapy's console log.
+
+This gap is the primary structural difference between the current state and the Phase 1 acquisition target defined in `ufc-predictor.md` and T1.2.2. All other Phase 1 hardening work (manifests, reports, incremental idempotency) depends on closing this gap first.
+
+---
 
 ## Phase 1 Definition of Done
 
