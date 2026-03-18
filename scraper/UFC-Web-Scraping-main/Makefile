@@ -77,3 +77,10 @@ check:
 smoke:
 	$(MAKE) sample_events N=5
 	$(MAKE) check
+
+
+# Event coverage report: reconciles manifest, fetch log, and parsed CSV.
+# Pass THRESHOLD=0.10 to override the default 5% miss-rate tolerance.
+# Usage: make report_events  |  make report_events THRESHOLD=0.10
+report_events:
+	$(PYTHON) event_coverage_report.py $(if $(THRESHOLD),--threshold $(THRESHOLD))

@@ -159,7 +159,7 @@ Recommended execution order:
 
 #### T1.3.4 Add event acquisition validation and coverage reporting
 - **Description:** Build a report that reconciles discovered events, fetched event pages, and parsed event outputs so the team can see what is missing before moving to downstream fighter and fight acquisition.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - A report exists showing total discovered events, fetched event pages, parse failures, and missing outputs.
   - The report flags duplicate event IDs, blank event dates, and malformed fight-card listings.
