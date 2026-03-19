@@ -138,7 +138,7 @@ Recommended execution order:
 
 #### T2.2.2 Create DDL for the fighters table
 - **Description:** Write the Postgres DDL for the `fighters` table.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `warehouse/sql/003_fighters.sql` creates the `fighters` table:
 
