@@ -113,10 +113,12 @@ Recommended execution order:
     | `fighter_2_id` | `uuid NOT NULL` | FK added after fighters table exists |
     | `winner_fighter_id` | `uuid` | nullable; NULL for draws and NC |
     | `result_type` | `text NOT NULL` | `win` / `draw` / `nc` |
-    | `weight_class` | `text NOT NULL` | normalized from `bout_type` |
+    | `weight_class` | `text` | nullable; NULL for ~20 early UFC tournament bouts |
     | `is_title_fight` | `boolean NOT NULL DEFAULT false` | |
+    | `is_interim_title` | `boolean NOT NULL DEFAULT false` | |
     | `scheduled_rounds` | `smallint` | from `num_rounds` |
-    | `finish_method` | `text` | normalized enum; see normalization rules |
+    | `finish_method` | `text` | `decision` / `ko_tko` / `submission` / `doctor_stoppage` / `overturned` / `could_not_continue` / `dq` / `other` |
+    | `finish_detail` | `text` | `secondary_finish_method` stored as free text; nullable |
     | `finish_round` | `smallint` | |
     | `finish_time_seconds` | `smallint` | computed from minute + second |
     | `referee` | `text` | nullable |
