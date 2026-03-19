@@ -173,7 +173,7 @@ Recommended execution order:
 #### T2.2.3 Create DDL for fight stats tables
 - **Description:** Write the Postgres DDL for `fight_stats_aggregate` and
   `fight_stats_by_round`.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `warehouse/sql/004_fight_stats.sql` creates both tables. Both share the same stat columns;
     `fight_stats_by_round` adds `round`.
