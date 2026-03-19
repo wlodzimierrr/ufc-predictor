@@ -53,7 +53,7 @@ Recommended execution order:
 - **Description:** Before writing any loader code, document the exact mapping from each CSV
   column to its target DB column: type conversions, enum values, null policy, and derived fields.
   This prevents the loaders from each making independent decisions about edge cases.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - A `docs/normalization-rules.md` file covers every non-trivial transformation:
     - `fights.bout_type` → `weight_class` (strip "Bout"/"Title Bout" suffix) and
