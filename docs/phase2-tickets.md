@@ -220,7 +220,7 @@ Recommended execution order:
 #### T2.2.4 Add indexes, foreign key constraints, and migration runner
 - **Description:** Add the FK from `fights` to `fighters` (deferred from T2.2.1), create
   performance indexes, and write a single migration runner that applies all DDL in order.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `warehouse/sql/005_constraints_and_indexes.sql`:
     - Adds FK from `fights.fighter_1_id` and `fights.fighter_2_id` to `fighters.fighter_id`.
