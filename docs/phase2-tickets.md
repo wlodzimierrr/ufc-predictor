@@ -87,7 +87,7 @@ Recommended execution order:
 #### T2.2.1 Create DDL for events and fights tables
 - **Description:** Write the Postgres DDL for the `events` and `fights` tables per the
   normalization rules from T2.1.2.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `warehouse/sql/001_events.sql` creates the `events` table:
 
@@ -129,6 +129,10 @@ Recommended execution order:
 - **Risk:** Low
 - **Notes:** FK from `fights` to `fighters` is deferred until `fighters` table is created in
   T2.2.2. Use `ALTER TABLE` in T2.2.4 to add it once both tables exist.
+- **Implementation:** Two adjustments from the ticket spec, both driven by normalization rules:
+  `weight_class` is nullable (not `NOT NULL`) because ~20 early UFC tournament bouts have no
+  extractable weight class. Added `is_interim_title boolean NOT NULL DEFAULT false` and
+  `finish_detail text` (stores `secondary_finish_method` free text) per the normalization rules.
 
 ---
 
