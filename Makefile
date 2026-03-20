@@ -22,4 +22,7 @@ load_all: load_events load_fighters load_fights load_stats
 validate_integrity:
 	$(PYTHON) warehouse/validate_integrity.py
 
-.PHONY: migrate load_events load_fights load_fighters load_stats load_all validate_integrity
+validate_consistency:
+	$(PYTHON) warehouse/validate_consistency.py
+
+.PHONY: migrate load_events load_fights load_fighters load_stats load_all validate_integrity validate_consistency

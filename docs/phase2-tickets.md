@@ -376,7 +376,7 @@ Recommended execution order:
 - **Description:** Validate logical consistency within the data: aggregate stats approximately
   match round sums, result states are mutually valid, and weight classes are within the known
   vocabulary.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `warehouse/validate_consistency.py` checks:
     - For each fight with both aggregate and round stats: aggregate `sig_strikes_landed` ≈ sum
