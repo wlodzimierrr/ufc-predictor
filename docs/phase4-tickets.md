@@ -287,6 +287,45 @@ with time-based validation, calibration checks, and model explainability.
 
 ---
 
+## T4.N — Notebooks
+
+#### T4.N.1 Data exploration notebook ✅ DONE
+- **Description:** Interactive Jupyter notebook for exploring the bout_features dataset,
+  feature distributions, missingness, correlations, and temporal splits.
+- **Status:** DONE
+- **Acceptance Criteria:**
+  - `notebooks/01_data_exploration.ipynb` runs top-to-bottom with kernel restart + run all.
+  - Covers: dataset overview, label distribution over time, missingness analysis, feature
+    histograms, feature-to-label correlations, inter-feature correlation heatmap,
+    distributions by outcome, temporal split visualization, rolling CV fold diagram,
+    Elo baseline preview, and modeling takeaways.
+- **Dependencies:** T4.1.1
+- **Complexity:** S
+- **Risk:** Low
+
+#### T4.N.2 Model comparison notebook
+- **Description:** Interactive notebook that trains all models, displays metrics, calibration
+  plots, SHAP analysis, and error breakdowns in a single reproducible document.
+- **Status:** TODO
+- **Acceptance Criteria:**
+  - `notebooks/02_model_comparison.ipynb` runs top-to-bottom.
+  - Covers:
+    - Trains or loads all model artifacts (baselines, logistic regression, LightGBM).
+    - Side-by-side metric table (accuracy, log loss, Brier, AUC, ECE).
+    - Overlay calibration plot (all models on one reliability diagram).
+    - LightGBM feature importance bar chart and SHAP beeswarm plot.
+    - Error analysis segments: weight class, title fights, debut fighters, confidence buckets.
+    - Single-fight prediction example with SHAP waterfall explanation.
+  - Someone unfamiliar with the codebase can open this notebook and understand how well
+    the models work, where they fail, and why they make specific predictions.
+- **Dependencies:** T4.5.1, T4.5.2, T4.4.2
+- **Complexity:** M
+- **Risk:** Low
+- **Notes:** This is the presentation layer — it consumes the scripts from T4.2–T4.5 rather
+  than duplicating their logic. Import from modeling modules, don't copy-paste.
+
+---
+
 ## T4.6 — Closeout
 
 #### T4.6.1 Makefile targets and Phase 4 runbook
@@ -322,6 +361,8 @@ with time-based validation, calibration checks, and model explainability.
 Phase 3 (complete)
     │
     ├── T4.1.1 (data + splits)──┬── T4.2.1 (baselines)─────────────────┐
+    │       │                   │                                       │
+    │    T4.N.1 (EDA notebook)  │                                       │
     │                           │                                       │
     ├── T4.1.2 (eval framework)─┤── T4.3.1 (logreg)────┐               │
     │                           │                       │               │
@@ -335,6 +376,8 @@ Phase 3 (complete)
                                                             │           │
                                                        T4.5.2 (errors) │
                                                             │           │
+                                                       T4.N.2 (model notebook)
+                                                            │
                                                        T4.6.1 (closeout)
 ```
 
@@ -346,11 +389,11 @@ Phase 3 (complete)
 
 | Day | Tickets |
 |---|---|
-| 1 | T4.1.1, T4.1.2, T4.1.3 (infrastructure — can be done in parallel) |
+| 1 | T4.1.1, T4.1.2, T4.1.3, T4.N.1 (infrastructure + EDA notebook) |
 | 2 | T4.2.1 (baselines), T4.3.1 (logistic regression) |
 | 3 | T4.3.2 (LightGBM) |
 | 4 | T4.4.1 (calibration), T4.4.2 (SHAP) |
-| 5 | T4.5.1 (comparison), T4.5.2 (error analysis), T4.6.1 (closeout) |
+| 5 | T4.5.1 (comparison), T4.5.2 (error analysis), T4.N.2 (model notebook), T4.6.1 (closeout) |
 
 ---
 
