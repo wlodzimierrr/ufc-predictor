@@ -295,7 +295,7 @@ Recommended execution order:
 
 #### T2.3.3 Load events and fights
 - **Description:** Implement and run the loaders for `events` and `fights`.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `warehouse/load_events.py`: reads `data/events.csv` + `data/manifests/events_manifest.csv`
     (for `event_status`), applies `transform_event()`, upserts into `events`.
@@ -315,7 +315,7 @@ Recommended execution order:
 
 #### T2.3.4 Load fighters
 - **Description:** Implement and run the fighters loader.
-- **Status:** TODO
+- **Status:** DONE — implemented as part of T2.3.3 (required before fights due to FK constraints)
 - **Acceptance Criteria:**
   - `warehouse/load_fighters.py`: reads `data/fighters.csv`, applies `transform_fighter()`,
     upserts into `fighters`.
