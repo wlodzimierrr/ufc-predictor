@@ -17,9 +17,11 @@ Or as a context manager via psycopg2:
 
 import os
 from pathlib import Path
+from typing import Sequence
 
 import psycopg2
 from psycopg2.extensions import connection as PgConnection
+from psycopg2.extras import execute_values
 
 # Load .env from repo root if python-dotenv is available; silently skip if not.
 try:
@@ -38,6 +40,53 @@ def get_connection() -> PgConnection:
         user=os.environ["POSTGRES_USER"],
         password=os.environ["POSTGRES_PASSWORD"],
     )
+
+
+def upsert(
+    conn: PgConnection,
+    table: str,
+    rows: Sequence[dict],
+    pk_columns: Sequence[str],
+    batch_size: int = 500,
+) -> int:
+    """Batch-upsert rows into table. Returns total rows processed.
+
+    On conflict (pk_columns), all non-PK columns are updated.
+    scraped_at is kept as the more recent of the existing and incoming values.
+    """
+    if not rows:
+        return 0
+
+    columns = list(rows[0].keys())
+    non_pk = [c for c in columns if c not in pk_columns]
+
+    col_list = ", ".join(f'"{c}"' for c in columns)
+    pk_list = ", ".join(f'"{c}"' for c in pk_columns)
+
+    update_parts = []
+    for c in non_pk:
+        if c == "scraped_at":
+            update_parts.append(
+                f'"scraped_at" = GREATEST(EXCLUDED."scraped_at", {table}."scraped_at")'
+            )
+        else:
+            update_parts.append(f'"{c}" = EXCLUDED."{c}"')
+    update_clause = ", ".join(update_parts)
+
+    sql = (
+        f'INSERT INTO {table} ({col_list}) VALUES %s '
+        f'ON CONFLICT ({pk_list}) DO UPDATE SET {update_clause}'
+    )
+
+    total = 0
+    with conn.cursor() as cur:
+        for offset in range(0, len(rows), batch_size):
+            batch = rows[offset : offset + batch_size]
+            values = [tuple(r[c] for c in columns) for r in batch]
+            execute_values(cur, sql, values)
+            total += len(batch)
+
+    return total
 
 
 if __name__ == "__main__":

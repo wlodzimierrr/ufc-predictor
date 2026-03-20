@@ -278,7 +278,7 @@ Recommended execution order:
 #### T2.3.2 Implement the upsert helper
 - **Description:** Write a generic idempotent upsert function used by all loaders. All load
   jobs must be re-runnable without creating duplicates.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `warehouse/db.py` gains an `upsert(conn, table, rows, pk_columns)` function that:
     - Builds and executes `INSERT ... ON CONFLICT (pk) DO UPDATE SET ...` for each batch of rows.
