@@ -394,10 +394,10 @@ history data (lists of dicts) and return feature dicts. No DB calls, no file I/O
 
 ## T3.6 — Closeout
 
-#### T3.6.1 Makefile targets and Phase 3 runbook
+#### T3.6.1 Makefile targets and Phase 3 runbook ✅ DONE
 - **Description:** Add feature pipeline commands to the Makefile and document the Phase 3
   workflow in the runbook.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `Makefile` gains targets:
     - `build_features` — runs `features/pipeline.py`

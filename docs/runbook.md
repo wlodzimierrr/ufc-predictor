@@ -572,3 +572,209 @@ These are open items that did not block Phase 1 sign-off but may affect Phase 2 
 | `fight_stats_by_round` shares `fetch_manifest` with `fight_stats` | Medium | The by-round spider overrides `_load_captured_uuids()` to return `set()` to prevent cross-spider dedup collision. If this override is inadvertently removed in a future refactor, the by-round spider will silently produce zero output in incremental mode. The override is documented in the spider docstring. |
 | No rate-limit handling beyond Scrapy throttle | Low | The scraper relies on Scrapy's `AutoThrottle` and `DOWNLOAD_DELAY`. If ufcstats.com introduces rate-limiting or CAPTCHAs, the spider will accumulate `failed` rows in the fetch manifest rather than retrying with backoff. Monitor `fetch_failed` counts in `stats_coverage_report`. |
 | Full-history crawl not yet executed | Low | The Phase 1 validation run confirmed pipeline integrity at 99.8% coverage. A full-history crawl from scratch has not been timed or stress-tested. Estimate conservatively and monitor `CLOSESPIDER_ERRORCOUNT` for sustained failure. |
+
+---
+
+---
+
+---
+
+# Phase 3 Feature Engineering Runbook
+
+Entry-point reference for building, validating, and extending the UFC feature pipeline.
+All commands are run from the **repo root**.
+
+_Implements T3.1.1–T3.6.1. Feature catalog in `docs/feature-catalog.md`. DDL in `warehouse/sql/007_feature_tables.sql`._
+
+---
+
+## Prerequisites
+
+- Phase 2 warehouse fully loaded (`make warehouse_up` or `make load_all` + `make warehouse_check`).
+- Python 3.11+ with `psycopg2-binary` and `python-dotenv` available.
+- `.env` configured with PostgreSQL connection details.
+
+---
+
+## Running the feature pipeline
+
+### Full build (compute all features from scratch)
+
+```bash
+make build_features
+```
+
+Loads all warehouse data into memory, computes Elo ratings in one chronological pass,
+builds fighter snapshots and bout feature rows for every fight, and upserts into
+`fighter_snapshots` and `bout_features` tables.
+
+Output: ~17,100 snapshots (2 per fight) and ~8,550 bout rows.
+
+### Full pipeline (build → test → validate)
+
+```bash
+make features_up
+```
+
+Equivalent to `make build_features && make test_leakage && make validate_features`.
+Use this after a fresh build or after modifying feature code.
+
+### Leakage tests only
+
+```bash
+make test_leakage
+```
+
+Runs 7 integration tests that verify no feature uses data from the target fight or
+any future fight. Must pass before any modeling work.
+
+### Feature quality report only
+
+```bash
+make validate_features
+```
+
+Prints missingness rates, distribution stats, label correlations, and completeness
+metrics. Informational — always exits 0.
+
+---
+
+## Quick-reference table
+
+| Goal | Command |
+|---|---|
+| Build all features from warehouse data | `make build_features` |
+| Run leakage prevention tests | `make test_leakage` |
+| Run feature quality/distribution report | `make validate_features` |
+| Full pipeline (build + test + validate) | `make features_up` |
+
+---
+
+## How to add a new feature
+
+1. **Choose the feature family.** Career aggregates go in `features/career.py`, rolling
+   windows in `features/rolling.py`, decay metrics in `features/decay.py`, physical/demo
+   in `features/physical.py`, Elo/opponent in `features/elo.py` or `features/opponent.py`.
+
+2. **Add the computation** to the appropriate module function. Each module is a pure
+   function that takes a `FightHistory` list (or similar inputs) and returns a flat dict.
+   Add your new key to the returned dict.
+
+3. **Add the DDL column** to `fighter_snapshots` (per-fighter) or `bout_features` (per-bout)
+   via a new migration in `warehouse/sql/`. Run `make migrate` to apply.
+
+4. **Map module output → DDL column** in `features/pipeline.py`:
+   - For fighter-level features: add the mapping in `_snapshot_to_row()`.
+   - For bout-level features: add the mapping in `_bout_to_row()`.
+
+5. **Add unit tests** in `features/tests/test_<module>.py` for the new computation.
+
+6. **Rebuild and validate:**
+   ```bash
+   make features_up
+   ```
+
+7. **Update `docs/feature-catalog.md`** with the new feature's name, type, formula,
+   source, and null handling.
+
+---
+
+## Leakage prevention rules
+
+These rules must hold for every feature. The leakage tests (`make test_leakage`) verify them.
+
+| Rule | Enforcement |
+|---|---|
+| **Temporal exclusion:** only fights with `event_date < cutoff` are included in history | `get_history()` in `features/history.py` uses `bisect_left` with strict `<` |
+| **Target fight exclusion:** the fight being predicted is never in the feature window | Same `< cutoff` filter — the target fight's own date equals the cutoff |
+| **Monotonic career counts:** `career_fights` must be non-decreasing across dates | Verified by `TestMonotonicHistory` — accounts for same-date tournament fights |
+| **Elo causality:** Elo ratings reflect only prior fight outcomes | `compute_all_elos()` processes fights in chronological order; debut Elo = 1500 |
+| **Label isolation:** `bout_features.label` comes only from `fights.result_type` and `winner_fighter_id` | Verified by `TestLabelIsolation` |
+
+### Same-date tournament fights (edge case)
+
+Early UFC events (1994–1998) had single-night tournaments where one fighter could have
+2–4 fights on the same date. For these fights:
+
+- **Career features** use strict `< cutoff_date`, so all same-date fights share the same
+  `career_fights` count (the prior bouts on that date are excluded).
+- **Elo** updates sequentially within the same date (intentional — the prior bout on the
+  same card has already happened by the time the next one starts).
+- Leakage tests account for both behaviors.
+
+---
+
+## Known limitations
+
+| Limitation | Impact | Mitigation |
+|---|---|---|
+| ~16% of snapshots have NULL career stats | Debut fighters have no prior fights to aggregate | Models must handle NULLs; `is_debut` flag available |
+| ~8% missing reach data | ufcstats.com doesn't have reach for all fighters | `height_reach_missing` flag; do not impute |
+| 24 DDL columns always NULL | Rolling/decay columns not yet computed by modules (e.g. `sig_strike_defense_last{N}`, `streak_last{N}`) | Can be extended in future; currently stored as NULL |
+| `career_control_rate` is in seconds (not a rate) | Named "rate" but stores `control_time_per_fight` in seconds | Values range 0–854; widened to `numeric(8,4)` in migration 008 |
+| `both_debuting` bouts have 0% core-diff completeness | Both fighters have no prior fights → all diff features are NULL | 537 bouts (6.3%); consider excluding from training or using debut-specific features |
+
+---
+
+## Common failure modes
+
+| Symptom | Likely cause | Action |
+|---|---|---|
+| `NumericValueOutOfRange` during upsert | New feature exceeds `numeric(6,4)` column width | Add a widening migration (see `008_widen_feature_numerics.sql` for example) |
+| `KeyError` in `_snapshot_to_row` | Module output key doesn't match mapping | Check the key name in the feature module's return dict |
+| Leakage test fails after feature change | Feature is using `<=` instead of `<` for cutoff, or including the target fight | Check `get_history()` call and ensure strict `< cutoff_date` |
+| `No snapshots found` in leakage tests | Feature tables are empty | Run `make build_features` first |
+| `psycopg2.errors.UndefinedColumn` | DDL column missing for a new feature | Run `make migrate` to apply pending migrations |
+
+---
+
+## Phase 3 handoff checklist
+
+Phase 4 (modeling) may proceed when all items below are satisfied.
+
+### Required
+
+- [ ] `make build_features` exits 0 — both feature tables populated
+- [ ] `make test_leakage` exits 0 — all 7 leakage tests pass
+- [ ] `make validate_features` reviewed — no features with |r| > 0.5
+
+### Validation baseline (Phase 3 completion, 2026-03-20)
+
+| Table | Rows |
+|---|---|
+| fighter_snapshots | 17,100 |
+| bout_features | 8,550 |
+
+| Metric | Value |
+|---|---|
+| Leakage tests | 7/7 passing |
+| Features with \|r\| > 0.5 (suspicious) | 0 |
+| Max label correlation | diff_age: r = −0.19 |
+| Core-diff completeness (non-debut) | 58.5% |
+| Core-diff completeness (all bouts) | 54.8% |
+
+### Known missingness rates
+
+| Feature group | Typical NULL % | Reason |
+|---|---|---|
+| Career stats (debut fighters) | ~16% | No prior fights |
+| Takedown accuracy | ~24% | No takedown attempts in prior fights |
+| Career finish rate | ~25% | Debut fighters (0 wins) |
+| Age/age_squared | 0.8% | Missing DOB in source |
+| Reach / reach_to_height | ~8% | Missing reach in source |
+| 24 uncomputed rolling/decay columns | 100% | Not yet implemented in modules |
+
+Phase 4 **may rely on**:
+
+- `fighter_snapshots` containing one row per (fighter, fight) with pre-fight features only.
+- `bout_features` containing one row per fight with difference, ratio, and matchup features.
+- `bout_features.label` = 1 (fighter_1 wins), 0 (fighter_2 wins), NULL (draw/NC).
+- All leakage tests passing — no feature uses data from the target fight or future fights.
+- `fighter_snapshots.elo_rating` starting at 1500 for debut fighters (single first-date fight).
+
+Phase 4 **must not assume**:
+
+- All feature columns are non-NULL — debut fighters and sparse bios create NULLs.
+- The 24 always-NULL columns contain data — these are DDL placeholders for future features.
+- `career_control_rate` is a percentage — it's control time in seconds per fight (0–854).
+- `both_debuting` bouts have usable difference features — all core diffs are NULL for these.
