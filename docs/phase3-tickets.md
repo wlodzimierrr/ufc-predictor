@@ -279,7 +279,7 @@ history data (lists of dicts) and return feature dicts. No DB calls, no file I/O
 #### T3.4.1 Snapshot and bout feature row builder
 - **Description:** Orchestrate all feature modules into a complete fighter snapshot, then
   merge two fighter snapshots into a model-ready bout feature row.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `features/snapshot.py` contains:
     - `build_fighter_snapshot(fighter, history, cutoff_date, elo_data, fighter_index) -> dict`
