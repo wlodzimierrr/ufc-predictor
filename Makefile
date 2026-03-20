@@ -34,6 +34,9 @@ warehouse_up: migrate load_all warehouse_check
 build_features:
 	$(PYTHON) features/pipeline.py
 
+test_leakage:
+	$(PYTHON) -m pytest features/tests/test_leakage.py -v
+
 .PHONY: migrate load_events load_fights load_fighters load_stats load_all \
         validate_integrity validate_consistency warehouse_check warehouse_up \
-        build_features
+        build_features test_leakage

@@ -344,7 +344,7 @@ history data (lists of dicts) and return feature dicts. No DB calls, no file I/O
 
 ## T3.5 — Validation
 
-#### T3.5.1 Leakage prevention tests
+#### T3.5.1 Leakage prevention tests ✅ DONE
 - **Description:** Write tests that prove no feature uses data from the target fight or any
   fight after the cutoff date.
 - **Status:** TODO
