@@ -60,10 +60,10 @@ with time-based validation, calibration checks, and model explainability.
 - **Notes:** LightGBM handles NaN natively. For logistic regression, a preprocessing step
   will impute or drop NaN columns — that belongs in the model-specific trainer, not here.
 
-#### T4.1.2 Evaluation framework
+#### T4.1.2 Evaluation framework ✅ DONE
 - **Description:** Build reusable evaluation utilities that compute all required metrics and
   produce comparison reports.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `modeling/evaluate.py` provides:
     - `compute_metrics(y_true, y_prob) -> dict` — returns accuracy, log loss, Brier score,
