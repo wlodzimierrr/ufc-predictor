@@ -15,7 +15,7 @@ load_fighters:
 	$(PYTHON) warehouse/load_fighters.py
 
 load_stats:
-	$(PYTHON) warehouse/load_stats.py
+	$(PYTHON) warehouse/load_fight_stats.py
 
 load_all: load_events load_fights load_fighters load_stats
 

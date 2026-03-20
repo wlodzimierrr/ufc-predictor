@@ -333,7 +333,7 @@ Recommended execution order:
 
 #### T2.3.5 Load fight stats (aggregate and by round)
 - **Description:** Implement and run the loaders for both stats tables.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `warehouse/load_fight_stats.py`: reads `data/fight_stats.csv` and
     `data/fight_stats_by_round.csv`, applies `transform_fight_stat()` to each, upserts into
