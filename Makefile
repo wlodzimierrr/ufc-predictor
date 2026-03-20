@@ -37,6 +37,9 @@ build_features:
 test_leakage:
 	$(PYTHON) -m pytest features/tests/test_leakage.py -v
 
+validate_features:
+	$(PYTHON) features/validate_features.py
+
 .PHONY: migrate load_events load_fights load_fighters load_stats load_all \
         validate_integrity validate_consistency warehouse_check warehouse_up \
-        build_features test_leakage
+        build_features test_leakage validate_features

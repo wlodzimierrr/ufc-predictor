@@ -368,9 +368,9 @@ history data (lists of dicts) and return feature dicts. No DB calls, no file I/O
 - **Notes:** Leakage is the single biggest risk in fight prediction modeling. These tests
   are the safety net. They should be run after every feature pipeline change.
 
-#### T3.5.2 Feature quality and distribution checks
+#### T3.5.2 Feature quality and distribution checks ✅ DONE
 - **Description:** Validate feature distributions, missingness rates, and correlations.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `features/validate_features.py` checks and reports:
     - **Missingness rates:** percentage of NULL values per feature column; flag any feature
