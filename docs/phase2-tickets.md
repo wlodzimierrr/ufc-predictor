@@ -355,7 +355,7 @@ Recommended execution order:
 - **Description:** Write and run a validation script that confirms the loaded warehouse is
   internally consistent: row counts match expectations, FK relationships are intact, and no
   orphaned rows exist.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `warehouse/validate_integrity.py` checks and reports on:
     - Row counts for all five tables vs expected ranges (derived from CSV counts).

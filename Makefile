@@ -17,6 +17,9 @@ load_fighters:
 load_stats:
 	$(PYTHON) warehouse/load_fight_stats.py
 
-load_all: load_events load_fights load_fighters load_stats
+load_all: load_events load_fighters load_fights load_stats
 
-.PHONY: migrate load_events load_fights load_fighters load_stats load_all
+validate_integrity:
+	$(PYTHON) warehouse/validate_integrity.py
+
+.PHONY: migrate load_events load_fights load_fighters load_stats load_all validate_integrity
