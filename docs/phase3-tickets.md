@@ -192,7 +192,7 @@ history data (lists of dicts) and return feature dicts. No DB calls, no file I/O
 
 #### T3.2.5 Physical, demographic, and activity features
 - **Description:** Compute features from fighter profile data and fight timing.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `features/physical.py` contains
     `compute_physical_features(fighter: dict, history: list[FightHistory], cutoff_date) -> dict`
