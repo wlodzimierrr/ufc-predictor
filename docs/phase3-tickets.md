@@ -221,7 +221,7 @@ history data (lists of dicts) and return feature dicts. No DB calls, no file I/O
 #### T3.3.1 Elo rating system
 - **Description:** Implement a sequential Elo rating that processes all fights in date order
   and produces a pre-fight Elo rating for each fighter.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `features/elo.py` contains:
     - `compute_all_elos(fights: list[dict], k=32, initial=1500) -> dict[str, dict[str, float]]`
