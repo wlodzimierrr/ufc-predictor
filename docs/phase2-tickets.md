@@ -246,7 +246,7 @@ Recommended execution order:
 - **Description:** Write the Python transformation functions that convert raw CSV rows into
   typed, DB-ready dicts. These functions are the single place where all normalization rules
   from T2.1.2 are applied.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `warehouse/transform.py` contains one function per table:
     - `transform_event(row: dict) -> dict`
