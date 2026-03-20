@@ -82,10 +82,10 @@ with time-based validation, calibration checks, and model explainability.
 - **Complexity:** S
 - **Risk:** Low
 
-#### T4.1.3 Model persistence and artifact management
+#### T4.1.3 Model persistence and artifact management ✅ DONE
 - **Description:** Define a standard format for saving trained models, metadata, and
   evaluation results.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `modeling/artifacts.py` provides:
     - `save_model(model, metadata, path)` — persists the model object (joblib/pickle),
