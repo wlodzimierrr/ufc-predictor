@@ -311,7 +311,7 @@ history data (lists of dicts) and return feature dicts. No DB calls, no file I/O
 #### T3.4.2 Full build pipeline and persistence
 - **Description:** Wire up the full pipeline: load data → compute Elos → build snapshots
   and bout rows for all fights → persist to database.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `features/pipeline.py` contains:
     - `build_all_features(conn) -> tuple[int, int]` — returns (snapshots_written,

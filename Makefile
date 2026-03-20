@@ -29,5 +29,11 @@ warehouse_check: validate_integrity validate_consistency
 
 warehouse_up: migrate load_all warehouse_check
 
+# ── Features ──────────────────────────────────────────────────────────────────
+
+build_features:
+	$(PYTHON) features/pipeline.py
+
 .PHONY: migrate load_events load_fights load_fighters load_stats load_all \
-        validate_integrity validate_consistency warehouse_check warehouse_up
+        validate_integrity validate_consistency warehouse_check warehouse_up \
+        build_features
