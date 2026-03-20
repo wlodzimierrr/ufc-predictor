@@ -250,7 +250,7 @@ history data (lists of dicts) and return feature dicts. No DB calls, no file I/O
 - **Description:** Adjust a fighter's key stats relative to their opponents' baseline allowed
   rates. A fighter who lands 5 sig strikes/min against opponents who typically allow only
   3/min is performing above expectation.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `features/opponent.py` contains
     `compute_opponent_adjusted(history: list[FightHistory], fighter_index) -> dict` returning:
