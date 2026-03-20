@@ -25,4 +25,9 @@ validate_integrity:
 validate_consistency:
 	$(PYTHON) warehouse/validate_consistency.py
 
-.PHONY: migrate load_events load_fights load_fighters load_stats load_all validate_integrity validate_consistency
+warehouse_check: validate_integrity validate_consistency
+
+warehouse_up: migrate load_all warehouse_check
+
+.PHONY: migrate load_events load_fights load_fighters load_stats load_all \
+        validate_integrity validate_consistency warehouse_check warehouse_up

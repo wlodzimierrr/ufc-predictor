@@ -366,6 +366,199 @@ Phase 2 **must not assume**:
 
 ---
 
+---
+
+---
+
+# Phase 2 Warehouse Runbook
+
+Entry-point reference for building and validating the UFC data warehouse.
+All commands are run from the **repo root** unless stated otherwise.
+
+_Implements T2.1.1–T2.5.1. Schema DDL lives in `warehouse/sql/`. Normalization rules in `docs/normalization-rules.md`._
+
+---
+
+## Setup (one time)
+
+### Prerequisites
+
+- Python 3.11+ with `psycopg2-binary` and `python-dotenv` available.
+- A running PostgreSQL instance.
+- Copy `.env.example` to `.env` and fill in connection details:
+
+```bash
+cp .env.example .env
+# edit .env: POSTGRES_HOST, POSTGRES_PORT, POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD
+```
+
+Test the connection:
+
+```bash
+python3 warehouse/db.py
+# Connected: PostgreSQL 17.x on ...
+```
+
+### Run migrations
+
+Creates all five warehouse tables and indexes. Safe to re-run — already-applied migrations are skipped.
+
+```bash
+make migrate
+```
+
+---
+
+## Full load (first time or full reload)
+
+Loads all five tables in dependency order: events → fighters → fights → stats.
+Each loader is idempotent — re-running a loader that has already run is a no-op (upsert on PK).
+
+```bash
+make load_all
+```
+
+Or run loaders individually:
+
+```bash
+make load_events       # data/events.csv + data/manifests/events_manifest.csv → events
+make load_fighters     # data/fighters.csv → fighters
+make load_fights       # data/fights.csv → fights
+make load_stats        # data/fight_stats.csv + data/fight_stats_by_round.csv → fight_stats_*
+```
+
+**Load order matters.** `load_fights` requires fighters to exist (FK constraint). `load_stats` requires fights.
+`load_all` enforces the correct order automatically.
+
+---
+
+## Incremental update
+
+After re-running the Phase 1 scraper (e.g. after a new UFC event), reload the affected tables:
+
+```bash
+make load_events       # picks up new events
+make load_fighters     # picks up new/updated fighter profiles
+make load_fights       # picks up new fights
+make load_stats        # picks up new fight stats
+```
+
+All loaders use `INSERT ... ON CONFLICT DO UPDATE`, so only changed values are written.
+`scraped_at` is kept as the more recent value on conflict, so re-loading older data will not
+overwrite a newer scrape.
+
+---
+
+## Validation
+
+### Integrity check (FK completeness + row counts)
+
+```bash
+make validate_integrity
+```
+
+Checks: row counts within expected ranges, zero orphaned rows across all FK relationships.
+Exits non-zero if any check fails.
+
+### Consistency check (logical data quality)
+
+```bash
+make validate_consistency
+```
+
+Checks: result/winner coherence, finish round within scheduled rounds, weight class vocabulary,
+aggregate ≈ round-sum for sig_strikes_landed (soft warning, does not fail).
+Exits non-zero only on hard logic failures.
+
+### Run both validators
+
+```bash
+make warehouse_check
+```
+
+---
+
+## Full pipeline (migrate → load → validate)
+
+```bash
+make warehouse_up
+```
+
+Equivalent to `make migrate && make load_all && make warehouse_check`.
+Use this after a fresh clone or a full reload.
+
+---
+
+## Quick-reference table
+
+| Goal | Command |
+|---|---|
+| Apply pending schema migrations | `make migrate` |
+| Full load (all tables, correct order) | `make load_all` |
+| Load single table | `make load_events` / `load_fighters` / `load_fights` / `load_stats` |
+| FK + row count validation | `make validate_integrity` |
+| Logical consistency validation | `make validate_consistency` |
+| Both validators | `make warehouse_check` |
+| Full pipeline (migrate + load + validate) | `make warehouse_up` |
+
+---
+
+## Common failure modes
+
+| Symptom | Likely cause | Action |
+|---|---|---|
+| `KeyError: 'POSTGRES_HOST'` | `.env` not present or python-dotenv not installed | Copy `.env.example` → `.env` and fill in credentials; `pip install python-dotenv` |
+| `psycopg2.OperationalError: could not connect` | DB host unreachable | Check `POSTGRES_HOST` in `.env`; confirm Postgres is running |
+| `ForeignKeyViolation` on `load_fights` | fighters not loaded yet | Run `make load_fighters` before `make load_fights`; or use `make load_all` |
+| Row count check FAIL | Loader skipped rows (unknown event/fight IDs) | Check loader output for `warn  unknown ... — skipping`; ensure upstream table was loaded first |
+| `validate_integrity` fails | Orphaned rows exist | Re-run loaders in order; check for FK constraint issues in migration files |
+| `WARN aggregate ≠ round-sum` | Known source-data discrepancy on ufcstats.com | Informational only — does not fail the run; note count for Phase 3 feature engineering |
+
+---
+
+## Phase 2 handoff checklist
+
+Phase 3 (feature engineering) may proceed when all items below are satisfied.
+
+### Required
+
+- [ ] `make migrate` has been run and all 6 migration files applied
+- [ ] `make load_all` exits 0 — all five tables populated
+- [ ] `make validate_integrity` exits 0 — zero FK violations
+
+### Validation baseline (Phase 2 completion, 2026-03-20)
+
+| Table | Rows loaded |
+|---|---|
+| events | 764 |
+| fighters | 4,452 |
+| fights | 8,550 |
+| fight_stats_aggregate | 17,062 |
+| fight_stats_by_round | 40,238 |
+
+### Known data quality exceptions
+
+| Exception | Count | Impact on Phase 3 |
+|---|---|---|
+| Fights with no stats rows | 19 (0.2%) | These fights will have no feature vectors from stats; exclude from model training or impute |
+| Sparse fighter bios (height/weight/reach/stance/DOB null) | ~636 fighters (14.3%) | Physical feature columns will be NULL for these fighters; models must handle nulls |
+| Duplicate full_name values | 7 pairs | Distinct fighters sharing a name; resolved by `fighter_id` UUID — do not join on name |
+| Fights with NULL weight_class | 15 | Early UFC tournament bouts; weight class features will be NULL |
+| Stats rows skipped at load (unknown fight_id) | 40 aggregate / 82 by-round | Fight IDs in stats CSV not present in fights table; safe to ignore — these are fights outside the scraped event window |
+
+Phase 3 **may rely on**:
+- All five warehouse tables loaded and FK-validated.
+- `fight_id`, `event_id`, `fighter_id` being stable UUID5 values derived from ufcstats.com URLs.
+- `result_type` and `winner_fighter_id` being logically consistent (validated by `validate_consistency`).
+- `control_time_seconds` and `finish_time_seconds` being pre-computed integers (not raw minute/second columns).
+
+Phase 3 **must not assume**:
+- Fighter physical attributes (height, weight, reach, stance, DOB) are always present.
+- Every fight has associated stats rows.
+- `weight_class` is non-null for all fights (15 early bouts have NULL).
+
+---
+
 ## Unresolved acquisition risks
 
 These are open items that did not block Phase 1 sign-off but may affect Phase 2 work.

@@ -404,7 +404,7 @@ Recommended execution order:
 #### T2.5.1 Add Makefile targets and publish Phase 2 runbook
 - **Description:** Wire up the Phase 2 commands into the Makefile and update the docs runbook
   to cover warehouse setup, migration, load, and validation.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `Makefile` (repo root or `warehouse/Makefile`) gains targets:
     - `migrate` — runs `python warehouse/migrate.py`
