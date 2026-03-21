@@ -238,7 +238,7 @@ with time-based validation, calibration checks, and model explainability.
 #### T4.5.1 Model comparison report
 - **Description:** Produce a single comparison report across all models and baselines on
   the same test set.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `modeling/compare.py` provides:
     - Loads all saved model artifacts from `models/`.
@@ -264,7 +264,7 @@ with time-based validation, calibration checks, and model explainability.
 
 #### T4.5.2 Error analysis
 - **Description:** Analyze model errors by segment to identify systematic weaknesses.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `modeling/error_analysis.py` provides:
     - Segments test set predictions by:
@@ -306,7 +306,7 @@ with time-based validation, calibration checks, and model explainability.
 #### T4.N.2 Model comparison notebook
 - **Description:** Interactive notebook that trains all models, displays metrics, calibration
   plots, SHAP analysis, and error breakdowns in a single reproducible document.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `notebooks/02_model_comparison.ipynb` runs top-to-bottom.
   - Covers:
