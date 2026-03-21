@@ -188,7 +188,7 @@ with time-based validation, calibration checks, and model explainability.
 
 #### T4.4.1 Probability calibration
 - **Description:** Assess and optionally improve the calibration of model probabilities.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `modeling/calibrate.py` provides:
     - `assess_calibration(y_true, y_prob, n_bins=10) -> dict` — returns ECE, MCE (max
@@ -213,7 +213,7 @@ with time-based validation, calibration checks, and model explainability.
 #### T4.4.2 Feature importance and SHAP analysis
 - **Description:** Compute and visualize feature importances and SHAP values for the
   LightGBM model.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `modeling/explain.py` provides:
     - `feature_importance_plot(model, feature_names, save_path)` — bar chart of top-20
