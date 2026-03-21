@@ -135,7 +135,7 @@ with time-based validation, calibration checks, and model explainability.
 #### T4.3.1 Logistic regression trainer
 - **Description:** Train a regularized logistic regression as the interpretable baseline
   model.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `modeling/train_logreg.py` provides:
     - Loads data via `modeling/data.py`, applies temporal split.
@@ -159,7 +159,7 @@ with time-based validation, calibration checks, and model explainability.
 #### T4.3.2 LightGBM trainer
 - **Description:** Train a LightGBM gradient-boosted tree model as the primary production
   candidate.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `modeling/train_lgbm.py` provides:
     - Loads data via `modeling/data.py`, applies temporal split.
