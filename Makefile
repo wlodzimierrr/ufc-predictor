@@ -42,6 +42,12 @@ validate_features:
 
 features_up: build_features test_leakage validate_features
 
+# ── Modeling ─────────────────────────────────────────────────────────────────
+
+train_logreg:
+	$(PYTHON) modeling/train_logreg.py
+
 .PHONY: migrate load_events load_fights load_fighters load_stats load_all \
         validate_integrity validate_consistency warehouse_check warehouse_up \
-        build_features test_leakage validate_features features_up
+        build_features test_leakage validate_features features_up \
+        train_logreg

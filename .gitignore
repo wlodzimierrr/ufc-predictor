@@ -16,3 +16,6 @@ venv/
 # Raw scraped files — large, regenerable, not useful in history
 data/raw/
 
+# Trained model artifacts — large binaries, regenerable
+models/
+
