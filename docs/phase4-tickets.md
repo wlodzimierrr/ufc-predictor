@@ -108,7 +108,7 @@ with time-based validation, calibration checks, and model explainability.
 #### T4.2.1 Naive baselines
 - **Description:** Implement simple heuristic baselines that require no training. These set
   the floor for model performance.
-- **Status:** TODO
+- **Status:** DONE
 - **Acceptance Criteria:**
   - `modeling/baselines.py` provides:
     - `favorite_baseline(df) -> array` — predicts fighter_1 wins if
