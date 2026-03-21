@@ -50,7 +50,10 @@ train_logreg:
 train_lgbm:
 	$(PYTHON) modeling/train_lgbm.py
 
+compare_models:
+	$(PYTHON) modeling/compare.py
+
 .PHONY: migrate load_events load_fights load_fighters load_stats load_all \
         validate_integrity validate_consistency warehouse_check warehouse_up \
         build_features test_leakage validate_features features_up \
-        train_logreg train_lgbm
+        train_logreg train_lgbm compare_models
