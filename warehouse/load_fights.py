@@ -27,10 +27,17 @@ def _known_event_ids(conn) -> set[str]:
         return {str(row[0]) for row in cur.fetchall()}
 
 
+def _known_fighter_ids(conn) -> set[str]:
+    with conn.cursor() as cur:
+        cur.execute("SELECT fighter_id FROM fighters")
+        return {str(row[0]) for row in cur.fetchall()}
+
+
 def load_fights() -> None:
     conn = get_connection()
     try:
         known_events = _known_event_ids(conn)
+        known_fighters = _known_fighter_ids(conn)
 
         rows = []
         skipped = 0
@@ -40,9 +47,18 @@ def load_fights() -> None:
                     print(f"  warn  unknown event_id {raw['event_id']} for fight {raw['fight_id']} — skipping")
                     skipped += 1
                     continue
-                rows.append(transform_fight(raw))
+                transformed = transform_fight(raw)
+                # Skip fights referencing fighters not yet in the DB
+                fighter_ids = [transformed["fighter_1_id"], transformed["fighter_2_id"]]
+                if transformed.get("winner_fighter_id"):
+                    fighter_ids.append(transformed["winner_fighter_id"])
+                if any(fid not in known_fighters for fid in fighter_ids):
+                    print(f"  warn  unknown fighter for fight {raw['fight_id']} — skipping")
+                    skipped += 1
+                    continue
+                rows.append(transformed)
 
-        print(f"  read  {len(rows)} rows from {FIGHTS_CSV.name} ({skipped} skipped — unknown event_id)")
+        print(f"  read  {len(rows)} rows from {FIGHTS_CSV.name} ({skipped} skipped)")
 
         with conn:
             n = upsert(conn, "fights", rows, pk_columns=["fight_id"])

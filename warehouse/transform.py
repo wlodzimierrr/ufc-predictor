@@ -132,10 +132,14 @@ def transform_event(row: dict) -> dict:
 
 def transform_fight(row: dict) -> dict:
     """Transform a raw fights CSV row into a DB-ready dict."""
+    event_status = _str(row.get("event_status"))
     outcome_1 = _str(row.get("fighter_1_outcome", ""))
     outcome_2 = _str(row.get("fighter_2_outcome", ""))
 
-    if outcome_1 == "W" and outcome_2 == "L":
+    if event_status == "upcoming" and not outcome_1 and not outcome_2:
+        result_type = "upcoming"
+        winner_fighter_id = None
+    elif outcome_1 == "W" and outcome_2 == "L":
         result_type = "win"
         winner_fighter_id = row["fighter_1_id"]
     elif outcome_1 == "L" and outcome_2 == "W":

@@ -778,3 +778,357 @@ Phase 4 **must not assume**:
 - The 24 always-NULL columns contain data — these are DDL placeholders for future features.
 - `career_control_rate` is a percentage — it's control time in seconds per fight (0–854).
 - `both_debuting` bouts have usable difference features — all core diffs are NULL for these.
+
+---
+
+---
+
+---
+
+# Phase 5 Advanced Modeling Runbook
+
+Entry-point reference for Phase 5 model training, evaluation, and production model selection.
+All commands are run from the **repo root**.
+
+_Implements T5.1.1–T5.5.2. Tickets in `docs/phase5-tickets.md`. Feature catalog in `docs/feature-catalog.md`._
+
+---
+
+## Prerequisites
+
+- Phase 3 feature pipeline completed (`make features_up`).
+- Phase 4 models trained (`make train_logreg`, `make train_lgbm`).
+- Python 3.11+ with `lightgbm`, `xgboost`, `shap`, `scikit-learn`, `psycopg2-binary`.
+- `.env` configured with PostgreSQL connection details.
+
+---
+
+## Feature set v2
+
+Phase 5 expands from 29 features (v1) to 47 features (v2) plus 3 debut prior columns (50 total).
+
+New feature groups:
+- **Wired diffs** (10): career KO/sub/decision rates, sig strikes absorbed, strike/takedown defense, title fight count, five-round fights, reach-height ratio, fights per year
+- **Trend diffs** (5): OLS slope and std of sig strikes, takedown accuracy, control rate over last 5 fights
+- **Matchup** (3): individual southpaw flags, weight class ordinal encoding
+- **Debut priors** (3): neutral 0.5 win probability, z-scored height/reach advantage vs weight class
+
+Feature columns are defined in `modeling/data.py` as `FEATURE_COLS_V2`.
+
+---
+
+## Training models
+
+### LightGBM v2 (expanded feature set)
+
+```bash
+make train_lgbm_v2
+```
+
+Retrains LightGBM on v2 features with debut priors. Two-step process:
+1. Baseline check with Phase 4's best config — proceed to tuning only if improvement >= 0.005
+2. Focused grid search (108 configs) over `num_leaves`, `learning_rate`, `min_child_samples`, `reg_lambda`
+
+Includes feature selection pass: drops features with < 1% total gain and compares.
+
+Artifact: `models/lgbm_v2/<timestamp>/`
+
+### XGBoost
+
+```bash
+make train_xgb
+```
+
+Trains XGBoost as an ensemble partner. Tunes `max_depth`, `min_child_weight`, `reg_lambda` (27 configs).
+Applies Platt scaling calibration post-training.
+
+Artifact: `models/xgb/<timestamp>/`
+
+### Ensemble
+
+```bash
+make train_ensemble
+```
+
+Blends LightGBM v2, LogReg, XGBoost, and Elo predictions.
+1. Simple weighted blend — grid-searches weights in 0.1 increments on validation set
+2. Stacking fallback — logistic regression meta-learner on out-of-fold predictions
+
+Decision rule: ensemble must beat best single model by >= 0.003 log loss to be promoted.
+
+Artifact: `models/ensemble/<timestamp>/`
+
+### Full sequence
+
+```bash
+make train_all_v2
+```
+
+Runs `train_lgbm_v2` -> `train_xgb` -> `train_ensemble` -> `compare_models` in sequence.
+
+---
+
+## Analysis and evaluation
+
+### Model comparison
+
+```bash
+make compare_models
+```
+
+Evaluates all Phase 4 and Phase 5 models on the same test set. Produces:
+- `models/comparison_report.txt` — unified metrics table
+- `models/calibration_comparison.png` — overlay reliability diagram
+- `models/production_model.json` — production model selection record
+
+### Uncertainty analysis
+
+```bash
+make uncertainty_analysis
+```
+
+Analyzes the uncertain prediction band (0.40–0.60 predicted probability).
+Reports accuracy, SHAP drivers, and feature distribution differences.
+
+Output: `models/uncertainty_report.txt`
+
+---
+
+## Production model selection
+
+The comparison script (`make compare_models`) automatically selects the best model by
+test log loss and writes `models/production_model.json`:
+
+```json
+{
+  "selected_model": "<model_name>",
+  "artifact_path": "models/<name>/<timestamp>/",
+  "test_log_loss": 0.XXXX,
+  "rationale": "...",
+  "runner_up": "<model_name>"
+}
+```
+
+### Phase 5 results (2026-03-29)
+
+| Model | Test Log Loss | Accuracy | AUC | ECE |
+|---|---|---|---|---|
+| XGBoost (calibrated) | 0.6318 | 62.9% | 0.703 | 0.061 |
+| Ensemble (stacked) | 0.6359 | 65.1% | 0.693 | 0.048 |
+| LightGBM v2 | 0.6374 | 62.5% | 0.700 | 0.066 |
+| LogReg (calibrated) | 0.6396 | 63.5% | 0.684 | 0.030 |
+
+Selected: **XGBoost (calibrated)** — lowest log loss at 0.6318 with Platt scaling.
+
+Ensemble was not promoted: improvement over best single model (0.0015) fell short
+of the 0.003 threshold.
+
+---
+
+## Confidence tiers
+
+The uncertainty module (`modeling/uncertainty.py`) provides three tiers for prediction output:
+
+| Tier | Probability band | Test accuracy | Interpretation |
+|---|---|---|---|
+| **high** | <= 0.30 or >= 0.70 | 68.7% | Model is confident; act on the prediction |
+| **medium** | 0.30–0.40 or 0.60–0.70 | — | Moderate confidence |
+| **toss-up** | 0.40–0.60 | 52.0% | Genuinely unpredictable; treat as coin flip |
+
+37% of test fights fall in the toss-up band. This metadata should be included in
+Phase 7's prediction output format.
+
+---
+
+## Quick-reference table
+
+| Goal | Command |
+|---|---|
+| Train LightGBM v2 | `make train_lgbm_v2` |
+| Train XGBoost | `make train_xgb` |
+| Train ensemble | `make train_ensemble` |
+| Full Phase 5 training sequence | `make train_all_v2` |
+| Model comparison + production selection | `make compare_models` |
+| Uncertainty band analysis | `make uncertainty_analysis` |
+
+---
+
+## Phase 7 prerequisites (what is now available)
+
+Phase 7 (inference/scoring pipeline) may proceed with:
+
+- **Production model artifact** at the path in `models/production_model.json`
+- **Feature set v2** columns defined in `modeling/data.py:FEATURE_COLS_V2`
+- **Debut priors** via `features/debut_prior.py` — must be computed from training data and applied before inference
+- **Confidence tier** via `modeling/uncertainty.py:confidence_tier()` — attach to every prediction
+- **Calibration** via `modeling/calibrate.py:calibrate_platt()` — apply post-prediction for the XGBoost model
+
+Phase 7 **must**:
+- Load the selected model from its artifact path
+- Use the exact feature columns stored in the artifact's `metadata.json`
+- Apply debut priors using training-fitted priors (serialized alongside the model)
+- Apply Platt calibration if the selected model requires it
+- Attach `confidence_tier` and `is_uncertain` flags to every prediction output
+
+---
+
+# Phase 6 Inference Pipeline Runbook
+
+## End-to-end prediction flow
+
+Run the full pipeline in one command:
+
+```bash
+make predict_pipeline   # load_upcoming -> build_upcoming_features -> score_upcoming
+```
+
+Or run steps individually:
+
+### Step 1: Load upcoming fights
+
+```bash
+make load_upcoming
+```
+
+Reads upcoming events from the warehouse (events with `event_status = 'upcoming'`),
+matches fight URLs from the events manifest against `data/fights.csv`, and inserts
+fights with `result_type = 'upcoming'`.
+
+For manual entry (e.g. when scraper hasn't picked up a card yet):
+
+```bash
+python3 warehouse/load_upcoming_fights.py --csv path/to/upcoming.csv
+```
+
+CSV format: `event_name,fighter_1_name,fighter_2_name,weight_class,scheduled_rounds,is_title_fight`
+
+### Step 2: Build features
+
+```bash
+make build_upcoming_features
+```
+
+Runs `features/build_upcoming.py`: loads all warehouse data, builds fighter snapshots
+using today's date as cutoff, computes bout-level features (diffs, ratios, matchup),
+applies debut priors. Output: `models/upcoming/upcoming_features.csv`.
+
+Feature columns are validated against the production model's `metadata.json:feature_cols`.
+
+### Step 3: Score fights
+
+```bash
+make score_upcoming
+```
+
+Runs `modeling/score_upcoming.py`: loads production model, generates raw predictions,
+applies Platt calibration (re-fit on validation data), attaches confidence tiers.
+Output: `models/predictions/<event_date>/predictions.csv`.
+
+### Step 4: View predictions (CLI)
+
+```bash
+python3 predict.py                     # all upcoming events
+python3 predict.py --event "UFC 315"   # specific event
+python3 predict.py --next              # next event only
+python3 predict.py --format json       # machine-readable output
+```
+
+Or use `make predict` for the default (all events).
+
+---
+
+## Post-event workflow
+
+After a UFC event completes:
+
+### 1. Update data
+
+```bash
+cd scraper/UFC-Web-Scraping-main && make update_events
+cd ../..
+make load_all          # reload warehouse with new results
+make build_features    # rebuild historical features (includes new fights)
+```
+
+### 2. Review predictions
+
+```bash
+make review_event EVENT="UFC 315"
+```
+
+Compares saved predictions against actual results. Computes accuracy, log loss, and
+Brier score. Appends to `models/prediction_log.csv` for drift tracking.
+
+Or use the notebook: `notebooks/05_post_event_review.ipynb`.
+
+### 3. (Optional) Retrain
+
+Only retrain if the prediction log shows degradation across multiple events:
+
+```bash
+make train_all_v2      # retrain all models
+make compare_models    # select new production model
+```
+
+---
+
+## Model update workflow
+
+When to retrain:
+- Prediction log shows log loss consistently above 0.68 across 3+ events
+- New weight classes or rule changes affect fight dynamics
+- Feature pipeline is updated with new columns
+
+How to promote a new model:
+1. `make train_all_v2` trains LightGBM v2, XGBoost, and ensemble
+2. `make compare_models` evaluates all models and writes `models/production_model.json`
+3. The scoring pipeline automatically uses whatever model is in `production_model.json`
+
+---
+
+## Troubleshooting
+
+| Problem | Cause | Fix |
+|---|---|---|
+| "No upcoming events in the warehouse" | Scraper hasn't found upcoming events | Run scraper: `cd scraper/UFC-Web-Scraping-main && make update_events` then `make load_all` |
+| "No upcoming features found" | Step 2 was skipped | Run `make build_upcoming_features` |
+| "Column mismatch" warning | Feature pipeline output doesn't match model expectations | Check `models/xgb/*/metadata.json:feature_cols` vs `features/pipeline.py` |
+| Calibration warning | Could not fit Platt scaler | Ensure validation data exists in the warehouse (fights between val_date and test_date) |
+| Fighter not found (manual CSV) | Name doesn't match warehouse | Check `fighters` table for exact `full_name` spelling |
+
+---
+
+## All Makefile targets
+
+| Target | Description |
+|---|---|
+| `make migrate` | Run database migrations |
+| `make load_events` | Load events into warehouse |
+| `make load_fighters` | Load fighters into warehouse |
+| `make load_fights` | Load fights into warehouse |
+| `make load_stats` | Load fight statistics |
+| `make load_upcoming` | Load upcoming fights |
+| `make load_all` | Load all data (events + fighters + fights + stats) |
+| `make validate_integrity` | Run integrity checks |
+| `make validate_consistency` | Run consistency checks |
+| `make warehouse_check` | Run all validation checks |
+| `make warehouse_up` | Migrate + load all + validate |
+| `make build_features` | Build historical features |
+| `make build_upcoming_features` | Build features for upcoming fights |
+| `make test_leakage` | Run leakage prevention tests |
+| `make validate_features` | Validate feature quality |
+| `make features_up` | Build + test + validate features |
+| `make train_logreg` | Train logistic regression |
+| `make train_lgbm` | Train LightGBM v1 |
+| `make train_lgbm_v2` | Train LightGBM v2 |
+| `make train_xgb` | Train XGBoost |
+| `make train_ensemble` | Train ensemble |
+| `make compare_models` | Compare all models, select production |
+| `make uncertainty_analysis` | Run uncertainty/confidence analysis |
+| `make error_analysis` | Run segmented error analysis |
+| `make train_all_v2` | Full Phase 5 training sequence |
+| `make score_upcoming` | Score upcoming fights |
+| `make predict` | Prediction CLI (all upcoming events) |
+| `make predict_pipeline` | End-to-end: load + features + score |
+| `make review_event EVENT="..."` | Post-event accuracy review |
+| `make test_integration` | Run integration test |
