@@ -215,7 +215,38 @@ always oriented as **fighter_1** vs **fighter_2** (matching `fights.fighter_1_id
 | 4 | `ratio_career_control_rate` | float | `career_control_rate` | |
 | 5 | `ratio_elo` | float | `elo_rating` | |
 
-### 6c. Matchup and Metadata Features
+### 6c. v2 Wired Difference Features (Phase 5 T5.1.1)
+
+These features were already computed in fighter snapshots (career.py, physical.py) but
+not surfaced as bout-level diff columns until feature_version=2.
+
+| # | Feature | Type | Source Features | Notes |
+|---|---------|------|-----------------|-------|
+| 21 | `diff_career_ko_rate` | float | `career_ko_tko_wins / career_fights` | KO/TKO win rate diff |
+| 22 | `diff_career_sub_rate` | float | `career_sub_wins / career_fights` | Submission win rate diff |
+| 23 | `diff_career_decision_rate` | float | `career_dec_wins / career_fights` | Decision win rate diff |
+| 24 | `diff_career_sig_strikes_absorbed_pm` | float | `career_sig_strikes_absorbed_pm` | Damage absorption diff |
+| 25 | `diff_career_sig_strike_defense` | float | `career_sig_strike_defense` | Strike defense diff |
+| 26 | `diff_career_takedown_defense` | float | `career_takedown_defense` | TD defense diff |
+| 27 | `diff_title_fight_count` | int | `career_title_fights` | Title fight experience diff |
+| 28 | `diff_five_round_fights` | int | `five_round_experience` | 5-round fight experience diff |
+| 29 | `diff_reach_height_ratio` | float | `reach_to_height` | Ape index diff |
+| 30 | `diff_fights_per_year_last3` | float | `fights_per_year_last3` | Recent activity rate diff |
+
+### 6d. v2 Trend Difference Features (Phase 5 T5.1.1)
+
+New computation: OLS slope and std over per-fight metrics for the last 5 fights.
+Captures fighter momentum (improving/declining performance trajectory).
+
+| # | Feature | Type | Formula | Notes |
+|---|---------|------|---------|-------|
+| 31 | `diff_slope_sig_strikes_last5` | float | OLS slope of per-fight sig_strikes_pm over fight index | Positive = fighter_1 improving faster |
+| 32 | `diff_slope_td_accuracy_last5` | float | OLS slope of per-fight TD accuracy over fight index | |
+| 33 | `diff_slope_control_rate_last5` | float | OLS slope of per-fight control time over fight index | |
+| 34 | `diff_std_sig_strikes_last5` | float | Std dev of per-fight sig_strikes_pm over last 5 | Volatility indicator |
+| 35 | `diff_std_td_accuracy_last5` | float | Std dev of per-fight TD accuracy over last 5 | |
+
+### 6e. Matchup and Metadata Features
 
 | # | Feature | Type | Formula | Notes |
 |---|---------|------|---------|-------|
@@ -223,6 +254,9 @@ always oriented as **fighter_1** vs **fighter_2** (matching `fights.fighter_1_id
 | 2 | `scheduled_rounds` | int | `fights.scheduled_rounds` | 3 or 5 |
 | 3 | `is_orthodox_vs_southpaw` | bool | One orthodox + one southpaw | Stance matchup |
 | 4 | `both_debuting` | bool | Both fighters have `career_fights = 0` | |
+| 5 | `f1_is_southpaw` | bool | Fighter 1 is southpaw | v2: individual stance flag |
+| 6 | `f2_is_southpaw` | bool | Fighter 2 is southpaw | v2: individual stance flag |
+| 7 | `weight_class_rank` | int | Ordinal encoding (flyweight=1 ... heavyweight=9) | v2: for non-tree models |
 
 ---
 
@@ -232,16 +266,19 @@ always oriented as **fighter_1** vs **fighter_2** (matching `fights.fighter_1_id
 |--------|--------------|---------------|
 | Career aggregates | 24 | 0 for counts; NULL for rates with 0 denominator |
 | Rolling windows (×3) | 45 | NULL if < N prior fights |
+| Trend features (v2) | 6 | NULL if < 2 prior fights |
 | Exponentially decayed | 10 | NULL if 0 prior fights |
 | Physical / demographic / activity | 11 + 2 flags = 13 | NULL + `_missing` flag for profile gaps |
 | Elo + opponent-adjusted | 5 | Default Elo (1500) for debuts; NULL for opp-adjusted on debut |
-| Bout differences | 20 | NULL if either snapshot is NULL |
+| Bout differences (v1) | 20 | NULL if either snapshot is NULL |
+| Bout differences (v2 wired) | 10 | NULL if either snapshot is NULL |
+| Bout differences (v2 trends) | 5 | NULL if either fighter has < 2 prior fights |
 | Bout ratios | 5 | NULL if both fighters are 0 |
-| Bout matchup/metadata | 4 | Always non-NULL |
+| Bout matchup/metadata (v1+v2) | 7 | Always non-NULL (booleans default false) |
 
-**Total fighter snapshot features:** ~97 (24 + 45 + 10 + 13 + 5)
-**Total bout features:** ~29 (20 + 5 + 4)
-**Grand total per bout row:** ~126 features (97 × 2 snapshots compressed into 29 bout-level + raw snapshot columns as needed)
+**Total fighter snapshot features:** ~103 (24 + 45 + 6 + 10 + 13 + 5)
+**Total bout features (v1):** ~29 (20 + 5 + 4)
+**Total bout features (v2):** ~47 (35 diffs + 5 ratios + 7 matchup/metadata)
 
 ---
 

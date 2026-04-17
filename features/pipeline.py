@@ -117,6 +117,16 @@ def _snapshot_to_row(snap: dict) -> dict:
         "win_rate_decay": _g("decay_win_rate"),
     })
 
+    # ── v2: Trend features (slope/std over last 5 fights) ────────────────
+    row.update({
+        "slope_sig_strikes_last5": _g("slope_sig_strikes_last5"),
+        "slope_td_accuracy_last5": _g("slope_td_accuracy_last5"),
+        "slope_control_rate_last5": _g("slope_control_rate_last5"),
+        "std_sig_strikes_last5": _g("std_sig_strikes_last5"),
+        "std_td_accuracy_last5": _g("std_td_accuracy_last5"),
+        "fights_per_year_last3": _g("fights_per_year_last3"),
+    })
+
     # ── Physical / demographic / activity ──────────────────────────────────
     row.update({
         "age": _g("age_at_fight"),
@@ -148,6 +158,23 @@ def _snapshot_to_row(snap: dict) -> dict:
 
     row["computed_at"] = now
     return row
+
+
+_WEIGHT_CLASS_RANK: dict[str, int] = {
+    "strawweight": 1,
+    "flyweight": 2,
+    "bantamweight": 3,
+    "featherweight": 4,
+    "lightweight": 5,
+    "welterweight": 6,
+    "middleweight": 7,
+    "light_heavyweight": 8,
+    "heavyweight": 9,
+    "women_strawweight": 1,
+    "women_flyweight": 2,
+    "women_bantamweight": 3,
+    "women_featherweight": 4,
+}
 
 
 def _bout_to_row(fight: dict, snap_a: dict, snap_b: dict) -> dict:
@@ -193,6 +220,10 @@ def _bout_to_row(fight: dict, snap_a: dict, snap_b: dict) -> dict:
         bool(snap_a.get("is_debut")) and bool(snap_b.get("is_debut"))
     )
 
+    # Weight class rank
+    wc = fight.get("weight_class")
+    weight_class_rank = _WEIGHT_CLASS_RANK.get(wc) if wc else None
+
     return {
         "fight_id": fight["fight_id"],
         "fighter_1_id": fight["fighter_1_id"],
@@ -202,9 +233,9 @@ def _bout_to_row(fight: dict, snap_a: dict, snap_b: dict) -> dict:
         "is_title_fight": bool(fight.get("is_title_fight")),
         "scheduled_rounds": fight.get("scheduled_rounds"),
         "label": label,
-        "feature_version": 1,
+        "feature_version": 2,
 
-        # Differences (fighter_1 - fighter_2)
+        # ── v1 differences (fighter_1 − fighter_2) ────────────────────────
         "diff_elo": _diff("pre_fight_elo"),
         "diff_career_wins": _diff("wins"),
         "diff_career_fights": _diff("total_fights"),
@@ -228,16 +259,38 @@ def _bout_to_row(fight: dict, snap_a: dict, snap_b: dict) -> dict:
         "diff_win_rate_decay": _diff("decay_win_rate"),
         "diff_opp_avg_elo": _diff("avg_opponent_elo"),
 
-        # Ratios (fighter_1 / (fighter_1 + fighter_2))
+        # ── v2 wired differences (already in snapshot, newly surfaced) ────
+        "diff_career_ko_rate": _diff("ko_tko_win_rate"),
+        "diff_career_sub_rate": _diff("sub_win_rate"),
+        "diff_career_decision_rate": _diff("dec_win_rate"),
+        "diff_career_sig_strikes_absorbed_pm": _diff("career_sig_strikes_absorbed_per_min"),
+        "diff_career_sig_strike_defense": _diff("career_sig_strike_defense"),
+        "diff_career_takedown_defense": _diff("career_takedown_defense"),
+        "diff_title_fight_count": _diff("title_fights"),
+        "diff_five_round_fights": _diff("five_round_experience"),
+        "diff_reach_height_ratio": _diff("reach_to_height_ratio"),
+        "diff_fights_per_year_last3": _diff("fights_per_year_last3"),
+
+        # ── v2 trend differences ──────────────────────────────────────────
+        "diff_slope_sig_strikes_last5": _diff("slope_sig_strikes_last5"),
+        "diff_slope_td_accuracy_last5": _diff("slope_td_accuracy_last5"),
+        "diff_slope_control_rate_last5": _diff("slope_control_rate_last5"),
+        "diff_std_sig_strikes_last5": _diff("std_sig_strikes_last5"),
+        "diff_std_td_accuracy_last5": _diff("std_td_accuracy_last5"),
+
+        # ── v1 ratios (fighter_1 / (fighter_1 + fighter_2)) ───────────────
         "ratio_career_wins": _ratio("wins"),
         "ratio_career_fights": _ratio("total_fights"),
         "ratio_career_sig_strikes_landed_pm": _ratio("career_sig_strikes_landed_per_min"),
         "ratio_career_control_rate": _ratio("career_control_time_per_fight"),
         "ratio_elo": _ratio("pre_fight_elo"),
 
-        # Matchup
+        # ── v2 matchup / metadata ────────────────────────────────────────
         "is_orthodox_vs_southpaw": is_orth_vs_south,
         "both_debuting": both_debuting,
+        "f1_is_southpaw": bool(stance_a == "southpaw") if stance_a else False,
+        "f2_is_southpaw": bool(stance_b == "southpaw") if stance_b else False,
+        "weight_class_rank": weight_class_rank,
 
         "computed_at": now,
     }

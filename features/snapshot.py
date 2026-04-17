@@ -24,7 +24,7 @@ from features.opponent import compute_opponent_adjusted
 from features.history import FightHistory
 
 
-FEATURE_VERSION = 1
+FEATURE_VERSION = 2
 
 
 def build_fighter_snapshot(
@@ -54,7 +54,7 @@ def build_fighter_snapshot(
         Flat dict with all snapshot features + metadata.
     """
     career = compute_career_features(history)
-    rolling = compute_rolling_features(history)
+    rolling = compute_rolling_features(history, cutoff_date=cutoff_date)
     decay = compute_decayed_features(history, cutoff_date)
     physical = compute_physical_features(fighter, history, cutoff_date)
     elo = get_fighter_elo_features(elo_data, fighter_id, fight_id, history)

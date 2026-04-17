@@ -62,23 +62,64 @@ FEATURE_COLS: list[str] = [
     "both_debuting",
 ]
 
+# v2 feature set: superset of v1 with additional columns from Phase 5 T5.1.1.
+FEATURE_COLS_V2: list[str] = FEATURE_COLS + [
+    # Wired diffs (already in career.py / physical.py snapshots, newly surfaced)
+    "diff_career_ko_rate",
+    "diff_career_sub_rate",
+    "diff_career_decision_rate",
+    "diff_career_sig_strikes_absorbed_pm",
+    "diff_career_sig_strike_defense",
+    "diff_career_takedown_defense",
+    "diff_title_fight_count",
+    "diff_five_round_fights",
+    "diff_reach_height_ratio",
+    "diff_fights_per_year_last3",
+    # Trend diffs (slope and volatility over last 5 fights)
+    "diff_slope_sig_strikes_last5",
+    "diff_slope_td_accuracy_last5",
+    "diff_slope_control_rate_last5",
+    "diff_std_sig_strikes_last5",
+    "diff_std_td_accuracy_last5",
+    # Stance detail
+    "f1_is_southpaw",
+    "f2_is_southpaw",
+    # Weight class ordinal encoding
+    "weight_class_rank",
+]
+
 
 # ── Data loading ──────────────────────────────────────────────────────────────
 
-def load_bout_data(conn: "PGConnection") -> pd.DataFrame:
+def load_bout_data(
+    conn: "PGConnection",
+    feature_cols: list[str] | None = None,
+) -> pd.DataFrame:
     """Load bout_features from the warehouse into a model-ready DataFrame.
 
     - Excludes draws and no-contests (NULL label).
     - Sorts by event_date ascending.
     - Casts boolean columns to int (0/1) for model compatibility.
-    - All FEATURE_COLS are present; NaNs are preserved (not dropped).
+    - All feature columns are present; NaNs are preserved (not dropped).
+
+    Args:
+        conn: Database connection.
+        feature_cols: Which feature columns to load. Defaults to FEATURE_COLS (v1).
 
     Returns a DataFrame with columns: fight_id, fighter_1_id, fighter_2_id,
-    event_date, weight_class, label, both_debuting, + all FEATURE_COLS.
+    event_date, weight_class, label, both_debuting, + all feature columns.
     """
+    if feature_cols is None:
+        feature_cols = FEATURE_COLS
+
+    # Debut prior columns are computed in Python (features.debut_prior),
+    # not stored in the DB — exclude them from the SQL query.
+    _PYTHON_ONLY_COLS = {"debut_prior_win_prob_f1", "debut_height_adv", "debut_reach_adv"}
+    db_feature_cols = [c for c in feature_cols if c not in _PYTHON_ONLY_COLS]
+
     cols = (
         "fight_id, fighter_1_id, fighter_2_id, event_date, weight_class, "
-        "label, " + ", ".join(FEATURE_COLS)
+        "label, " + ", ".join(db_feature_cols)
     )
     query = f"""
         SELECT {cols}
@@ -93,8 +134,17 @@ def load_bout_data(conn: "PGConnection") -> pd.DataFrame:
 
     df = pd.DataFrame(rows, columns=col_names)
 
+    # psycopg2 returns decimal.Decimal for numeric columns — cast all feature
+    # columns to float so arithmetic (abs, diff, etc.) works without errors.
+    for col in feature_cols:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+
     # Cast boolean columns to int so all features are numeric
-    bool_cols = ["is_title_fight", "is_orthodox_vs_southpaw", "both_debuting"]
+    bool_cols = [
+        "is_title_fight", "is_orthodox_vs_southpaw", "both_debuting",
+        "f1_is_southpaw", "f2_is_southpaw",
+    ]
     for col in bool_cols:
         if col in df.columns:
             df[col] = df[col].astype(int)
