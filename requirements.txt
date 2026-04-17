@@ -1,0 +1,11 @@
+joblib
+lightgbm
+matplotlib
+numpy
+pandas
+psycopg2-binary
+python-dotenv
+pytest
+scikit-learn
+shap
+xgboost
