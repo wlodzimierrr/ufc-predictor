@@ -86,17 +86,18 @@ class Fight:
     fighter_2_outcome: str
     bout_type: str
     weight_class: Optional[str]
-    num_rounds: int
+    num_rounds: Optional[int]
     finish_method: str
     primary_finish_method: str
     secondary_finish_method: str
-    finish_round: int
-    finish_time_minute: int
-    finish_time_second: int
+    finish_round: Optional[int]
+    finish_time_minute: Optional[int]
+    finish_time_second: Optional[int]
     referee: str
     judge_1: str
     judge_2: str
     judge_3: str
+    event_status: str
 
 
 @dataclass

@@ -72,7 +72,7 @@ class EventInfoParser(Parser):
             self._country = event_location_split[1]
 
     def _get_fights(self) -> None:
-        fight_urls = self._safe_css_get_all(self._css_queries.fight_urls_query)
+        fight_urls = self._response.css(self._css_queries.fight_urls_query).getall()
         fight_ids = [get_uuid_string(fight_url) for fight_url in fight_urls]
         self._fights = ", ".join(fight_ids)
         self._fight_urls = ", ".join(fight_urls)
@@ -92,6 +92,17 @@ class EventInfoParser(Parser):
         self._get_event_date()
         self._get_event_location()
         self._get_fights()
+
+        # UFCStats may list the next event on the "completed" page before it
+        # actually happens. Override based on the parsed date: if the event
+        # date is in the future, it's upcoming regardless of listing page.
+        if self._event_date_formatted:
+            try:
+                event_dt = datetime.strptime(self._event_date_formatted, "%Y-%m-%d").date()
+                if event_dt > datetime.now(timezone.utc).date():
+                    event_status = "upcoming"
+            except ValueError:
+                pass
 
         return Event(
             scraped_at=datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),

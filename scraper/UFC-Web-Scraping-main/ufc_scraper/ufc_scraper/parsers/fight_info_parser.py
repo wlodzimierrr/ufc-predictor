@@ -124,11 +124,12 @@ class FightInfoParser(Parser):
             self._judge_2 = judge_list_clean[1]
             self._judge_3 = judge_list_clean[2]
 
-    def parse_response(self) -> Fight:
+    def parse_response(self, event_status: str = "completed") -> Fight:
         """Parse the HTML response to get key fight attributes.
 
         Args:
             response (Response): The response object to query.
+            event_status (str): "completed" or "upcoming".
 
         Returns:
             Fight: Dataclass containing all key fight attributes.
@@ -136,13 +137,59 @@ class FightInfoParser(Parser):
         """
         self._get_event_id()
         self._get_fighter_ids()
-        self._get_fighter_outcomes()
-        self._get_weight_class()
-        self._get_num_rounds()
-        self._get_finish_method()
-        self._get_finish_round()
-        self._get_referee()
-        self._get_judges()
+
+        # Fields available on both completed and upcoming fight pages.
+        try:
+            self._get_weight_class()
+        except (ValueError, IndexError):
+            self._bout_type = ""
+            self._weight_class = None
+
+        try:
+            self._get_num_rounds()
+        except (ValueError, IndexError):
+            self._num_rounds = None
+
+        # Result fields — missing on upcoming fight pages.
+        try:
+            self._get_fighter_outcomes()
+        except (ValueError, IndexError):
+            self._fighter_1_outcome = ""
+            self._fighter_2_outcome = ""
+
+        try:
+            self._get_finish_method()
+        except (ValueError, IndexError):
+            self._finish_method = ""
+            self._primary_finish_method = ""
+            self._secondary_finish_method = ""
+
+        try:
+            self._get_finish_round()
+        except (ValueError, IndexError):
+            self._finish_round = None
+            self._finish_time_minute = None
+            self._finish_time_second = None
+
+        try:
+            self._get_referee()
+        except (ValueError, IndexError):
+            self._referee = ""
+
+        try:
+            self._get_judges()
+        except (ValueError, IndexError):
+            self._judge_1 = ""
+            self._judge_2 = ""
+            self._judge_3 = ""
+
+        # Derive event_status from actual fight content, not the listing page:
+        # - No outcomes → fight hasn't happened yet → upcoming
+        # - Has outcomes (W/L/D) → fight is done → completed
+        if not self._fighter_1_outcome and not self._fighter_2_outcome:
+            event_status = "upcoming"
+        elif self._fighter_1_outcome or self._fighter_2_outcome:
+            event_status = "completed"
 
         return Fight(
             scraped_at=datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
@@ -166,4 +213,5 @@ class FightInfoParser(Parser):
             judge_1=self._judge_1,
             judge_2=self._judge_2,
             judge_3=self._judge_3,
+            event_status=event_status,
         )

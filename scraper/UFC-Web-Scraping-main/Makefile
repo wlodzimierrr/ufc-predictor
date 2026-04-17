@@ -2,7 +2,7 @@ PROJECT_DIR := ufc_scraper
 PYTHON ?= $(abspath .venv/bin/python)
 CRAWL := $(PYTHON) -m scrapy crawl
 CRAWL_LIST := events fighters fights fight_stats fight_stats_by_round
-DATA_DIR := ../../data
+DATA_DIR := ../../../data
 N ?= 10
 # Bounded backfill: CLOSESPIDER_PAGECOUNT for the events spider.
 # 1 listing page + N-1 event detail pages ≈ N-1 events.
@@ -81,6 +81,20 @@ check:
 smoke:
 	$(MAKE) sample_events N=5
 	$(MAKE) check
+
+
+# Full refresh: bypass cache and incremental skip.
+# Use after an event to get fresh fighter profiles, fight results, etc.
+# Usage: make refresh_fighters  |  make refresh_all
+refresh_%:
+	cd $(PROJECT_DIR) && \
+	mkdir -p $(DATA_DIR) && \
+	$(CRAWL) crawl_$* -a incremental=0 -s HTTPCACHE_ENABLED=False -O $(DATA_DIR)/$*.csv $(ARGS)
+
+refresh_all:
+	@for c in $(CRAWL_LIST); do \
+		$(MAKE) refresh_$$c $(ARGS); \
+	done
 
 
 # Build the canonical fight stats queue from local data sources.
