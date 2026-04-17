@@ -66,17 +66,53 @@ The platform should organize source data into four primary domains.
 
 Postgres should be the primary warehouse for normalized data and derived feature snapshots. Python should own scraping, parsing, feature generation, training, and inference.
 
-### Recommended Tables
+### Implemented Raw Files
 
-| Table | Primary Key | Important Foreign Keys | Suggested Fields |
+The current scraper writes five canonical CSV files at the repo root `data/` directory.
+
+| File | Grain | Actual Columns |
+| --- | --- | --- |
+| `data/events.csv` | one row per event | `scraped_at`, `event_id`, `url`, `name`, `date`, `date_formatted`, `city`, `state`, `country`, `fights`, `fight_urls`, `event_status` |
+| `data/fights.csv` | one row per fight | `scraped_at`, `fight_id`, `event_id`, `url`, `fighter_1_id`, `fighter_2_id`, `fighter_1_outcome`, `fighter_2_outcome`, `bout_type`, `weight_class`, `num_rounds`, `finish_method`, `primary_finish_method`, `secondary_finish_method`, `finish_round`, `finish_time_minute`, `finish_time_second`, `referee`, `judge_1`, `judge_2`, `judge_3` |
+| `data/fighters.csv` | one row per fighter | `scraped_at`, `fighter_id`, `url`, `full_name`, `first_name`, `last_names`, `nickname`, `height_ft`, `height_in`, `height_cm`, `weight_lbs`, `reach_in`, `reach_cm`, `stance`, `dob`, `dob_formatted`, `record`, `wins`, `losses`, `draws`, `no_contests`, `fight_ids` |
+| `data/fight_stats.csv` | one row per fighter per fight | `scraped_at`, `fight_stat_id`, `fight_id`, `fighter_id`, `url`, `total_strikes_landed`, `total_strikes_attempted`, `significant_strikes_landed`, `significant_strikes_attempted`, `significant_strikes_landed_head`, `significant_strikes_attempted_head`, `significant_strikes_landed_body`, `significant_strikes_attempted_body`, `significant_strikes_landed_leg`, `significant_strikes_attempted_leg`, `significant_strikes_landed_distance`, `significant_strikes_attempted_distance`, `significant_strikes_landed_clinch`, `significant_strikes_attempted_clinch`, `significant_strikes_landed_ground`, `significant_strikes_attempted_ground`, `knockdowns`, `takedowns_landed`, `takedowns_attempted`, `control_time_minutes`, `control_time_seconds`, `submissions_attempted`, `reversals` |
+| `data/fight_stats_by_round.csv` | one row per fighter per round per fight | `scraped_at`, `fight_stat_by_round_id`, `fight_id`, `fighter_id`, `round`, `total_strikes_landed`, `total_strikes_attempted`, `significant_strikes_landed`, `significant_strikes_attempted`, `significant_strikes_landed_head`, `significant_strikes_attempted_head`, `significant_strikes_landed_body`, `significant_strikes_attempted_body`, `significant_strikes_landed_leg`, `significant_strikes_attempted_leg`, `significant_strikes_landed_distance`, `significant_strikes_attempted_distance`, `significant_strikes_landed_clinch`, `significant_strikes_attempted_clinch`, `significant_strikes_landed_ground`, `significant_strikes_attempted_ground`, `knockdowns`, `takedowns_landed`, `takedowns_attempted`, `control_time_minutes`, `control_time_seconds`, `submissions_attempted`, `reversals` |
+
+### Implemented Warehouse Tables
+
+The current warehouse schema is defined in `warehouse/sql/*.sql`. These are the actual normalized tables in the repo today.
+
+| Table | Primary Key | Important Foreign Keys | Actual Columns |
 | --- | --- | --- | --- |
-| `events` | `event_id` | none | `source_event_id`, `event_name`, `event_date`, `venue`, `city`, `country`, `scraped_at`, `source_url` |
-| `fights` | `fight_id` | `event_id`, `fighter_1_id`, `fighter_2_id`, `winner_fighter_id` | `card_order`, `weight_class`, `scheduled_rounds`, `completed_rounds`, `result_type`, `method`, `decision_type`, `is_title_fight`, `is_bonus_fight`, `referee` |
-| `fighters` | `fighter_id` | none | `source_fighter_id`, `fighter_name`, `nickname`, `date_of_birth`, `height_cm`, `reach_cm`, `stance`, `nationality`, `gym_name`, `ufc_debut_date`, `last_profile_scraped_at` |
-| `fight_stats_by_round` | `fight_stat_round_id` | `fight_id`, `fighter_id` | `round_number`, `sig_str_landed`, `sig_str_attempted`, `total_str_landed`, `total_str_attempted`, `td_landed`, `td_attempted`, `sub_attempts`, `knockdowns`, `control_seconds`, `head_landed`, `body_landed`, `leg_landed`, `distance_landed`, `clinch_landed`, `ground_landed` |
-| `fight_stats_aggregate` | `fight_stat_agg_id` | `fight_id`, `fighter_id` | fight-level totals plus derived efficiencies, pace per minute, strike differential, control share |
-| `fighter_history_snapshot` | `history_snapshot_id` | `fighter_id`, optionally `fight_id` | `as_of_date`, `career_fights`, `career_wins`, `career_losses`, `career_minutes`, rolling and decayed metrics, opponent strength summaries |
-| `upcoming_fight_feature_set` | `feature_set_id` | `event_id`, `fight_id`, `fighter_1_id`, `fighter_2_id` | `snapshot_date`, model-ready features, missingness flags, uncertainty flags, `model_version_target` |
+| `events` | `event_id` | none | `event_id`, `event_name`, `event_date`, `city`, `state`, `country`, `event_status`, `source_url`, `scraped_at` |
+| `fights` | `fight_id` | `event_id`, `fighter_1_id`, `fighter_2_id`, `winner_fighter_id` | `fight_id`, `event_id`, `fighter_1_id`, `fighter_2_id`, `winner_fighter_id`, `result_type`, `weight_class`, `is_title_fight`, `is_interim_title`, `scheduled_rounds`, `finish_method`, `finish_detail`, `finish_round`, `finish_time_seconds`, `referee`, `source_url`, `scraped_at` |
+| `fighters` | `fighter_id` | none | `fighter_id`, `full_name`, `first_name`, `last_name`, `nickname`, `height_cm`, `weight_lbs`, `reach_cm`, `stance`, `dob`, `source_url`, `scraped_at` |
+| `fight_stats_aggregate` | `fight_stat_id` | `fight_id`, `fighter_id` | `fight_stat_id`, `fight_id`, `fighter_id`, `knockdowns`, `total_strikes_landed`, `total_strikes_attempted`, `sig_strikes_landed`, `sig_strikes_attempted`, `sig_strikes_head_landed`, `sig_strikes_head_attempted`, `sig_strikes_body_landed`, `sig_strikes_body_attempted`, `sig_strikes_leg_landed`, `sig_strikes_leg_attempted`, `sig_strikes_distance_landed`, `sig_strikes_distance_attempted`, `sig_strikes_clinch_landed`, `sig_strikes_clinch_attempted`, `sig_strikes_ground_landed`, `sig_strikes_ground_attempted`, `takedowns_landed`, `takedowns_attempted`, `control_time_seconds`, `submissions_attempted`, `reversals`, `source_url`, `scraped_at` |
+| `fight_stats_by_round` | `fight_stat_by_round_id` | `fight_id`, `fighter_id` | `fight_stat_by_round_id`, `fight_id`, `fighter_id`, `round`, `knockdowns`, `total_strikes_landed`, `total_strikes_attempted`, `sig_strikes_landed`, `sig_strikes_attempted`, `sig_strikes_head_landed`, `sig_strikes_head_attempted`, `sig_strikes_body_landed`, `sig_strikes_body_attempted`, `sig_strikes_leg_landed`, `sig_strikes_leg_attempted`, `sig_strikes_distance_landed`, `sig_strikes_distance_attempted`, `sig_strikes_clinch_landed`, `sig_strikes_clinch_attempted`, `sig_strikes_ground_landed`, `sig_strikes_ground_attempted`, `takedowns_landed`, `takedowns_attempted`, `control_time_seconds`, `submissions_attempted`, `reversals`, `source_url`, `scraped_at` |
+
+### Implemented Feature Tables
+
+The current feature layer uses two tables: `fighter_snapshots` and `bout_features`. The full reference now lives in `docs/data_dictionary.md`; the lists below are the actual column names from the warehouse SQL.
+
+#### `fighter_snapshots`
+
+- Identifiers and metadata: `fighter_id`, `fight_id`, `as_of_date`, `feature_version`, `computed_at`
+- Career aggregates: `career_fights`, `career_wins`, `career_losses`, `career_draws`, `career_nc`, `career_win_rate`, `career_finish_rate`, `career_ko_tko_wins`, `career_sub_wins`, `career_dec_wins`, `career_ko_tko_losses`, `career_sub_losses`, `career_title_fights`, `career_title_wins`, `career_minutes`, `career_sig_strikes_landed_pm`, `career_sig_strikes_absorbed_pm`, `career_sig_strike_accuracy`, `career_sig_strike_defense`, `career_takedown_accuracy`, `career_takedown_defense`, `career_sub_attempts_pm`, `career_control_rate`, `career_knockdowns_pm`
+- Rolling window last 1: `win_rate_last1`, `finish_rate_last1`, `sig_strikes_landed_pm_last1`, `sig_strikes_absorbed_pm_last1`, `sig_strike_accuracy_last1`, `sig_strike_defense_last1`, `takedown_landed_pm_last1`, `takedown_accuracy_last1`, `takedown_defense_last1`, `control_rate_last1`, `knockdowns_pm_last1`, `knockdowns_absorbed_pm_last1`, `sub_attempts_pm_last1`, `avg_fight_time_last1`, `streak_last1`
+- Rolling window last 3: `win_rate_last3`, `finish_rate_last3`, `sig_strikes_landed_pm_last3`, `sig_strikes_absorbed_pm_last3`, `sig_strike_accuracy_last3`, `sig_strike_defense_last3`, `takedown_landed_pm_last3`, `takedown_accuracy_last3`, `takedown_defense_last3`, `control_rate_last3`, `knockdowns_pm_last3`, `knockdowns_absorbed_pm_last3`, `sub_attempts_pm_last3`, `avg_fight_time_last3`, `streak_last3`
+- Rolling window last 5: `win_rate_last5`, `finish_rate_last5`, `sig_strikes_landed_pm_last5`, `sig_strikes_absorbed_pm_last5`, `sig_strike_accuracy_last5`, `sig_strike_defense_last5`, `takedown_landed_pm_last5`, `takedown_accuracy_last5`, `takedown_defense_last5`, `control_rate_last5`, `knockdowns_pm_last5`, `knockdowns_absorbed_pm_last5`, `sub_attempts_pm_last5`, `avg_fight_time_last5`, `streak_last5`
+- Exponentially decayed metrics: `sig_strikes_landed_pm_decay`, `sig_strikes_absorbed_pm_decay`, `sig_strike_accuracy_decay`, `sig_strike_defense_decay`, `takedown_landed_pm_decay`, `takedown_accuracy_decay`, `takedown_defense_decay`, `control_rate_decay`, `knockdowns_pm_decay`, `win_rate_decay`
+- Physical and activity: `age`, `age_squared`, `height_cm`, `reach_cm`, `reach_to_height`, `is_orthodox`, `is_southpaw`, `days_since_last_fight`, `is_long_layoff`, `is_short_notice`, `is_debut`, `age_missing`, `height_reach_missing`
+- Elo and opponent-adjusted: `elo_rating`, `elo_opponent`, `elo_diff`, `opp_avg_elo`, `opp_adj_sig_strike_accuracy`
+- Phase 5 v2 additions: `slope_sig_strikes_last5`, `slope_td_accuracy_last5`, `slope_control_rate_last5`, `std_sig_strikes_last5`, `std_td_accuracy_last5`, `fights_per_year_last3`
+
+#### `bout_features`
+
+- Identifiers and metadata: `fight_id`, `fighter_1_id`, `fighter_2_id`, `event_date`, `weight_class`, `is_title_fight`, `scheduled_rounds`, `label`, `feature_version`, `computed_at`
+- Difference features v1: `diff_elo`, `diff_career_wins`, `diff_career_fights`, `diff_career_win_rate`, `diff_career_finish_rate`, `diff_career_sig_strikes_landed_pm`, `diff_career_sig_strike_accuracy`, `diff_career_takedown_accuracy`, `diff_career_control_rate`, `diff_age`, `diff_height_cm`, `diff_reach_cm`, `diff_days_since_last_fight`, `diff_win_rate_last3`, `diff_sig_strikes_landed_pm_last3`, `diff_takedown_accuracy_last3`, `diff_control_rate_last3`, `diff_sig_strikes_landed_pm_decay`, `diff_win_rate_decay`, `diff_opp_avg_elo`
+- Ratio features: `ratio_career_wins`, `ratio_career_fights`, `ratio_career_sig_strikes_landed_pm`, `ratio_career_control_rate`, `ratio_elo`
+- Matchup flags: `is_orthodox_vs_southpaw`, `both_debuting`
+- Phase 5 v2 additions: `diff_career_ko_rate`, `diff_career_sub_rate`, `diff_career_decision_rate`, `diff_career_sig_strikes_absorbed_pm`, `diff_career_sig_strike_defense`, `diff_career_takedown_defense`, `diff_title_fight_count`, `diff_five_round_fights`, `diff_reach_height_ratio`, `diff_fights_per_year_last3`, `diff_slope_sig_strikes_last5`, `diff_slope_td_accuracy_last5`, `diff_slope_control_rate_last5`, `diff_std_sig_strikes_last5`, `diff_std_td_accuracy_last5`, `f1_is_southpaw`, `f2_is_southpaw`, `weight_class_rank`
 
 ### Keys and Relationship Design
 
