@@ -1,45 +1,121 @@
-# UFC Data
+# UFC Fight Prediction Data Platform
 
-Data, feature engineering, modeling, and prediction pipelines for UFC fight analytics.
+End-to-end data engineering and machine learning project for predicting UFC fight outcomes.
 
-This repository owns the backend data work for the UFC prediction system: scraping outputs,
-warehouse loading, feature generation, model training, upcoming fight scoring, and post-event
-accuracy review.
+This repository contains the backend of the system: data collection, warehouse loading,
+feature engineering, model training, calibrated prediction generation, and post-event
+accuracy tracking. The public dashboard is maintained separately in
+[wlodzimierrr/ufc-dashboard](https://github.com/wlodzimierrr/ufc-dashboard).
 
-The dashboard UI is maintained separately in the
-[wlodzimierrr/ufc-dashboard](https://github.com/wlodzimierrr/ufc-dashboard)
-repository. Next event predictions and current model accuracy stats are published at:
+Live next-event predictions and current model accuracy stats are available at:
 
 https://ufc.wlodzimierrr.pl
 
-## What is in this repo
+## Project Summary
+
+The goal of this project is to turn raw UFCStats data into a repeatable prediction
+pipeline that can score upcoming UFC bouts and then measure how those predictions perform
+after the event finishes.
+
+What this project demonstrates:
+
+- Building a repeatable data pipeline from scraped sports data into a Postgres warehouse.
+- Designing historical, leakage-safe features for fight prediction.
+- Training and comparing multiple machine learning models using chronological train,
+  validation, and test splits.
+- Calibrating model probabilities so the output is useful as a probability, not only as
+  a winner pick.
+- Publishing upcoming predictions to downstream dashboard/data consumers.
+- Tracking post-event accuracy to monitor model quality over time.
+
+## What I Built
+
+### Data Pipeline
+
+- Scrapes UFC event, fighter, fight, and round-level statistics from UFCStats.
+- Stores source snapshots as CSV files under `data/`.
+- Loads cleaned and transformed data into a Postgres warehouse.
+- Includes validation checks for warehouse integrity and consistency.
+- Handles incremental refreshes for newly completed and upcoming events.
+
+### Feature Engineering
+
+The feature pipeline builds pre-fight snapshots so the model only sees information that
+would have been available before the bout happened.
+
+Feature groups include:
+
+- Fighter career record and win rate.
+- Recent form over the last fights.
+- Striking and grappling metrics.
+- Time-decayed performance metrics.
+- Elo-style fighter strength.
+- Opponent-adjusted history.
+- Physical attributes such as age, height, and reach.
+- Debut-fighter priors for bouts with limited historical information.
+
+### Modeling
+
+The modeling layer trains and evaluates several approaches, including:
+
+- Logistic regression baseline.
+- LightGBM models.
+- XGBoost model.
+- Stacked/blended ensemble experiments.
+- Calibration with Platt scaling.
+- Uncertainty and confidence-tier analysis.
+
+The active production model is selected through `models/production_model.json`. More
+detailed model documentation is available in `docs/model_card.md`.
+
+### Prediction And Review Loop
+
+The system can score upcoming fights, save predictions, and later compare those predictions
+against actual results.
+
+Outputs include:
+
+- Calibrated win probability.
+- Predicted winner.
+- Confidence tier.
+- Uncertainty flag.
+- Event-level and fight-level post-event accuracy reports.
+- Historical backtests of the current production model.
+
+## Repository Structure
 
 | Path | Purpose |
 |---|---|
 | `scraper/` | UFCStats scraping project and raw scraper outputs. |
-| `data/` | CSV data snapshots and generated reports. |
-| `warehouse/` | Postgres schema migrations, loaders, transforms, and validation checks. |
-| `features/` | Fight-level and fighter-level feature engineering for historical and upcoming bouts. |
-| `modeling/` | Model training, calibration, scoring, uncertainty analysis, and backtesting. |
-| `models/` | Trained model artifacts, production model pointer, predictions, and reports. |
-| `notebooks/` | Exploratory analysis, model review, upcoming prediction, and saved prediction review notebooks. |
-| `docs/` | Model card, project tickets, and phase notes. |
+| `data/` | CSV data snapshots, manifests, and generated reports. |
+| `warehouse/` | Postgres migrations, loaders, transforms, and validation checks. |
+| `features/` | Historical and upcoming fight feature engineering. |
+| `modeling/` | Training, calibration, scoring, uncertainty analysis, and backtesting. |
+| `models/` | Model artifacts, production pointer, predictions, and reports. |
+| `notebooks/` | Exploration, model review, upcoming prediction, and saved prediction review notebooks. |
+| `docs/` | Model card, project notes, and implementation tickets. |
 
-## Model Overview
+## Dashboard
 
-The production model is selected through `models/production_model.json`.
+This repository is the data and ML backend. The dashboard frontend is in:
 
-Current model documentation lives in `docs/model_card.md`. At the time of that model card,
-the production model is a calibrated XGBoost classifier trained on chronological UFC fight
-history and evaluated on held-out recent events.
+[wlodzimierrr/ufc-dashboard](https://github.com/wlodzimierrr/ufc-dashboard)
 
-Primary outputs:
+The dashboard displays upcoming fight predictions and current model accuracy statistics:
 
-- Calibrated probability that `fighter_1` wins.
-- Predicted winner probability.
-- Confidence tier.
-- Uncertainty flag.
-- Post-event accuracy and calibration reports.
+https://ufc.wlodzimierrr.pl
+
+## Tech Stack
+
+- Python
+- pandas, NumPy, scikit-learn
+- XGBoost, LightGBM
+- SHAP for model explanation work
+- PostgreSQL
+- psycopg2
+- pytest
+- Jupyter notebooks
+- Power BI dashboard assets
 
 ## Setup
 
@@ -149,7 +225,7 @@ Generated artifacts are written under `models/`, including:
 - `models/predictions/<event_date>/predictions.csv`
 - `models/backtests/`
 
-## Refresh After an Event
+## Refresh After An Event
 
 After an event completes, refresh scraped data, reload the warehouse, rebuild upcoming
 features, and regenerate predictions:
@@ -172,11 +248,10 @@ Run the integration pipeline test:
 make test_integration
 ```
 
-## Notes
+## Limitations
 
 - The model is intended for pre-fight analytical review, not live in-fight prediction.
-- Predictions do not include injuries, late camp changes, weight cut issues, betting markets,
-  or other off-platform context.
-- Public-facing dashboard work belongs in the separate
-  [wlodzimierrr/ufc-dashboard](https://github.com/wlodzimierrr/ufc-dashboard)
-  repository.
+- It does not include injuries, training camp changes, weight cut issues, short-notice
+  replacement context, or betting market odds.
+- Fight prediction is noisy by nature, so the project emphasizes calibrated probabilities,
+  uncertainty bands, and post-event accuracy tracking rather than only winner picks.
