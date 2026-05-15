@@ -83,6 +83,11 @@ predict:
 review_event:
 	$(PYTHON) modeling/post_event_review.py --event "$(EVENT)"
 
+review_all_events:
+	$(PYTHON) modeling/backtest_past_events.py
+
+backtest_past: review_all_events
+
 train_all_v2: train_lgbm_v2 train_xgb train_ensemble compare_models
 
 # ── Post-event refresh ────────────────────────────────────────────────────────
@@ -107,7 +112,7 @@ predict_pipeline: load_upcoming build_upcoming_features score_upcoming
         validate_integrity validate_consistency warehouse_check warehouse_up \
         build_features build_upcoming_features test_leakage validate_features features_up \
         train_logreg train_lgbm train_lgbm_v2 train_xgb train_ensemble \
-        compare_models score_upcoming predict review_event \
+        compare_models score_upcoming predict review_event review_all_events backtest_past \
         uncertainty_analysis error_analysis train_all_v2 \
         test_integration predict_pipeline \
         refresh_scrape post_event
