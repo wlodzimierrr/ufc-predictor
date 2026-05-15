@@ -11,12 +11,12 @@ Usage:
     python warehouse/load_fight_stats.py
 """
 
-import csv
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from warehouse.csv_utils import iter_data_rows
 from warehouse.db import get_connection, upsert
 from warehouse.transform import transform_fight_stat
 
@@ -34,12 +34,11 @@ def _known_fight_ids(conn) -> set[str]:
 def _load_csv(path: Path, known_fights: set[str], by_round: bool) -> tuple[list[dict], int]:
     rows = []
     skipped = 0
-    with path.open(newline="", encoding="utf-8") as f:
-        for raw in csv.DictReader(f):
-            if raw["fight_id"] not in known_fights:
-                skipped += 1
-                continue
-            rows.append(transform_fight_stat(raw, by_round=by_round))
+    for raw in iter_data_rows(path):
+        if raw["fight_id"] not in known_fights:
+            skipped += 1
+            continue
+        rows.append(transform_fight_stat(raw, by_round=by_round))
     return rows, skipped
 
 

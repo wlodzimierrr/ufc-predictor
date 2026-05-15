@@ -8,12 +8,12 @@ Usage:
     python warehouse/load_fights.py
 """
 
-import csv
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from warehouse.csv_utils import iter_data_rows
 from warehouse.db import get_connection, upsert
 from warehouse.transform import transform_fight
 
@@ -41,22 +41,21 @@ def load_fights() -> None:
 
         rows = []
         skipped = 0
-        with FIGHTS_CSV.open(newline="", encoding="utf-8") as f:
-            for raw in csv.DictReader(f):
-                if raw["event_id"] not in known_events:
-                    print(f"  warn  unknown event_id {raw['event_id']} for fight {raw['fight_id']} — skipping")
-                    skipped += 1
-                    continue
-                transformed = transform_fight(raw)
-                # Skip fights referencing fighters not yet in the DB
-                fighter_ids = [transformed["fighter_1_id"], transformed["fighter_2_id"]]
-                if transformed.get("winner_fighter_id"):
-                    fighter_ids.append(transformed["winner_fighter_id"])
-                if any(fid not in known_fighters for fid in fighter_ids):
-                    print(f"  warn  unknown fighter for fight {raw['fight_id']} — skipping")
-                    skipped += 1
-                    continue
-                rows.append(transformed)
+        for raw in iter_data_rows(FIGHTS_CSV):
+            if raw["event_id"] not in known_events:
+                print(f"  warn  unknown event_id {raw['event_id']} for fight {raw['fight_id']} — skipping")
+                skipped += 1
+                continue
+            transformed = transform_fight(raw)
+            # Skip fights referencing fighters not yet in the DB
+            fighter_ids = [transformed["fighter_1_id"], transformed["fighter_2_id"]]
+            if transformed.get("winner_fighter_id"):
+                fighter_ids.append(transformed["winner_fighter_id"])
+            if any(fid not in known_fighters for fid in fighter_ids):
+                print(f"  warn  unknown fighter for fight {raw['fight_id']} — skipping")
+                skipped += 1
+                continue
+            rows.append(transformed)
 
         print(f"  read  {len(rows)} rows from {FIGHTS_CSV.name} ({skipped} skipped)")
 

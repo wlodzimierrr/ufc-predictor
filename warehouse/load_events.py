@@ -7,12 +7,12 @@ Usage:
     python warehouse/load_events.py
 """
 
-import csv
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from warehouse.csv_utils import iter_data_rows
 from warehouse.db import get_connection, upsert
 from warehouse.transform import transform_event
 
@@ -26,18 +26,16 @@ def _load_manifest(path: Path) -> dict[str, str]:
     if not path.exists():
         print(f"  warn  manifest not found at {path}, event_status will default to 'completed'")
         return {}
-    with path.open(newline="", encoding="utf-8") as f:
-        return {row["event_id"]: row["event_status"] for row in csv.DictReader(f)}
+    return {row["event_id"]: row["event_status"] for row in iter_data_rows(path)}
 
 
 def load_events() -> None:
     manifest = _load_manifest(MANIFEST_CSV)
 
     rows = []
-    with EVENTS_CSV.open(newline="", encoding="utf-8") as f:
-        for raw in csv.DictReader(f):
-            raw["event_status"] = manifest.get(raw["event_id"], "completed")
-            rows.append(transform_event(raw))
+    for raw in iter_data_rows(EVENTS_CSV):
+        raw["event_status"] = manifest.get(raw["event_id"], "completed")
+        rows.append(transform_event(raw))
 
     print(f"  read  {len(rows)} rows from {EVENTS_CSV.name}")
 

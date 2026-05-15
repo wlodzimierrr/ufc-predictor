@@ -19,7 +19,6 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import csv
 import sys
 import uuid
 from datetime import datetime, timezone
@@ -27,6 +26,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from warehouse.csv_utils import iter_data_rows
 from warehouse.db import get_connection, upsert
 from warehouse.transform import _extract_bout_flags, _str
 
@@ -55,12 +55,11 @@ def _load_fight_urls_from_manifest() -> dict[str, list[str]]:
         return {}
 
     result: dict[str, list[str]] = {}
-    with MANIFEST_CSV.open(newline="", encoding="utf-8") as f:
-        for row in csv.DictReader(f):
-            if row.get("event_status") == "upcoming" and row.get("fight_urls"):
-                urls = [u.strip() for u in row["fight_urls"].split(",") if u.strip()]
-                if urls:
-                    result[row["event_id"]] = urls
+    for row in iter_data_rows(MANIFEST_CSV):
+        if row.get("event_status") == "upcoming" and row.get("fight_urls"):
+            urls = [u.strip() for u in row["fight_urls"].split(",") if u.strip()]
+            if urls:
+                result[row["event_id"]] = urls
     return result
 
 
@@ -70,11 +69,10 @@ def _load_fights_csv_index() -> dict[str, dict]:
         return {}
 
     index = {}
-    with FIGHTS_CSV.open(newline="", encoding="utf-8") as f:
-        for row in csv.DictReader(f):
-            url = _str(row.get("url"))
-            if url:
-                index[url] = row
+    for row in iter_data_rows(FIGHTS_CSV):
+        url = _str(row.get("url"))
+        if url:
+            index[url] = row
     return index
 
 
@@ -177,57 +175,56 @@ def load_from_csv(conn, csv_path: Path) -> int:
 
     rows = []
     warnings = []
-    with csv_path.open(newline="", encoding="utf-8") as f:
-        for raw in csv.DictReader(f):
-            event_name = _str(raw.get("event_name", ""))
-            f1_name = _str(raw.get("fighter_1_name", ""))
-            f2_name = _str(raw.get("fighter_2_name", ""))
+    for raw in iter_data_rows(csv_path):
+        event_name = _str(raw.get("event_name", ""))
+        f1_name = _str(raw.get("fighter_1_name", ""))
+        f2_name = _str(raw.get("fighter_2_name", ""))
 
-            if not all([event_name, f1_name, f2_name]):
-                continue
+        if not all([event_name, f1_name, f2_name]):
+            continue
 
-            event_id = event_map.get(event_name.lower())
-            if not event_id:
-                warnings.append(f"Unknown event: {event_name}")
-                continue
+        event_id = event_map.get(event_name.lower())
+        if not event_id:
+            warnings.append(f"Unknown event: {event_name}")
+            continue
 
-            f1_id = name_to_id.get(f1_name.lower())
-            f2_id = name_to_id.get(f2_name.lower())
+        f1_id = name_to_id.get(f1_name.lower())
+        f2_id = name_to_id.get(f2_name.lower())
 
-            if not f1_id:
-                warnings.append(f"Unknown fighter: {f1_name}")
-                continue
-            if not f2_id:
-                warnings.append(f"Unknown fighter: {f2_name}")
-                continue
+        if not f1_id:
+            warnings.append(f"Unknown fighter: {f1_name}")
+            continue
+        if not f2_id:
+            warnings.append(f"Unknown fighter: {f2_name}")
+            continue
 
-            fight_id = _make_fight_id(event_id, f1_id, f2_id)
-            if fight_id in existing:
-                continue
+        fight_id = _make_fight_id(event_id, f1_id, f2_id)
+        if fight_id in existing:
+            continue
 
-            wc = _str(raw.get("weight_class"))
-            rounds = int(raw.get("scheduled_rounds", 3)) if raw.get("scheduled_rounds") else 3
-            is_title = raw.get("is_title_fight", "").lower() in ("true", "1", "yes")
+        wc = _str(raw.get("weight_class"))
+        rounds = int(raw.get("scheduled_rounds", 3)) if raw.get("scheduled_rounds") else 3
+        is_title = raw.get("is_title_fight", "").lower() in ("true", "1", "yes")
 
-            rows.append({
-                "fight_id": fight_id,
-                "event_id": event_id,
-                "fighter_1_id": f1_id,
-                "fighter_2_id": f2_id,
-                "winner_fighter_id": None,
-                "result_type": "upcoming",
-                "weight_class": wc,
-                "is_title_fight": is_title,
-                "is_interim_title": False,
-                "scheduled_rounds": rounds,
-                "finish_method": None,
-                "finish_detail": None,
-                "finish_round": None,
-                "finish_time_seconds": None,
-                "referee": None,
-                "source_url": None,
-                "scraped_at": datetime.now(timezone.utc),
-            })
+        rows.append({
+            "fight_id": fight_id,
+            "event_id": event_id,
+            "fighter_1_id": f1_id,
+            "fighter_2_id": f2_id,
+            "winner_fighter_id": None,
+            "result_type": "upcoming",
+            "weight_class": wc,
+            "is_title_fight": is_title,
+            "is_interim_title": False,
+            "scheduled_rounds": rounds,
+            "finish_method": None,
+            "finish_detail": None,
+            "finish_round": None,
+            "finish_time_seconds": None,
+            "referee": None,
+            "source_url": None,
+            "scraped_at": datetime.now(timezone.utc),
+        })
 
     for w in warnings:
         print(f"  warn  {w}")
