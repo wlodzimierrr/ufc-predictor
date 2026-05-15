@@ -72,7 +72,9 @@ class EventInfoParser(Parser):
             self._country = event_location_split[1]
 
     def _get_fights(self) -> None:
-        fight_urls = self._response.css(self._css_queries.fight_urls_query).getall()
+        href_urls = self._response.css(self._css_queries.fight_urls_query).getall()
+        data_urls = self._response.css("tr[data-link*='fight-details']::attr(data-link)").getall()
+        fight_urls = list(dict.fromkeys(href_urls + data_urls))
         fight_ids = [get_uuid_string(fight_url) for fight_url in fight_urls]
         self._fights = ", ".join(fight_ids)
         self._fight_urls = ", ".join(fight_urls)

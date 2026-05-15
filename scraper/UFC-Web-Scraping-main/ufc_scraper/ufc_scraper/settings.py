@@ -73,3 +73,6 @@ ITEM_PIPELINES = {
 # Output encoding
 # ---------------------------------------------------------------------------
 FEED_EXPORT_ENCODING = "utf-8"
+FEED_EXPORTERS = {
+    "csv": "ufc_scraper.exporters.AppendSafeCsvItemExporter",
+}

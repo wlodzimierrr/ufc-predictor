@@ -54,7 +54,7 @@ def test_event_info_parse_response_valid(
         country="United Arab Emirates",
         fights=fights,
         fight_urls=", ".join(fight_urls),
-        event_status="completed",
+        event_status="upcoming",
     )
 
     assert parsed_response == expected_response
@@ -95,3 +95,37 @@ def test_event_info_parse_response_allows_missing_fight_links() -> None:
         fight_urls="",
         event_status="upcoming",
     )
+
+
+@freeze_time("2000-01-01 00:00:00", tz_offset=0)
+def test_event_info_parse_response_reads_upcoming_data_links() -> None:
+    fight_urls = [
+        "http://www.ufcstats.com/fight-details/fight-one",
+        "http://www.ufcstats.com/fight-details/fight-two",
+    ]
+    body = f"""
+    <html>
+      <body>
+        <span class="b-content__title-highlight">Upcoming Card</span>
+        <li class="b-list__box-list-item">Date:</li>
+        <li class="b-list__box-list-item">April 18, 2026</li>
+        <li class="b-list__box-list-item">Location:</li>
+        <li class="b-list__box-list-item">Montreal, Quebec, Canada</li>
+        <table>
+          <tr data-link="{fight_urls[0]}"></tr>
+          <tr data-link="{fight_urls[1]}"></tr>
+        </table>
+      </body>
+    </html>
+    """.encode("utf-8")
+    response = HtmlResponse(
+        url="http://www.ufcstats.com/event-details/test-upcoming-fights",
+        request=Request(url="http://www.ufcstats.com/event-details/test-upcoming-fights"),
+        body=body,
+    )
+
+    parsed_response = EventInfoParser(response).parse_response(event_status="upcoming")
+
+    assert parsed_response.fights == ", ".join(get_uuid_string(url) for url in fight_urls)
+    assert parsed_response.fight_urls == ", ".join(fight_urls)
+    assert parsed_response.event_status == "upcoming"

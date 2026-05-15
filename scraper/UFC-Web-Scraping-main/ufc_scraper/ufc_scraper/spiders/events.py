@@ -81,19 +81,28 @@ class CrawlEvents(IncrementalCrawlMixin, scrapy.Spider):
 
         The manifest does not carry event_status, so we subtract the
         UUIDs of events the CSV knows as upcoming before returning.
+
+        We also avoid skipping any captured event page whose parsed row is
+        missing from events.csv. This lets update_events heal a partial or
+        truncated CSV from the raw fetch manifest instead of preserving the
+        hole forever.
         """
         captured = super()._load_captured_uuids()
         if not captured or not self.existing_csv.exists():
             return captured
         with self.existing_csv.open(newline="", encoding="utf-8") as fh:
             reader = csv.DictReader(fh)
+            rows = [row for row in reader if row.get(self.id_column, "").strip()]
             upcoming_uuids = {
                 row[self.id_column].strip()
-                for row in reader
-                if row.get(self.id_column, "").strip()
-                and row.get("event_status", "") == "upcoming"
+                for row in rows
+                if row.get("event_status", "") == "upcoming"
             }
-        return captured - upcoming_uuids
+            csv_event_ids = {
+                row[self.id_column].strip()
+                for row in rows
+            }
+        return (captured & csv_event_ids) - upcoming_uuids
 
     def parse(self, response: Response) -> Any:
         """Parse an events listing page and schedule requests to event pages."""

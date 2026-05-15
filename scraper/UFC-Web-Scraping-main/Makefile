@@ -30,9 +30,13 @@ crawl_all_output:
 
 
 update_all:
-	@for c in $(CRAWL_LIST); do \
-		$(MAKE) update_$$c $(ARGS); \
-	done
+	$(MAKE) update_events ARGS="$(ARGS)"
+	$(MAKE) update_fights ARGS="$(ARGS)"
+	$(MAKE) build_stats_queue
+	$(MAKE) build_queue
+	$(MAKE) update_fighters ARGS="$(ARGS)"
+	$(MAKE) update_fight_stats ARGS="$(ARGS)"
+	$(MAKE) update_fight_stats_by_round ARGS="$(ARGS)"
 
 
 crawl_%:
