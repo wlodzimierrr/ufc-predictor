@@ -4,7 +4,7 @@ import csv
 from typing import Any
 
 import scrapy
-from scrapy.http import Response
+from scrapy.http import Request, Response
 
 from ufc_scraper.parsers.fight_info_parser import FightInfoParser
 from ufc_scraper.spiders.incremental import IncrementalCrawlMixin
@@ -31,9 +31,23 @@ class CrawlFights(IncrementalCrawlMixin, scrapy.Spider):
         "http://www.ufcstats.com/statistics/events/upcoming",
     ]
 
-    def __init__(self, *args: Any, **kwargs: Any) -> None:
+    def __init__(self, *args: Any, event_url: str = "", **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
+        # Optional single-event URL for post-event recovery/debug runs.
+        # Pass via: scrapy crawl crawl_fights -a event_url=<url>
+        self._event_url: str = event_url.strip()
         self._seen_event_uuids: set[str] = set()
+
+    def start_requests(self) -> Any:
+        """Yield one event page when event_url is set; otherwise seed from listings."""
+        if self._event_url:
+            yield Request(
+                self._event_url,
+                callback=self._get_fight_urls,
+                cb_kwargs={"event_status": "completed"},
+            )
+        else:
+            yield from super().start_requests()
 
     # ------------------------------------------------------------------
     # Incremental skip overrides

@@ -57,6 +57,7 @@ DOWNLOAD_TIMEOUT = 30
 # the retry middleware executes first.  Only the final response — after
 # retries succeed or are exhausted — reaches RawCaptureMiddleware at 200.
 DOWNLOADER_MIDDLEWARES = {
+    "ufc_scraper.middlewares.BrowserSessionHeaderMiddleware": 100,
     "ufc_scraper.middlewares.RawCaptureMiddleware": 200,
 }
 

@@ -5,6 +5,7 @@
 
 import csv
 import hashlib
+import os
 import threading
 import uuid
 from datetime import datetime, timezone
@@ -15,6 +16,102 @@ from scrapy import signals
 from utils import get_uuid_string
 
 # useful for handling different item types with a single interface
+
+
+class BrowserSessionHeaderMiddleware:
+    """Apply an opt-in browser session to UFCStats requests.
+
+    Set UFCSTATS_COOKIE_HEADER to the full Cookie request header copied from
+    your browser. Optionally set UFCSTATS_USER_AGENT to the same browser's
+    User-Agent. The values are never logged and only apply to ufcstats.com.
+    """
+
+    _UFCSTATS_HOST = "ufcstats.com"
+
+    def __init__(
+        self,
+        cookie_header: str = "",
+        user_agent: str = "",
+        header_block: str = "",
+    ) -> None:
+        self._extra_headers = _parse_header_block(header_block)
+        self._cookie_header = (
+            cookie_header.strip() or self._extra_headers.pop("Cookie", "")
+        )
+        self._user_agent = user_agent.strip() or self._extra_headers.pop("User-Agent", "")
+        self._cookies = _parse_cookie_header(self._cookie_header)
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        instance = cls(
+            cookie_header=os.environ.get("UFCSTATS_COOKIE_HEADER", ""),
+            user_agent=os.environ.get("UFCSTATS_USER_AGENT", ""),
+            header_block=os.environ.get("UFCSTATS_HEADER_BLOCK", ""),
+        )
+        crawler.signals.connect(instance._spider_opened, signal=signals.spider_opened)
+        return instance
+
+    def _spider_opened(self, spider) -> None:
+        if not self._cookie_header and not self._user_agent and not self._extra_headers:
+            return
+        spider.logger.info(
+            "BrowserSessionHeaderMiddleware active | cookie_chars=%d | "
+            "cookie_count=%d | user_agent=%s | extra_headers=%d",
+            len(self._cookie_header),
+            len(self._cookies),
+            "set" if self._user_agent else "unset",
+            len(self._extra_headers),
+        )
+
+    def process_request(self, request, spider):
+        if self._UFCSTATS_HOST not in request.url:
+            return None
+        if self._cookies:
+            request.cookies = self._cookies
+        if self._user_agent:
+            request.headers["User-Agent"] = self._user_agent
+        for header_name, header_value in self._extra_headers.items():
+            request.headers[header_name] = header_value
+        if self._cookie_header or self._user_agent:
+            request.headers.setdefault(
+                "Accept",
+                "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            )
+            request.headers.setdefault("Accept-Language", "en-US,en;q=0.9")
+            request.headers.setdefault("Upgrade-Insecure-Requests", "1")
+        return None
+
+
+def _parse_cookie_header(cookie_header: str) -> dict[str, str]:
+    cookies = {}
+    for cookie in cookie_header.split(";"):
+        if "=" not in cookie:
+            continue
+        name, value = cookie.split("=", 1)
+        name = name.strip()
+        if name:
+            cookies[name] = value.strip()
+    return cookies
+
+
+def _parse_header_block(header_block: str) -> dict[str, str]:
+    headers = {}
+    for raw_line in header_block.splitlines():
+        line = raw_line.strip().rstrip("\\")
+        if not line:
+            continue
+        if line.startswith("-H "):
+            line = line[3:].strip()
+        if line[:1] in {"'", '"'} and line[-1:] == line[:1]:
+            line = line[1:-1]
+        if ":" not in line:
+            continue
+        name, value = line.split(":", 1)
+        canonical_name = "-".join(part.capitalize() for part in name.strip().split("-"))
+        if canonical_name.lower() in {"host", "content-length"}:
+            continue
+        headers[canonical_name] = value.strip()
+    return headers
 
 
 class RawCaptureMiddleware:
@@ -142,6 +239,24 @@ class RawCaptureMiddleware:
             return response
 
         content = response.body
+        if self._is_browser_challenge(content):
+            self._stats["failed"] += 1
+            spider.logger.warning(
+                "Browser challenge detected; raw capture skipped for %s",
+                response.url,
+            )
+            self._append_manifest(
+                entity_type=entity_type,
+                source_url=response.url,
+                fetched_at=now,
+                http_status=response.status,
+                content_hash=hashlib.sha256(content).hexdigest(),
+                storage_path="",
+                fetch_status="failed",
+                error_message="browser challenge page",
+            )
+            return response.replace(status=503)
+
         content_hash = hashlib.sha256(content).hexdigest()
         raw_path, fetch_status = self._write_raw(entity_type, response.url, content, content_hash)
 
@@ -184,6 +299,17 @@ class RawCaptureMiddleware:
             if pattern in url:
                 return entity_type
         return None
+
+    @staticmethod
+    def _is_browser_challenge(content: bytes) -> bool:
+        """Detect UFCStats JavaScript challenge pages masquerading as 200s."""
+        return (
+            b"Checking your browser" in content
+            and b"/__c" in content
+            and b"fight-details" not in content
+            and b"fighter-details" not in content
+            and b"event-details" not in content
+        )
 
     def _raw_path(self, entity_type: str, url: str) -> Path:
         base = self._data_dir / "raw" / "ufcstats" / self._ENTITY_SUBDIRS[entity_type]

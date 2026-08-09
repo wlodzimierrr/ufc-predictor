@@ -96,9 +96,13 @@ refresh_%:
 	$(CRAWL) crawl_$* -a incremental=0 -s HTTPCACHE_ENABLED=False -O $(DATA_DIR)/$*.csv $(ARGS)
 
 refresh_all:
-	@for c in $(CRAWL_LIST); do \
-		$(MAKE) refresh_$$c $(ARGS); \
-	done
+	$(MAKE) refresh_events ARGS="$(ARGS)"
+	$(MAKE) refresh_fights ARGS="$(ARGS)"
+	$(MAKE) build_stats_queue
+	$(MAKE) build_queue
+	$(MAKE) refresh_fighters ARGS="$(ARGS)"
+	$(MAKE) refresh_fight_stats ARGS="$(ARGS)"
+	$(MAKE) refresh_fight_stats_by_round ARGS="$(ARGS)"
 
 
 # Build the canonical fight stats queue from local data sources.
