@@ -1,0 +1,114 @@
+2026-06-09 18:34:40 [scrapy.utils.log] INFO: Scrapy 2.13.3 started (bot: ufc_scraper)
+2026-06-09 18:34:40 [scrapy.utils.log] INFO: Versions:
+{'lxml': '6.0.2',
+ 'libxml2': '2.14.6',
+ 'cssselect': '1.4.0',
+ 'parsel': '1.11.0',
+ 'w3lib': '2.4.0',
+ 'Twisted': '25.5.0',
+ 'Python': '3.11.2 (main, Apr 28 2025, 14:11:48) [GCC 12.2.0]',
+ 'pyOpenSSL': '26.0.0 (OpenSSL 3.5.5 27 Jan 2026)',
+ 'cryptography': '46.0.5',
+ 'Platform': 'Linux-6.6.87.1-microsoft-standard-WSL2-x86_64-with-glibc2.36'}
+2026-06-09 18:34:40 [scrapy.addons] INFO: Enabled addons:
+[]
+2026-06-09 18:34:40 [asyncio] DEBUG: Using selector: EpollSelector
+2026-06-09 18:34:40 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2026-06-09 18:34:40 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2026-06-09 18:34:40 [scrapy.extensions.telnet] INFO: Telnet Password: 21cc4071c66102e8
+2026-06-09 18:34:40 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2026-06-09 18:34:40 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'AUTOTHROTTLE_MAX_DELAY': 10,
+ 'AUTOTHROTTLE_START_DELAY': 1,
+ 'BOT_NAME': 'ufc_scraper',
+ 'CONCURRENT_REQUESTS_PER_DOMAIN': 1,
+ 'DOWNLOAD_DELAY': 1,
+ 'DOWNLOAD_TIMEOUT': 30,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'HTTPCACHE_ENABLED': 'False',
+ 'NEWSPIDER_MODULE': 'ufc_scraper.spiders',
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['ufc_scraper.spiders'],
+ 'USER_AGENT': 'ufc-predictor-scraper (research/personal project)'}
+2026-06-09 18:34:40 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'ufc_scraper.middlewares.BrowserSessionHeaderMiddleware',
+ 'ufc_scraper.middlewares.RawCaptureMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2026-06-09 18:34:40 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.start.StartSpiderMiddleware',
+ 'scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2026-06-09 18:34:40 [scrapy.middleware] INFO: Enabled item pipelines:
+['ufc_scraper.pipelines.EventsManifestPipeline']
+2026-06-09 18:34:40 [scrapy.core.engine] INFO: Spider opened
+2026-06-09 18:34:40 [py.warnings] WARNING: /home/wlodzimierrr/ufc-data/scraper/UFC-Web-Scraping-main/.venv/lib/python3.11/site-packages/scrapy/core/spidermw.py:433: ScrapyDeprecationWarning: ufc_scraper.spiders.events.CrawlEvents defines the deprecated start_requests() method. start_requests() has been deprecated in favor of a new method, start(), to support asynchronous code execution. start_requests() will stop being called in a future version of Scrapy. If you use Scrapy 2.13 or higher only, replace start_requests() with start(); note that start() is a coroutine (async def). If you need to maintain compatibility with lower Scrapy versions, when overriding start_requests() in a spider class, override start() as well; you can use super() to reuse the inherited start() implementation without copy-pasting. See the release notes of Scrapy 2.13 for details: https://docs.scrapy.org/en/2.13/news.html
+  warn(
+
+2026-06-09 18:34:40 [crawl_events] INFO: EventsManifestPipeline loaded 783 existing records from /home/wlodzimierrr/ufc-data/data/manifests/events_manifest.csv
+2026-06-09 18:34:40 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2026-06-09 18:34:40 [crawl_events] INFO: BrowserSessionHeaderMiddleware active | cookie_chars=175 | cookie_count=3 | user_agent=set | extra_headers=7
+2026-06-09 18:34:40 [crawl_events] INFO: RawCaptureMiddleware active | job_run_id=0dba7263-41b1-4feb-bb72-51b7a1f61bea | manifest=/home/wlodzimierrr/ufc-data/data/manifests/fetch_manifest.csv
+2026-06-09 18:34:40 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2026-06-09 18:34:40 [scrapy.core.engine] DEBUG: Crawled (404) <GET http://www.ufcstats.com/robots.txt> (referer: http://ufcstats.com/)
+2026-06-09 18:34:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.ufcstats.com/event-details/ba17afef01ed78b6> (referer: http://ufcstats.com/)
+2026-06-09 18:34:41 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.ufcstats.com/event-details/ba17afef01ed78b6>
+Event(scraped_at='2026-06-09 17:34:41 UTC', event_id='51164b6d-22a2-5767-ab6a-84c59abfecb7', url='http://www.ufcstats.com/event-details/ba17afef01ed78b6', name='UFC Fight Night: Muhammad vs. Bonfim', date='June 06, 2026', date_formatted='2026-06-06', city='Las Vegas', state='Nevada', country='USA', fights='ca666c11-5735-5afe-9688-0b0882313588, dda9806d-ecfe-5705-857e-9686395509d8, 2656f87f-a89d-5279-ada5-1b33b41c69c7, 002a60fe-e7eb-5c4e-942a-9e36eb1ff76b, 9dd74c56-e820-582b-9a08-17cbb9aa1e3e, 98d1a70d-8eba-5680-b0d9-a8ab6dc91e20, a78d9b13-711b-510e-8c44-061c7c6fc250, b2cf0da4-705e-5d82-addc-6f18e0fa8705, f2d1e20d-e05b-52ff-86c0-524ac2c4502d, cb78e007-42f1-52f4-9fce-6d21f8b6cf8e, dfad314f-bc0f-5376-9b44-918db92b1eae, aec0fc82-a875-5c45-9bc2-f7ae1c93450e', fight_urls='http://www.ufcstats.com/fight-details/5c69b019e6deee41, http://www.ufcstats.com/fight-details/419fff06f338f5c6, http://www.ufcstats.com/fight-details/58ffa2dac4f2e7d0, http://www.ufcstats.com/fight-details/c47796e11a801e12, http://www.ufcstats.com/fight-details/bfe4950b3de83e9c, http://www.ufcstats.com/fight-details/5d2eedd05081ed23, http://www.ufcstats.com/fight-details/90940d93d6e0998f, http://www.ufcstats.com/fight-details/20d74ed23d3e9b3a, http://www.ufcstats.com/fight-details/98e77712f99956ff, http://www.ufcstats.com/fight-details/44cfbb8c3c356c65, http://www.ufcstats.com/fight-details/a6b211d8dab5edec, http://www.ufcstats.com/fight-details/b0474597b2c60482', event_status='completed')
+2026-06-09 18:34:41 [scrapy.core.engine] INFO: Closing spider (finished)
+2026-06-09 18:34:41 [crawl_events] INFO: EventsManifestPipeline wrote 783 records to /home/wlodzimierrr/ufc-data/data/manifests/events_manifest.csv
+2026-06-09 18:34:41 [crawl_events] INFO: IncrementalCrawlMixin summary | skipped=0 | reason=finished
+2026-06-09 18:34:41 [crawl_events] INFO: RawCaptureMiddleware summary | job_run_id=0dba7263-41b1-4feb-bb72-51b7a1f61bea | fetched=0 | unchanged=0 | updated=1 | failed=0
+2026-06-09 18:34:41 [scrapy.extensions.feedexport] INFO: Stored csv feed (1 items) in: ../../../data/events.csv
+2026-06-09 18:34:41 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 1647,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 4962,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 1,
+ 'downloader/response_status_count/404': 1,
+ 'elapsed_time_seconds': 1.5196,
+ 'feedexport/success_count/FileFeedStorage': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2026, 6, 9, 17, 34, 41, 977691, tzinfo=datetime.timezone.utc),
+ 'httpcompression/response_bytes': 44019,
+ 'httpcompression/response_count': 1,
+ 'item_scraped_count': 1,
+ 'items_per_minute': 60.0,
+ 'log_count/DEBUG': 6,
+ 'log_count/INFO': 17,
+ 'log_count/WARNING': 1,
+ 'memusage/max': 70664192,
+ 'memusage/startup': 70664192,
+ 'response_received_count': 2,
+ 'responses_per_minute': 120.0,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/404': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2026, 6, 9, 17, 34, 40, 458091, tzinfo=datetime.timezone.utc)}
+2026-06-09 18:34:41 [scrapy.core.engine] INFO: Spider closed (finished)
