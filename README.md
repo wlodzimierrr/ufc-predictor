@@ -80,6 +80,7 @@ Outputs include:
 - Confidence tier.
 - Uncertainty flag.
 - Event-level and fight-level post-event accuracy reports.
+- A real pre-event prediction log built only from predictions saved before event day.
 - Historical backtests of the current production model.
 
 ## Repository Structure
@@ -104,6 +105,13 @@ This repository is the data and ML backend. The dashboard frontend is in:
 The dashboard displays upcoming fight predictions and current model accuracy statistics:
 
 https://ufc.wlodzimierrr.pl
+
+The dashboard should read from the Postgres reporting views rather than local CSV exports:
+
+- `current_event_predictions` for upcoming/current fight cards.
+- `pre_event_prediction_fights` for fight-level post-event review.
+- `pre_event_prediction_events` for event-level model accuracy.
+- `fighter_career_summary` for fighter profile and comparison panels.
 
 ## Tech Stack
 
@@ -195,6 +203,20 @@ Backtest completed historical events with the production model:
 ```bash
 make backtest_past
 ```
+
+Build the log of events that were actually predicted before they happened:
+
+```bash
+make pre_event_log
+```
+
+This writes:
+
+- `data/reports/pre_event_prediction_events.csv`
+- `data/reports/pre_event_prediction_fights.csv`
+
+These files are intentionally separate from `models/backtests/`, which are retroactive
+historical model scores rather than predictions made before the event.
 
 ## Training
 
