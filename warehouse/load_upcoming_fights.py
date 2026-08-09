@@ -43,6 +43,7 @@ def _load_upcoming_events(conn) -> list[dict]:
             SELECT event_id, event_name, event_date
             FROM events
             WHERE event_status = 'upcoming'
+              AND event_date >= CURRENT_DATE
             ORDER BY event_date ASC
         """)
         rows = cur.fetchall()
@@ -90,6 +91,13 @@ def _existing_fight_ids(conn) -> set[str]:
         return {str(r[0]) for r in cur.fetchall()}
 
 
+def _existing_fighter_ids(conn) -> set[str]:
+    """Return set of fighter_ids already in the fighters table."""
+    with conn.cursor() as cur:
+        cur.execute("SELECT fighter_id FROM fighters")
+        return {str(r[0]) for r in cur.fetchall()}
+
+
 def _make_fight_id(event_id: str, fighter_1_id: str, fighter_2_id: str) -> str:
     """Generate a deterministic fight ID for manually entered fights."""
     combined = f"{event_id}:{fighter_1_id}:{fighter_2_id}"
@@ -111,8 +119,10 @@ def load_from_scraped_data(conn) -> int:
     fight_urls = _load_fight_urls_from_manifest()
     fights_index = _load_fights_csv_index()
     existing = _existing_fight_ids(conn)
+    known_fighters = _existing_fighter_ids(conn)
 
     rows = []
+    skipped_unknown_fighter = 0
     for event in upcoming_events:
         eid = event["event_id"]
         urls = fight_urls.get(eid, [])
@@ -124,6 +134,13 @@ def load_from_scraped_data(conn) -> int:
 
             fid = fight_data["fight_id"]
             if fid in existing:
+                continue
+            if (
+                fight_data["fighter_1_id"] not in known_fighters
+                or fight_data["fighter_2_id"] not in known_fighters
+            ):
+                print(f"  warn  unknown fighter for upcoming fight {fid} — skipping")
+                skipped_unknown_fighter += 1
                 continue
 
             bout_type = _str(fight_data.get("bout_type"))
@@ -150,12 +167,16 @@ def load_from_scraped_data(conn) -> int:
             })
 
     if not rows:
+        if skipped_unknown_fighter:
+            print(f"  skipped {skipped_unknown_fighter} upcoming fight(s) with unknown fighters")
         print("  No new upcoming fights to load.")
         return 0
 
     with conn:
         n = upsert(conn, "fights", rows, pk_columns=["fight_id"])
     print(f"  Loaded {n} upcoming fight(s)")
+    if skipped_unknown_fighter:
+        print(f"  skipped {skipped_unknown_fighter} upcoming fight(s) with unknown fighters")
     return n
 
 

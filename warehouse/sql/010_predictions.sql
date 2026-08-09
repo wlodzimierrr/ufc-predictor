@@ -1,7 +1,8 @@
 -- Predictions table
 -- Stores model predictions for upcoming fights.
 -- Each row is one prediction for one fight from a specific model run.
--- Re-scoring the same fight with the same model overwrites the previous prediction.
+-- Re-scoring the same fight inserts another row when scored_at is different,
+-- preserving prediction history for post-event audits.
 
 CREATE TABLE IF NOT EXISTS predictions (
     fight_id            uuid        NOT NULL REFERENCES fights (fight_id),

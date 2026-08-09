@@ -77,6 +77,9 @@ def build_fighter_index(data: WarehouseData) -> dict[str, list[FightHistory]]:
     index: dict[str, list[FightHistory]] = {}
 
     for fight in data.fights:
+        if fight.get("result_type") not in {"win", "draw", "nc"}:
+            continue
+
         event_date = fight.get("event_date")
         if event_date is None:
             continue

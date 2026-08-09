@@ -15,6 +15,7 @@ Usage:
 from __future__ import annotations
 
 import json
+import argparse
 import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -47,7 +48,19 @@ def _load_feature_cols() -> list[str]:
     return meta["feature_cols"]
 
 
-def build_upcoming_features(conn) -> pd.DataFrame:
+def _parse_date(value: str | None) -> date | None:
+    if not value:
+        return None
+    return date.fromisoformat(value)
+
+
+def build_upcoming_features(
+    conn,
+    *,
+    from_date: date | None = None,
+    to_date: date | None = None,
+    include_past: bool = False,
+) -> pd.DataFrame:
     """Build feature vectors for all upcoming fights.
 
     Returns a DataFrame with the same columns as the production model expects,
@@ -56,8 +69,28 @@ def build_upcoming_features(conn) -> pd.DataFrame:
     print("Loading warehouse data ...", flush=True)
     data = load_all_data(conn)
 
-    # Filter to upcoming fights
-    upcoming = [f for f in data.fights if f.get("result_type") == "upcoming"]
+    # Filter to genuinely upcoming fights by default. For catch-up prediction
+    # runs, include_past lets us score locally-known upcoming rows whose event
+    # dates have passed but whose results have not been loaded yet.
+    today = date.today()
+    upcoming = []
+    for fight in data.fights:
+        event = data.event_by_id.get(fight["event_id"], {})
+        if fight.get("result_type") != "upcoming":
+            continue
+        event_date = fight.get("event_date")
+        if event_date is None:
+            continue
+        if not include_past and event_date < today:
+            continue
+        if from_date and event_date < from_date:
+            continue
+        if to_date and event_date > to_date:
+            continue
+        if event.get("event_status") != "upcoming" and not (include_past and event_date <= today):
+            continue
+        upcoming.append(fight)
+
     if not upcoming:
         print("  No upcoming fights found in the warehouse.")
         return pd.DataFrame()
@@ -73,9 +106,6 @@ def build_upcoming_features(conn) -> pd.DataFrame:
     elos = compute_all_elos(data.fights)
     print(f"  rated {len(elos):,} fights")
 
-    # Use today as cutoff for upcoming fights
-    today = date.today()
-
     print("Building upcoming fight features ...", flush=True)
     bout_rows = []
     for fight in upcoming:
@@ -86,15 +116,17 @@ def build_upcoming_features(conn) -> pd.DataFrame:
         f1_row = data.fighter_by_id.get(f1_id, {})
         f2_row = data.fighter_by_id.get(f2_id, {})
 
-        h1 = get_history(fighter_index, f1_id, today)
-        h2 = get_history(fighter_index, f2_id, today)
+        snapshot_date = min(today, fight["event_date"])
+
+        h1 = get_history(fighter_index, f1_id, snapshot_date)
+        h2 = get_history(fighter_index, f2_id, snapshot_date)
 
         snap_1 = build_fighter_snapshot(
-            f1_row, h1, today, elos, fighter_index,
+            f1_row, h1, snapshot_date, elos, fighter_index,
             fighter_id=f1_id, fight_id=fight_id,
         )
         snap_2 = build_fighter_snapshot(
-            f2_row, h2, today, elos, fighter_index,
+            f2_row, h2, snapshot_date, elos, fighter_index,
             fighter_id=f2_id, fight_id=fight_id,
         )
 
@@ -147,17 +179,35 @@ def build_upcoming_features(conn) -> pd.DataFrame:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Build feature vectors for upcoming fights.")
+    parser.add_argument("--from-date", help="Earliest event date to include, YYYY-MM-DD")
+    parser.add_argument("--to-date", help="Latest event date to include, YYYY-MM-DD")
+    parser.add_argument(
+        "--include-past",
+        action="store_true",
+        help="Include upcoming rows whose event_date is before today.",
+    )
+    args = parser.parse_args()
+
     conn = get_connection()
     try:
-        df = build_upcoming_features(conn)
+        df = build_upcoming_features(
+            conn,
+            from_date=_parse_date(args.from_date),
+            to_date=_parse_date(args.to_date),
+            include_past=args.include_past,
+        )
+        out_dir = REPO_ROOT / "models" / "upcoming"
+        out_path = out_dir / "upcoming_features.csv"
         if df.empty:
+            if out_path.exists():
+                out_path.unlink()
+                print(f"  Removed stale upcoming features file: {out_path}")
             print("\nNo upcoming features to save.")
             return
 
         # Save to CSV
-        out_dir = REPO_ROOT / "models" / "upcoming"
         out_dir.mkdir(parents=True, exist_ok=True)
-        out_path = out_dir / "upcoming_features.csv"
         df.to_csv(out_path, index=False)
         print(f"\nSaved {len(df)} row(s) to {out_path}")
 

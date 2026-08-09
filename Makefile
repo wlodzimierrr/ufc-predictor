@@ -20,7 +20,7 @@ load_stats:
 load_upcoming:
 	$(PYTHON) warehouse/load_upcoming_fights.py
 
-load_all: load_events load_fighters load_fights load_stats
+load_all: load_events load_fighters load_fights load_stats load_upcoming
 
 validate_integrity:
 	$(PYTHON) warehouse/validate_integrity.py
@@ -88,6 +88,9 @@ review_all_events:
 
 backtest_past: review_all_events
 
+pre_event_log:
+	$(PYTHON) modeling/build_pre_event_prediction_log.py
+
 train_all_v2: train_lgbm_v2 train_xgb train_ensemble compare_models
 
 # ── Post-event refresh ────────────────────────────────────────────────────────
@@ -112,7 +115,7 @@ predict_pipeline: load_upcoming build_upcoming_features score_upcoming
         validate_integrity validate_consistency warehouse_check warehouse_up \
         build_features build_upcoming_features test_leakage validate_features features_up \
         train_logreg train_lgbm train_lgbm_v2 train_xgb train_ensemble \
-        compare_models score_upcoming predict review_event review_all_events backtest_past \
+        compare_models score_upcoming predict review_event review_all_events backtest_past pre_event_log \
         uncertainty_analysis error_analysis train_all_v2 \
         test_integration predict_pipeline \
         refresh_scrape post_event
