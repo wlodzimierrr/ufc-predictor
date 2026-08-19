@@ -111,6 +111,76 @@ Regenerate dashboard/report CSVs:
 make pre_event_log
 ```
 
+## Betting Workflows
+
+Methodology, formulas, report schemas, and limitations are documented in
+`docs/betting.md`.
+
+Import normalized moneyline odds from `data/odds/fight_odds.csv`:
+
+```bash
+make load_odds
+```
+
+Convert the raw Kaggle odds download into the canonical odds CSV:
+
+```bash
+make adapt_kaggle_odds
+```
+
+Pass loader options with `ARGS`:
+
+```bash
+make load_odds ARGS="--csv data/odds/fight_odds.csv"
+make adapt_kaggle_odds ARGS="--raw-csv data/odds/raw/UFC_betting_odds.csv"
+```
+
+The Kaggle adapter writes matched odds to `data/odds/fight_odds.csv`, source
+normalized odds to `data/odds/sources/kaggle_fight_odds.csv`, unmatched rows to
+`data/odds/unmatched_odds.csv`, and matching QA counts/details to
+`data/reports/odds_matching_qa.csv`.
+
+Generate current-card betting recommendations after predictions already exist:
+
+```bash
+make predict_pipeline
+make betting_recommendations
+```
+
+Common recommendation filters:
+
+```bash
+make betting_recommendations ARGS="--next --bookmaker TestBook --line-type current --bankroll 1000"
+make betting_recommendations ARGS="--event \"Event name\" --line-type closing"
+```
+
+The recommendation command reads existing `current_event_predictions` and odds; it does not run model scoring itself. Outputs are written to:
+
+```text
+data/reports/betting_recommendations.csv
+data/reports/betting_event_summary.csv
+```
+
+Run betting tests:
+
+```bash
+make test_betting
+```
+
+Run a leakage-safe historical betting backtest:
+
+```bash
+make betting_backtest ARGS="--odds-policy latest-before-prediction --initial-bankroll 1000"
+```
+
+Common backtest filters and policy overrides:
+
+```bash
+make betting_backtest ARGS="--start-date YYYY-MM-DD --end-date YYYY-MM-DD --bookmaker TestBook --line-type current"
+make betting_backtest ARGS="--odds-policy latest-before-event --initial-bankroll 1000 --kelly-fraction 0.25"
+make betting_backtest ARGS="--odds-policy closing --initial-bankroll 1000"
+```
+
 ## Common Workflows
 
 After an event finishes:

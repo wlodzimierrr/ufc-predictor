@@ -83,6 +83,17 @@ Outputs include:
 - A real pre-event prediction log built only from predictions saved before event day.
 - Historical backtests of the current production model.
 
+### Betting Value Analysis
+
+Phase 8 adds optional betting-value reports that are separate from winner prediction.
+The prediction model estimates fight win probabilities; the betting subsystem compares
+those probabilities with timestamped market odds, EV, edge, and conservative staking
+caps. Betting reports are analytical outputs only and do not change model training,
+model scoring, or post-event accuracy tracking.
+
+See `docs/betting.md` for the odds input contract, formulas, risk rules,
+recommendation reports, backtest reports, and known limitations.
+
 ## Repository Structure
 
 | Path | Purpose |

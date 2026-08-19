@@ -366,6 +366,140 @@ Indexes:
 
 ---
 
+### fight_odds
+
+One row per observed fighter-side moneyline price. Stores raw imported odds observations; derived probabilities live in views so odds imports remain auditable. Source: `data/odds/fight_odds.csv` loaded by `warehouse/load_fight_odds.py`. PK: `(fight_id, fighter_id, bookmaker, market, line_type, odds_timestamp)`.
+
+Odds timestamps are required for leakage-safe betting backtests. A backtest may only use odds that were observed before the event or before the configured decision cutoff; odds without a trustworthy `odds_timestamp` should not be used for historical profit/loss claims.
+
+| Column | Type | Nullable | Description |
+|---|---|---|---|
+| `fight_id` | uuid | PK, NOT NULL | FK to `fights.fight_id` |
+| `event_id` | uuid | NOT NULL | FK to `events.event_id`; also checked against the fight's event |
+| `fighter_id` | uuid | PK, NOT NULL | FK to `fighters.fighter_id`; fighter whose price is listed |
+| `opponent_fighter_id` | uuid | NOT NULL | FK to `fighters.fighter_id`; opposite side of the fight |
+| `bookmaker` | text | PK, NOT NULL | Sportsbook or odds source name |
+| `market` | text | PK, NOT NULL | V1 supports `moneyline` only |
+| `line_type` | text | PK, NOT NULL | `opening`, `current`, `closing`, or `unknown` |
+| `odds_timestamp` | timestamptz | PK, NOT NULL | When the price was observed or imported from the source |
+| `american_odds` | integer | yes | Raw American odds, if supplied; cannot be `0` |
+| `decimal_odds` | numeric(10,4) | yes | Raw decimal odds, if supplied; must be greater than `1.0` |
+| `source` | text | NOT NULL | Manual/import/API source label |
+| `source_url` | text | yes | Optional odds source URL or reference |
+| `imported_at` | timestamptz | NOT NULL | When the row entered this project |
+
+Constraints:
+
+- At least one of `american_odds` or `decimal_odds` must be supplied.
+- `market` is restricted to `moneyline` for V1.
+- `line_type` is restricted to `opening`, `current`, `closing`, or `unknown`.
+- `fighter_id` and `opponent_fighter_id` must differ.
+- `bookmaker` and `source` must be nonblank.
+
+---
+
+### fight_odds_normalized
+
+Warehouse view that derives normalized decimal odds and raw implied probability from `fight_odds`.
+
+| Column | Description |
+|---|---|
+| `normalized_decimal_odds` | Decimal odds used for implied probability, EV, and staking calculations |
+| `implied_probability` | Raw market implied probability, `1 / normalized_decimal_odds` |
+| *(all raw odds columns)* | Passed through from `fight_odds` |
+
+---
+
+### latest_fight_odds
+
+Warehouse view with the latest `current` line per `(fight_id, fighter_id, bookmaker, market)`, ordered by `odds_timestamp DESC` then `imported_at DESC`.
+
+Key columns:
+
+- `fight_id`
+- `event_id`
+- `fighter_id`
+- `opponent_fighter_id`
+- `bookmaker`
+- `market`
+- `line_type`
+- `odds_timestamp`
+- `american_odds`
+- `decimal_odds`
+- `normalized_decimal_odds`
+- `implied_probability`
+- `source`
+- `source_url`
+- `imported_at`
+
+---
+
+### fight_odds_no_vig
+
+Warehouse view that emits no-vig probabilities only for exact two-sided reciprocal moneyline groups. A group is valid only when the same `(fight_id, event_id, bookmaker, market, line_type, odds_timestamp)` has exactly two distinct fighters and each row names the other fighter as its opponent.
+
+| Column | Description |
+|---|---|
+| `fight_id` | Fight identifier |
+| `event_id` | Event identifier |
+| `fighter_id` | Fighter whose no-vig probability is listed |
+| `opponent_fighter_id` | Opposite fighter in the same two-sided market |
+| `bookmaker` | Sportsbook or odds source |
+| `market` | `moneyline` |
+| `line_type` | `opening`, `current`, `closing`, or `unknown` |
+| `odds_timestamp` | Observation timestamp for leakage-safe filtering |
+| `normalized_decimal_odds` | Decimal odds used for calculations |
+| `implied_probability` | Raw implied probability before vig removal |
+| `overround` | Sum of the two raw implied probabilities |
+| `no_vig_implied_probability` | Fighter implied probability after normalizing by `overround` |
+
+---
+
+### Betting report columns
+
+The Phase 8 betting reports are generated separately from model accuracy reports. Current planned outputs include `data/reports/betting_recommendations.csv`, `betting_event_summary.csv`, `betting_backtest_fights.csv`, `betting_backtest_events.csv`, and `betting_backtest_summary.csv`.
+
+Common recommendation/backtest columns:
+
+| Column | Description |
+|---|---|
+| `event_id` | Event identifier |
+| `event_name` | Event display name |
+| `event_date` | Event date |
+| `fight_id` | Fight identifier |
+| `fighter_id` | Evaluated fighter |
+| `fighter_name` | Evaluated fighter display name |
+| `opponent_fighter_id` | Opposing fighter identifier |
+| `opponent_fighter_name` | Opposing fighter display name |
+| `bookmaker` | Sportsbook or odds source |
+| `market` | V1 value: `moneyline` |
+| `line_type` | Odds line type used for the recommendation/backtest |
+| `odds_timestamp` | Odds observation timestamp; required for leakage-safe backtests |
+| `model_probability` | Calibrated model probability for the evaluated fighter |
+| `market_implied_probability` | Raw implied probability from offered odds |
+| `no_vig_market_probability` | Market probability after removing two-sided vig |
+| `edge` | `model_probability - no_vig_market_probability` |
+| `ev_per_unit` | Expected profit/loss per unit staked |
+| `ev_percent` | Same value as `ev_per_unit`, formatted as a percentage at presentation time |
+| `full_kelly_fraction` | Uncapped Kelly stake fraction |
+| `fractional_kelly_fraction` | Kelly fraction after applying configured multiplier |
+| `final_stake_fraction` | Final bankroll fraction after tier, single-bet, and event caps |
+| `stake_amount` | Currency stake amount when bankroll is supplied |
+| `decision` | `bet` or `pass` |
+| `reason_codes` | Pipe-delimited reason codes, for example `positive_edge|positive_ev|fractional_kelly` |
+
+Backtest-only columns:
+
+| Column | Description |
+|---|---|
+| `actual_winner_fighter_id` | Actual winner when the fight resolved with a win/loss result |
+| `bet_result` | `win`, `loss`, `push`, or `no_bet` |
+| `profit_loss_units` | Profit/loss in stake units |
+| `bankroll_before` | Simulated bankroll before the bet |
+| `bankroll_after` | Simulated bankroll after the bet resolves |
+
+---
+
 ### latest_predictions
 
 Dashboard-facing view with the most recent scored prediction per fight. Source: `warehouse/sql/012_prediction_dashboard_views.sql`.
@@ -585,6 +719,21 @@ Dashboard-facing view built from the latest `fighter_snapshots` row per fighter,
 | `medium` | 0.30-0.40 or 0.60-0.70 | Moderate confidence |
 | `toss-up` | 0.40-0.60 | Near coin-flip, low signal |
 
+### market (fight_odds)
+
+| Value | Description |
+|---|---|
+| `moneyline` | Fighter winner market. V1 does not support props, totals, methods, rounds, or parlays |
+
+### line_type (fight_odds)
+
+| Value | Description |
+|---|---|
+| `opening` | Opening line |
+| `current` | Current/latest observed line |
+| `closing` | Closing line |
+| `unknown` | Line type not known from source |
+
 ---
 
 ## Feature Set Versions
@@ -613,6 +762,10 @@ fights  1──N  fight_stats_by_round (one per fighter per round)
 fights  1──2  fighter_snapshots (one per fighter)
 fights  1──1  bout_features
 fights  1──N  predictions (one per scoring run)
+fights  1──N  fight_odds (one per fighter/bookmaker/line timestamp)
+fight_odds  N──1  fight_odds_normalized view source
+fight_odds  N──1  latest_fight_odds view source
+fight_odds  N──1  fight_odds_no_vig view source for exact two-sided market groups
 predictions  N──1  latest_predictions view source
 predictions + fights + events  N──1  current_event_predictions view source
 predictions + fights + events  N──1  pre_event_prediction_fights view source
