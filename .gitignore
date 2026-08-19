@@ -19,3 +19,18 @@ data/raw/
 # Trained model artifacts — large binaries, regenerable
 models/
 
+# Odds data artifacts — external/generated and regenerable
+data/odds/fight_odds.csv
+data/odds/unmatched_odds.csv
+data/odds/sources/*.csv
+data/odds/raw/**/*.csv
+data/odds/raw/**/*.json
+
+# Betting/odds analysis reports — generated
+data/reports/betting_*.csv
+data/reports/betting_*.json
+data/reports/betting_*/
+data/reports/*_odds_matching_qa.csv
+data/reports/odds_matching_qa.csv
+data/reports/kaggle_research_*.csv
+data/reports/kaggle_research_*/
