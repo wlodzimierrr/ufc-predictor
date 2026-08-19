@@ -1,4 +1,5 @@
 PYTHON ?= python3
+BETTING_BACKTEST_COMPARE_ARGS ?= --line-type opening --odds-policy latest-before-prediction
 
 # ── Warehouse ──────────────────────────────────────────────────────────────────
 
@@ -93,6 +94,34 @@ pre_event_log:
 
 train_all_v2: train_lgbm_v2 train_xgb train_ensemble compare_models
 
+# ── Betting ─────────────────────────────────────────────────────────────────
+
+load_odds:
+	$(PYTHON) warehouse/load_fight_odds.py $(ARGS)
+
+adapt_kaggle_odds:
+	$(PYTHON) warehouse/adapt_kaggle_odds.py $(ARGS)
+
+betting_recommendations:
+	$(PYTHON) betting/recommend.py $(ARGS)
+
+betting_recommendations_compare:
+	$(PYTHON) betting/recommend.py --report-dir data/reports/betting_default $(ARGS)
+	$(PYTHON) betting/recommend.py --config configs/betting_conservative_candidate.toml $(ARGS)
+
+betting_backtest:
+	$(PYTHON) betting/backtest.py $(ARGS)
+
+betting_backtest_compare:
+	$(PYTHON) betting/backtest.py --max-one-bet-per-fight --report-dir data/reports/betting_default $(BETTING_BACKTEST_COMPARE_ARGS) $(ARGS)
+	$(PYTHON) betting/backtest.py --max-one-bet-per-fight --config configs/betting_conservative_candidate.toml $(BETTING_BACKTEST_COMPARE_ARGS) $(ARGS)
+
+betting_tune_policy:
+	$(PYTHON) betting/tune_policy.py $(ARGS)
+
+test_betting:
+	$(PYTHON) -m pytest betting/tests warehouse/tests/test_adapt_kaggle_odds.py warehouse/tests/test_load_fight_odds.py warehouse/tests/test_betting_odds_migration.py -v
+
 # ── Post-event refresh ────────────────────────────────────────────────────────
 # Full refresh: re-scrape with no cache, reload warehouse, rebuild predictions.
 # Usage: make post_event
@@ -117,5 +146,7 @@ predict_pipeline: load_upcoming build_upcoming_features score_upcoming
         train_logreg train_lgbm train_lgbm_v2 train_xgb train_ensemble \
         compare_models score_upcoming predict review_event review_all_events backtest_past pre_event_log \
         uncertainty_analysis error_analysis train_all_v2 \
+        load_odds adapt_kaggle_odds betting_recommendations betting_recommendations_compare \
+        betting_backtest betting_backtest_compare betting_tune_policy test_betting \
         test_integration predict_pipeline \
         refresh_scrape post_event

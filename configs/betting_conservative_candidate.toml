@@ -1,0 +1,21 @@
+# Conservative candidate from the research-only policy tuning pass.
+# Do not treat this as promoted production policy until honest pre-event
+# backtests have enough volume.
+
+report_dir = "data/reports/betting_conservative_candidate"
+
+recommendations_report = "betting_recommendations.csv"
+event_summary_report = "betting_event_summary.csv"
+backtest_fights_report = "betting_backtest_fights.csv"
+backtest_events_report = "betting_backtest_events.csv"
+backtest_summary_report = "betting_backtest_summary.csv"
+
+[risk]
+kelly_fraction = 0.125
+min_edge = 0.10
+min_ev = 0.01
+max_single_bet_fraction = 0.01
+max_event_fraction = 0.06
+medium_tier_cap = 0.005
+high_tier_cap = 0.01
+toss_up_tier_cap = 0.0
