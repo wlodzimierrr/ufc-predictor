@@ -25,6 +25,13 @@ from betting.reasons import ReasonCode, format_reason_codes
 from betting.value import ValueEvaluation, evaluate_value
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+DEFAULT_BFO_BENCHMARK_REPORT = (
+    REPO_ROOT
+    / "data"
+    / "reports"
+    / "bfo_mean_market_benchmark"
+    / "bfo_mean_upcoming_market_snapshot.csv"
+)
 
 
 @dataclass(frozen=True)
@@ -277,6 +284,7 @@ def generate_current_betting_reports(
     bankroll: Decimal | int | float | str | None = None,
     current_drawdown: Decimal | int | float | str | None = None,
     as_of: datetime | None = None,
+    bfo_benchmark_report: Path | str | None = DEFAULT_BFO_BENCHMARK_REPORT,
 ) -> CurrentBettingReportResult:
     """Generate current-card betting recommendation and event summary CSVs."""
     from betting.risk import apply_staking_caps
@@ -304,8 +312,23 @@ def generate_current_betting_reports(
         current_drawdown=current_drawdown,
     )
 
-    recommendation_rows = tuple(_recommendation_report_row(decision) for decision in staking.decisions)
-    event_summary_rows = tuple(_event_summary_rows(staking.decisions))
+    bfo_rows, bfo_report_status = _load_bfo_benchmark_rows(bfo_benchmark_report)
+    recommendation_rows = tuple(
+        _recommendation_report_row(
+            decision,
+            bfo_benchmark=_bfo_benchmark_fields_for_decision(
+                decision,
+                bfo_rows=bfo_rows,
+                report_status=bfo_report_status,
+            ),
+        )
+        for decision in staking.decisions
+    )
+    event_summary_rows = tuple(_event_summary_rows(
+        staking.decisions,
+        bfo_rows=bfo_rows,
+        bfo_report_status=bfo_report_status,
+    ))
     report_dir = _report_dir(config)
     report_dir.mkdir(parents=True, exist_ok=True)
     recommendations_path = report_dir / config.recommendations_report
@@ -421,6 +444,15 @@ RECOMMENDATION_REPORT_COLUMNS = [
     "drawdown_protection_fired",
     "current_drawdown",
     "reason_codes",
+    "bfo_benchmark_label",
+    "bfo_benchmark_freshness_status",
+    "bfo_benchmark_exclusion_reason",
+    "bfo_benchmark_odds_timestamp",
+    "bfo_benchmark_odds_age_hours",
+    "bfo_benchmark_decimal_odds",
+    "bfo_benchmark_no_vig_market_probability",
+    "bfo_benchmark_edge",
+    "bfo_benchmark_ev_per_unit",
 ]
 
 
@@ -434,6 +466,10 @@ EVENT_SUMMARY_COLUMNS = [
     "event_exposure_fraction",
     "pass_count",
     "top_pass_reasons",
+    "bfo_benchmark_fresh_rows",
+    "bfo_benchmark_stale_rows",
+    "bfo_benchmark_missing_rows",
+    "bfo_benchmark_other_unusable_rows",
     "drawdown_protection_enabled",
     "drawdown_protection_fired",
 ]
@@ -462,6 +498,17 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--as-of", help="UTC timestamp used for odds freshness checks; defaults to now.")
     parser.add_argument("--config", help="Optional .json or .toml betting config file.")
     parser.add_argument("--report-dir", help="Override report output directory.")
+    parser.add_argument(
+        "--bfo-benchmark-report",
+        type=Path,
+        default=DEFAULT_BFO_BENCHMARK_REPORT,
+        help="Optional BFO Mean upcoming benchmark CSV to surface in recommendation reports.",
+    )
+    parser.add_argument(
+        "--no-bfo-benchmark",
+        action="store_true",
+        help="Do not add BFO benchmark comparison values to recommendation report rows.",
+    )
     parser.add_argument("--min-edge", type=float, help="Override minimum model-vs-no-vig edge.")
     parser.add_argument("--min-ev", type=float, help="Override minimum expected value per unit.")
     parser.add_argument("--max-odds-age-hours-current", type=int, help="Override current odds freshness cap.")
@@ -493,6 +540,7 @@ def main(argv: list[str] | None = None, *, conn=None) -> int:
             bankroll=args.bankroll,
             current_drawdown=args.current_drawdown,
             as_of=as_of,
+            bfo_benchmark_report=None if args.no_bfo_benchmark else args.bfo_benchmark_report,
         )
     finally:
         if close_conn:
@@ -516,11 +564,17 @@ def print_current_card_summary(result: CurrentBettingReportResult) -> None:
     print(f"Total stake: {total_stake}")
     print(f"Event exposure: {_summary_exposure_text(result.event_summary_rows)}")
     print(f"Top pass reasons: {_pass_reason_text(result.top_pass_reasons)}")
+    print(f"BFO benchmark: {_bfo_summary_text(result.event_summary_rows)}")
     print(f"Wrote: {result.recommendations_path}")
     print(f"Wrote: {result.event_summary_path}")
 
 
-def _recommendation_report_row(decision) -> dict[str, str]:
+def _recommendation_report_row(
+    decision,
+    *,
+    bfo_benchmark: Mapping[str, str] | None = None,
+) -> dict[str, str]:
+    bfo_benchmark = bfo_benchmark or _blank_bfo_benchmark_fields()
     return {
         "event_id": _format_value(decision.event_id),
         "event_name": _format_value(decision.event_name),
@@ -552,10 +606,17 @@ def _recommendation_report_row(decision) -> dict[str, str]:
         "drawdown_protection_fired": str(decision.drawdown_protection_fired).lower(),
         "current_drawdown": _format_decimal(decision.current_drawdown),
         "reason_codes": format_reason_codes(decision.reason_codes),
+        **bfo_benchmark,
     }
 
 
-def _event_summary_rows(decisions) -> list[dict[str, str]]:
+def _event_summary_rows(
+    decisions,
+    *,
+    bfo_rows: Mapping[tuple[str, str], Mapping[str, str]] | None = None,
+    bfo_report_status: str = "disabled",
+) -> list[dict[str, str]]:
+    bfo_rows = bfo_rows or {}
     grouped: dict[tuple, list] = {}
     for decision in decisions:
         grouped.setdefault(_event_summary_key(decision), []).append(decision)
@@ -571,6 +632,7 @@ def _event_summary_rows(decisions) -> list[dict[str, str]]:
         stake_amounts = [decision.stake_amount for decision in bet_decisions if decision.stake_amount is not None]
         total_stake_amount = sum(stake_amounts, Decimal("0")) if stake_amounts else None
         pass_reasons = _top_pass_reasons(group)
+        bfo_counts = _bfo_status_counts(group, bfo_rows=bfo_rows, report_status=bfo_report_status)
         drawdown_enabled = any(decision.drawdown_protection_enabled for decision in group)
         drawdown_fired = any(decision.drawdown_protection_fired for decision in group)
         event_id, event_name, event_date = key
@@ -584,10 +646,112 @@ def _event_summary_rows(decisions) -> list[dict[str, str]]:
             "event_exposure_fraction": _format_decimal(total_stake_fraction),
             "pass_count": str(len(group) - len(bet_decisions)),
             "top_pass_reasons": _pass_reason_text(pass_reasons),
+            "bfo_benchmark_fresh_rows": str(bfo_counts["fresh"]),
+            "bfo_benchmark_stale_rows": str(bfo_counts["stale"]),
+            "bfo_benchmark_missing_rows": str(bfo_counts["missing"]),
+            "bfo_benchmark_other_unusable_rows": str(bfo_counts["other_unusable"]),
             "drawdown_protection_enabled": str(drawdown_enabled).lower(),
             "drawdown_protection_fired": str(drawdown_fired).lower(),
         })
     return rows
+
+
+def _load_bfo_benchmark_rows(path: Path | str | None) -> tuple[dict[tuple[str, str], dict[str, str]], str]:
+    if path is None:
+        return {}, "disabled"
+    report_path = Path(path)
+    if not report_path.is_absolute():
+        report_path = REPO_ROOT / report_path
+    if not report_path.exists():
+        return {}, "report_missing"
+
+    rows: dict[tuple[str, str], dict[str, str]] = {}
+    with report_path.open(newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            fight_id = _text(row.get("fight_id"))
+            fighter_id = _text(row.get("fighter_id"))
+            if fight_id is None or fighter_id is None:
+                continue
+            rows[(fight_id, fighter_id)] = row
+    return rows, "loaded"
+
+
+def _bfo_benchmark_fields_for_decision(
+    decision,
+    *,
+    bfo_rows: Mapping[tuple[str, str], Mapping[str, str]],
+    report_status: str,
+) -> dict[str, str]:
+    if report_status == "disabled":
+        return _blank_bfo_benchmark_fields(reason="bfo_benchmark_disabled")
+    if report_status == "report_missing":
+        return _blank_bfo_benchmark_fields(reason="bfo_benchmark_report_missing")
+
+    fight_id = decision.fight_id
+    fighter_id = decision.evaluated_fighter_id
+    if not fight_id or not fighter_id:
+        return _blank_bfo_benchmark_fields(reason="missing_recommendation_side")
+
+    row = bfo_rows.get((fight_id, fighter_id))
+    if row is None:
+        return _blank_bfo_benchmark_fields(reason="missing_bfo_benchmark_row")
+
+    return {
+        "bfo_benchmark_label": _format_value(row.get("benchmark_label")),
+        "bfo_benchmark_freshness_status": _format_value(row.get("benchmark_freshness_status")),
+        "bfo_benchmark_exclusion_reason": _format_value(row.get("benchmark_exclusion_reason")),
+        "bfo_benchmark_odds_timestamp": _format_value(row.get("odds_timestamp")),
+        "bfo_benchmark_odds_age_hours": _format_value(row.get("odds_age_hours")),
+        "bfo_benchmark_decimal_odds": _format_value(row.get("offered_decimal_odds")),
+        "bfo_benchmark_no_vig_market_probability": _format_value(row.get("no_vig_market_probability")),
+        "bfo_benchmark_edge": _format_value(row.get("edge")),
+        "bfo_benchmark_ev_per_unit": _format_value(row.get("ev_per_unit")),
+    }
+
+
+def _blank_bfo_benchmark_fields(*, reason: str = "") -> dict[str, str]:
+    return {
+        "bfo_benchmark_label": "",
+        "bfo_benchmark_freshness_status": "",
+        "bfo_benchmark_exclusion_reason": reason,
+        "bfo_benchmark_odds_timestamp": "",
+        "bfo_benchmark_odds_age_hours": "",
+        "bfo_benchmark_decimal_odds": "",
+        "bfo_benchmark_no_vig_market_probability": "",
+        "bfo_benchmark_edge": "",
+        "bfo_benchmark_ev_per_unit": "",
+    }
+
+
+def _bfo_status_counts(
+    decisions,
+    *,
+    bfo_rows: Mapping[tuple[str, str], Mapping[str, str]],
+    report_status: str,
+) -> Counter[str]:
+    counts: Counter[str] = Counter({
+        "fresh": 0,
+        "stale": 0,
+        "missing": 0,
+        "other_unusable": 0,
+    })
+    for decision in decisions:
+        fields = _bfo_benchmark_fields_for_decision(
+            decision,
+            bfo_rows=bfo_rows,
+            report_status=report_status,
+        )
+        status = fields["bfo_benchmark_freshness_status"]
+        reason = fields["bfo_benchmark_exclusion_reason"]
+        if status == "fresh":
+            counts["fresh"] += 1
+        elif status == "stale":
+            counts["stale"] += 1
+        elif status == "missing" or reason in {"missing_bfo_rows", "missing_bfo_benchmark_row", "bfo_benchmark_report_missing"}:
+            counts["missing"] += 1
+        elif status or reason:
+            counts["other_unusable"] += 1
+    return counts
 
 
 def _top_pass_reasons(decisions) -> tuple[tuple[ReasonCode, int], ...]:
@@ -654,6 +818,21 @@ def _pass_reason_text(reasons: tuple[tuple[ReasonCode, int], ...]) -> str:
     if not reasons:
         return "none"
     return ", ".join(f"{reason.value}={count}" for reason, count in reasons)
+
+
+def _bfo_summary_text(rows: tuple[dict[str, str], ...]) -> str:
+    if not rows:
+        return "none"
+    totals: Counter[str] = Counter()
+    for row in rows:
+        totals["fresh"] += int(row.get("bfo_benchmark_fresh_rows") or "0")
+        totals["stale"] += int(row.get("bfo_benchmark_stale_rows") or "0")
+        totals["missing"] += int(row.get("bfo_benchmark_missing_rows") or "0")
+        totals["other"] += int(row.get("bfo_benchmark_other_unusable_rows") or "0")
+    return (
+        f"fresh={totals['fresh']}, stale={totals['stale']}, "
+        f"missing={totals['missing']}, other_unusable={totals['other']}"
+    )
 
 
 def _format_decimal(value: Decimal | None) -> str:

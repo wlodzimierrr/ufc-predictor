@@ -25,11 +25,14 @@ data/odds/unmatched_odds.csv
 data/odds/sources/*.csv
 data/odds/raw/**/*.csv
 data/odds/raw/**/*.json
+data/odds/raw/**/*.html
+data/odds/raw/**/*.js
 
 # Betting/odds analysis reports — generated
 data/reports/betting_*.csv
 data/reports/betting_*.json
 data/reports/betting_*/
+data/reports/bfo_mean_market_benchmark/
 data/reports/*_odds_matching_qa.csv
 data/reports/odds_matching_qa.csv
 data/reports/kaggle_research_*.csv

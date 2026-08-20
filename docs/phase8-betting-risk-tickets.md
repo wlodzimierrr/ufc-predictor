@@ -1027,7 +1027,7 @@ research-only analyses, but not the fight-winner model itself.
 #### T8.11.1 BestFightOdds manual/deep-history feasibility study
 - **Description:** Assess BestFightOdds as the first scraping candidate without
   building or running an automated scraper yet.
-- **Status:** PROPOSED
+- **Status:** DONE
 - **Dependencies:** T8.11.0
 - **Acceptance Criteria:**
   - Manually review several UFC archive/fighter pages for fields needed by
@@ -1045,10 +1045,88 @@ research-only analyses, but not the fight-winner model itself.
 - **Risk:** Medium - deep history is valuable, but website archive extraction can
   be brittle and must be handled respectfully.
 
+Feasibility study completed on 2026-08-19.
+
+Manual pages reviewed:
+
+| Page | URL | Relevant observations |
+|---|---|---|
+| Archive | `https://www.bestfightodds.com/archive` | Archive page has event/fighter search, recently completed events, and states that posted odds are stored in the archive back to the site's 2007 launch. Good discovery surface, but not itself a canonical export. |
+| Recent event | `https://www.bestfightodds.com/events/ufc-330-4237` | Event page exposes event name/date, fight matchups, current displayed moneyline prices, bookmaker columns on the rendered odds table, and relative "Last change" text. The reviewed rendered text did not expose precise observed timestamps for each price. |
+| Current/home odds table | `https://www.bestfightodds.com/` | Rendered odds table showed bookmaker/source columns such as Polymarket, Kalshi, FanDuel, Caesars, BetRivers, BetWay, Unibet, BetMGM, DraftKings, and Props on current event rows. This confirms bookmaker attribution is present for live/recent event rows, though future parser work must verify column stability in stored raw HTML. |
+| Fighter history: Ian Machado Garry | `https://www.bestfightodds.com/fighters/ian-machado-garry-15690` | Fighter page exposes fight count, "with odds" count, event names/dates, both fighters, opening moneyline, closing range, and movement percentage. No precise odds observation timestamps were visible in the rendered history table. |
+| Fighter history: Islam Makhachev | `https://www.bestfightodds.com/fighters/islam-makhachev-5541` | Same useful fighter-history shape across many fights, including duplicate/superseded matchups on the same event date that would require conservative event/fighter matching and manual review. |
+| Fighter history: Georges St-Pierre | `https://www.bestfightodds.com/fighters/Georges-St-Pierre-80` | Confirms deep UFC history back to 2007-era events with opening odds, closing ranges, movement, event names, and event dates. This supports BestFightOdds as a strong deep-history candidate for open/close benchmarks. |
+| Older event examples | `https://www.bestfightodds.com/events/ufc-100-137`, `https://www.bestfightodds.com/events/ufc-74-respect-7` | Older event pages expose event identity, fight matchups, and relative "Last change" text. The rendered text did not expose precise per-bookmaker observation timestamps. |
+
+Field coverage against `data/odds/fight_odds.csv`:
+
+| Needed field | Manual finding |
+|---|---|
+| `event_date` | Present on archive/fighter history pages as event dates; event pages show month/day and need year from archive/fighter page or source URL context. |
+| `event name` / local `event_id` mapping support | Present on archive/fighter history pages and event pages. Matching still needs conservative normalization because event names can be generic, duplicated, or changed. |
+| Fighters / local fight and fighter mapping support | Present on event and fighter history pages. Aliases and duplicate future/cancelled matchups must go through unmatched-review output. |
+| `open odds` | Present on fighter history pages. |
+| `close odds` / close ranges | Present as a closing range on fighter history pages. Best single close price selection must be explicitly defined before loading. |
+| Bookmaker/source attribution | Present on current/recent event odds tables as sportsbook/source columns. Fighter history summaries appear aggregated and do not, by themselves, attribute each open/close value to a bookmaker. |
+| True observed timestamps | Not confirmed. Reviewed pages exposed event dates and relative "Last change" labels, but not precise timestamped line observations suitable for point-in-time line movement. |
+| `source` / `source_url` | Feasible to preserve as `bestfightodds_manual_review` plus exact archive/event/fighter URLs. |
+| `odds_timestamp` | Not safely available from reviewed rendered pages. Do not invent one from event date or review date for leakage-safe backtests. |
+
+Timestamp conclusion:
+
+BestFightOdds looks feasible for historical opening/closing benchmark data, but
+the manually reviewed archive/fighter/event pages did not expose true observed
+timestamps for each odds value. They expose opening labels, closing ranges,
+movement summaries, event dates, and relative "Last change" text. Until a future
+bounded raw snapshot probe proves that timestamped observations exist in the page
+payload or a permissioned export, BestFightOdds-derived rows should not be used
+as precise point-in-time line-movement observations. If loaded at all, they need
+an explicit non-claiming timestamp policy and should be excluded from
+leakage-safe P/L claims that require trustworthy `odds_timestamp` values.
+
+Terms, robots, rate-limit, and permission notes:
+
+- Terms reviewed at `https://www.bestfightodds.com/terms`. The public terms page
+  reviewed on 2026-08-19 is brief, gives an accuracy/availability disclaimer,
+  and does not provide an explicit scraping, reuse, database extraction, or API
+  license grant.
+- Privacy/contact reviewed at `https://www.bestfightodds.com/privacy`. The page
+  identifies site analytics/session tracking and provides a contact route.
+- `https://www.bestfightodds.com/robots.txt` was checked on 2026-08-19 and
+  returned `User-agent: *`, `Allow: /`, plus sitemap URLs.
+- No public crawl-delay or rate-limit policy was found in the reviewed pages.
+  Future network work should therefore start only with the already proposed
+  single-URL bounded snapshot probe, conservative delay, clear user agent,
+  timeout, raw snapshot metadata, and no broad crawl.
+- Because the terms are sparse and the data is valuable archived sportsbook
+  content, ask for permission or an official export/API path before any broad
+  automated collection, redistribution, or recurring fetch job.
+
+Manual export/review workflow:
+
+Manual review is possible before scraping:
+
+1. Use fighter history pages as the first manual source for event date, event
+   name, fighters, opening odds, closing range, and movement.
+2. Use event pages as the manual cross-check for fight card membership and
+   bookmaker/source columns where visible.
+3. Enter rows into a source-specific review spreadsheet or CSV with original
+   labels, exact source URLs, chosen open/close value, reviewer notes, and a
+   timestamp-quality flag such as `open_close_label_only`.
+4. Map to warehouse `event_id`, `fight_id`, `fighter_id`, and
+   `opponent_fighter_id` only after review; ambiguous event/fighter matches stay
+   out of `data/odds/fight_odds.csv`.
+5. Do not publish BestFightOdds rows into canonical `fight_odds.csv` unless the
+   row has a defensible `odds_timestamp` policy. For now, treat manual BFO data
+   as research/open-close benchmark material, not leakage-safe timed market data.
+
+No scraper was implemented, run, or scheduled for this ticket.
+
 #### T8.11.2 Add BestFightOdds raw snapshot probe
 - **Description:** Add a tiny, explicitly bounded BestFightOdds snapshot probe to
   test fetch/parsing feasibility and raw artifact storage before any broad crawl.
-- **Status:** PROPOSED
+- **Status:** DONE
 - **Dependencies:** T8.11.1, T8.10.1
 - **Acceptance Criteria:**
   - Script accepts one explicit URL or one explicit event/fighter identifier; no
@@ -1070,10 +1148,31 @@ research-only analyses, but not the fight-winner model itself.
 - **Complexity:** M
 - **Risk:** Medium - even bounded scraping must be respectful and auditable.
 
+Implementation note:
+
+- Added `warehouse/probe_bestfightodds_snapshot.py` as a one-page raw HTML
+  snapshot probe.
+- Supported targets are exactly one of `--url`, `--event-id`, or
+  `--fighter-id`. URL targets are allowlisted to rendered BestFightOdds home,
+  archive, event, and fighter pages; hidden/admin/API paths are rejected.
+- The probe enforces `--request-cap 1` and rejects lower-than-2-second request
+  intervals. It includes a conservative user agent, timeout, retry, and backoff
+  settings.
+- `--dry-run` reports the planned target and raw output directory without making
+  a network request or writing files.
+- Non-dry runs write raw HTML and adjacent JSON metadata under
+  `data/odds/raw/bestfightodds/`, including fetch timestamp, source URL, final
+  URL, HTTP status, content SHA-256, byte count, request settings, and explicit
+  flags that parsing and `fight_odds` loading were not performed.
+- Added `data/odds/raw/bestfightodds/README.md` to document the raw snapshot
+  guardrails.
+- No parser, canonical odds output, warehouse load, scheduler, or continuous
+  fetch path was added for this ticket.
+
 #### T8.11.3 Add BestFightOdds parser and normalized adapter
 - **Description:** Parse reviewed BestFightOdds raw snapshots and normalize them
   into the canonical V1 odds contract.
-- **Status:** PROPOSED
+- **Status:** DONE
 - **Dependencies:** T8.11.2, T8.2.2, T8.10.1
 - **Acceptance Criteria:**
   - New parser reads stored raw snapshots only; it does not fetch network content.
@@ -1100,10 +1199,39 @@ research-only analyses, but not the fight-winner model itself.
 - **Risk:** Medium - parsing can be brittle and timestamp semantics may limit
   leakage-safe backtest use.
 
+Implementation note:
+
+- Added `warehouse/adapt_bestfightodds_snapshots.py` as an offline-only adapter
+  for stored BestFightOdds HTML snapshots and adjacent metadata.
+- The adapter reads `data/odds/raw/bestfightodds/*.html`; it does not perform
+  network requests.
+- Supported extraction is intentionally narrow: reviewed fighter-history tables
+  with event/date, fighter, opponent, moneyline market, open odds, closing range,
+  optional bookmaker, and optional open/close observed timestamps.
+- Source-specific normalized rows are written to
+  `data/odds/sources/bestfightodds_fight_odds.csv`.
+- Review rows are written to
+  `data/odds/sources/bestfightodds_unmatched_odds.csv`.
+- The source output keeps the canonical `data/odds/fight_odds.csv` columns first
+  and appends BestFightOdds audit columns for raw snapshot path/hash, source
+  event/fighter labels, timestamp quality, and raw source line value. The
+  existing loader accepts the canonical columns without schema changes.
+- Rows with explicit observed timestamps can become canonical-compatible
+  `opening` or `closing` moneyline rows. Rows with only BestFightOdds
+  open/close labels are labeled `open_close_label_only` in the unmatched review
+  output and are not loaded as point-in-time observations.
+- Event/fighter matching is conservative by local event date plus fighter pair,
+  with optional event-name filtering. Unknown or ambiguous matches are sent to
+  unmatched output; they are not guessed.
+- Duplicate stable market sides are skipped into unmatched review output rather
+  than loaded.
+- No scheduled fetch, live scrape, model feature use, or warehouse load was
+  added for this ticket.
+
 #### T8.11.4 Alternate odds archive permission/feasibility fallback
 - **Description:** Evaluate one alternate website archive only if BestFightOdds is
   blocked by terms, missing timestamps, or brittle parsing.
-- **Status:** PROPOSED
+- **Status:** DONE
 - **Dependencies:** T8.11.0, T8.10.4
 - **Acceptance Criteria:**
   - Candidate list starts with MMA-specific or public archive pages before broad
@@ -1118,6 +1246,82 @@ research-only analyses, but not the fight-winner model itself.
   - Documentation-only fallback ticket; no automated tests required.
 - **Complexity:** S
 - **Risk:** Medium - many odds archive sites restrict automated access.
+
+Fallback feasibility review completed on 2026-08-19.
+
+Why fallback review is justified:
+
+BestFightOdds remains the first scraping candidate, but T8.11.1/T8.11.3 found
+that ordinary BFO open/close history rows may be `open_close_label_only` rather
+than true observed point-in-time timestamps. That timestamp limitation is enough
+to document a fallback path before any broader scraping is considered.
+
+Candidate priority:
+
+1. **MMAOddsBreaker fight-odds articles** - MMA-specific public article archive
+   with separate opening-odds and closing-odds categories. This is the reviewed
+   fallback candidate for this ticket.
+2. **FightOdds.io** - MMA-specific betting site with odds-comparison/line-movement
+   language, but terms state the service is for personal, noncommercial use and
+   do not provide an obvious public historical export path. Keep as permission
+   question, not the first fallback.
+3. **Broad multi-sport odds archives** - lower priority because they tend to have
+   stronger database/scraping restrictions and harder sport/event mapping.
+4. **OddsPortal** - explicitly excluded unless permission or licensed access is
+   obtained.
+
+Reviewed fallback: MMAOddsBreaker
+
+| Area | Feasibility notes |
+|---|---|
+| Source pages | `https://www.mmaoddsbreaker.com/fight-odds/`, opening-odds category, closing-odds category, and representative UFC opening/closing articles. |
+| Field coverage | Opening articles expose article title/event name, event date in article body, article publish timestamp, fighter names, and American moneyline odds. Older closing-odds/results articles expose fighter names, closing American odds, winners/results narrative, and article publish timestamp. |
+| Bookmaker/source attribution | Often uses broad wording such as offshore sportsbooks or several bookmakers, not stable per-bookmaker attribution. Treat `bookmaker` as `MMAOddsBreaker article aggregate` unless an article explicitly names a source. |
+| Timestamp quality | Article publish timestamps are present, but they are article publication times, not necessarily the exact sportsbook observation time. Opening articles say odds were recently opened; closing articles are usually post-event or near-event summaries. These rows should be labeled `article_publish_time`, not precise observed line movement. |
+| Mapping difficulty | Medium/high. Article text is prose, not a normalized table. Fighter pairs are usually adjacent lines and event names are readable, but cancelled/rebooked bouts, changed cards, and article typos require unmatched review. |
+| Raw snapshot storage | If used, follow the BFO pattern: one explicit URL per probe, store raw HTML plus metadata under `data/odds/raw/mmaoddsbreaker/`, then parse stored snapshots only. |
+| Normalization path | Any accepted rows must normalize into the canonical `data/odds/fight_odds.csv` columns through a source-specific output such as `data/odds/sources/mmaoddsbreaker_fight_odds.csv`, with unmatched rows in `data/odds/sources/mmaoddsbreaker_unmatched_odds.csv`. |
+
+Terms, robots, and permission notes:
+
+- MMAOddsBreaker terms reviewed at
+  `https://www.mmaoddsbreaker.com/terms-and-conditions/`. The terms allow use of
+  the company service subject to restrictions, prohibit downloading,
+  reproducing, redistributing, reselling, publicly displaying, or otherwise
+  commercially exploiting any portion of the site, and prohibit unauthorized use
+  of company materials except as expressly authorized.
+- MMAOddsBreaker `robots.txt` was checked on 2026-08-19. It disallows specific
+  WordPress/WooCommerce/admin paths, allows `wp-admin/admin-ajax.php`, includes a
+  sitemap, and declares `Crawl-delay: 10`.
+- No explicit public data export/API or bulk archive permission was found during
+  this review. Before any broad collection, ask for permission or use an
+  official export/licensed path.
+- If a future bounded probe is approved, use stricter limits than BFO by default:
+  one explicit article/category URL, raw snapshot metadata, no scheduler, and at
+  least the documented 10-second crawl delay before any optional follow-up.
+
+OddsPortal exclusion:
+
+OddsPortal remains excluded as a fallback scraper target. Its terms identify MMA
+as one of many covered sports, but restrict use to personal use, prohibit
+commercial use without consent, protect database content, prohibit substantial
+database extraction/exploitation without consent, prohibit automated requests
+that burden servers, and prohibit embedding, aggregating, scraping, or recreating
+content without express consent. Do not build an OddsPortal scraper unless
+explicit permission or licensed access is obtained.
+
+Decision:
+
+MMAOddsBreaker is a possible fallback only for permissioned/manual article
+review, especially for missing opening odds. It is not a superior replacement
+for BestFightOdds for timestamp-safe line movement because article publish times
+are not true sportsbook observation timestamps and bookmaker attribution is often
+aggregate. If accepted later, rows must carry a timestamp-quality flag such as
+`article_publish_time` and must not be used for leakage-safe point-in-time P/L
+claims unless the article or source metadata provides a trustworthy observed odds
+timestamp.
+
+No scraper was implemented, run, or scheduled for this ticket.
 
 #### T8.11.5 Document odds source decision matrix
 - **Description:** Add a short maintained decision matrix to `docs/betting.md` so
@@ -1137,6 +1341,953 @@ research-only analyses, but not the fight-winner model itself.
   - Documentation-only ticket; no automated tests required.
 - **Complexity:** S
 - **Risk:** Low
+
+## T8.12 - BestFightOdds Sample Decision
+
+#### T8.12.0 BestFightOdds sample snapshot review and go/no-go decision
+- **Description:** Capture a tiny reviewed BestFightOdds sample, run the offline
+  adapter, and decide whether BestFightOdds can feed canonical odds or remains
+  research-only.
+- **Status:** DONE
+- **Dependencies:** T8.11.2, T8.11.3, T8.11.5
+- **Acceptance Criteria:**
+  - Capture no more than three explicit BestFightOdds pages; no discovery crawl,
+    no future-event search, and no scheduled scraping.
+  - Store raw HTML plus metadata under `data/odds/raw/bestfightodds/`.
+  - Run the offline adapter against stored snapshots only.
+  - Review whether snapshots expose trustworthy observed timestamps, only
+    open/close labels, or brittle/unparseable markup.
+  - Review matched, unmatched, and timestamp-quality outcomes.
+  - Document a go/no-go decision:
+    - `go_canonical` if trustworthy observed timestamps and conservative mapping
+      are present.
+    - `research_only` if rows are useful open/close benchmarks but timestamp weak.
+    - `blocked` if terms/markup/mapping make the source unsuitable.
+  - Do not load BestFightOdds rows into `data/odds/fight_odds.csv` or the
+    warehouse as part of this ticket.
+- **Test Coverage:**
+  - Existing T8.11.2/T8.11.3 unit tests cover probe and offline adapter behavior.
+  - This sample-review ticket requires no new automated tests unless code changes.
+- **Complexity:** S
+- **Risk:** Medium - this intentionally touches live pages, but only explicit
+  single-page probes with raw snapshot storage.
+
+**Implementation Notes (2026-08-19):**
+
+Three explicit fighter-history pages were captured with
+`warehouse/probe_bestfightodds_snapshot.py`. No archive discovery, future-event
+search, crawler, scheduler, or continuous fetch was added.
+
+| Page | HTTP | Raw Snapshot | SHA-256 |
+|---|---:|---|---|
+| `https://www.bestfightodds.com/fighters/ian-machado-garry-15690` | 200 | `data/odds/raw/bestfightodds/20260819T202409Z_fighter_ian-machado-garry-15690_946028307014.html` | `9460283070141f191fb3e004d1773ccb10b5c52d72cc9518ffb6c1c1a0a575d5` |
+| `https://www.bestfightodds.com/fighters/islam-makhachev-5541` | 200 | `data/odds/raw/bestfightodds/20260819T202417Z_fighter_islam-makhachev-5541_711a642008b6.html` | `711a642008b60c8648577f81856d063934bc861d35b74aa23f70fd9a4414e132` |
+| `https://www.bestfightodds.com/fighters/Georges-St-Pierre-80` | 200 | `data/odds/raw/bestfightodds/20260819T202512Z_fighter_Georges-St-Pierre-80_2b9b769abcf2.html` | `2b9b769abcf28c8862f5a1ae1ab6c153065e4a55cfece554cb3576e80f4a687f` |
+
+The stored pages expose rendered fighter-history tables with matchup, open odds,
+closing odds/ranges, movement, event labels, and event dates. The reviewed HTML
+does not expose trustworthy sportsbook-observation timestamps for individual odds
+points. Native table metadata includes line-movement payloads such as
+`data-sparkline` and matchup-side identifiers, and the pages contain unrelated
+news/article `<time>` elements, but no reviewed field can be treated as an
+observed odds timestamp.
+
+The offline adapter read only stored snapshots and produced:
+
+| Metric | Count |
+|---|---:|
+| Snapshots read | 3 |
+| Parsed source rows | 96 |
+| Canonical-compatible rows | 0 |
+| Unmatched/review rows | 96 |
+| Duplicate source rows skipped | 0 |
+
+All 96 parsed rows were labeled `open_close_label_only`. Review rejection reasons
+were:
+
+| Rejection Reason | Count |
+|---|---:|
+| `missing_opening_observed_timestamp_open_close_label_only` | 42 |
+| `unknown_local_fight_pair` | 30 |
+| `unknown_local_event_name` | 16 |
+| `missing_source_event_date` | 8 |
+
+Decision: `research_only`. BestFightOdds is useful for audited historical
+open/close benchmarks and manual review, but the sampled pages should not feed
+canonical point-in-time betting backtests unless a future permissioned export,
+API, or page payload provides true observed odds timestamps. No rows were loaded
+into `data/odds/fight_odds.csv` or the warehouse.
+
+This rendered-page decision is superseded/qualified by T8.12.1 for rows whose
+`data-li` values can be resolved to timestamped `/api/ggd` line-history payloads.
+
+#### T8.12.1 BestFightOdds line-history payload timestamp probe
+- **Description:** Inspect BestFightOdds chart/data payloads behind fighter/event
+  rows to determine whether `data-li` and `data-sparkline` can be resolved into
+  timestamped line movement.
+- **Status:** DONE
+- **Dependencies:** T8.12.0
+- **Acceptance Criteria:**
+  - Inspect BFO chart/data payloads behind fighter/event rows.
+  - Use only one explicit fighter or event page and one explicitly discovered
+    detail/history request.
+  - Determine whether `data-li` / `data-sparkline` can be resolved to timestamped
+    line movement.
+  - Store raw responses with fetch metadata.
+  - Do not add a crawl, scheduler, canonical load, or warehouse load.
+  - If true observed timestamps exist, update the BFO decision from
+    `research_only` toward `go_canonical`.
+- **Test Coverage:**
+  - Unit tests for payload URL validation, request-cap enforcement, metadata
+    naming, and dry-run behavior.
+  - Network calls are not required for unit tests.
+- **Complexity:** S
+- **Risk:** Medium - the probe is tiny, but hidden payloads can change and should
+  not become an accidental broad scrape.
+
+**Implementation Notes (2026-08-19):**
+
+The explicit reviewed source page was the previously captured Ian Machado Garry
+fighter-history snapshot:
+
+`data/odds/raw/bestfightodds/20260819T202409Z_fighter_ian-machado-garry-15690_946028307014.html`
+
+That page contains fighter-history chart cells with inline `data-sparkline`
+summaries and `data-li` identifiers. The Ian Machado Garry vs. Islam Makhachev
+row used for the probe had `data-li="[43741,1]"`.
+
+Added `warehouse/probe_bestfightodds_line_history_payload.py` as a separate
+payload-only probe. It allows the reviewed BFO JS asset and same-host `/api/`
+payload URLs only, enforces `--request-cap 1`, supports dry-run mode, writes raw
+payload bytes plus adjacent metadata, and never parses into or loads
+`fight_odds`.
+
+Raw payloads captured:
+
+| Payload | HTTP | Raw Artifact | SHA-256 |
+|---|---:|---|---|
+| `https://www.bestfightodds.com/js/bfo.min.js?v=0.4.10` | 200 | `data/odds/raw/bestfightodds/payloads/20260819T204158Z_js_asset_bfo.min.js_ec84daec4aa4.js` | `ec84daec4aa42e54e835fa1204bbf5f950e0aaf398e4d7c49dc2fc25e77fac1c` |
+| `https://www.bestfightodds.com/api/ggd?m=43741&p=1` | 200 | `data/odds/raw/bestfightodds/payloads/20260819T204227Z_detail_payload_api-ggd_00dd7bedfe94_1ba74396017b.html` | `1ba74396017b96087ef6230d1da81d3eca9eacf8efedd4d39057b9ddf949f9b5` |
+
+JS inspection found that fighter-history sparklines call
+`createMIChart(matchup_id, side)`, which fetches
+`/api/ggd?m=<matchup_id>&p=<side>` and decodes the response with the site's
+`notIn` function before `JSON.parse`. The decoded payload is a Highcharts series
+with `xAxis.type = "datetime"` in the chart code.
+
+The one reviewed `/api/ggd` response decoded to a single `Mean` series with 214
+points. Every point had an `x` Unix-millisecond timestamp and a decimal-odds
+`y` value. For the sampled row:
+
+| Field | Value |
+|---|---|
+| Series name | `Mean` |
+| Point count | 214 |
+| First timestamp | `2026-06-17T23:00:06+00:00` |
+| Last timestamp | `2026-08-16T04:16:31+00:00` |
+| Decimal odds range | `3.44` to `9.05` |
+
+Decision update: `timestamped_payload_found`; BestFightOdds should move from
+rendered-page `research_only` toward `go_canonical_candidate`. The sampled
+payload exposes true timestamped line movement, but the current reviewed
+endpoint is a BFO `Mean` odds series rather than a normalized bookmaker-specific
+row set. A future parser ticket must preserve that semantics, decode only stored
+raw payloads, map rows conservatively, and decide whether `BestFightOdds Mean`
+is acceptable as a canonical bookmaker/source label or whether event-page
+bookmaker-specific `b=` payloads are required. No canonical or warehouse load was
+performed for this ticket.
+
+#### T8.12.2 Add BestFightOdds line-history decoder and normalized adapter
+- **Description:** Decode stored BestFightOdds `/api/ggd` line-history payloads
+  and normalize timestamped `Mean` moneyline points into the canonical V1 odds
+  contract for source-specific review.
+- **Status:** DONE
+- **Dependencies:** T8.12.1, T8.11.3, T8.2.2
+- **Acceptance Criteria:**
+  - New adapter reads stored raw snapshots and stored raw payloads only; it does
+    not fetch network content.
+  - Decoder implements the reviewed BFO `notIn` payload transform and parses
+    `/api/ggd?m=<matchup_id>&p=<side>` responses.
+  - Adapter maps payload `(matchup_id, side)` back to stored fighter-history
+    `data-li` context before local warehouse event/fight/fighter matching.
+  - Supported V1 output is timestamped moneyline observations from BFO `Mean`
+    odds series, labeled with bookmaker/source semantics as `BestFightOdds Mean`.
+  - Writes source-specific normalized rows to
+    `data/odds/sources/bestfightodds_line_history_fight_odds.csv`.
+  - Writes missing, ambiguous, unsupported, or unmatched rows to
+    `data/odds/sources/bestfightodds_line_history_unmatched_odds.csv`.
+  - Preserves source URL, raw payload path/hash, source snapshot path/hash,
+    matchup id, side, series name, source event/fighter labels, observed
+    timestamp, decimal odds, and import timestamp.
+  - No rows are merged into canonical `data/odds/fight_odds.csv`, and no
+    warehouse load, crawl, scheduler, or continuous scraping is added.
+- **Test Coverage:**
+  - Unit tests for `notIn` decoding, stored payload parsing, `data-li` context
+    extraction, matched loadable output, missing context, and unknown local fight
+    pair handling.
+- **Complexity:** M
+- **Risk:** Medium - timestamped line movement is valuable, but the first
+  supported payload is a BFO aggregate/mean series rather than
+  bookmaker-specific observations.
+
+**Implementation Notes (2026-08-19):**
+
+Added `warehouse/adapt_bestfightodds_line_history_payloads.py`, an offline-only
+adapter for stored BFO fighter-history pages and stored `/api/ggd` payloads.
+The adapter supports the reviewed fighter-history `Mean` endpoint only:
+`/api/ggd?m=<matchup_id>&p=<side>`. It intentionally does not fetch network
+content and does not attempt bookmaker-specific `b=` payloads yet.
+
+The stored sample payload produced:
+
+| Metric | Count |
+|---|---:|
+| Payloads read | 1 |
+| Timestamped source points read | 214 |
+| Canonical-compatible source rows | 214 |
+| Unmatched/review rows | 0 |
+| Duplicate source rows skipped | 0 |
+
+Output summary:
+
+| Field | Value |
+|---|---|
+| Output CSV | `data/odds/sources/bestfightodds_line_history_fight_odds.csv` |
+| Unmatched CSV | `data/odds/sources/bestfightodds_line_history_unmatched_odds.csv` |
+| Source label | `bestfightodds_line_history_payload` |
+| Bookmaker/source semantics | `BestFightOdds Mean` |
+| Line type | `current` |
+| Market | `moneyline` |
+| Event/fight | `UFC 330`, Ian Machado Garry vs. Islam Makhachev |
+| Timestamp range | `2026-06-17T23:00:06+00:00` to `2026-08-16T04:16:31+00:00` |
+| Decimal odds range | `3.44` to `9.05` |
+
+Decision update: BestFightOdds line-history payloads are now an implementable
+canonical-source candidate for timestamped line movement, pending review of
+whether `BestFightOdds Mean` is acceptable for the first betting backtest path
+or whether a future ticket must first add bookmaker-specific `b=` payload
+support. No rows were copied into `data/odds/fight_odds.csv`, and no warehouse
+load was performed.
+
+#### T8.12.3 Promote BestFightOdds Mean rows as first canonical market benchmark
+- **Description:** Use reviewed timestamped BestFightOdds `Mean` line-history
+  rows as the first canonical market-benchmark odds source while preserving the
+  source semantics and avoiding sportsbook-specific execution claims.
+- **Status:** DONE
+- **Dependencies:** T8.12.2, T8.2.2
+- **Acceptance Criteria:**
+  - Capture at most the paired opposite-side payload for the already-reviewed
+    matchup; do not add discovery, broad crawling, a scheduler, or continuous
+    fetching.
+  - Rerun the offline line-history adapter against stored snapshots and payloads
+    only.
+  - Require both fight sides before canonical promotion so no-vig market
+    grouping is possible.
+  - Add a validated, de-duplicating promotion helper that keeps only the
+    canonical `data/odds/fight_odds.csv` columns.
+  - Promote reviewed valid BFO `Mean` rows into `data/odds/fight_odds.csv`.
+  - Label rows with `bookmaker = BestFightOdds Mean`,
+    `source = bestfightodds_line_history_payload`, and `line_type = current`.
+  - Document that these rows support market-benchmark backtests, not
+    sportsbook-specific executable P/L claims.
+  - Do not run a warehouse load as part of this ticket.
+- **Test Coverage:**
+  - Unit tests for canonical promotion, extra audit-column stripping,
+    de-duplication, and validation failure handling.
+  - Existing BFO probe/adapter tests remain green.
+- **Complexity:** S
+- **Risk:** Medium - this intentionally starts using BFO in the canonical odds
+  file, but only as a clearly labeled market-benchmark source.
+
+**Implementation Notes (2026-08-19):**
+
+Captured one paired opposite-side payload for the already-reviewed matchup:
+
+| Payload | HTTP | Raw Artifact | SHA-256 |
+|---|---:|---|---|
+| `https://www.bestfightodds.com/api/ggd?m=43741&p=2` | 200 | `data/odds/raw/bestfightodds/payloads/20260819T205948Z_detail_payload_api-ggd_7d2f15c00043_1e7bddb93e45.html` | `1e7bddb93e455ce27e3e071b0c33ab263789c7f4e6c1a39b97b6da2c72783fe6` |
+
+Rerunning the offline adapter after the paired-side payload produced:
+
+| Metric | Count |
+|---|---:|
+| Payloads read | 2 |
+| Timestamped source points read | 428 |
+| Canonical-compatible source rows | 428 |
+| Unmatched/review rows | 0 |
+| Duplicate source rows skipped | 0 |
+
+Added `warehouse/promote_odds_source_to_canonical.py`, a generic reviewed-source
+promotion helper. It validates source rows against local `events.csv`,
+`fights.csv`, and `fighters.csv`, strips source-specific audit columns, skips
+stable-key duplicates, and writes canonical `data/odds/fight_odds.csv` columns
+only. It does not load the database.
+
+Promotion result:
+
+| Metric | Count |
+|---|---:|
+| Existing canonical rows before promotion | 149,894 |
+| Source rows read | 428 |
+| Source rows valid | 428 |
+| Appended canonical rows | 428 |
+| Duplicate rows skipped | 0 |
+
+Canonical BFO row summary after promotion:
+
+| Field | Value |
+|---|---|
+| Canonical row count | 428 |
+| Fight/event | `UFC 330`, Ian Machado Garry vs. Islam Makhachev |
+| Fighters represented | 214 Ian Machado Garry rows, 214 Islam Makhachev rows |
+| Unique paired timestamps | 214 |
+| Single-side timestamps | 0 |
+| Timestamp range | `2026-06-17T23:00:06+00:00` to `2026-08-16T04:16:31+00:00` |
+| Decimal odds range | `1.23753` to `9.05` |
+
+Pure loader validation on the promoted BFO rows returned 428 valid rows, 0
+skipped, and 0 rejected. A first-timestamp no-vig check was valid with two sides
+and overround `1.032558139534883720930232558`.
+
+Decision: `go_canonical_market_benchmark`. BestFightOdds `Mean` line-history
+rows are acceptable as the first canonical odds source for market-benchmark
+analysis. They must still be described as BFO aggregate/mean market lines, not
+named-bookmaker executable prices. No warehouse load was run for this ticket.
+
+#### T8.13.0 Run first BFO Mean market-benchmark backtest
+- **Description:** Run the first betting backtest using canonical
+  `BestFightOdds Mean` rows as a market benchmark.
+- **Status:** DONE
+- **Dependencies:** T8.12.3, T8.7.1
+- **Acceptance Criteria:**
+  - Use canonical `BestFightOdds Mean` rows from `data/odds/fight_odds.csv`.
+  - Join to saved pre-event predictions only.
+  - Select the latest BFO line before each prediction timestamp.
+  - Compute no-vig market probability and model edge.
+  - Produce betting backtest reports under `data/reports/`.
+  - Label output as market-benchmark, not sportsbook-executable P/L.
+- **Test Coverage:**
+  - Unit tests cover BFO Mean source filtering, no-vig row construction,
+    prediction enrichment from local CSV IDs, and latest-before-prediction
+    selection.
+- **Complexity:** S
+- **Risk:** Medium - this uses real timestamped BFO aggregate market rows, but
+  the result must not be described as sportsbook-executable P/L.
+
+**Implementation Notes (2026-08-19):**
+
+Added `betting/bfo_mean_market_backtest.py`, an offline CSV runner that reads
+canonical BFO Mean rows from `data/odds/fight_odds.csv`, enriches saved
+`data/reports/pre_event_prediction_fights.csv` rows with local fighter IDs from
+`data/fights.csv` and `data/fighters.csv`, computes two-sided no-vig market
+probabilities, and delegates betting decisions/settlement to the existing
+historical backtest engine. It does not fetch network content, crawl, schedule,
+or load the warehouse.
+
+The first run wrote:
+
+| Report | Path |
+|---|---|
+| Fight rows | `data/reports/bfo_mean_market_benchmark/bfo_mean_market_benchmark_fights.csv` |
+| Event rows | `data/reports/bfo_mean_market_benchmark/bfo_mean_market_benchmark_events.csv` |
+| Summary rows | `data/reports/bfo_mean_market_benchmark/bfo_mean_market_benchmark_summary.csv` |
+| Benchmark notice | `data/reports/bfo_mean_market_benchmark/market_benchmark_notice.md` |
+
+Run counters:
+
+| Metric | Count |
+|---|---:|
+| Saved prediction rows read | 211 |
+| BFO fights with no-vig odds | 1 |
+| Canonical BFO Mean rows | 428 |
+| BFO market groups | 214 |
+| Valid no-vig odds rows | 428 |
+| Prediction rows after BFO/date filters | 1 |
+| Dataset rows | 2 |
+| Dataset issues | 0 |
+
+The joined fight was `UFC 330: Makhachev vs. Machado Garry`. The selected line
+timestamp was `2026-08-09T03:00:03+00:00`, which is before the saved prediction
+timestamp `2026-08-09T11:17:50.025384+00:00`.
+
+Default-policy result:
+
+| Side | Model Probability | BFO No-Vig Market Probability | Edge | EV/Unit | Decision |
+|---|---:|---:|---:|---:|---|
+| Ian Machado Garry | 0.2300 | 0.2461144779 | -0.0161144779 | -0.107600 | pass |
+| Islam Makhachev | 0.7700 | 0.7538855221 | 0.0161144779 | -0.024664100 | pass |
+
+Overall result: 0 bets, 0 total staked, 0 profit/loss, ending bankroll 1000.
+This is expected under the default thresholds because both sides failed the
+edge/EV gates. The report is explicitly labeled `market-benchmark, not
+sportsbook-executable P/L`.
+
+#### T8.13.1 Expand BestFightOdds Mean historical backfill
+- **Description:** Expand the BestFightOdds Mean line-history capture from the
+  one reviewed matchup to a bounded set of past completed fights so the
+  market-benchmark backtest has meaningful sample size.
+- **Status:** IN_PROGRESS
+- **Dependencies:** T8.12.3, T8.13.0
+- **Acceptance Criteria:**
+  - Use `BestFightOdds Mean` as the accepted market-benchmark source.
+  - Target past completed UFC fights/events that can join to saved pre-event
+    predictions; prioritize fights already present in
+    `data/reports/pre_event_prediction_fights.csv`.
+  - Accept explicit event/fighter URLs or an explicit local fight/event ID list;
+    no unbounded site-wide crawl.
+  - Maintain a manifest of every intended and completed BFO request, including
+    local fight/event target, URL, fetch timestamp, HTTP status, content hash,
+    raw artifact path, and parse/load status.
+  - Keep conservative request behavior: explicit request cap, dry-run support,
+    timeout, retry/backoff, and at least a 2-second delay before any subsequent
+    request.
+  - Store raw HTML/payload artifacts under `data/odds/raw/bestfightodds/`.
+  - Decode stored payloads offline and promote only two-sided timestamped
+    `BestFightOdds Mean` moneyline rows into `data/odds/fight_odds.csv`.
+  - Re-run the BFO Mean market-benchmark backtest after promotion and write
+    reports under `data/reports/bfo_mean_market_benchmark/`.
+  - Label all outputs as market-benchmark, not sportsbook-executable P/L.
+  - Do not add a scheduler, continuous scraper, model-training feature, or
+    named-bookmaker execution claim.
+- **Test Coverage:**
+  - Unit tests for manifest target parsing, request-cap enforcement, dry-run
+    behavior, duplicate raw/payload handling, two-sided promotion gating, and
+    backtest report generation on expanded fixtures.
+- **Complexity:** M
+- **Risk:** Medium - historical BFO depth is valuable, but hidden payload
+  extraction must remain bounded, auditable, and respectful.
+
+**Implementation Notes (2026-08-19):**
+
+Added `warehouse/capture_bestfightodds_manifest.py`, a manifest-driven capture
+runner for explicit BFO page/payload targets. It does not discover targets or
+crawl the site. It validates a CSV manifest, enforces an explicit request cap
+with a hard maximum of 25 targets per run, preserves dry-run mode, requires at
+least a 2-second interval before subsequent live requests, and delegates actual
+network fetches to the existing one-request snapshot/payload probes.
+
+Added unit tests for manifest target parsing, request-cap enforcement, dry-run
+behavior, injected capture probes, and inter-request delay handling.
+
+Seed manifest:
+
+`data/odds/raw/bestfightodds/manifests/bfo_mean_targets.seed.csv`
+
+Dry-run result manifest:
+
+`data/odds/raw/bestfightodds/manifests/bfo_mean_capture_results.dry_run.csv`
+
+Live bounded result manifest:
+
+`data/odds/raw/bestfightodds/manifests/bfo_mean_capture_results.live.csv`
+
+The seed currently includes six explicit targets:
+
+| Purpose | Target |
+|---|---|
+| Historical backfill | `https://www.bestfightodds.com/events/ufc-330-4237` |
+| Historical backfill | `https://www.bestfightodds.com/api/ggd?m=43741&p=1` |
+| Historical backfill | `https://www.bestfightodds.com/api/ggd?m=43741&p=2` |
+| Upcoming snapshot | `https://www.bestfightodds.com/events/ufc-sacramento-4320` |
+| Upcoming snapshot | `https://www.bestfightodds.com/fighters/anthony-hernandez-6092` |
+| Upcoming snapshot | `https://www.bestfightodds.com/fighters/gregory-rodrigues-6917` |
+
+Dry-run command executed:
+
+```bash
+python3 warehouse/capture_bestfightodds_manifest.py \
+  --manifest data/odds/raw/bestfightodds/manifests/bfo_mean_targets.seed.csv \
+  --output data/odds/raw/bestfightodds/manifests/bfo_mean_capture_results.dry_run.csv \
+  --dry-run \
+  --request-cap 6
+```
+
+A live run for the seed manifest was approved and completed with six explicit
+requests. The historical portion intentionally recaptured the existing UFC 330
+sample event and paired `/api/ggd` payloads; duplicate stable odds keys were
+skipped during canonical promotion, so the completed-fight benchmark sample did
+not expand beyond the first reviewed matchup yet.
+
+After decoding stored payloads offline and promoting reviewed rows, canonical
+`BestFightOdds Mean` coverage is 560 rows: 428 rows for the completed UFC 330
+sample and 132 rows for the upcoming Hernandez/Rodrigues matchup. The completed
+historical benchmark was rerun with `--end-date 2026-08-15`; it still joined one
+completed fight and produced 0 bets under the default edge/EV gates.
+
+Remaining T8.13.1 work is to add a larger explicit manifest of past completed
+fights that join to saved pre-event predictions, capture those targets with the
+same bounded workflow, promote only two-sided timestamped BFO Mean rows, and
+rerun the historical benchmark on the expanded completed-fight sample.
+
+#### T8.13.2 Add BestFightOdds Mean upcoming market snapshot path
+- **Description:** Add a bounded BestFightOdds Mean path for upcoming UFC fights
+  so current model predictions can be compared with the BFO aggregate market.
+- **Status:** IN_PROGRESS
+- **Dependencies:** T8.12.3, T8.6.2, T8.13.1
+- **Acceptance Criteria:**
+  - Use `BestFightOdds Mean` as a current/upcoming market-benchmark source, not
+    as sportsbook-executable odds.
+  - Accept only explicit upcoming event/fighter URLs or explicit local upcoming
+    fight/event IDs; no future-event discovery crawl unless a later ticket
+    approves it.
+  - Preserve the same raw manifest and artifact requirements as T8.13.1.
+  - Store timestamped BFO Mean rows in canonical `data/odds/fight_odds.csv` only
+    after both moneyline sides are present and conservatively mapped.
+  - Feed current-card recommendation reports as market-benchmark comparisons,
+    with report labels clearly separating BFO Mean benchmark edges from
+    sportsbook-executable bet placement.
+  - Add stale-odds handling for upcoming rows using the existing betting config
+    age limits.
+  - Do not add a scheduler, background polling, or continuous live line monitor.
+    Any recurring refresh workflow requires a separate approval ticket.
+- **Test Coverage:**
+  - Unit tests for explicit upcoming target validation, stale benchmark odds,
+    current-card report labeling, unmatched fight handling, and no scheduler
+    behavior.
+- **Complexity:** M
+- **Risk:** Medium - useful for live decision support, but easy to overstate if
+  aggregate BFO Mean prices are treated like executable book lines.
+
+**Implementation Notes (2026-08-19):**
+
+The seed manifest captured explicit upcoming targets for
+`UFC Sacramento` / `UFC Fight Night: Hernandez vs. Rodrigues`, including the
+event page and both fighter pages. The fighter snapshots exposed matchup
+`m=44429`, which was then captured through an additional explicit two-target
+payload manifest:
+
+`data/odds/raw/bestfightodds/manifests/bfo_mean_upcoming_payload_targets.csv`
+
+Live upcoming payload result manifest:
+
+`data/odds/raw/bestfightodds/manifests/bfo_mean_upcoming_payload_results.live.csv`
+
+The offline adapter accepted the BFO event-name alias by using the unique
+date+fighter-pair warehouse match, promoted 132 two-sided timestamped
+`BestFightOdds Mean` rows for Anthony Hernandez vs. Gregory Rodrigues, and
+left duplicate recaptured UFC 330 rows out of canonical storage.
+
+Added `betting/bfo_mean_upcoming_snapshot.py`, which reads saved pre-event
+predictions and canonical BFO Mean rows, selects the latest two-sided BFO group
+at or before an explicit `--as-of` timestamp, computes no-vig market probability,
+model edge, and EV/unit, and writes:
+
+`data/reports/bfo_mean_market_benchmark/bfo_mean_upcoming_market_snapshot.csv`
+
+The report is labeled
+`market-benchmark-not-sportsbook-executable`. The first run as of
+`2026-08-19T21:40:00+00:00` wrote two rows for Hernandez/Rodrigues. Anthony
+Hernandez showed a +0.040135 no-vig model edge and +0.014727 EV/unit against
+the BFO Mean benchmark; Gregory Rodrigues was the inverse side and remained a
+pass benchmark comparison.
+
+Remaining T8.13.2 work is to wire config-driven stale-odds age limits into the
+upcoming report path and, if desired, surface the benchmark comparison inside
+the broader current-card recommendation report. No scheduler, background
+polling, or sportsbook-executable claim has been added.
+
+#### T8.13.3 Build prioritized BFO historical target manifest
+- **Description:** Create the first real completed-fight BestFightOdds target
+  manifest from saved pre-event predictions so T8.13.1 can expand beyond the
+  single UFC 330 sample without adding discovery crawling.
+- **Status:** DONE
+- **Dependencies:** T8.13.1
+- **Acceptance Criteria:**
+  - Read saved pre-event predictions and select a bounded set of past completed
+    UFC fights that currently have no canonical `BestFightOdds Mean` rows.
+  - Prioritize fights with resolved outcomes, saved prediction timestamps, and
+    local event/fighter IDs available in the warehouse.
+  - Produce an explicit review manifest under
+    `data/odds/raw/bestfightodds/manifests/` with local event/fight IDs,
+    fighter labels, event date/name, proposed BFO event/fighter URLs or manual
+    lookup notes, and target status.
+  - Require human-reviewed BFO URLs or matchup IDs before any live payload
+    request is added to a capture manifest.
+  - Keep the first expansion batch small, for example 5-10 completed fights or
+    no more than 25 explicit BFO requests.
+  - Do not fetch network content, decode payloads, promote canonical rows, or
+    schedule scraping in this ticket.
+- **Test Coverage:**
+  - Unit tests for selecting candidate fights from saved predictions, excluding
+    fights that already have BFO rows, deterministic prioritization, and manifest
+    row validation.
+- **Complexity:** S
+- **Risk:** Low/Medium - this is metadata planning, but wrong target mapping
+  would contaminate downstream odds joins.
+
+**Implementation Notes (2026-08-20):**
+
+Added `warehouse/build_bestfightodds_historical_manifest.py`, a local-only
+review-manifest builder. It reads saved pre-event predictions, canonical odds,
+and local fight rows; selects resolved past completed fights with saved
+prediction timestamps and local fighter IDs; excludes fights that already have
+canonical `BestFightOdds Mean` rows; and writes a review CSV for manual BFO
+event/matchup lookup. It does not fetch BestFightOdds, decode payloads, promote
+odds rows, or schedule scraping.
+
+Review manifest written:
+
+`data/odds/raw/bestfightodds/manifests/bfo_mean_historical_targets.review.csv`
+
+Run command:
+
+```bash
+python3 warehouse/build_bestfightodds_historical_manifest.py \
+  --max-fights 10 \
+  --as-of-date 2026-08-20
+```
+
+Run counters:
+
+| Metric | Count |
+|---|---:|
+| Prediction rows read | 211 |
+| Candidate fights | 112 |
+| Manifest rows written | 10 |
+| Skipped existing BFO Mean | 2 |
+| Skipped missing local fight | 20 |
+| Skipped not past event | 64 |
+| Skipped unresolved prediction | 13 |
+
+The first review manifest prioritizes ten completed UFC 330 fights that do not
+yet have canonical BFO Mean rows. Each row is marked
+`needs_manual_bfo_lookup`, has `capture_manifest_ready = false`, and leaves BFO
+event/matchup/payload URL fields blank until manual review supplies exact BFO
+targets. No live capture manifest was produced.
+
+#### T8.13.4 Capture first expanded BFO historical batch and rerun benchmark
+- **Description:** Use the reviewed manifest from T8.13.3 to perform the first
+  bounded completed-fight BFO Mean historical expansion and rerun the
+  market-benchmark backtest.
+- **Status:** DONE
+- **Dependencies:** T8.13.3, T8.13.1
+- **Acceptance Criteria:**
+  - Run `warehouse/capture_bestfightodds_manifest.py` in dry-run mode first and
+    store the dry-run result manifest.
+  - With explicit approval, capture only the reviewed historical batch with a
+    request cap no higher than the manifest size and no higher than the existing
+    hard cap.
+  - Store raw snapshots/payloads and metadata under
+    `data/odds/raw/bestfightodds/`.
+  - Decode stored payloads offline; no parser may fetch network content.
+  - Promote only two-sided timestamped `BestFightOdds Mean` moneyline rows that
+    conservatively map to local warehouse fight/fighter IDs.
+  - Record skipped duplicates, unmatched rows, ambiguous mappings, and rejected
+    one-sided markets in the source/unmatched review CSVs.
+  - Re-run the completed-fight BFO Mean market-benchmark backtest and update
+    reports under `data/reports/bfo_mean_market_benchmark/`.
+  - Label all outputs as market-benchmark, not sportsbook-executable P/L.
+  - Do not add broad crawling, a scheduler, background polling, or model-training
+    features.
+- **Test Coverage:**
+  - Use existing adapter/promotion tests; add regression coverage for any new
+    mapping edge case found in the first expanded batch.
+- **Complexity:** M
+- **Risk:** Medium - this is the first meaningful historical scrape batch, so
+  target mapping and request discipline matter.
+
+**Implementation Notes (2026-08-20):**
+
+The reviewed UFC 330 event snapshot from the prior bounded run contained
+matchup IDs for all ten T8.13.3 review rows, so no additional event/fighter page
+fetch was needed to build the first capture manifest. Added event-page context
+support to `warehouse/adapt_bestfightodds_line_history_payloads.py` so stored
+BFO event snapshots can identify `matchup_id`, side, event date, fighter, and
+opponent for `/api/ggd` payloads. This keeps the first expanded historical batch
+to payload requests only.
+
+Reviewed capture manifest:
+
+`data/odds/raw/bestfightodds/manifests/bfo_mean_historical_payload_targets.csv`
+
+Dry-run result manifest:
+
+`data/odds/raw/bestfightodds/manifests/bfo_mean_historical_payload_results.dry_run.csv`
+
+Live result manifest:
+
+`data/odds/raw/bestfightodds/manifests/bfo_mean_historical_payload_results.live.csv`
+
+The live manifest captured 20 explicit payload URLs for ten completed UFC 330
+fights. Every target returned HTTP 200. The run used the manifest capture helper
+with `--request-cap 20`; no site discovery, event crawl, scheduler, background
+polling, or model-training feature was added.
+
+Offline adapter result after the capture:
+
+| Metric | Count |
+|---|---:|
+| Payloads read | 26 |
+| Source points read | 6110 |
+| Matched canonical-compatible rows | 5682 |
+| Unmatched/review rows | 428 |
+| Skipped duplicate source rows | 428 |
+
+The remaining unmatched rows were duplicate stable odds keys from earlier
+recaptured sample payloads.
+
+Canonical promotion result:
+
+| Metric | Count |
+|---|---:|
+| Existing canonical rows | 150454 |
+| Source rows read | 5682 |
+| Source rows valid | 5682 |
+| Appended rows | 5122 |
+| Duplicate rows skipped | 560 |
+
+Canonical `BestFightOdds Mean` coverage is now 5682 rows: 5550 completed-fight
+rows for 2026-08-15 and 132 upcoming rows for 2026-08-22.
+
+Completed-fight BFO Mean market-benchmark rerun:
+
+```bash
+python3 betting/bfo_mean_market_backtest.py --end-date 2026-08-15
+```
+
+Run counters:
+
+| Metric | Count |
+|---|---:|
+| BFO fights with no-vig odds | 11 |
+| BFO market groups | 2841 |
+| Canonical BFO Mean rows | 5682 |
+| No-vig odds rows after filters | 5550 |
+| Prediction rows after filters | 11 |
+| Dataset rows | 22 |
+| Dataset issues | 0 |
+
+Default-policy result:
+
+| Metric | Value |
+|---|---:|
+| Total bets | 4 |
+| Wins | 2 |
+| Losses | 2 |
+| Total staked | 60.00 |
+| Profit/Loss | 81.218000 |
+| ROI | 1.353633333333333333333333333 |
+| Hit rate | 0.5 |
+| Ending bankroll | 1081.218000 |
+
+This remains a small market-benchmark sample, not sportsbook-executable P/L.
+The report outputs remain under
+`data/reports/bfo_mean_market_benchmark/` and retain the
+`market-benchmark, not sportsbook-executable P/L` label.
+
+#### T8.13.5 Add stale-odds gate to BFO upcoming snapshot report
+- **Description:** Add config-driven freshness handling to the upcoming BFO Mean
+  market-benchmark report so current-card comparisons do not silently use stale
+  market rows.
+- **Status:** DONE
+- **Dependencies:** T8.13.2, T8.6.2
+- **Acceptance Criteria:**
+  - Read the existing betting config age/freshness setting or add a clearly named
+    BFO benchmark freshness setting if the existing config is not appropriate.
+  - Mark upcoming benchmark rows with odds age at report `as_of` time.
+  - Exclude or flag rows whose latest BFO Mean timestamp is older than the
+    configured freshness limit.
+  - Preserve the market-benchmark label and avoid sportsbook-executable language.
+  - Write stale/missing benchmark reasons so current-card review can tell the
+    difference between no BFO rows, one-sided BFO rows, future-only rows, and
+    stale rows.
+  - Do not add live polling or automatic refresh.
+- **Test Coverage:**
+  - Unit tests for fresh rows, stale rows, missing rows, one-sided rows,
+    future-only rows, and config override behavior.
+- **Complexity:** S
+- **Risk:** Low/Medium - freshness gates are straightforward but important for
+  not overtrusting old market data.
+
+**Implementation Notes (2026-08-20):**
+
+Updated `betting/bfo_mean_upcoming_snapshot.py` to use the existing betting
+config freshness setting, `risk.max_odds_age_hours_current`, for BFO Mean
+benchmark rows. The CLI now accepts `--config` and
+`--max-odds-age-hours-current` like the recommendation path.
+
+The upcoming report now includes:
+
+- `benchmark_freshness_status`
+- `benchmark_exclusion_reason`
+- `max_odds_age_hours`
+- `odds_age_hours`
+
+Fresh and stale two-sided BFO groups keep their benchmark prices in the report,
+but stale groups are flagged with `benchmark_freshness_status = stale` and
+`benchmark_exclusion_reason = odds_age_exceeds_max`. Fights without usable BFO
+benchmark rows are no longer silently dropped; the report writes placeholder
+fighter-side rows with explicit reasons such as `missing_bfo_rows`,
+`future_only_bfo_rows`, or `expected_two_bfo_sides_got_1`.
+
+Regenerated upcoming report:
+
+```bash
+python3 betting/bfo_mean_upcoming_snapshot.py \
+  --as-of 2026-08-20T10:30:00+00:00
+```
+
+Output:
+
+`data/reports/bfo_mean_market_benchmark/bfo_mean_upcoming_market_snapshot.csv`
+
+Report status breakdown:
+
+| Status | Rows |
+|---|---:|
+| `fresh` | 2 |
+| `missing` | 128 |
+
+Reason breakdown:
+
+| Reason | Rows |
+|---|---:|
+| blank/fresh | 2 |
+| `missing_bfo_rows` | 128 |
+
+The two fresh rows are Anthony Hernandez and Gregory Rodrigues, using the
+`2026-08-19T21:36:06+00:00` BFO Mean timestamp. At the report as-of time, those
+odds are 12.898333 hours old, inside the default 48-hour current-odds freshness
+limit. No live polling, automatic refresh, scheduler, or sportsbook-executable
+claim was added.
+
+#### T8.13.6 Surface BFO benchmark edges in current-card reports
+- **Description:** Add optional BFO Mean market-benchmark comparison columns to
+  current-card recommendation outputs while keeping betting decisions separate
+  from executable sportsbook odds.
+- **Status:** DONE
+- **Dependencies:** T8.13.2, T8.13.5, T8.6.2
+- **Acceptance Criteria:**
+  - Join current-card predictions/recommendations to latest fresh two-sided BFO
+    Mean benchmark rows when available.
+  - Add benchmark-only fields such as BFO timestamp, BFO decimal odds, BFO no-vig
+    market probability, model edge versus BFO, EV/unit versus BFO, freshness
+    status, and benchmark label.
+  - Keep the actual recommendation/bet placement path unchanged unless executable
+    sportsbook odds are provided separately.
+  - Clearly distinguish BFO benchmark pass/bet-style diagnostics from actual
+    sportsbook-executable recommendations in CSV and human-readable outputs.
+  - Preserve rows for fights with missing/stale/unmatched BFO data and include
+    reason codes.
+  - Do not add a scheduler, background refresh, or BFO-driven automatic bet
+    placement.
+- **Test Coverage:**
+  - Unit tests for successful BFO join, missing BFO data, stale BFO data,
+    unmatched fight IDs, label propagation, and unchanged executable
+    recommendation behavior.
+- **Complexity:** M
+- **Risk:** Medium - this is user-facing decision support, so labels and
+  separation from executable odds must be unmistakable.
+
+**Implementation Notes (2026-08-20):**
+
+Updated `betting/recommend.py` so current-card recommendation reports can load
+the BFO Mean upcoming benchmark snapshot CSV as report-only enrichment. The
+default benchmark input is:
+
+`data/reports/bfo_mean_market_benchmark/bfo_mean_upcoming_market_snapshot.csv`
+
+The CLI now supports:
+
+- `--bfo-benchmark-report`
+- `--no-bfo-benchmark`
+
+The actual executable odds join, value policy, staking, bet/pass decisions, and
+bankroll exposure logic remain unchanged. BFO fields are attached only when
+writing report rows after staking has already been calculated.
+
+New recommendation CSV columns:
+
+- `bfo_benchmark_label`
+- `bfo_benchmark_freshness_status`
+- `bfo_benchmark_exclusion_reason`
+- `bfo_benchmark_odds_timestamp`
+- `bfo_benchmark_odds_age_hours`
+- `bfo_benchmark_decimal_odds`
+- `bfo_benchmark_no_vig_market_probability`
+- `bfo_benchmark_edge`
+- `bfo_benchmark_ev_per_unit`
+
+New event-summary CSV columns:
+
+- `bfo_benchmark_fresh_rows`
+- `bfo_benchmark_stale_rows`
+- `bfo_benchmark_missing_rows`
+- `bfo_benchmark_other_unusable_rows`
+
+The console summary now prints aggregate BFO benchmark coverage counts. Missing
+or disabled benchmark data is explicit via report-only reason strings such as
+`missing_bfo_benchmark_row`, `bfo_benchmark_report_missing`, or
+`bfo_benchmark_disabled`. These fields do not create sportsbook-executable
+recommendations and do not trigger any BFO fetch, polling, scheduler, or
+automatic refresh.
+
+#### T8.13.7 Commit/QA BFO odds benchmark pipeline
+- **Description:** Consolidate the BFO Mean market-benchmark pipeline before any
+  additional scraping batch, including QA reporting, runbook documentation,
+  artifact policy, and verification.
+- **Status:** DONE
+- **Dependencies:** T8.13.4, T8.13.5, T8.13.6
+- **Acceptance Criteria:**
+  - Add a short reproducible command runbook for the BFO flow: build historical
+    review manifest, fill reviewed payload URLs, dry-run capture, live bounded
+    capture, offline adapt, canonical promotion, historical benchmark, upcoming
+    snapshot, and current-card recommendation report enrichment.
+  - Add a small QA report summarizing canonical BFO rows by event/fight.
+  - Confirm generated artifacts that should remain local/ignored versus source
+    files that should be committed.
+  - Run the full relevant BFO/recommendation verification suite.
+  - Keep all BFO outputs labeled as market-benchmark, not sportsbook-executable
+    P/L.
+  - Do not add new scraping, scheduler, polling, or model-training features.
+- **Test Coverage:**
+  - Unit test for canonical BFO coverage QA grouping.
+  - Re-run BFO adapter, manifest, recommendation, market-backtest, and upcoming
+    snapshot tests.
+- **Complexity:** S
+- **Risk:** Low - consolidation only, but important for reproducibility before
+  expanding scrape volume.
+
+**Implementation Notes (2026-08-20):**
+
+Added `warehouse/report_bestfightodds_canonical_coverage.py`, which reads
+canonical `data/odds/fight_odds.csv`, filters `BestFightOdds Mean` rows from
+`bestfightodds_line_history_payload`, and writes fight-level coverage QA to:
+
+`data/reports/bfo_mean_market_benchmark/bfo_mean_canonical_coverage.csv`
+
+The local QA run reported:
+
+| Metric | Count |
+|---|---:|
+| Canonical BFO rows | 5682 |
+| Covered events | 2 |
+| Covered fights | 12 |
+| Two-sided fights | 12 |
+
+Added a BFO pipeline runbook to `data/odds/README.md` covering the full manual
+review and bounded capture flow through reports. Updated `.gitignore` so raw BFO
+HTML/JS captures and generated BFO benchmark reports follow the existing
+generated-artifact policy. Raw captures, source CSVs, canonical odds CSVs, and
+generated reports remain local/regenerable; source code, tests, docs, and small
+fixtures are source-controlled.
+
+Verification command:
+
+```bash
+pytest betting/tests/test_recommend_cli.py \
+  betting/tests/test_recommend.py \
+  betting/tests/test_bfo_mean_upcoming_snapshot.py \
+  betting/tests/test_bfo_mean_market_backtest.py \
+  warehouse/tests/test_adapt_bestfightodds_line_history_payloads.py \
+  warehouse/tests/test_capture_bestfightodds_manifest.py \
+  warehouse/tests/test_build_bestfightodds_historical_manifest.py \
+  warehouse/tests/test_report_bestfightodds_canonical_coverage.py
+```
+
+Result: 40 tests passed. Python compile checks also passed for the BFO and
+recommendation scripts. No network fetch, canonical promotion, scheduler,
+polling, or model-training feature was added for this ticket.
 
 ---
 
@@ -1170,7 +2321,20 @@ T8.11.0 selects the scraping-only source direction. T8.11.1 verifies
 BestFightOdds feasibility before T8.11.2 captures bounded raw snapshots and
 T8.11.3 parses reviewed snapshots into normalized odds. T8.11.4 is the fallback
 permission/feasibility review for alternate archives. T8.11.5 documents the
-source decision matrix.
+source decision matrix. T8.12.0 uses a tiny explicit BestFightOdds sample to
+make the go/no-go decision before any canonical promotion. T8.12.1 probes the
+single discovered BFO line-history payload path for timestamp quality. T8.12.2
+decodes stored BFO line-history payloads into source-specific normalized rows.
+T8.12.3 promotes reviewed BFO Mean rows as the first canonical market-benchmark
+source. T8.13.0 runs the first saved-prediction market-benchmark backtest using
+those canonical BFO Mean rows. T8.13.1 expands the bounded historical BFO Mean
+backfill, and T8.13.2 adds an explicitly targeted upcoming-fight market
+snapshot path. T8.13.3 builds the first prioritized completed-fight target
+manifest, T8.13.4 captures and promotes that bounded historical batch, T8.13.5
+adds stale-odds handling for upcoming BFO benchmark rows, and T8.13.6 surfaces
+fresh BFO benchmark edges in current-card reports without changing executable
+bet recommendations. T8.13.7 consolidates the BFO pipeline with QA reporting,
+artifact policy, runbook documentation, verification, and a clean commit point.
 ```
 
 ---
@@ -1187,7 +2351,12 @@ source decision matrix.
 | 6 | T8.7.1, T8.7.2, T8.7.3, T8.7.4 | Historical betting profitability can be backtested leakage-safely. |
 | 7 | T8.8.1, T8.8.2, T8.9.1, T8.9.2 | Documentation and quality gates complete. |
 | 8 | T8.10.1, T8.10.0, T8.10.2, T8.10.3, T8.10.4 | External odds sources can feed the canonical odds contract. |
-| 9 | T8.11.1, T8.11.2, T8.11.3, T8.11.4, T8.11.5 | Scraping-only BestFightOdds-first path is verified, probed, normalized, and documented. |
+| 9 | T8.11.1, T8.11.2, T8.11.3, T8.11.4, T8.11.5, T8.12.0, T8.12.1, T8.12.2, T8.12.3 | Scraping-only BestFightOdds-first path is verified, probed, normalized, documented, go/no-go reviewed, timestamp-payload checked, decoded to source-specific review rows, and promoted as a canonical market benchmark. |
+| 10 | T8.13.0 | First canonical BFO Mean market-benchmark backtest report is produced from saved pre-event predictions. |
+| 11 | T8.13.1, T8.13.2 | BFO Mean market-benchmark coverage expands to bounded historical backfill and explicitly targeted upcoming-fight snapshots. |
+| 12 | T8.13.3, T8.13.4 | Historical BFO Mean coverage expands through a reviewed completed-fight manifest and one bounded capture/promote/backtest batch. |
+| 13 | T8.13.5, T8.13.6 | Upcoming BFO Mean benchmark data gets stale-odds handling and appears in current-card reports as benchmark-only decision support. |
+| 14 | T8.13.7 | BFO Mean benchmark pipeline is documented, QA-reportable, artifact-scoped, verified, and ready for the next bounded source batch. |
 
 ---
 

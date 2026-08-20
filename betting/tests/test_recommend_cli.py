@@ -128,6 +128,7 @@ def test_current_betting_cli_smoke_writes_reports(monkeypatch, tmp_path, capsys)
             "2026-08-01T12:00:00+00:00",
             "--report-dir",
             str(tmp_path),
+            "--no-bfo-benchmark",
         ],
         conn=object(),
     )
@@ -159,7 +160,157 @@ def test_current_betting_cli_smoke_writes_reports(monkeypatch, tmp_path, capsys)
             "event_exposure_fraction": "0.02",
             "pass_count": "1",
             "top_pass_reasons": "edge_below_threshold=1, ev_below_threshold=1",
+            "bfo_benchmark_fresh_rows": "0",
+            "bfo_benchmark_stale_rows": "0",
+            "bfo_benchmark_missing_rows": "0",
+            "bfo_benchmark_other_unusable_rows": "2",
             "drawdown_protection_enabled": "false",
             "drawdown_protection_fired": "false",
         }
     ]
+
+
+def test_current_betting_cli_surfaces_bfo_benchmark_without_changing_decisions(monkeypatch, tmp_path):
+    bfo_report = tmp_path / "bfo_snapshot.csv"
+    _write_bfo_report(bfo_report)
+    monkeypatch.setattr(
+        recommend,
+        "fetch_current_prediction_rows",
+        lambda conn: [_prediction()],
+    )
+    monkeypatch.setattr(
+        recommend,
+        "fetch_no_vig_odds_rows",
+        lambda conn, bookmaker=None, line_type="current": _valid_odds(
+            bookmaker=bookmaker or "TestBook",
+            line_type=line_type,
+        ),
+    )
+
+    code = recommend.main(
+        [
+            "--next",
+            "--bookmaker",
+            "TestBook",
+            "--line-type",
+            "current",
+            "--bankroll",
+            "1000",
+            "--as-of",
+            "2026-08-01T12:00:00+00:00",
+            "--report-dir",
+            str(tmp_path),
+            "--bfo-benchmark-report",
+            str(bfo_report),
+        ],
+        conn=object(),
+    )
+
+    assert code == 0
+    recommendation_rows = list(csv.DictReader((tmp_path / "betting_recommendations.csv").open()))
+    summary_rows = list(csv.DictReader((tmp_path / "betting_event_summary.csv").open()))
+
+    bet_rows = [row for row in recommendation_rows if row["decision"] == "bet"]
+    assert len(bet_rows) == 1
+    assert bet_rows[0]["recommended_fighter_id"] == "fighter-a"
+    assert bet_rows[0]["final_stake_fraction"] == "0.02"
+    fighter_a = next(row for row in recommendation_rows if row["fighter_id"] == "fighter-a")
+    fighter_b = next(row for row in recommendation_rows if row["fighter_id"] == "fighter-b")
+    assert fighter_a["bfo_benchmark_label"] == "market-benchmark-not-sportsbook-executable"
+    assert fighter_a["bfo_benchmark_freshness_status"] == "fresh"
+    assert fighter_a["bfo_benchmark_decimal_odds"] == "1.90"
+    assert fighter_a["bfo_benchmark_edge"] == "0.05"
+    assert fighter_b["bfo_benchmark_freshness_status"] == "missing"
+    assert fighter_b["bfo_benchmark_exclusion_reason"] == "missing_bfo_rows"
+    assert summary_rows[0]["bfo_benchmark_fresh_rows"] == "1"
+    assert summary_rows[0]["bfo_benchmark_missing_rows"] == "1"
+
+
+def _write_bfo_report(path: Path) -> None:
+    columns = [
+        "benchmark_label",
+        "benchmark_freshness_status",
+        "benchmark_exclusion_reason",
+        "as_of",
+        "max_odds_age_hours",
+        "event_id",
+        "event_name",
+        "event_date",
+        "fight_id",
+        "fighter_id",
+        "fighter_name",
+        "opponent_fighter_id",
+        "opponent_fighter_name",
+        "bookmaker",
+        "market",
+        "line_type",
+        "odds_timestamp",
+        "odds_age_hours",
+        "scored_at",
+        "model_probability",
+        "market_implied_probability",
+        "no_vig_market_probability",
+        "edge",
+        "ev_per_unit",
+        "offered_decimal_odds",
+    ]
+    rows = [
+        {
+            "benchmark_label": "market-benchmark-not-sportsbook-executable",
+            "benchmark_freshness_status": "fresh",
+            "benchmark_exclusion_reason": "",
+            "as_of": "2026-08-01T12:00:00+00:00",
+            "max_odds_age_hours": "48",
+            "event_id": "event-1",
+            "event_name": "UFC Test Card",
+            "event_date": "2026-08-02",
+            "fight_id": "fight-1",
+            "fighter_id": "fighter-a",
+            "fighter_name": "Fighter A",
+            "opponent_fighter_id": "fighter-b",
+            "opponent_fighter_name": "Fighter B",
+            "bookmaker": "BestFightOdds Mean",
+            "market": "moneyline",
+            "line_type": "current",
+            "odds_timestamp": "2026-08-01T11:30:00+00:00",
+            "odds_age_hours": "0.500000",
+            "scored_at": "2026-08-01T10:00:00+00:00",
+            "model_probability": "0.70",
+            "market_implied_probability": "0.55",
+            "no_vig_market_probability": "0.65",
+            "edge": "0.05",
+            "ev_per_unit": "0.10",
+            "offered_decimal_odds": "1.90",
+        },
+        {
+            "benchmark_label": "market-benchmark-not-sportsbook-executable",
+            "benchmark_freshness_status": "missing",
+            "benchmark_exclusion_reason": "missing_bfo_rows",
+            "as_of": "2026-08-01T12:00:00+00:00",
+            "max_odds_age_hours": "48",
+            "event_id": "event-1",
+            "event_name": "UFC Test Card",
+            "event_date": "2026-08-02",
+            "fight_id": "fight-1",
+            "fighter_id": "fighter-b",
+            "fighter_name": "Fighter B",
+            "opponent_fighter_id": "fighter-a",
+            "opponent_fighter_name": "Fighter A",
+            "bookmaker": "BestFightOdds Mean",
+            "market": "moneyline",
+            "line_type": "current",
+            "odds_timestamp": "",
+            "odds_age_hours": "",
+            "scored_at": "2026-08-01T10:00:00+00:00",
+            "model_probability": "0.30",
+            "market_implied_probability": "",
+            "no_vig_market_probability": "",
+            "edge": "",
+            "ev_per_unit": "",
+            "offered_decimal_odds": "",
+        },
+    ]
+    with path.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=columns)
+        writer.writeheader()
+        writer.writerows(rows)

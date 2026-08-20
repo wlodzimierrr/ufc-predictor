@@ -241,17 +241,63 @@ Research snapshot date: 2026-08-19.
 
 | Source | Type | MMA/UFC fit | Historical fit | Implementation / terms risk | Current recommendation |
 |---|---|---|---|---|---|
-| BestFightOdds | Website archive | Strong MMA-specific archive | Strong depth signal: archive advertises thousands of matchups dating back to 2007 | Medium/high: website extraction, terms/permission, brittle parsing, unclear timestamps | Best first scraping candidate. Start with manual feasibility and a tiny raw snapshot probe. |
+| BestFightOdds | Website archive plus timestamped chart payloads | Strong MMA-specific archive | Strong depth signal: archive advertises thousands of matchups dating back to 2007; reviewed fighter-history pages expose open odds, closing ranges, movement, event names, dates, and `data-li` chart identifiers; reviewed paired `/api/ggd` payloads exposed Unix-millisecond line timestamps for both sides | Medium/high: website extraction, sparse terms/permission posture, hidden payload decoding, and source semantics need care because the sampled fighter-history detail series is BFO `Mean` odds rather than a bookmaker-specific row set | First canonical market-benchmark source. Use as `BestFightOdds Mean` market-consensus odds, not named-bookmaker executable prices. |
+| MMAOddsBreaker | MMA article archive | Strong MMA-specific article coverage with opening-odds and closing-odds categories | Useful fallback for manual/permissioned article review, especially missing opening odds; not a normalized odds database | Medium/high: article prose parsing, aggregate bookmaker attribution, article publish times are not true sportsbook observation timestamps, terms restrict unauthorized reuse/commercial exploitation, robots declares `Crawl-delay: 10` | Fallback only if BestFightOdds is blocked or insufficient. Use one-page raw snapshots and permission/manual review; label timestamps as `article_publish_time` unless true observed timestamps are present. |
+| FightOdds.io | MMA betting/odds site | MMA-specific with odds comparison and line-movement language | Unclear public historical export path from reviewed public pages | Medium/high: terms indicate personal, noncommercial use and no obvious permissioned bulk data route | Keep as a permission question, not an implementation path. |
 | OddsPortal | Website archive | Broad sports archive, not MMA-specific-first | Broad historical odds archive | High: terms restrict automated requests, scraping, aggregation, database extraction, and non-personal/commercial use without consent | Do not scrape without explicit permission or licensed data path. |
 | The Odds API | Paid documented JSON API | Strong: supports `mma_mixed_martial_arts`, h2h/moneyline, multiple bookmaker regions | Promising but paid historical access is required | Low technical risk, but out of scope because paid APIs are not being used | Do not pursue under current no-paid-API constraint. |
-| BALLDONTLIE | API | Useful for recent/current MMA odds with existing key | Limited for our historical backfill based on current sample size | Low implementation risk, but API route is not the next path | Keep existing importer only; do not make it the historical plan. |
+| BALLDONTLIE | API | Useful for recent/current MMA odds with existing key | Limited for historical backfill based on current sample size | Low implementation risk, but API route is not the next path | Keep existing importer only; do not make it the historical plan. |
 | SportsDataIO | Commercial API/feed | Potentially strong with paid MMA access | Potentially useful with paid/commercial access, but free/trial data is scrambled | Medium: sales/plan access and scrambled trial values make validation harder | Do not pursue under current no-paid-API constraint. |
 
 The current decision is scraping-only because paid API routes are out of scope.
-BestFightOdds is the first candidate to investigate because it is MMA-specific
-and has a deep archive signal. The first step is manual feasibility plus a tiny
-respectful raw snapshot probe, not a broad crawl. OddsPortal should be avoided
-unless explicit permission or a licensed path is obtained.
+BestFightOdds remains the first candidate because it is MMA-specific and has a
+deep archive signal. Rendered BestFightOdds fighter-history rows without detail
+payloads remain research/open-close benchmark material, not leakage-safe
+point-in-time line movement. However, the 2026-08-19 line-history probe found
+that `data-li` values can resolve to timestamped `/api/ggd` payloads: the one
+sampled detail response decoded to 214 Unix-millisecond line points. That moves
+BestFightOdds to `go_canonical_candidate`. The first offline decoder/parser now
+writes those timestamped `BestFightOdds Mean` rows to
+`data/odds/sources/bestfightodds_line_history_fight_odds.csv` for review.
+The first reviewed paired-side sample has now been promoted into canonical
+`data/odds/fight_odds.csv`: 428 rows across 214 paired timestamps for Ian
+Machado Garry vs. Islam Makhachev. Use these rows for market-benchmark analysis
+against BFO aggregate/mean odds. Do not describe them as sportsbook-specific
+executable P/L unless a future parser adds named-bookmaker `b=` payload support.
+The first BFO Mean market-benchmark run is under
+`data/reports/bfo_mean_market_benchmark/`; its output is explicitly labeled as
+market-benchmark, not sportsbook-executable P/L.
+The planned BFO Mean expansion covers both bounded historical backfill for
+completed fights and explicitly targeted upcoming-fight snapshots for current
+market comparison. Use `warehouse/capture_bestfightodds_manifest.py` with an
+explicit CSV manifest for any multi-target BFO capture; dry-run first, keep a
+request cap, and store the result manifest under
+`data/odds/raw/bestfightodds/manifests/`.
+The first bounded live manifest run and upcoming payload capture added
+timestamped BFO Mean coverage for Anthony Hernandez vs. Gregory Rodrigues
+(`UFC Fight Night: Hernandez vs. Rodrigues`, 2026-08-22). Canonical BFO Mean
+coverage is now 5682 rows: 5550 completed-fight rows for UFC 330 and 132
+upcoming rows from Hernandez/Rodrigues. The expanded completed-fight
+market-benchmark report joins 11 saved-prediction fights and remains a
+market-benchmark report, not sportsbook-executable P/L. Current/upcoming market
+comparison output is written by `betting/bfo_mean_upcoming_snapshot.py` to
+`data/reports/bfo_mean_market_benchmark/bfo_mean_upcoming_market_snapshot.csv`
+and is labeled `market-benchmark-not-sportsbook-executable`. The upcoming
+snapshot uses `risk.max_odds_age_hours_current` for freshness and includes
+`benchmark_freshness_status`, `benchmark_exclusion_reason`, and
+`odds_age_hours` so missing/stale BFO coverage is visible instead of silently
+dropped. Current-card recommendation CSVs can surface those BFO benchmark fields
+with `bfo_benchmark_*` columns, but the executable sportsbook odds join,
+bet/pass policy, and staking decisions remain separate. Canonical BFO coverage
+can be audited with `warehouse/report_bestfightodds_canonical_coverage.py`.
+MMAOddsBreaker is the documented fallback for permissioned/manual article review
+if BestFightOdds is blocked or insufficient. OddsPortal should be avoided unless
+explicit permission or a licensed path is obtained.
+
+All source outputs must preserve the same boundary: normalize reviewed rows into
+the canonical `data/odds/fight_odds.csv` contract before warehouse loading, and
+send ambiguous, unmatched, label-only, or timestamp-weak rows to source-specific
+review outputs rather than guessing.
 
 Loader:
 
