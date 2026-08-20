@@ -1022,9 +1022,26 @@ def _group_odds_rows(
         grouped.setdefault(fight_id, {}).setdefault(key, []).append(row)
 
     return {
-        fight_id: list(groups.items())
+        fight_id: _latest_market_groups(groups)
         for fight_id, groups in grouped.items()
     }
+
+
+def _latest_market_groups(
+    groups: dict[tuple, list[Mapping[str, object]]],
+) -> list[tuple[tuple, list[Mapping[str, object]]]]:
+    latest: dict[tuple, tuple[tuple, list[Mapping[str, object]]]] = {}
+    for group_key, rows in groups.items():
+        bookmaker, market, line_type, odds_timestamp = group_key
+        stable_key = (bookmaker, market, line_type)
+        existing = latest.get(stable_key)
+        if existing is None or _timestamp_sort_key(odds_timestamp) > _timestamp_sort_key(existing[0][3]):
+            latest[stable_key] = (group_key, rows)
+    return list(latest.values())
+
+
+def _timestamp_sort_key(value: datetime | None) -> datetime:
+    return value or datetime.min.replace(tzinfo=timezone.utc)
 
 
 def _prediction_context(prediction: Mapping[str, object]) -> dict[str, object]:

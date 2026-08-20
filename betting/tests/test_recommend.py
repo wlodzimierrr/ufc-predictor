@@ -135,6 +135,21 @@ def test_join_can_filter_by_bookmaker_and_line_type():
     assert {row.bookmaker for row in result.rows} == {"KeepBook"}
 
 
+def test_join_uses_latest_market_group_per_bookmaker():
+    odds = (
+        _valid_odds(timestamp="2026-08-01T10:00:00+00:00")
+        + _valid_odds(timestamp="2026-08-01T11:30:00+00:00")
+    )
+
+    result = build_recommendation_inputs([_prediction()], odds, as_of=AS_OF)
+
+    assert result.issues == ()
+    assert len(result.rows) == 2
+    assert {row.odds_timestamp for row in result.rows} == {
+        datetime(2026, 8, 1, 11, 30, tzinfo=timezone.utc),
+    }
+
+
 def test_join_excludes_stale_odds_with_issue():
     result = build_recommendation_inputs(
         [_prediction()],
