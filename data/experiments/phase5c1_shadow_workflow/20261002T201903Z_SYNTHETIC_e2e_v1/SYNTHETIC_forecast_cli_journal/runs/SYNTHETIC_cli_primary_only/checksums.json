@@ -1,0 +1,30 @@
+{
+  "files": {
+    "bindings/challenger.json": "0c189760d47aa5343cbcbe6726659dac128c40d20db84102b25e8ceffd83ee62",
+    "bindings/reference.json": "90b3a40edd3fd8ab14e8c1231ca0c801af9bdc1c989846aa983496e47529ea4a",
+    "capture_receipt.json": "63624058239ba10c3ff1c983a5aba7bb5c91f8a700673baec0fa2698a4d99663",
+    "contract.json": "1481f4ac0a2986a182d0a3c07ba286d4eb407ac438a15ef9c7f343ebc10b80c8",
+    "feature_lineage.json": "6ba3a75460f2216b74314172ec86e9654318eae51b02aa186def162eea569669",
+    "inputs/challenger.csv": "7225706692b4da185fed84698217069cb45b1bd308a053e6e40ae023dc51ca7a",
+    "inputs/march.csv": "7225706692b4da185fed84698217069cb45b1bd308a053e6e40ae023dc51ca7a",
+    "inputs/reference.csv": "6667f7a71354c87c79a3b5803c8479bcdc5f510ee3b264e707cb099a71fbd54d",
+    "march_status.json": "4e5254a0e83c8240b43043f7463e468f553e573d1b1d82cf9312b9499996b222",
+    "observation/capture_receipt.json": "63624058239ba10c3ff1c983a5aba7bb5c91f8a700673baec0fa2698a4d99663",
+    "observation/events.json": "1113cb586d73396cbc6188909af4dd24e9323d1e1acd8ddc4f7fa4434dac3858",
+    "observation/evidence/claims.json": "c3b9c16f4c396b9baccc5f1f38fbcae9a8283b3966ec04206e5accc4921336ac",
+    "observation/evidence_package.json": "09a283fddae51f616327736f7df9b26b01ad48fb1f7f0000d7b474d1104a5474",
+    "observation/fight_stats_aggregate.json": "f07914547708a88093cd6402bf9f22d3014c530f33316d0930aded80811dbc32",
+    "observation/fighters.json": "7579971392826050037028cb90235952bc5e8c6a204bfa7cd6df540eb981dc45",
+    "observation/fights.json": "07d4b450354b23fea9c6d383d1c51356d1c84c57263c9616624df492b2db4623",
+    "observation/schemas.json": "d4d0a931dc86598b1b2f26e5bd52347060094fe5beb64031b07bd359e431ee8a",
+    "outputs/challenger.json": "004f5c6d2179bee5b487f07f7f46d0b501afb5f86dea89af25591a0c934b41c3",
+    "outputs/reference.json": "71483401866310d52307de9e06c24b546de9f7c906977369deb1ccfca78108c4",
+    "package.json": "8c4de6238b27526e403bed47b2ae6255fc18216fe5bd1e54445d444175e01ffa",
+    "preprocessing/reference.json": "0a15f03d8705deac82213ad79898d9c205df8294f34f0d94f263da4a5171a4e4",
+    "processed/challenger.csv": "7225706692b4da185fed84698217069cb45b1bd308a053e6e40ae023dc51ca7a",
+    "processed/reference.csv": "6667f7a71354c87c79a3b5803c8479bcdc5f510ee3b264e707cb099a71fbd54d",
+    "projection.json": "5a4556dfbc53948fa3dae40df0d6a4648823f196d1dfb06a04fc65a010b40f5e",
+    "readiness.json": "7ff56059519a1ecaab0f485f629db95b190515b47aac784b4aa273e44eed3410",
+    "run.json": "92998568fbf34bfb9dfff9fe00a8680be8fa44f17b744409621438ab49e5ce98"
+  }
+}

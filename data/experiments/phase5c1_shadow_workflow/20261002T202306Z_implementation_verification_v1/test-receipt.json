@@ -1,0 +1,27 @@
+{
+  "code_sha256": {
+    "docs/phase5c1-shadow-evidence-contract-v1.md": "87df5edde953665c86358ae2d2bcbfe0ff0c058874228f00ea912308d4ee49ae",
+    "features/forecast_replay.py": "53dcff49468e617c2cbe13c8c35d818e617e5741dd530b1f049c98c769d14cd2",
+    "modeling/phase5c1_adapters.py": "eb0270dd1c5c0ff7de3ede82e8c9daed32869820a46020b2aedc5bd218d9080e",
+    "modeling/phase5c1_contract.py": "ac685adf8a6b334baf0756662dd7e4eab1cad06a0e03a2837e73389f36c975a4",
+    "modeling/phase5c1_evidence.py": "7cd87c716760807375d2789dcef1062d1f0bea6b641a36112c2a3daa85e2446b",
+    "modeling/phase5c1_journal.py": "8d6d38babf3b678fc4cfeef500977808bc49f6a036974e7774a844e3e16f947b",
+    "modeling/phase5c1_runner.py": "f20fd84475f77955cf8f1022164c1207c8b6e4b322d9c81aa43bc38567d81390",
+    "modeling/phase5c1_safety.py": "a6b90e6500918c3ecd0c8981f94f6ec88c9bd3cb0a932360cbf9e3be0cf0d989",
+    "modeling/phase5c1_sources.py": "58ece3c373013983796d07e458c28b4b3ac9c914d4938b698e21568afb002d16",
+    "modeling/phase5c1_synthetic.py": "7f04f4717f6d2e1ec35c0de0e030dfc036a2fdb50efffee5ed5143d3a76a6b72",
+    "modeling/tests/test_phase5c1_shadow.py": "9185ecc24be90bbddbf4f573273b5b261add9e1a8100a0869d02e99c62dcd2e2",
+    "tools/run_phase5c1_shadow.py": "5245253301dfbe0c3f5a55fe32f0fd0955b0a4a783644d3ed99de7c3b8472df0"
+  },
+  "completed_at": "2026-10-02T20:16:11.099010+00:00",
+  "exit_code": 0,
+  "fits": 0,
+  "output_sha256": "d22d6bbc1f98cb68b5f6d2cbba36bc5a6b78f5393d12ee5e0245024d410bb088",
+  "real_capture_calls": 0,
+  "real_predictions": 0,
+  "scoped_tests": [
+    "modeling/tests/test_phase5c1_shadow.py"
+  ],
+  "started_at": "2026-10-02T20:15:47.952585+00:00",
+  "status": "PASSED"
+}

@@ -1,0 +1,11 @@
+{
+  "cli_stages": 9,
+  "fits": 0,
+  "implementation_commit": "aa86e1e",
+  "purpose": "SYNTHETIC_IMPLEMENTATION_TEST_ONLY",
+  "real_predictions": 0,
+  "real_source_captures": 0,
+  "real_trial_forecasts": 0,
+  "sealed_at": "2026-10-02T20:20:13.197629+00:00",
+  "synthetic": true
+}

@@ -1,0 +1,240 @@
+{
+  "e2e_root": "data/experiments/phase5c1_shadow_workflow/20261002T201903Z_SYNTHETIC_e2e_v1",
+  "receipts": [
+    {
+      "command": [
+        "python3",
+        "tools/run_phase5c1_shadow.py",
+        "synthetic-demo",
+        "--contract",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201821Z_shadow_contract_v1",
+        "--contract-pin",
+        "83cf581f3f90b7c0f85fcc8063d87330843bec657b03da7f5135ddde450d7514",
+        "--output",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201903Z_SYNTHETIC_e2e_v1",
+        "--run-name",
+        "SYNTHETIC_primary_and_control"
+      ],
+      "result": {
+        "checksums_sha256": "21a17cfcd9e781c5c44e1d585d553eb788dae9847055bbe99039df0d19ad3998",
+        "complete_primary_pair": true,
+        "failure": null,
+        "prediction_calls": 3,
+        "replay": {
+          "checksums_sha256": "21a17cfcd9e781c5c44e1d585d553eb788dae9847055bbe99039df0d19ad3998",
+          "replayed": true,
+          "run_status": "READY",
+          "status": "READY",
+          "synthetic": true,
+          "verification": "VERIFIED"
+        },
+        "status": "READY",
+        "synthetic": true
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/run_phase5c1_shadow.py",
+        "validate",
+        "--contract",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201821Z_shadow_contract_v1",
+        "--contract-pin",
+        "83cf581f3f90b7c0f85fcc8063d87330843bec657b03da7f5135ddde450d7514",
+        "--package",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201903Z_SYNTHETIC_e2e_v1/SYNTHETIC_capture",
+        "--receipt-pin",
+        "63624058239ba10c3ff1c983a5aba7bb5c91f8a700673baec0fa2698a4d99663"
+      ],
+      "result": {
+        "capture_id": "9c6ee426-20be-5186-a4bd-6d04f4bedc5e",
+        "receipt_sha256": "63624058239ba10c3ff1c983a5aba7bb5c91f8a700673baec0fa2698a4d99663",
+        "status": "READY"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/run_phase5c1_shadow.py",
+        "register",
+        "--contract",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201821Z_shadow_contract_v1",
+        "--contract-pin",
+        "83cf581f3f90b7c0f85fcc8063d87330843bec657b03da7f5135ddde450d7514",
+        "--package",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201903Z_SYNTHETIC_e2e_v1/SYNTHETIC_capture",
+        "--receipt-pin",
+        "63624058239ba10c3ff1c983a5aba7bb5c91f8a700673baec0fa2698a4d99663",
+        "--journal",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201903Z_SYNTHETIC_e2e_v1/SYNTHETIC_metadata_only_journal"
+      ],
+      "result": {
+        "registry_checksums_sha256": "2b3aa232b896cb6359d75c2d7a995e07787af95d457fd320d9bc382828302104",
+        "status": "READY"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/run_phase5c1_shadow.py",
+        "prepare",
+        "--contract",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201821Z_shadow_contract_v1",
+        "--contract-pin",
+        "83cf581f3f90b7c0f85fcc8063d87330843bec657b03da7f5135ddde450d7514",
+        "--package",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201903Z_SYNTHETIC_e2e_v1/SYNTHETIC_capture",
+        "--receipt-pin",
+        "63624058239ba10c3ff1c983a5aba7bb5c91f8a700673baec0fa2698a4d99663",
+        "--output",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201903Z_SYNTHETIC_e2e_v1/SYNTHETIC_prepared_stage"
+      ],
+      "result": {
+        "checksums_sha256": "70cdc90e2c6ec96984d2129599c630185c565a9008494c814e0f27148f9065db",
+        "history_rows": 12,
+        "projection_sha256": "dc27f3f6742823415c4e5499cb190debe04873b899670034fe9c02913814ac4a",
+        "status": "READY"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/run_phase5c1_shadow.py",
+        "check",
+        "--contract",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201821Z_shadow_contract_v1",
+        "--contract-pin",
+        "83cf581f3f90b7c0f85fcc8063d87330843bec657b03da7f5135ddde450d7514",
+        "--package",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201903Z_SYNTHETIC_e2e_v1/SYNTHETIC_capture",
+        "--receipt-pin",
+        "63624058239ba10c3ff1c983a5aba7bb5c91f8a700673baec0fa2698a4d99663",
+        "--forecast-at",
+        "2026-10-04T12:11:00+00:00"
+      ],
+      "result": {
+        "bouts": [
+          {
+            "disposition": "ready_for_paired_forecast",
+            "fight_id": "030f087b-d225-5b82-9e2f-3628c7c6b39c",
+            "reasons": [],
+            "source_row_id": "030f087b-d225-5b82-9e2f-3628c7c6b39c",
+            "status": "READY"
+          }
+        ],
+        "considered_count": 1,
+        "status": "READY"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/run_phase5c1_shadow.py",
+        "build",
+        "--contract",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201821Z_shadow_contract_v1",
+        "--contract-pin",
+        "83cf581f3f90b7c0f85fcc8063d87330843bec657b03da7f5135ddde450d7514",
+        "--package",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201903Z_SYNTHETIC_e2e_v1/SYNTHETIC_capture",
+        "--receipt-pin",
+        "63624058239ba10c3ff1c983a5aba7bb5c91f8a700673baec0fa2698a4d99663",
+        "--forecast-at",
+        "2026-10-04T12:11:00+00:00",
+        "--output",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201903Z_SYNTHETIC_e2e_v1/SYNTHETIC_build_stage"
+      ],
+      "result": {
+        "bouts": [
+          {
+            "disposition": "ready_for_paired_forecast",
+            "fight_id": "030f087b-d225-5b82-9e2f-3628c7c6b39c",
+            "reasons": [],
+            "source_row_id": "030f087b-d225-5b82-9e2f-3628c7c6b39c",
+            "status": "READY"
+          }
+        ],
+        "checksums_sha256": "e527d3085211aac21d5f904b411e47b2f9c582e60ed1ee5122cc114d1aeb2e16",
+        "considered_count": 1,
+        "status": "READY"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/run_phase5c1_shadow.py",
+        "forecast",
+        "--contract",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201821Z_shadow_contract_v1",
+        "--contract-pin",
+        "83cf581f3f90b7c0f85fcc8063d87330843bec657b03da7f5135ddde450d7514",
+        "--package",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201903Z_SYNTHETIC_e2e_v1/SYNTHETIC_capture",
+        "--receipt-pin",
+        "63624058239ba10c3ff1c983a5aba7bb5c91f8a700673baec0fa2698a4d99663",
+        "--forecast-at",
+        "2026-10-04T12:11:00+00:00",
+        "--journal",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201903Z_SYNTHETIC_e2e_v1/SYNTHETIC_forecast_cli_journal",
+        "--run-name",
+        "SYNTHETIC_cli_primary_only",
+        "--without-march"
+      ],
+      "result": {
+        "checksums_sha256": "a5328f3d3c418c1915c1744396d6b0d5e0d6650f1d57157126f352573eb18113",
+        "complete_primary_pair": true,
+        "failure": null,
+        "prediction_calls": 2,
+        "status": "READY",
+        "synthetic": true
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/run_phase5c1_shadow.py",
+        "verify",
+        "--contract",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201821Z_shadow_contract_v1",
+        "--contract-pin",
+        "83cf581f3f90b7c0f85fcc8063d87330843bec657b03da7f5135ddde450d7514",
+        "--run",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201903Z_SYNTHETIC_e2e_v1/SYNTHETIC_forecast_cli_journal/runs/SYNTHETIC_cli_primary_only",
+        "--run-pin",
+        "a5328f3d3c418c1915c1744396d6b0d5e0d6650f1d57157126f352573eb18113"
+      ],
+      "result": {
+        "checksums_sha256": "a5328f3d3c418c1915c1744396d6b0d5e0d6650f1d57157126f352573eb18113",
+        "replayed": false,
+        "run_status": "READY",
+        "status": "READY",
+        "synthetic": true,
+        "verification": "VERIFIED"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "tools/run_phase5c1_shadow.py",
+        "replay",
+        "--contract",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201821Z_shadow_contract_v1",
+        "--contract-pin",
+        "83cf581f3f90b7c0f85fcc8063d87330843bec657b03da7f5135ddde450d7514",
+        "--run",
+        "data/experiments/phase5c1_shadow_workflow/20261002T201903Z_SYNTHETIC_e2e_v1/SYNTHETIC_forecast_cli_journal/runs/SYNTHETIC_cli_primary_only",
+        "--run-pin",
+        "a5328f3d3c418c1915c1744396d6b0d5e0d6650f1d57157126f352573eb18113"
+      ],
+      "result": {
+        "checksums_sha256": "a5328f3d3c418c1915c1744396d6b0d5e0d6650f1d57157126f352573eb18113",
+        "replayed": true,
+        "run_status": "READY",
+        "status": "READY",
+        "synthetic": true,
+        "verification": "VERIFIED"
+      }
+    }
+  ],
+  "synthetic_only": true
+}

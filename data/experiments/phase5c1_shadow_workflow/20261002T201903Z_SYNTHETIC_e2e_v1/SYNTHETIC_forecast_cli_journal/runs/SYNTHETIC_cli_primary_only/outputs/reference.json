@@ -1,0 +1,16 @@
+[
+  {
+    "calibrated_probability_fighter_1": 0.4,
+    "decision": {
+      "high_confidence": false,
+      "latent_fighter_1": false,
+      "pick_label": null,
+      "status": "scored_no_pick",
+      "version": "probability_band_v1"
+    },
+    "fight_id": "030f087b-d225-5b82-9e2f-3628c7c6b39c",
+    "forecast_completed_at": "2026-10-04T12:11:00+00:00",
+    "forecast_started_at": "2026-10-04T12:11:00+00:00",
+    "raw_probability_fighter_1": 0.6234567890123457
+  }
+]

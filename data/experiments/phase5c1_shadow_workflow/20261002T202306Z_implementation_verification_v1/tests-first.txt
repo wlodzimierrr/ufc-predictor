@@ -1,0 +1,35 @@
+.............................F........................                   [100%]
+=================================== FAILURES ===================================
+________ test_same_day_future_and_target_results_never_enter_histories _________
+
+capture = {'directory': '/tmp/pytest-of-wlodzimierrr/pytest-202/test_same_day_future_and_targe0/capture', 'evidence': {'assertio...c', 'fighter_1_id': 'f529364b-2640-53d5-b36a-398b6a3e2f7e', ...}], 'evidence_body': 'evidence_package.json', ...}, ...}
+contract = {'component_freezes': ['2026-10-02T18:33:00+00:00'], 'components': {'challenger': {'checksums': '59ffd4995946cc9ec7512...uarded'}}, 'frozen_at': '2026-10-02T20:00:00+00:00', 'inference_version': 'phase5c1_capture_receipt_inference_v2', ...}
+
+    def test_same_day_future_and_target_results_never_enter_histories(capture, contract):
+        from modeling.phase5c1_sources import project
+        rows = deepcopy(capture['rows'])
+        day = instant(capture['receipt']['observation_cutoff']).date().isoformat()
+        rows['events'][0]['event_date'] = day
+>       same_day = validate(rewrite(capture, table='events', values=rows['events']), contract)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+modeling/tests/test_phase5c1_shadow.py:216: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+modeling/tests/test_phase5c1_shadow.py:66: in validate
+    return validate_package(fixture['directory'], receipt_pin=fixture['receipt_sha256'], contract=contract)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+modeling/phase5c1_sources.py:63: in validate_package
+    require(future <= {c.get('fight_id') for c in considered}, 'incomplete_considered_bout_coverage')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+test = False, reason = 'incomplete_considered_bout_coverage'
+
+    def require(test, reason):
+        if not test:
+>           raise Blocked(reason)
+E           modeling.phase5c1_contract.Blocked: incomplete_considered_bout_coverage
+
+modeling/phase5c1_contract.py:43: Blocked
+=========================== short test summary info ============================
+FAILED modeling/tests/test_phase5c1_shadow.py::test_same_day_future_and_target_results_never_enter_histories
+1 failed, 53 passed in 14.91s

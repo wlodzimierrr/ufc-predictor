@@ -1,0 +1,26 @@
+{
+  "capture_id": "c8e38012-6582-56aa-98c2-df5024e78a0b",
+  "capture_receipt_sha256": "e298a4e04f30b4daa232d2f150e83282e9cea04a980faf7adec8243fe22b4931",
+  "components": {
+    "checksums": "12c17761fe76998e49fb5e79ea8a455861e22eaf57b37071f692bab17c1ba381",
+    "manifest": "20a9695de6cd77d74ff67f5cb0b62da2f127fbcdc181fa9d9fc2b3f8f62ad48a",
+    "manifest_name": "manifest.json",
+    "path": "data/experiments/phase5b1_reference_and_history/20261002_phase5b1_frozen_reference_v3_identity_guarded"
+  },
+  "contract_sha256": "1481f4ac0a2986a182d0a3c07ba286d4eb407ac438a15ef9c7f343ebc10b80c8",
+  "evidence_sha256": "09a283fddae51f616327736f7df9b26b01ad48fb1f7f0000d7b474d1104a5474",
+  "feature_recipe": "phase5_legacy_reference_adapter_v1_saved_components",
+  "march_training_reference_api_certificate": null,
+  "matrix_sha256": "6667f7a71354c87c79a3b5803c8479bcdc5f510ee3b264e707cb099a71fbd54d",
+  "observed_at": "2026-10-04T12:10:00+00:00",
+  "pipeline": "reference",
+  "projection_sha256": "5a4556dfbc53948fa3dae40df0d6a4648823f196d1dfb06a04fc65a010b40f5e",
+  "source_sha256": {
+    "events": "1113cb586d73396cbc6188909af4dd24e9323d1e1acd8ddc4f7fa4434dac3858",
+    "fight_stats_aggregate": "f07914547708a88093cd6402bf9f22d3014c530f33316d0930aded80811dbc32",
+    "fighters": "7579971392826050037028cb90235952bc5e8c6a204bfa7cd6df540eb981dc45",
+    "fights": "07d4b450354b23fea9c6d383d1c51356d1c84c57263c9616624df492b2db4623"
+  },
+  "training_reference_is_contemporary_source": false,
+  "version": "phase5c1_capture_receipt_inference_v2"
+}

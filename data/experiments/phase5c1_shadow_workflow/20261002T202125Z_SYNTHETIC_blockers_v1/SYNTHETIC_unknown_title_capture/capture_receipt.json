@@ -1,0 +1,70 @@
+{
+  "capture_id": "c1b73c41-8aee-5057-8b68-f01a907b6503",
+  "completed_at": "2026-10-04T12:10:00+00:00",
+  "considered": [
+    {
+      "event_date": "2026-10-11",
+      "event_id": "47409a01-e7ac-5efb-85b2-cb07948af24b",
+      "fight_id": "030f087b-d225-5b82-9e2f-3628c7c6b39c",
+      "fighter_1_id": "f529364b-2640-53d5-b36a-398b6a3e2f7e",
+      "fighter_2_id": "a0cf92c7-c6a1-5c22-a446-493370258ec1",
+      "source_row_id": "030f087b-d225-5b82-9e2f-3628c7c6b39c"
+    }
+  ],
+  "evidence_body": "evidence_package.json",
+  "evidence_sha256": "12245af3e2a623b525659cc00f26fcbb190b3aee021325311743ae439ab2565e",
+  "mode": "authoritative_export",
+  "observation_cutoff": "2026-10-04T12:10:00+00:00",
+  "provider": "synthetic_provider",
+  "source_scope": "synthetic_fixture_all_announced_future_rows",
+  "started_at": "2026-10-04T12:00:00+00:00",
+  "synthetic": true,
+  "tables": {
+    "events": {
+      "body": "events.json",
+      "bytes": 2774,
+      "observed_at": "2026-10-04T12:05:00+00:00",
+      "provider": "synthetic_provider",
+      "requested_at": "2026-10-04T12:00:00+00:00",
+      "sha256": "1113cb586d73396cbc6188909af4dd24e9323d1e1acd8ddc4f7fa4434dac3858",
+      "url": "synthetic://table/events"
+    },
+    "fight_stats_aggregate": {
+      "body": "fight_stats_aggregate.json",
+      "bytes": 25112,
+      "observed_at": "2026-10-04T12:05:00+00:00",
+      "provider": "synthetic_provider",
+      "requested_at": "2026-10-04T12:00:00+00:00",
+      "sha256": "f07914547708a88093cd6402bf9f22d3014c530f33316d0930aded80811dbc32",
+      "url": "synthetic://table/fight_stats_aggregate"
+    },
+    "fighters": {
+      "body": "fighters.json",
+      "bytes": 1542,
+      "observed_at": "2026-10-04T12:05:00+00:00",
+      "provider": "synthetic_provider",
+      "requested_at": "2026-10-04T12:00:00+00:00",
+      "sha256": "7579971392826050037028cb90235952bc5e8c6a204bfa7cd6df540eb981dc45",
+      "url": "synthetic://table/fighters"
+    },
+    "fights": {
+      "body": "fights.json",
+      "bytes": 8545,
+      "observed_at": "2026-10-04T12:05:00+00:00",
+      "provider": "synthetic_provider",
+      "requested_at": "2026-10-04T12:00:00+00:00",
+      "sha256": "07d4b450354b23fea9c6d383d1c51356d1c84c57263c9616624df492b2db4623",
+      "url": "synthetic://table/fights"
+    },
+    "schemas": {
+      "body": "schemas.json",
+      "bytes": 23204,
+      "observed_at": "2026-10-04T12:05:00+00:00",
+      "provider": "synthetic_provider",
+      "requested_at": "2026-10-04T12:00:00+00:00",
+      "sha256": "d4d0a931dc86598b1b2f26e5bd52347060094fe5beb64031b07bd359e431ee8a",
+      "url": "synthetic://table/schemas"
+    }
+  },
+  "version": "phase5c1_independent_source_roles_v1"
+}

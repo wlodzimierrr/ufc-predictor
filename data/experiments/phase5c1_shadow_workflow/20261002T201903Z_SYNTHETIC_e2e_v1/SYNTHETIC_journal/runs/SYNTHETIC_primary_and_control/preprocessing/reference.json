@@ -1,0 +1,8 @@
+{
+  "base_prior": 0.5,
+  "global_height_std": 1.0,
+  "global_reach_std": 1.0,
+  "height_stats": {},
+  "reach_stats": {},
+  "training_debut_win_rate": 0.5
+}

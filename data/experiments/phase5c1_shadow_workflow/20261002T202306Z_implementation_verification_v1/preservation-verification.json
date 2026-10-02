@@ -1,0 +1,10 @@
+{
+  "baseline_sha256": "e1c13047c72848d9b96a4c39ecf4a2866be6799ddb9f9a206f6ffb647f946973",
+  "changed": [],
+  "checked_at": "2026-10-02T20:20:22.039312+00:00",
+  "files_checked": 42612,
+  "missing": [],
+  "new_protected_files": [],
+  "protected_outcomes": "hash only, never parsed",
+  "status": "VERIFIED"
+}

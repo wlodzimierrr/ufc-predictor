@@ -1,0 +1,13 @@
+{
+  "bouts": [
+    {
+      "disposition": "ready_for_paired_forecast",
+      "fight_id": "030f087b-d225-5b82-9e2f-3628c7c6b39c",
+      "reasons": [],
+      "source_row_id": "030f087b-d225-5b82-9e2f-3628c7c6b39c",
+      "status": "READY"
+    }
+  ],
+  "considered_count": 1,
+  "status": "READY"
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "completed_at": "2026-10-02T20:22:27.450450+00:00",
+    "result": {
+      "components_verified": {
+        "challenger": 49,
+        "march": 29,
+        "reference": 10
+      },
+      "status": "READY"
+    },
+    "stage": "verify-components",
+    "started_at": "2026-10-02T20:22:26.355049+00:00"
+  },
+  {
+    "completed_at": "2026-10-02T20:22:29.113716+00:00",
+    "result": {
+      "fit_calls": 0,
+      "loaded": [
+        "challenger",
+        "reference",
+        "march"
+      ],
+      "prediction_calls": 0,
+      "status": "READY"
+    },
+    "stage": "load-components",
+    "started_at": "2026-10-02T20:22:27.450490+00:00"
+  }
+]

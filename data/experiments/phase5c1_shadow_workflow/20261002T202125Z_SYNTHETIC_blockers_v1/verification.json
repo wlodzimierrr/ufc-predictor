@@ -1,0 +1,38 @@
+{
+  "essential_title_blocker": {
+    "checksums_sha256": "b840cdba942c9d41ae1fd5eefdce5ae3e72f6e567da9ee4b46066f469ba2f32c",
+    "prediction_calls": 0,
+    "readiness": {
+      "bouts": [
+        {
+          "disposition": "data_blocked_not_scored",
+          "fight_id": "030f087b-d225-5b82-9e2f-3628c7c6b39c",
+          "reasons": [
+            "unknown_title_status"
+          ],
+          "source_row_id": "030f087b-d225-5b82-9e2f-3628c7c6b39c",
+          "status": "BLOCKED"
+        }
+      ],
+      "considered_count": 1,
+      "status": "BLOCKED"
+    },
+    "status": "BLOCKED"
+  },
+  "first_partial_failure": {
+    "checksums_sha256": "6e5f9c46a0224754af2d61566df5480ffb0d0b6a10abe58cf9cdb0d341d718d3",
+    "complete_primary_pair": false,
+    "failure": "RuntimeError",
+    "prediction_calls": 2,
+    "status": "BLOCKED",
+    "synthetic": true
+  },
+  "fits": 0,
+  "later_attempt_refused": {
+    "prediction_calls": 0,
+    "reason": "failed_or_incomplete_first_candidate_requires_review",
+    "status": "BLOCKED"
+  },
+  "real_predictions": 0,
+  "synthetic": true
+}

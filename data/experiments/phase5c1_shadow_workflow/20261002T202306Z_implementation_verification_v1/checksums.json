@@ -1,0 +1,19 @@
+{
+  "files": {
+    "artifact-verification.json": "24a4ca689b7d80fa85ef5ba92d2b0769259e8587257a327ff12d236389f7d93b",
+    "cli-verification.json": "a0e48b69979aefe29efccc2d98ef387b327d45b4cf2a2799ed995fd545bdcbde",
+    "component-load-receipt.json": "4cdf23249e84855e869a49aea311286c8713df30a48e6d08642e46f918320fd1",
+    "contract-publication.json": "7591dfdfe6f6cc865059bc51213bee30743eb450363fc16f2fb882259a40fc7a",
+    "manifest.json": "224e5b97483dd4271d3aed7dc5a39ae7f655646515e4adae3fbcb1e09db5fa9d",
+    "preservation-baseline.json": "e1c13047c72848d9b96a4c39ecf4a2866be6799ddb9f9a206f6ffb647f946973",
+    "preservation-verification.json": "33fa3be3b115a4c155e98ac107f37c02a9164ab81db2486440efc7bbfd8a847d",
+    "synthetic-blockers-seal.json": "9f5f0be84668a5618ea9ef663dcec7cc3759f425714b54ac4911d909c62a4d18",
+    "synthetic-seal.json": "9791db994cac18c801bfaf7638e3477d1134aa09e01d4ac8dfcf3a0fa4b624fd",
+    "test-receipt.json": "363cc84578fc68e345a513bacc9c5925dae5b8bda055a317198ae4e21b654a89",
+    "tests-final.txt": "d22d6bbc1f98cb68b5f6d2cbba36bc5a6b78f5393d12ee5e0245024d410bb088",
+    "tests-first.txt": "49a4bc79af72cecf264cb98b746d4e4547f63560215baf7081dd6e43ad610d8d",
+    "tests-fourth.txt": "0edef6a4ada30e073e46faeeba83db6f15caf421c73d3037a2a4a5ca098afe5d",
+    "tests-second.txt": "eaf9e1e11d42cc6e31a045ed65735ab3e808ab48b1a077beb6fef0a8b1a7c3c2",
+    "tests-third.txt": "ed1bc2b8996b0e3053eac086c95944e7748987611da11cad6f843a58199fece7"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "code_sha256": {
+    "docs/phase5c1-shadow-evidence-contract-v1.md": "87df5edde953665c86358ae2d2bcbfe0ff0c058874228f00ea912308d4ee49ae",
+    "features/forecast_replay.py": "53dcff49468e617c2cbe13c8c35d818e617e5741dd530b1f049c98c769d14cd2",
+    "modeling/phase5c1_adapters.py": "eb0270dd1c5c0ff7de3ede82e8c9daed32869820a46020b2aedc5bd218d9080e",
+    "modeling/phase5c1_contract.py": "ac685adf8a6b334baf0756662dd7e4eab1cad06a0e03a2837e73389f36c975a4",
+    "modeling/phase5c1_evidence.py": "7cd87c716760807375d2789dcef1062d1f0bea6b641a36112c2a3daa85e2446b",
+    "modeling/phase5c1_journal.py": "8d6d38babf3b678fc4cfeef500977808bc49f6a036974e7774a844e3e16f947b",
+    "modeling/phase5c1_runner.py": "f20fd84475f77955cf8f1022164c1207c8b6e4b322d9c81aa43bc38567d81390",
+    "modeling/phase5c1_safety.py": "a6b90e6500918c3ecd0c8981f94f6ec88c9bd3cb0a932360cbf9e3be0cf0d989",
+    "modeling/phase5c1_sources.py": "58ece3c373013983796d07e458c28b4b3ac9c914d4938b698e21568afb002d16",
+    "modeling/phase5c1_synthetic.py": "7f04f4717f6d2e1ec35c0de0e030dfc036a2fdb50efffee5ed5143d3a76a6b72",
+    "modeling/tests/test_phase5c1_shadow.py": "9185ecc24be90bbddbf4f573273b5b261add9e1a8100a0869d02e99c62dcd2e2",
+    "tools/run_phase5c1_shadow.py": "5245253301dfbe0c3f5a55fe32f0fd0955b0a4a783644d3ed99de7c3b8472df0"
+  },
+  "component_freezes": [
+    "2026-10-02T18:32:44.619117+00:00",
+    "2026-10-02T18:32:47.462997+00:00",
+    "2026-10-02T18:32:32.965565+00:00",
+    "2026-10-02T18:32:36.535143+00:00",
+    "2026-10-02T18:32:40.159909+00:00",
+    "2026-10-02T18:32:43.791456+00:00",
+    "2026-10-02T14:42:15.887155+00:00",
+    "2026-10-02T14:24:32.549708+00:00",
+    "2026-10-02T14:42:15.887537+00:00",
+    "2026-10-02T14:24:32.818738+00:00",
+    "2026-10-02T14:24:32.563287+00:00",
+    "2026-10-01T20:43:31.249475+00:00",
+    "2026-10-01T20:44:52.122233+00:00"
+  ],
+  "components": {
+    "challenger": {
+      "checksums": "59ffd4995946cc9ec7512f2f14caade09fd3144d2cfb3ee2d3b9b0951f5ca300",
+      "manifest": "7330bbebd06a6f5c0233cf8892be5c1728edc8805add02b1511499bf198b0c73",
+      "manifest_name": "training_manifest.json",
+      "path": "data/experiments/phase5b4_current_challenger/20261002T183215Z_phase5b4_current_challenger_v1_fixed"
+    },
+    "march": {
+      "checksums": "41f8c8afb8fd091fa0b04823ad9175cedcfdbf85ccf3f62d77c71e0d9219279f",
+      "path": "data/experiments/phase3b_xgb_pre_april_2026/20261001_phase3b_retrospective_v1"
+    },
+    "reference": {
+      "checksums": "12c17761fe76998e49fb5e79ea8a455861e22eaf57b37071f692bab17c1ba381",
+      "manifest": "20a9695de6cd77d74ff67f5cb0b62da2f127fbcdc181fa9d9fc2b3f8f62ad48a",
+      "manifest_name": "manifest.json",
+      "path": "data/experiments/phase5b1_reference_and_history/20261002_phase5b1_frozen_reference_v3_identity_guarded"
+    }
+  },
+  "frozen_at": "2026-10-02T20:18:22.116259+00:00",
+  "historical_comparison": "STILL_BLOCKED",
+  "inference_version": "phase5c1_capture_receipt_inference_v2",
+  "learned_components_unchanged": true,
+  "march_freeze_receipt_sha256": "897061a08db28e4a01b352e6a77dd8191a3187076a60bfe125d11257a9eda8b5",
+  "real_forecasting": "BLOCKED_PENDING_SEPARATE_AUTHORIZATION_AND_VALID_INPUT",
+  "source_version": "phase5c1_independent_source_roles_v1",
+  "version": "phase5c1_prospective_shadow_v1"
+}

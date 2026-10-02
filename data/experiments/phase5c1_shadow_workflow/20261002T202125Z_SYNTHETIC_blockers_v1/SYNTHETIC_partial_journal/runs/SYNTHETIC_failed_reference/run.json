@@ -1,0 +1,46 @@
+{
+  "capture_id": "c8e38012-6582-56aa-98c2-df5024e78a0b",
+  "capture_receipt_sha256": "e298a4e04f30b4daa232d2f150e83282e9cea04a980faf7adec8243fe22b4931",
+  "clock_kind": "synthetic_scenario",
+  "common_observation_cutoff": "2026-10-04T12:10:00+00:00",
+  "complete_primary_pair": false,
+  "completed_at": "2026-10-04T12:11:00+00:00",
+  "components": {
+    "challenger": {
+      "checksums": "59ffd4995946cc9ec7512f2f14caade09fd3144d2cfb3ee2d3b9b0951f5ca300",
+      "manifest": "7330bbebd06a6f5c0233cf8892be5c1728edc8805add02b1511499bf198b0c73",
+      "manifest_name": "training_manifest.json",
+      "path": "data/experiments/phase5b4_current_challenger/20261002T183215Z_phase5b4_current_challenger_v1_fixed"
+    },
+    "march": {
+      "checksums": "41f8c8afb8fd091fa0b04823ad9175cedcfdbf85ccf3f62d77c71e0d9219279f",
+      "path": "data/experiments/phase3b_xgb_pre_april_2026/20261001_phase3b_retrospective_v1"
+    },
+    "reference": {
+      "checksums": "12c17761fe76998e49fb5e79ea8a455861e22eaf57b37071f692bab17c1ba381",
+      "manifest": "20a9695de6cd77d74ff67f5cb0b62da2f127fbcdc181fa9d9fc2b3f8f62ad48a",
+      "manifest_name": "manifest.json",
+      "path": "data/experiments/phase5b1_reference_and_history/20261002_phase5b1_frozen_reference_v3_identity_guarded"
+    }
+  },
+  "failure": "RuntimeError",
+  "fits": 0,
+  "outcomes_loaded": false,
+  "partial_outputs_are_published_forecasts": false,
+  "prediction_calls": 2,
+  "primary_pair": [
+    "challenger",
+    "reference"
+  ],
+  "primary_population": [],
+  "real_source_access": false,
+  "registered_checksums_sha256": "be77567120d402818a355d4313360d4f71df5457d06913874a4e1e834a4b4502",
+  "scored_fight_ids": [],
+  "selected_without_probabilities": true,
+  "started_at": "2026-10-04T12:11:00+00:00",
+  "status": "BLOCKED",
+  "synthetic": true,
+  "version": "phase5c1_prospective_shadow_v1",
+  "wall_completed_at": "2026-10-02T20:21:26.796400+00:00",
+  "wall_started_at": "2026-10-02T20:21:26.533248+00:00"
+}

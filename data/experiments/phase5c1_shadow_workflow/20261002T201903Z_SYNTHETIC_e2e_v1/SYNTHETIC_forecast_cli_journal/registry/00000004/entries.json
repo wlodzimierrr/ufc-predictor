@@ -1,0 +1,122 @@
+[
+  {
+    "action": "register",
+    "bout": {
+      "event_date": "2026-10-11",
+      "event_id": "47409a01-e7ac-5efb-85b2-cb07948af24b",
+      "fight_id": "030f087b-d225-5b82-9e2f-3628c7c6b39c",
+      "fighter_1_id": "f529364b-2640-53d5-b36a-398b6a3e2f7e",
+      "fighter_2_id": "a0cf92c7-c6a1-5c22-a446-493370258ec1",
+      "source_row_id": "030f087b-d225-5b82-9e2f-3628c7c6b39c"
+    },
+    "capture_receipt_sha256": "63624058239ba10c3ff1c983a5aba7bb5c91f8a700673baec0fa2698a4d99663",
+    "components": {
+      "challenger": {
+        "checksums": "59ffd4995946cc9ec7512f2f14caade09fd3144d2cfb3ee2d3b9b0951f5ca300",
+        "manifest": "7330bbebd06a6f5c0233cf8892be5c1728edc8805add02b1511499bf198b0c73",
+        "manifest_name": "training_manifest.json",
+        "path": "data/experiments/phase5b4_current_challenger/20261002T183215Z_phase5b4_current_challenger_v1_fixed"
+      },
+      "march": {
+        "checksums": "41f8c8afb8fd091fa0b04823ad9175cedcfdbf85ccf3f62d77c71e0d9219279f",
+        "path": "data/experiments/phase3b_xgb_pre_april_2026/20261001_phase3b_retrospective_v1"
+      },
+      "reference": {
+        "checksums": "12c17761fe76998e49fb5e79ea8a455861e22eaf57b37071f692bab17c1ba381",
+        "manifest": "20a9695de6cd77d74ff67f5cb0b62da2f127fbcdc181fa9d9fc2b3f8f62ad48a",
+        "manifest_name": "manifest.json",
+        "path": "data/experiments/phase5b1_reference_and_history/20261002_phase5b1_frozen_reference_v3_identity_guarded"
+      }
+    },
+    "contract": "phase5c1_prospective_shadow_v1",
+    "recorded_at": "2026-10-04T12:11:00+00:00",
+    "replaces": null
+  },
+  {
+    "action": "observation_received",
+    "capture_id": "9c6ee426-20be-5186-a4bd-6d04f4bedc5e",
+    "capture_receipt_sha256": "63624058239ba10c3ff1c983a5aba7bb5c91f8a700673baec0fa2698a4d99663",
+    "components": {
+      "challenger": {
+        "checksums": "59ffd4995946cc9ec7512f2f14caade09fd3144d2cfb3ee2d3b9b0951f5ca300",
+        "manifest": "7330bbebd06a6f5c0233cf8892be5c1728edc8805add02b1511499bf198b0c73",
+        "manifest_name": "training_manifest.json",
+        "path": "data/experiments/phase5b4_current_challenger/20261002T183215Z_phase5b4_current_challenger_v1_fixed"
+      },
+      "march": {
+        "checksums": "41f8c8afb8fd091fa0b04823ad9175cedcfdbf85ccf3f62d77c71e0d9219279f",
+        "path": "data/experiments/phase3b_xgb_pre_april_2026/20261001_phase3b_retrospective_v1"
+      },
+      "reference": {
+        "checksums": "12c17761fe76998e49fb5e79ea8a455861e22eaf57b37071f692bab17c1ba381",
+        "manifest": "20a9695de6cd77d74ff67f5cb0b62da2f127fbcdc181fa9d9fc2b3f8f62ad48a",
+        "manifest_name": "manifest.json",
+        "path": "data/experiments/phase5b1_reference_and_history/20261002_phase5b1_frozen_reference_v3_identity_guarded"
+      }
+    },
+    "contract": "phase5c1_prospective_shadow_v1",
+    "observation_cutoff": "2026-10-04T12:10:00+00:00",
+    "recorded_at": "2026-10-04T12:11:00+00:00",
+    "source_row_ids": [
+      "030f087b-d225-5b82-9e2f-3628c7c6b39c"
+    ],
+    "synthetic": true
+  },
+  {
+    "action": "attempt_reserved",
+    "capture_receipt_sha256": "63624058239ba10c3ff1c983a5aba7bb5c91f8a700673baec0fa2698a4d99663",
+    "components": {
+      "challenger": {
+        "checksums": "59ffd4995946cc9ec7512f2f14caade09fd3144d2cfb3ee2d3b9b0951f5ca300",
+        "manifest": "7330bbebd06a6f5c0233cf8892be5c1728edc8805add02b1511499bf198b0c73",
+        "manifest_name": "training_manifest.json",
+        "path": "data/experiments/phase5b4_current_challenger/20261002T183215Z_phase5b4_current_challenger_v1_fixed"
+      },
+      "march": {
+        "checksums": "41f8c8afb8fd091fa0b04823ad9175cedcfdbf85ccf3f62d77c71e0d9219279f",
+        "path": "data/experiments/phase3b_xgb_pre_april_2026/20261001_phase3b_retrospective_v1"
+      },
+      "reference": {
+        "checksums": "12c17761fe76998e49fb5e79ea8a455861e22eaf57b37071f692bab17c1ba381",
+        "manifest": "20a9695de6cd77d74ff67f5cb0b62da2f127fbcdc181fa9d9fc2b3f8f62ad48a",
+        "manifest_name": "manifest.json",
+        "path": "data/experiments/phase5b1_reference_and_history/20261002_phase5b1_frozen_reference_v3_identity_guarded"
+      }
+    },
+    "contract": "phase5c1_prospective_shadow_v1",
+    "recorded_at": "2026-10-04T12:11:00+00:00",
+    "run": "SYNTHETIC_cli_primary_only",
+    "source_row_ids": [
+      "030f087b-d225-5b82-9e2f-3628c7c6b39c"
+    ]
+  },
+  {
+    "action": "attempt_completed",
+    "capture_receipt_sha256": "63624058239ba10c3ff1c983a5aba7bb5c91f8a700673baec0fa2698a4d99663",
+    "components": {
+      "challenger": {
+        "checksums": "59ffd4995946cc9ec7512f2f14caade09fd3144d2cfb3ee2d3b9b0951f5ca300",
+        "manifest": "7330bbebd06a6f5c0233cf8892be5c1728edc8805add02b1511499bf198b0c73",
+        "manifest_name": "training_manifest.json",
+        "path": "data/experiments/phase5b4_current_challenger/20261002T183215Z_phase5b4_current_challenger_v1_fixed"
+      },
+      "march": {
+        "checksums": "41f8c8afb8fd091fa0b04823ad9175cedcfdbf85ccf3f62d77c71e0d9219279f",
+        "path": "data/experiments/phase3b_xgb_pre_april_2026/20261001_phase3b_retrospective_v1"
+      },
+      "reference": {
+        "checksums": "12c17761fe76998e49fb5e79ea8a455861e22eaf57b37071f692bab17c1ba381",
+        "manifest": "20a9695de6cd77d74ff67f5cb0b62da2f127fbcdc181fa9d9fc2b3f8f62ad48a",
+        "manifest_name": "manifest.json",
+        "path": "data/experiments/phase5b1_reference_and_history/20261002_phase5b1_frozen_reference_v3_identity_guarded"
+      }
+    },
+    "contract": "phase5c1_prospective_shadow_v1",
+    "recorded_at": "2026-10-04T12:11:00+00:00",
+    "run": "SYNTHETIC_cli_primary_only",
+    "run_checksums_sha256": "a5328f3d3c418c1915c1744396d6b0d5e0d6650f1d57157126f352573eb18113",
+    "source_row_ids": [
+      "030f087b-d225-5b82-9e2f-3628c7c6b39c"
+    ]
+  }
+]

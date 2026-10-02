@@ -1,0 +1,27 @@
+{
+  "files": {
+    "bindings/challenger.json": "bbd874acd40b47703798df36780df84643a9653d4a2a8757c23ab23d11b2f938",
+    "bindings/reference.json": "5cf2b0fd8a29718b261928621a3194bcbfdcfac49f142ae762b1ba6ecfd1a309",
+    "capture_receipt.json": "e298a4e04f30b4daa232d2f150e83282e9cea04a980faf7adec8243fe22b4931",
+    "contract.json": "1481f4ac0a2986a182d0a3c07ba286d4eb407ac438a15ef9c7f343ebc10b80c8",
+    "feature_lineage.json": "6ba3a75460f2216b74314172ec86e9654318eae51b02aa186def162eea569669",
+    "inputs/challenger.csv": "7225706692b4da185fed84698217069cb45b1bd308a053e6e40ae023dc51ca7a",
+    "inputs/march.csv": "7225706692b4da185fed84698217069cb45b1bd308a053e6e40ae023dc51ca7a",
+    "inputs/reference.csv": "6667f7a71354c87c79a3b5803c8479bcdc5f510ee3b264e707cb099a71fbd54d",
+    "observation/capture_receipt.json": "e298a4e04f30b4daa232d2f150e83282e9cea04a980faf7adec8243fe22b4931",
+    "observation/events.json": "1113cb586d73396cbc6188909af4dd24e9323d1e1acd8ddc4f7fa4434dac3858",
+    "observation/evidence/claims.json": "c3b9c16f4c396b9baccc5f1f38fbcae9a8283b3966ec04206e5accc4921336ac",
+    "observation/evidence_package.json": "09a283fddae51f616327736f7df9b26b01ad48fb1f7f0000d7b474d1104a5474",
+    "observation/fight_stats_aggregate.json": "f07914547708a88093cd6402bf9f22d3014c530f33316d0930aded80811dbc32",
+    "observation/fighters.json": "7579971392826050037028cb90235952bc5e8c6a204bfa7cd6df540eb981dc45",
+    "observation/fights.json": "07d4b450354b23fea9c6d383d1c51356d1c84c57263c9616624df492b2db4623",
+    "observation/schemas.json": "d4d0a931dc86598b1b2f26e5bd52347060094fe5beb64031b07bd359e431ee8a",
+    "outputs/challenger.json": "004f5c6d2179bee5b487f07f7f46d0b501afb5f86dea89af25591a0c934b41c3",
+    "package.json": "0effd4ab1f11703a559d572b26f18bb6d281f81b554faf84af14e13cf409c3f7",
+    "preprocessing/reference.json": "0a15f03d8705deac82213ad79898d9c205df8294f34f0d94f263da4a5171a4e4",
+    "processed/challenger.csv": "7225706692b4da185fed84698217069cb45b1bd308a053e6e40ae023dc51ca7a",
+    "projection.json": "5a4556dfbc53948fa3dae40df0d6a4648823f196d1dfb06a04fc65a010b40f5e",
+    "readiness.json": "7ff56059519a1ecaab0f485f629db95b190515b47aac784b4aa273e44eed3410",
+    "run.json": "abcfd4fec24a2d45487606b1604f6ab7ceeadf84c3fd63abbd266f61c9a9ba30"
+  }
+}

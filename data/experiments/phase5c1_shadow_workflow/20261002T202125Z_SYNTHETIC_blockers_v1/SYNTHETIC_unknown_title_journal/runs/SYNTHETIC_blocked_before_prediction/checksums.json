@@ -1,0 +1,18 @@
+{
+  "files": {
+    "capture_receipt.json": "3e3c7cf8da2e87d7919f14adfe8a7c0b7e208141c564c8e3c7053376feb315f8",
+    "contract.json": "1481f4ac0a2986a182d0a3c07ba286d4eb407ac438a15ef9c7f343ebc10b80c8",
+    "observation/capture_receipt.json": "3e3c7cf8da2e87d7919f14adfe8a7c0b7e208141c564c8e3c7053376feb315f8",
+    "observation/events.json": "1113cb586d73396cbc6188909af4dd24e9323d1e1acd8ddc4f7fa4434dac3858",
+    "observation/evidence/claims.json": "c3b9c16f4c396b9baccc5f1f38fbcae9a8283b3966ec04206e5accc4921336ac",
+    "observation/evidence_package.json": "12245af3e2a623b525659cc00f26fcbb190b3aee021325311743ae439ab2565e",
+    "observation/fight_stats_aggregate.json": "f07914547708a88093cd6402bf9f22d3014c530f33316d0930aded80811dbc32",
+    "observation/fighters.json": "7579971392826050037028cb90235952bc5e8c6a204bfa7cd6df540eb981dc45",
+    "observation/fights.json": "07d4b450354b23fea9c6d383d1c51356d1c84c57263c9616624df492b2db4623",
+    "observation/schemas.json": "d4d0a931dc86598b1b2f26e5bd52347060094fe5beb64031b07bd359e431ee8a",
+    "package.json": "c798ed9034d15abaada878ef235f90f3ac5a2b81e8d1d362f6b963e97d70f10a",
+    "projection.json": "273011aaf2bd2243657d048246b98515e81d721553e4c38a629014d47a7bbc21",
+    "readiness.json": "2c1e657ed5ddaab83bba00522c428a32bd64145cf734a1dfefd7c5436dc39602",
+    "run.json": "f1a2e4741319c5c84e36ce3612f11867a67f54945a35e82d78b799a6aeeb6bfe"
+  }
+}

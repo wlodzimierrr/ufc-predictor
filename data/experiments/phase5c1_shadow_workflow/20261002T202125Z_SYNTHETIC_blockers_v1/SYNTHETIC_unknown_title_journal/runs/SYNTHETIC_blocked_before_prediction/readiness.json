@@ -1,0 +1,15 @@
+{
+  "bouts": [
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "030f087b-d225-5b82-9e2f-3628c7c6b39c",
+      "reasons": [
+        "unknown_title_status"
+      ],
+      "source_row_id": "030f087b-d225-5b82-9e2f-3628c7c6b39c",
+      "status": "BLOCKED"
+    }
+  ],
+  "considered_count": 1,
+  "status": "BLOCKED"
+}

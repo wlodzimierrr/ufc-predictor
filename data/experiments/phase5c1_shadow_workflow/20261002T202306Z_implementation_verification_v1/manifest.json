@@ -1,0 +1,33 @@
+{
+  "contract": {
+    "contract_checksums_sha256": "83cf581f3f90b7c0f85fcc8063d87330843bec657b03da7f5135ddde450d7514",
+    "contract_sha256": "1481f4ac0a2986a182d0a3c07ba286d4eb407ac438a15ef9c7f343ebc10b80c8",
+    "frozen_at": "2026-10-02T20:18:22.116259+00:00",
+    "path": "data/experiments/phase5c1_shadow_workflow/20261002T201821Z_shadow_contract_v1",
+    "status": "READY"
+  },
+  "fits": 0,
+  "frozen_at": "2026-10-02T20:23:06.166195+00:00",
+  "historical_comparison": "STILL_BLOCKED",
+  "implementation_commit": "aa86e1e41fbf18f14d0b6b26267213b7c6c8d626",
+  "new_real_forecasts": 0,
+  "outcome_ingestion": 0,
+  "preserved_original_metadata_records": 35,
+  "production_changes": 0,
+  "purpose": "IMPLEMENTATION_AND_CONTRACT_VERIFICATION_NOT_REAL_FORECASTS",
+  "real_source_captures": 0,
+  "status": "READY_IMPLEMENTATION_REAL_INPUTS_BLOCKED",
+  "synthetic_blockers": {
+    "checksums_sha256": "e2a75c882038b5f21bc84fef30783eb35054a8e3d2f955e771ae52b46caf793e",
+    "files": 288,
+    "path": "data/experiments/phase5c1_shadow_workflow/20261002T202125Z_SYNTHETIC_blockers_v1",
+    "synthetic": true
+  },
+  "synthetic_e2e": {
+    "bytes": 1357178,
+    "checksums_sha256": "313f4522a038a30f950c8a6790b3222a843dc8f483f4fe135aa46a23c2b612b3",
+    "files": 423,
+    "path": "data/experiments/phase5c1_shadow_workflow/20261002T201903Z_SYNTHETIC_e2e_v1"
+  },
+  "tests": "72 passed; 0 failed/skipped"
+}

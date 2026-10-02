@@ -1,0 +1,26 @@
+{
+  "capture_id": "9c6ee426-20be-5186-a4bd-6d04f4bedc5e",
+  "capture_receipt_sha256": "63624058239ba10c3ff1c983a5aba7bb5c91f8a700673baec0fa2698a4d99663",
+  "components": {
+    "checksums": "59ffd4995946cc9ec7512f2f14caade09fd3144d2cfb3ee2d3b9b0951f5ca300",
+    "manifest": "7330bbebd06a6f5c0233cf8892be5c1728edc8805add02b1511499bf198b0c73",
+    "manifest_name": "training_manifest.json",
+    "path": "data/experiments/phase5b4_current_challenger/20261002T183215Z_phase5b4_current_challenger_v1_fixed"
+  },
+  "contract_sha256": "1481f4ac0a2986a182d0a3c07ba286d4eb407ac438a15ef9c7f343ebc10b80c8",
+  "evidence_sha256": "09a283fddae51f616327736f7df9b26b01ad48fb1f7f0000d7b474d1104a5474",
+  "feature_recipe": "pinned_corrected_event_reference_saved_final",
+  "march_training_reference_api_certificate": null,
+  "matrix_sha256": "7225706692b4da185fed84698217069cb45b1bd308a053e6e40ae023dc51ca7a",
+  "observed_at": "2026-10-04T12:10:00+00:00",
+  "pipeline": "challenger",
+  "projection_sha256": "5a4556dfbc53948fa3dae40df0d6a4648823f196d1dfb06a04fc65a010b40f5e",
+  "source_sha256": {
+    "events": "1113cb586d73396cbc6188909af4dd24e9323d1e1acd8ddc4f7fa4434dac3858",
+    "fight_stats_aggregate": "f07914547708a88093cd6402bf9f22d3014c530f33316d0930aded80811dbc32",
+    "fighters": "7579971392826050037028cb90235952bc5e8c6a204bfa7cd6df540eb981dc45",
+    "fights": "07d4b450354b23fea9c6d383d1c51356d1c84c57263c9616624df492b2db4623"
+  },
+  "training_reference_is_contemporary_source": false,
+  "version": "phase5c1_capture_receipt_inference_v2"
+}
