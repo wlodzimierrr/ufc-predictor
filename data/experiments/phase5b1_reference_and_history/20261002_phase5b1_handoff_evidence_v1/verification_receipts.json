@@ -1,0 +1,31 @@
+{
+  "baseline_excluded": "Git internals, environments/caches and .env credentials; credential content never opened",
+  "baseline_sha256": "03c4d262e28aba28ab5539559c01372812039c8e071cae35bfb01bc2a5d1a0a9",
+  "branch": "main",
+  "challenger_fits": 0,
+  "historical_comparison": "STILL_BLOCKED",
+  "initial_head": "5ac8864",
+  "initial_worktree": "clean",
+  "predictive_evaluations": 0,
+  "production_changes": 0,
+  "real_prospective_probabilities": 0,
+  "reconciliation": {
+    "checksums_sha256": "8c28425abf011bcce88cff2fa8d3f4d866156396a84a59f9a609050aa16344cb",
+    "guarded_loader_refusal": "Reconciliation remains blocked by unresolved identity evidence",
+    "independent_deterministic_payloads": 11,
+    "manifest_sha256": "af4c1b3a57b55b63065eb116feec508fd892a0ab6ee5e7e0d0310ecd77c1130e",
+    "run": "20261002_phase5b1_history_reconciliation_v1_blocked"
+  },
+  "reference": {
+    "checksums_sha256": "a1075709950149e25ca97c3b772366ae913b433a6ce759ffe41cf86e75b81982",
+    "independent_verify_command_passed": true,
+    "manifest_sha256": "6edce65a0dc5994026074bff2380998e549afb66c1c81c0e400d8bd73c19be9d",
+    "run": "20261002_phase5b1_frozen_reference_v1",
+    "save_load_parity": "EXACT"
+  },
+  "remote": "https://github.com/wlodzimierrr/ufc-predictor.git",
+  "source_network_fetches": 0,
+  "upstream": "origin/main",
+  "warehouse_reads": 0,
+  "warehouse_writes": 0
+}

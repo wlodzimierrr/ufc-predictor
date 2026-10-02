@@ -1,0 +1,15 @@
+{
+  "files": {
+    "code_versions.json": "996f1919daaa021bdaf4a1d0ca97306ea859e3aa8c6010d425954d082fe68934",
+    "derived/events.json": "e36c7250b9965ec8294fe9bac196f45ec96ad51624ef704e5e188b83eb868a78",
+    "derived/fight_stats_aggregate.json": "ec19a9e5e0b13766744e187f1d099e92c65103940ac02fefe804b4421414bcb4",
+    "derived/fighters.json": "1cf4a351788b7de8496e1e05c8591f5cf462739a4843f44831fa7168d20a4caf",
+    "derived/fights.json": "ecb85479feb335f9877cbddb9f2749a483d8098356125d2649e23ade56d02486",
+    "identity_ledger.json": "59ccd368c30ced4faaf4397f6a1179c8adeb707d472fe3c33173f1b962fbed95",
+    "manifest.json": "af4c1b3a57b55b63065eb116feec508fd892a0ab6ee5e7e0d0310ecd77c1130e",
+    "package_versions.json": "bb841c0a84f659cff99b65f760be9a05bc530c00ebd1d569ab74165f0b810b51",
+    "policy.md": "8b829d4a65641c4963f18931453e183b43eced8153e3e024010ebc72f05a16a9",
+    "source_identity_projections.json": "c3cfbf3ea6f41c46b9acc2aa2e025a471fbe0eb1bb6cb68260b8ed57b8f752c7",
+    "source_to_derived_lineage.json": "ee0b6fb43fd9ad26a1e5d51811e9fe584cf5f34fb0a63786a19cf01333c4843f"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "files": {
+    "base_model.joblib": "0585077675968c2a3537ffd3fddb87a9eb610c98d36200b64dd5fe148599389a",
+    "bootstrap_parity.json": "322bab3c5714cc67e5dd1bef16ff9d0b9e1db56e19c4a726e974ed20507d51fe",
+    "calibrator.joblib": "c31d67bbf3d859bdea97705ce4d8261294bd0d1500e49f4ee01f966e72f24f27",
+    "code_versions.json": "cf5d127f8fdfaa6ea57eb5eec0a989000b5163d7b8ef58afeab500f15616a471",
+    "feature_order.json": "7053fdc209884967e19635555c5cf9ca5b2fc23a4fc34500941429e316ce86cc",
+    "legacy_source_provenance.json": "e54aa725b9f0f8ef71c33d9f18a964a4ea5b40605b36ab10d939bcfeee731a44",
+    "manifest.json": "c7f2ab872b735de72c6faea872a04f4aff812496dd77bc5d75a71a9e6bac1036",
+    "package_versions.json": "bb841c0a84f659cff99b65f760be9a05bc530c00ebd1d569ab74165f0b810b51",
+    "preprocessing.json": "82ac7082a22a8f7dc46d429c0ee5c39e9e3fe3b8262c3b13b6f5f124018cbb74",
+    "production_metadata.json": "d10a0e6fd17996edac5d6aa90b4436ade1a5d2424b7dbe2f9ed379c469c4e02a"
+  }
+}

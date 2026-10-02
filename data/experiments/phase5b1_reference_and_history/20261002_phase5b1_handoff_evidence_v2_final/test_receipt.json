@@ -1,0 +1,15 @@
+{
+  "additional_audit_checks": "reference alias input rejection precedes even statistic lookup construction; exact narrow reference occurrence guard",
+  "command": "python3 -m pytest -q modeling/tests/test_phase5b1_reference_history.py modeling/tests/test_phase5a_prospective.py features/tests/test_replay.py features/tests/test_debut_prior.py features/tests/test_elo.py features/tests/test_history.py",
+  "completed_at": "2026-10-02T14:45:11.178972+00:00",
+  "duration_seconds": 15.57,
+  "failed": 0,
+  "new_phase5b1_cases": 47,
+  "no_live_or_broad_test_discovery": true,
+  "passed": 139,
+  "previous_test_receipt_dependency": {
+    "checksums_sha256": "834cd649daaec1ad73b6251cd4b7297767391208375e02bc56001f4dc2dfd1fc",
+    "run": "20261002_phase5b1_handoff_evidence_v1"
+  },
+  "skipped": 0
+}

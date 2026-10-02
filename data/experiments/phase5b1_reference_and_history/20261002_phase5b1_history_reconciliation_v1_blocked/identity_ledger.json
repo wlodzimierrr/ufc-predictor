@@ -1,0 +1,1913 @@
+{
+  "contract_version": "phase5_history_identity_v1",
+  "disposition_counts": {
+    "proven_distinct": 1,
+    "proven_duplicate": 12,
+    "unresolved": 1
+  },
+  "group_count": 14,
+  "groups": [
+    {
+      "canonical_id": null,
+      "card_occurrences": [
+        {
+          "occurrence": "ufcstats.com/fight-details/ec1bda9a4c2aab42",
+          "participant_links": [
+            "ufcstats.com/fighter-details/9b5b5a75523728f3",
+            "ufcstats.com/fighter-details/f717b6002486f73f"
+          ]
+        },
+        {
+          "occurrence": "ufcstats.com/fight-details/2750ac5854e8b28b",
+          "participant_links": [
+            "ufcstats.com/fighter-details/9b5b5a75523728f3",
+            "ufcstats.com/fighter-details/f717b6002486f73f"
+          ]
+        }
+      ],
+      "chosen_source_lineage": {
+        "2c4d505e-c625-5e27-89f8-e36c2b8224b4": "2c4d505e-c625-5e27-89f8-e36c2b8224b4",
+        "383d786b-c425-517e-a2af-d4cb19081135": "383d786b-c425-517e-a2af-d4cb19081135"
+      },
+      "disposition": "proven_distinct",
+      "event_date": "1997-12-21",
+      "event_id": "fe881b94-92d3-5dbe-97e7-28014b17202d",
+      "evidence": [
+        {
+          "meaning": "identity-only event href projection",
+          "path": "data/raw/ufcstats/events/fe881b94-92d3-5dbe-97e7-28014b17202d.html",
+          "sha256": "83370b7b25e07df9bd82e502b398b195ec6cb279cdc9f2b9ab684fecd07c4f98"
+        }
+      ],
+      "excluded_original_ids": [],
+      "group": 1,
+      "occurrence_by_id": {
+        "2c4d505e-c625-5e27-89f8-e36c2b8224b4": "ufcstats.com/fight-details/ec1bda9a4c2aab42",
+        "383d786b-c425-517e-a2af-d4cb19081135": "ufcstats.com/fight-details/2750ac5854e8b28b"
+      },
+      "original_ids": [
+        "2c4d505e-c625-5e27-89f8-e36c2b8224b4",
+        "383d786b-c425-517e-a2af-d4cb19081135"
+      ],
+      "participant_ids": [
+        "0ce3676f-6d84-5bcf-b635-af666b7a7f19",
+        "97c74ad5-628e-5da5-bd90-b595e3f60047"
+      ],
+      "participant_names": [
+        "Kazushi Sakuraba",
+        "Marcus Silveira"
+      ],
+      "proof_kind": "explicit_two_source_occurrences",
+      "rationale": "Two separate card/detail occurrences and independently keyed statistics; no within-date ordering claimed",
+      "source_rows": [
+        {
+          "orientation": [
+            "0ce3676f-6d84-5bcf-b635-af666b7a7f19",
+            "97c74ad5-628e-5da5-bd90-b595e3f60047"
+          ],
+          "row": {
+            "event_id": "fe881b94-92d3-5dbe-97e7-28014b17202d",
+            "fight_id": "2c4d505e-c625-5e27-89f8-e36c2b8224b4",
+            "fighter_1_id": "0ce3676f-6d84-5bcf-b635-af666b7a7f19",
+            "fighter_2_id": "97c74ad5-628e-5da5-bd90-b595e3f60047",
+            "finish_detail": "armbar from side control",
+            "finish_method": "submission",
+            "finish_round": 1,
+            "finish_time_seconds": 224,
+            "is_interim_title": false,
+            "is_title_fight": true,
+            "referee": "John McCarthy",
+            "result_type": "win",
+            "scheduled_rounds": 1,
+            "scraped_at": "2026-08-08T20:26:09+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/ec1bda9a4c2aab42",
+            "weight_class": "heavyweight",
+            "winner_fighter_id": "0ce3676f-6d84-5bcf-b635-af666b7a7f19"
+          },
+          "row_sha256": "c1e6b9bfc7d8c4d9c614c5dd4f58661624d85276eccd6df6fca5e530b7bad9dc",
+          "statistics": [
+            {
+              "row": {
+                "control_time_seconds": 0,
+                "fight_id": "2c4d505e-c625-5e27-89f8-e36c2b8224b4",
+                "fight_stat_id": "1a64f3de-737f-54c2-8659-b7a5f1f5a351",
+                "fighter_id": "0ce3676f-6d84-5bcf-b635-af666b7a7f19",
+                "knockdowns": 0,
+                "reversals": 0,
+                "scraped_at": "2026-08-09T03:08:39+00:00",
+                "sig_strikes_attempted": 2,
+                "sig_strikes_body_attempted": 0,
+                "sig_strikes_body_landed": 0,
+                "sig_strikes_clinch_attempted": 0,
+                "sig_strikes_clinch_landed": 0,
+                "sig_strikes_distance_attempted": 1,
+                "sig_strikes_distance_landed": 0,
+                "sig_strikes_ground_attempted": 1,
+                "sig_strikes_ground_landed": 1,
+                "sig_strikes_head_attempted": 2,
+                "sig_strikes_head_landed": 1,
+                "sig_strikes_landed": 1,
+                "sig_strikes_leg_attempted": 0,
+                "sig_strikes_leg_landed": 0,
+                "source_url": "http://ufcstats.com/fight-details/ec1bda9a4c2aab42",
+                "submissions_attempted": 2,
+                "takedowns_attempted": 1,
+                "takedowns_landed": 1,
+                "total_strikes_attempted": 3,
+                "total_strikes_landed": 2
+              },
+              "row_sha256": "86b1b70c8e91354bac4ae25f539dfdc20428596e64d93030bc26d6e28a32949c"
+            },
+            {
+              "row": {
+                "control_time_seconds": 0,
+                "fight_id": "2c4d505e-c625-5e27-89f8-e36c2b8224b4",
+                "fight_stat_id": "f62ee10b-df8e-5e1d-80a5-5c22c42c858e",
+                "fighter_id": "97c74ad5-628e-5da5-bd90-b595e3f60047",
+                "knockdowns": 0,
+                "reversals": 0,
+                "scraped_at": "2026-08-09T03:08:39+00:00",
+                "sig_strikes_attempted": 2,
+                "sig_strikes_body_attempted": 0,
+                "sig_strikes_body_landed": 0,
+                "sig_strikes_clinch_attempted": 1,
+                "sig_strikes_clinch_landed": 1,
+                "sig_strikes_distance_attempted": 1,
+                "sig_strikes_distance_landed": 0,
+                "sig_strikes_ground_attempted": 0,
+                "sig_strikes_ground_landed": 0,
+                "sig_strikes_head_attempted": 2,
+                "sig_strikes_head_landed": 1,
+                "sig_strikes_landed": 1,
+                "sig_strikes_leg_attempted": 0,
+                "sig_strikes_leg_landed": 0,
+                "source_url": "http://ufcstats.com/fight-details/ec1bda9a4c2aab42",
+                "submissions_attempted": 1,
+                "takedowns_attempted": 1,
+                "takedowns_landed": 1,
+                "total_strikes_attempted": 13,
+                "total_strikes_landed": 11
+              },
+              "row_sha256": "13c17b87b57a0c6d88139b62cef104f4a0c479067ecdc63aa2a5b40e5e523ed6"
+            }
+          ]
+        },
+        {
+          "orientation": [
+            "0ce3676f-6d84-5bcf-b635-af666b7a7f19",
+            "97c74ad5-628e-5da5-bd90-b595e3f60047"
+          ],
+          "row": {
+            "event_id": "fe881b94-92d3-5dbe-97e7-28014b17202d",
+            "fight_id": "383d786b-c425-517e-a2af-d4cb19081135",
+            "fighter_1_id": "0ce3676f-6d84-5bcf-b635-af666b7a7f19",
+            "fighter_2_id": "97c74ad5-628e-5da5-bd90-b595e3f60047",
+            "finish_detail": "early stoppage",
+            "finish_method": "overturned",
+            "finish_round": 1,
+            "finish_time_seconds": 111,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": "John McCarthy",
+            "result_type": "nc",
+            "scheduled_rounds": 1,
+            "scraped_at": "2026-08-08T20:26:06+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/2750ac5854e8b28b",
+            "weight_class": "heavyweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "20a27e43a4438ef7aaf08b3ccaffde881639e42afaa73c55792664881af180f5",
+          "statistics": [
+            {
+              "row": {
+                "control_time_seconds": 0,
+                "fight_id": "383d786b-c425-517e-a2af-d4cb19081135",
+                "fight_stat_id": "822eadd6-b423-5180-839d-94e37b4fb9eb",
+                "fighter_id": "97c74ad5-628e-5da5-bd90-b595e3f60047",
+                "knockdowns": 0,
+                "reversals": 0,
+                "scraped_at": "2026-08-09T03:08:39+00:00",
+                "sig_strikes_attempted": 10,
+                "sig_strikes_body_attempted": 0,
+                "sig_strikes_body_landed": 0,
+                "sig_strikes_clinch_attempted": 9,
+                "sig_strikes_clinch_landed": 4,
+                "sig_strikes_distance_attempted": 1,
+                "sig_strikes_distance_landed": 0,
+                "sig_strikes_ground_attempted": 0,
+                "sig_strikes_ground_landed": 0,
+                "sig_strikes_head_attempted": 10,
+                "sig_strikes_head_landed": 4,
+                "sig_strikes_landed": 4,
+                "sig_strikes_leg_attempted": 0,
+                "sig_strikes_leg_landed": 0,
+                "source_url": "http://ufcstats.com/fight-details/2750ac5854e8b28b",
+                "submissions_attempted": 1,
+                "takedowns_attempted": 1,
+                "takedowns_landed": 1,
+                "total_strikes_attempted": 15,
+                "total_strikes_landed": 9
+              },
+              "row_sha256": "fb632d67fefc1326ac782f4169c661668f2379433b9affe989189cecda99a6e1"
+            },
+            {
+              "row": {
+                "control_time_seconds": 0,
+                "fight_id": "383d786b-c425-517e-a2af-d4cb19081135",
+                "fight_stat_id": "979eaa92-102a-508a-a576-3865901a38b6",
+                "fighter_id": "0ce3676f-6d84-5bcf-b635-af666b7a7f19",
+                "knockdowns": 0,
+                "reversals": 0,
+                "scraped_at": "2026-08-09T03:08:39+00:00",
+                "sig_strikes_attempted": 1,
+                "sig_strikes_body_attempted": 0,
+                "sig_strikes_body_landed": 0,
+                "sig_strikes_clinch_attempted": 0,
+                "sig_strikes_clinch_landed": 0,
+                "sig_strikes_distance_attempted": 0,
+                "sig_strikes_distance_landed": 0,
+                "sig_strikes_ground_attempted": 1,
+                "sig_strikes_ground_landed": 0,
+                "sig_strikes_head_attempted": 1,
+                "sig_strikes_head_landed": 0,
+                "sig_strikes_landed": 0,
+                "sig_strikes_leg_attempted": 0,
+                "sig_strikes_leg_landed": 0,
+                "source_url": "http://ufcstats.com/fight-details/2750ac5854e8b28b",
+                "submissions_attempted": 0,
+                "takedowns_attempted": 1,
+                "takedowns_landed": 0,
+                "total_strikes_attempted": 2,
+                "total_strikes_landed": 0
+              },
+              "row_sha256": "c502736bd834d9109ea220d77fd3fed5b2a834fb0e7aa6e84ce63630162ce708"
+            }
+          ]
+        }
+      ],
+      "unresolved_conflicts": []
+    },
+    {
+      "canonical_id": null,
+      "card_occurrences": [
+        {
+          "occurrence": "ufcstats.com/fight-details/552f7cdaf93e1055",
+          "participant_links": [
+            "ufcstats.com/fighter-details/5fa2974cbd18e05c",
+            "ufcstats.com/fighter-details/0e6b611451a9a7d8"
+          ]
+        }
+      ],
+      "chosen_source_lineage": null,
+      "disposition": "unresolved",
+      "event_date": "2026-04-18",
+      "event_id": "f9fdb60d-f963-535d-a85d-6d782b6e17f4",
+      "evidence": [
+        {
+          "meaning": "identity-only event href projection",
+          "path": "data/raw/ufcstats/events/f9fdb60d-f963-535d-a85d-6d782b6e17f4.html",
+          "sha256": "260c1d3ac79d4629bfa960036961547015171aadeaf5dea0af3fc6f1eea5d44c"
+        },
+        {
+          "meaning": "preserved page bytes; event/participant hrefs only, no result ingestion",
+          "path": "data/raw/ufcstats/fights/498de4bd-d781-52af-a383-802158196d2d.html",
+          "sha256": "f13f8bf8f3e283abd50fcc7791f1c394367ca03529ccc36e610ae785b23e7b7a"
+        },
+        {
+          "meaning": "preserved page bytes; event/participant hrefs only, no result ingestion",
+          "path": "data/raw/ufcstats/fights/4b08f65d-db68-5091-9568-4748c4cf7318.html",
+          "sha256": "096f1f16ac0a582dae9eeb3a8cfdaae4ff18edec3ee48b44a0d7ebb3b3994894"
+        }
+      ],
+      "excluded_original_ids": [],
+      "group": 2,
+      "occurrence_by_id": {
+        "498de4bd-d781-52af-a383-802158196d2d": "ufcstats.com/fight-details/552f7cdaf93e1055",
+        "4b08f65d-db68-5091-9568-4748c4cf7318": "ufcstats.com/fight-details/a842a365f408bb4a"
+      },
+      "original_ids": [
+        "498de4bd-d781-52af-a383-802158196d2d",
+        "4b08f65d-db68-5091-9568-4748c4cf7318"
+      ],
+      "participant_ids": [
+        "6d0eb73f-ebaa-58c0-afd5-39c22957a36f",
+        "7f39e479-ed06-5ae8-ba13-9fac7ba21d6d"
+      ],
+      "participant_names": [
+        "John Castaneda",
+        "Mark Vologdin"
+      ],
+      "required_evidence": "Preserved source ID transition/redirect or announcement revision explicitly linking a842a365f408bb4a to 552f7cdaf93e1055; otherwise evidence of separate/cancelled occurrences",
+      "source_rows": [
+        {
+          "orientation": [
+            "6d0eb73f-ebaa-58c0-afd5-39c22957a36f",
+            "7f39e479-ed06-5ae8-ba13-9fac7ba21d6d"
+          ],
+          "row": {
+            "event_id": "f9fdb60d-f963-535d-a85d-6d782b6e17f4",
+            "fight_id": "498de4bd-d781-52af-a383-802158196d2d",
+            "fighter_1_id": "6d0eb73f-ebaa-58c0-afd5-39c22957a36f",
+            "fighter_2_id": "7f39e479-ed06-5ae8-ba13-9fac7ba21d6d",
+            "finish_detail": "majority",
+            "finish_method": "decision",
+            "finish_round": 3,
+            "finish_time_seconds": 300,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": "Jason Herzog",
+            "result_type": "draw",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T23:34:38+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/552f7cdaf93e1055",
+            "weight_class": "catch_weight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "ac90225555558211fb7c04c082b540ee157e7d4f73bddd3dfa48912f21270a08",
+          "statistics": [
+            {
+              "row": {
+                "control_time_seconds": 75,
+                "fight_id": "498de4bd-d781-52af-a383-802158196d2d",
+                "fight_stat_id": "7ab7a505-11ab-553e-b562-3abdbd04732a",
+                "fighter_id": "6d0eb73f-ebaa-58c0-afd5-39c22957a36f",
+                "knockdowns": 0,
+                "reversals": 0,
+                "scraped_at": "2026-08-09T03:01:29+00:00",
+                "sig_strikes_attempted": 253,
+                "sig_strikes_body_attempted": 31,
+                "sig_strikes_body_landed": 19,
+                "sig_strikes_clinch_attempted": 18,
+                "sig_strikes_clinch_landed": 10,
+                "sig_strikes_distance_attempted": 233,
+                "sig_strikes_distance_landed": 124,
+                "sig_strikes_ground_attempted": 2,
+                "sig_strikes_ground_landed": 1,
+                "sig_strikes_head_attempted": 181,
+                "sig_strikes_head_landed": 79,
+                "sig_strikes_landed": 135,
+                "sig_strikes_leg_attempted": 41,
+                "sig_strikes_leg_landed": 37,
+                "source_url": "http://ufcstats.com/fight-details/552f7cdaf93e1055",
+                "submissions_attempted": 0,
+                "takedowns_attempted": 0,
+                "takedowns_landed": 0,
+                "total_strikes_attempted": 279,
+                "total_strikes_landed": 160
+              },
+              "row_sha256": "24cabfb87b1c7970ac8b0ee1b5dc978214548f7d0d46b9f365a341b2cc151f73"
+            },
+            {
+              "row": {
+                "control_time_seconds": 31,
+                "fight_id": "498de4bd-d781-52af-a383-802158196d2d",
+                "fight_stat_id": "e137df54-4213-5924-8b81-ea5b5562cbc2",
+                "fighter_id": "7f39e479-ed06-5ae8-ba13-9fac7ba21d6d",
+                "knockdowns": 0,
+                "reversals": 0,
+                "scraped_at": "2026-08-09T03:01:29+00:00",
+                "sig_strikes_attempted": 217,
+                "sig_strikes_body_attempted": 34,
+                "sig_strikes_body_landed": 26,
+                "sig_strikes_clinch_attempted": 15,
+                "sig_strikes_clinch_landed": 7,
+                "sig_strikes_distance_attempted": 202,
+                "sig_strikes_distance_landed": 84,
+                "sig_strikes_ground_attempted": 0,
+                "sig_strikes_ground_landed": 0,
+                "sig_strikes_head_attempted": 165,
+                "sig_strikes_head_landed": 53,
+                "sig_strikes_landed": 91,
+                "sig_strikes_leg_attempted": 18,
+                "sig_strikes_leg_landed": 12,
+                "source_url": "http://ufcstats.com/fight-details/552f7cdaf93e1055",
+                "submissions_attempted": 0,
+                "takedowns_attempted": 6,
+                "takedowns_landed": 1,
+                "total_strikes_attempted": 222,
+                "total_strikes_landed": 96
+              },
+              "row_sha256": "734224dd5afceec96da52899fa0d09379281d3e5ccbe6c79e22774f129e49f78"
+            }
+          ]
+        },
+        {
+          "orientation": [
+            "6d0eb73f-ebaa-58c0-afd5-39c22957a36f",
+            "7f39e479-ed06-5ae8-ba13-9fac7ba21d6d"
+          ],
+          "row": {
+            "event_id": "f9fdb60d-f963-535d-a85d-6d782b6e17f4",
+            "fight_id": "4b08f65d-db68-5091-9568-4748c4cf7318",
+            "fighter_1_id": "6d0eb73f-ebaa-58c0-afd5-39c22957a36f",
+            "fighter_2_id": "7f39e479-ed06-5ae8-ba13-9fac7ba21d6d",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": null,
+            "scraped_at": "2026-03-31T10:52:29+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/a842a365f408bb4a",
+            "weight_class": "bantamweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "29f0316a6b96293c659be780dcf55deadb71720679ae49ca2c6ac648322208e8",
+          "statistics": []
+        }
+      ],
+      "unresolved_conflicts": [
+        "Different old/new official URLs; no explicit URL transition, cancellation/replacement or occurrence mapping",
+        "upcoming versus draw and bantamweight versus catch_weight fields cannot be coalesced by priority"
+      ]
+    },
+    {
+      "canonical_id": "6168dff5-3df1-5ddd-8a5f-17bff9a3b0df",
+      "card_occurrences": [
+        {
+          "occurrence": "ufcstats.com/fight-details/f2eb569176e46edf",
+          "participant_links": [
+            "ufcstats.com/fighter-details/a3dda21be645be93",
+            "ufcstats.com/fighter-details/4a07b1988477502c"
+          ]
+        }
+      ],
+      "chosen_source_lineage": {
+        "4e4eed91-2b39-5797-83a7-81cce50c17d2": "6168dff5-3df1-5ddd-8a5f-17bff9a3b0df",
+        "6168dff5-3df1-5ddd-8a5f-17bff9a3b0df": "6168dff5-3df1-5ddd-8a5f-17bff9a3b0df"
+      },
+      "disposition": "proven_duplicate",
+      "event_date": "2026-07-18",
+      "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+      "evidence": [
+        {
+          "meaning": "identity-only event href projection",
+          "path": "data/raw/ufcstats/events/68a758a6-bd6a-5ec7-933e-72251614d52f.html",
+          "sha256": "7499107ad4ded97f494fc2a07207edae08c9a1978ec4f29b39148f61736afc47"
+        },
+        {
+          "meaning": "unique ACTIVE_BOUTS announcement and deterministic manual identity construction",
+          "path": "tools/apply_manual_catchup_cards.py",
+          "sha256": "467c2d1a2b17142f686242e51c45680a131952230662daa56d6e1a66cb3b127e"
+        }
+      ],
+      "excluded_original_ids": [
+        "4e4eed91-2b39-5797-83a7-81cce50c17d2",
+        "6168dff5-3df1-5ddd-8a5f-17bff9a3b0df"
+      ],
+      "group": 3,
+      "manual_active_entry": [
+        "68a758a6-bd6a-5ec7-933e-72251614d52f",
+        "Jean-Paul Lebosnoyani",
+        "Seokhyeon Ko",
+        "Welterweight",
+        3
+      ],
+      "manual_original_orientation": [
+        "183d3f65-0f84-57f0-9bb9-32400e20e5fb",
+        "e855585c-e963-58cc-b005-4658513f38d3"
+      ],
+      "occurrence_by_id": {
+        "4e4eed91-2b39-5797-83a7-81cce50c17d2": "ufcstats.com/fight-details/f2eb569176e46edf",
+        "6168dff5-3df1-5ddd-8a5f-17bff9a3b0df": "ufcstats.com/fight-details/f2eb569176e46edf"
+      },
+      "original_ids": [
+        "4e4eed91-2b39-5797-83a7-81cce50c17d2",
+        "6168dff5-3df1-5ddd-8a5f-17bff9a3b0df"
+      ],
+      "participant_ids": [
+        "183d3f65-0f84-57f0-9bb9-32400e20e5fb",
+        "e855585c-e963-58cc-b005-4658513f38d3"
+      ],
+      "participant_names": [
+        "Jean-Paul Lebosnoyani",
+        "Seokhyeon Ko"
+      ],
+      "proof_kind": "manual_announcement_to_unique_source_occurrence",
+      "rationale": "Manual substitute construction reproduces the unique linked source announcement; compatible complete rows, no statistic merging",
+      "source_rows": [
+        {
+          "orientation": [
+            "183d3f65-0f84-57f0-9bb9-32400e20e5fb",
+            "e855585c-e963-58cc-b005-4658513f38d3"
+          ],
+          "row": {
+            "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+            "fight_id": "4e4eed91-2b39-5797-83a7-81cce50c17d2",
+            "fighter_1_id": "183d3f65-0f84-57f0-9bb9-32400e20e5fb",
+            "fighter_2_id": "e855585c-e963-58cc-b005-4658513f38d3",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T18:00:30+00:00",
+            "source_url": "manual://fight/68a758a6-bd6a-5ec7-933e-72251614d52f/jean-paul-lebosnoyani-vs-seokhyeon-ko",
+            "weight_class": "welterweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "0fd32acb1086272bffa0404dc64873a4e02be3b67451a5b564e6281e3ebbd21d",
+          "statistics": []
+        },
+        {
+          "orientation": [
+            "183d3f65-0f84-57f0-9bb9-32400e20e5fb",
+            "e855585c-e963-58cc-b005-4658513f38d3"
+          ],
+          "row": {
+            "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+            "fight_id": "6168dff5-3df1-5ddd-8a5f-17bff9a3b0df",
+            "fighter_1_id": "183d3f65-0f84-57f0-9bb9-32400e20e5fb",
+            "fighter_2_id": "e855585c-e963-58cc-b005-4658513f38d3",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T23:38:42+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/f2eb569176e46edf",
+            "weight_class": "welterweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "07b16ac3304d38af82c4853a7402c1b1079236d2957ffe541ce37e96b62db662",
+          "statistics": []
+        }
+      ],
+      "unresolved_conflicts": []
+    },
+    {
+      "canonical_id": "7189f7d3-d325-5abd-8e57-da16f3032017",
+      "card_occurrences": [
+        {
+          "occurrence": "ufcstats.com/fight-details/52ddf20a10890b41",
+          "participant_links": [
+            "ufcstats.com/fighter-details/745fa7b605f8e2da",
+            "ufcstats.com/fighter-details/d25240135aee03e5"
+          ]
+        }
+      ],
+      "chosen_source_lineage": {
+        "7189f7d3-d325-5abd-8e57-da16f3032017": "7189f7d3-d325-5abd-8e57-da16f3032017",
+        "76e979fe-4b60-5d8a-ba49-811cf53505c3": "7189f7d3-d325-5abd-8e57-da16f3032017"
+      },
+      "disposition": "proven_duplicate",
+      "event_date": "2026-07-18",
+      "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+      "evidence": [
+        {
+          "meaning": "identity-only event href projection",
+          "path": "data/raw/ufcstats/events/68a758a6-bd6a-5ec7-933e-72251614d52f.html",
+          "sha256": "7499107ad4ded97f494fc2a07207edae08c9a1978ec4f29b39148f61736afc47"
+        },
+        {
+          "meaning": "unique ACTIVE_BOUTS announcement and deterministic manual identity construction",
+          "path": "tools/apply_manual_catchup_cards.py",
+          "sha256": "467c2d1a2b17142f686242e51c45680a131952230662daa56d6e1a66cb3b127e"
+        }
+      ],
+      "excluded_original_ids": [
+        "7189f7d3-d325-5abd-8e57-da16f3032017",
+        "76e979fe-4b60-5d8a-ba49-811cf53505c3"
+      ],
+      "group": 4,
+      "manual_active_entry": [
+        "68a758a6-bd6a-5ec7-933e-72251614d52f",
+        "Tabatha Ricci",
+        "Fatima Kline",
+        "Women's Strawweight",
+        3
+      ],
+      "manual_original_orientation": [
+        "c0f958df-1e9f-52d6-a99f-1d4d78583283",
+        "25277ec0-c285-5c5c-88ff-9006496d1a15"
+      ],
+      "occurrence_by_id": {
+        "7189f7d3-d325-5abd-8e57-da16f3032017": "ufcstats.com/fight-details/52ddf20a10890b41",
+        "76e979fe-4b60-5d8a-ba49-811cf53505c3": "ufcstats.com/fight-details/52ddf20a10890b41"
+      },
+      "original_ids": [
+        "7189f7d3-d325-5abd-8e57-da16f3032017",
+        "76e979fe-4b60-5d8a-ba49-811cf53505c3"
+      ],
+      "participant_ids": [
+        "25277ec0-c285-5c5c-88ff-9006496d1a15",
+        "c0f958df-1e9f-52d6-a99f-1d4d78583283"
+      ],
+      "participant_names": [
+        "Fatima Kline",
+        "Tabatha Ricci"
+      ],
+      "proof_kind": "manual_announcement_to_unique_source_occurrence",
+      "rationale": "Manual substitute construction reproduces the unique linked source announcement; compatible complete rows, no statistic merging",
+      "source_rows": [
+        {
+          "orientation": [
+            "c0f958df-1e9f-52d6-a99f-1d4d78583283",
+            "25277ec0-c285-5c5c-88ff-9006496d1a15"
+          ],
+          "row": {
+            "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+            "fight_id": "7189f7d3-d325-5abd-8e57-da16f3032017",
+            "fighter_1_id": "c0f958df-1e9f-52d6-a99f-1d4d78583283",
+            "fighter_2_id": "25277ec0-c285-5c5c-88ff-9006496d1a15",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T23:38:45+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/52ddf20a10890b41",
+            "weight_class": "women_strawweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "7dc079110e3ff2bfe8180619468baac128f373efa4a783b1ca26f405fa863e1b",
+          "statistics": []
+        },
+        {
+          "orientation": [
+            "c0f958df-1e9f-52d6-a99f-1d4d78583283",
+            "25277ec0-c285-5c5c-88ff-9006496d1a15"
+          ],
+          "row": {
+            "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+            "fight_id": "76e979fe-4b60-5d8a-ba49-811cf53505c3",
+            "fighter_1_id": "c0f958df-1e9f-52d6-a99f-1d4d78583283",
+            "fighter_2_id": "25277ec0-c285-5c5c-88ff-9006496d1a15",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T18:00:30+00:00",
+            "source_url": "manual://fight/68a758a6-bd6a-5ec7-933e-72251614d52f/tabatha-ricci-vs-fatima-kline",
+            "weight_class": "women_strawweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "ff5a5ad76598cff981e6f3e164a10409436a6061f1137c99e2f6348a15262757",
+          "statistics": []
+        }
+      ],
+      "unresolved_conflicts": []
+    },
+    {
+      "canonical_id": "3ea09870-977d-53fc-a70e-d49be991ebbd",
+      "card_occurrences": [
+        {
+          "occurrence": "ufcstats.com/fight-details/410e6b9e01660b35",
+          "participant_links": [
+            "ufcstats.com/fighter-details/5e9ca8dd7d783a75",
+            "ufcstats.com/fighter-details/2bd98ab77a8daa75"
+          ]
+        }
+      ],
+      "chosen_source_lineage": {
+        "3ea09870-977d-53fc-a70e-d49be991ebbd": "3ea09870-977d-53fc-a70e-d49be991ebbd",
+        "a01b704f-c26b-54b0-bc6c-68af89c315eb": "3ea09870-977d-53fc-a70e-d49be991ebbd"
+      },
+      "disposition": "proven_duplicate",
+      "event_date": "2026-07-18",
+      "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+      "evidence": [
+        {
+          "meaning": "identity-only event href projection",
+          "path": "data/raw/ufcstats/events/68a758a6-bd6a-5ec7-933e-72251614d52f.html",
+          "sha256": "7499107ad4ded97f494fc2a07207edae08c9a1978ec4f29b39148f61736afc47"
+        },
+        {
+          "meaning": "unique ACTIVE_BOUTS announcement and deterministic manual identity construction",
+          "path": "tools/apply_manual_catchup_cards.py",
+          "sha256": "467c2d1a2b17142f686242e51c45680a131952230662daa56d6e1a66cb3b127e"
+        }
+      ],
+      "excluded_original_ids": [
+        "3ea09870-977d-53fc-a70e-d49be991ebbd",
+        "a01b704f-c26b-54b0-bc6c-68af89c315eb"
+      ],
+      "group": 5,
+      "manual_active_entry": [
+        "68a758a6-bd6a-5ec7-933e-72251614d52f",
+        "Alden Coria",
+        "Stewart Nicoll",
+        "Flyweight",
+        3
+      ],
+      "manual_original_orientation": [
+        "376a38d6-f109-51c9-8178-f6abe5269171",
+        "336c6337-728e-59f6-bcf2-d78ac0d98306"
+      ],
+      "occurrence_by_id": {
+        "3ea09870-977d-53fc-a70e-d49be991ebbd": "ufcstats.com/fight-details/410e6b9e01660b35",
+        "a01b704f-c26b-54b0-bc6c-68af89c315eb": "ufcstats.com/fight-details/410e6b9e01660b35"
+      },
+      "original_ids": [
+        "3ea09870-977d-53fc-a70e-d49be991ebbd",
+        "a01b704f-c26b-54b0-bc6c-68af89c315eb"
+      ],
+      "participant_ids": [
+        "336c6337-728e-59f6-bcf2-d78ac0d98306",
+        "376a38d6-f109-51c9-8178-f6abe5269171"
+      ],
+      "participant_names": [
+        "Stewart Nicoll",
+        "Alden Coria"
+      ],
+      "proof_kind": "manual_announcement_to_unique_source_occurrence",
+      "rationale": "Manual substitute construction reproduces the unique linked source announcement; compatible complete rows, no statistic merging",
+      "source_rows": [
+        {
+          "orientation": [
+            "376a38d6-f109-51c9-8178-f6abe5269171",
+            "336c6337-728e-59f6-bcf2-d78ac0d98306"
+          ],
+          "row": {
+            "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+            "fight_id": "3ea09870-977d-53fc-a70e-d49be991ebbd",
+            "fighter_1_id": "376a38d6-f109-51c9-8178-f6abe5269171",
+            "fighter_2_id": "336c6337-728e-59f6-bcf2-d78ac0d98306",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T23:38:38+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/410e6b9e01660b35",
+            "weight_class": "flyweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "ec92d541a9c4ae24724887ae34457b5df171a074036f722811fea26ad2a350df",
+          "statistics": []
+        },
+        {
+          "orientation": [
+            "376a38d6-f109-51c9-8178-f6abe5269171",
+            "336c6337-728e-59f6-bcf2-d78ac0d98306"
+          ],
+          "row": {
+            "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+            "fight_id": "a01b704f-c26b-54b0-bc6c-68af89c315eb",
+            "fighter_1_id": "376a38d6-f109-51c9-8178-f6abe5269171",
+            "fighter_2_id": "336c6337-728e-59f6-bcf2-d78ac0d98306",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T18:00:30+00:00",
+            "source_url": "manual://fight/68a758a6-bd6a-5ec7-933e-72251614d52f/alden-coria-vs-stewart-nicoll",
+            "weight_class": "flyweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "dbeaf98c8211a3b088730b215efef993176c180e96ba268a980ab7903c5e30de",
+          "statistics": []
+        }
+      ],
+      "unresolved_conflicts": []
+    },
+    {
+      "canonical_id": "f2783f53-9556-5653-9815-c15e8614412c",
+      "card_occurrences": [
+        {
+          "occurrence": "ufcstats.com/fight-details/c64c6ba6eb1e1d06",
+          "participant_links": [
+            "ufcstats.com/fighter-details/6b0a6def604de298",
+            "ufcstats.com/fighter-details/a112097ad877a48f"
+          ]
+        }
+      ],
+      "chosen_source_lineage": {
+        "d16ce11f-f1eb-5eee-aefa-304e9ce176d3": "f2783f53-9556-5653-9815-c15e8614412c",
+        "f2783f53-9556-5653-9815-c15e8614412c": "f2783f53-9556-5653-9815-c15e8614412c"
+      },
+      "disposition": "proven_duplicate",
+      "event_date": "2026-07-18",
+      "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+      "evidence": [
+        {
+          "meaning": "identity-only event href projection",
+          "path": "data/raw/ufcstats/events/68a758a6-bd6a-5ec7-933e-72251614d52f.html",
+          "sha256": "7499107ad4ded97f494fc2a07207edae08c9a1978ec4f29b39148f61736afc47"
+        },
+        {
+          "meaning": "unique ACTIVE_BOUTS announcement and deterministic manual identity construction",
+          "path": "tools/apply_manual_catchup_cards.py",
+          "sha256": "467c2d1a2b17142f686242e51c45680a131952230662daa56d6e1a66cb3b127e"
+        }
+      ],
+      "excluded_original_ids": [
+        "d16ce11f-f1eb-5eee-aefa-304e9ce176d3",
+        "f2783f53-9556-5653-9815-c15e8614412c"
+      ],
+      "group": 6,
+      "manual_active_entry": [
+        "68a758a6-bd6a-5ec7-933e-72251614d52f",
+        "Tommy McMillen",
+        "Alberto Montes",
+        "Featherweight",
+        3
+      ],
+      "manual_original_orientation": [
+        "3e69aa8b-850c-513b-b346-339b08bf9d62",
+        "c1310bc4-1ae3-5907-81ce-a170f05c9f38"
+      ],
+      "occurrence_by_id": {
+        "d16ce11f-f1eb-5eee-aefa-304e9ce176d3": "ufcstats.com/fight-details/c64c6ba6eb1e1d06",
+        "f2783f53-9556-5653-9815-c15e8614412c": "ufcstats.com/fight-details/c64c6ba6eb1e1d06"
+      },
+      "original_ids": [
+        "d16ce11f-f1eb-5eee-aefa-304e9ce176d3",
+        "f2783f53-9556-5653-9815-c15e8614412c"
+      ],
+      "participant_ids": [
+        "3e69aa8b-850c-513b-b346-339b08bf9d62",
+        "c1310bc4-1ae3-5907-81ce-a170f05c9f38"
+      ],
+      "participant_names": [
+        "Tommy McMillen",
+        "Alberto Montes"
+      ],
+      "proof_kind": "manual_announcement_to_unique_source_occurrence",
+      "rationale": "Manual substitute construction reproduces the unique linked source announcement; compatible complete rows, no statistic merging",
+      "source_rows": [
+        {
+          "orientation": [
+            "3e69aa8b-850c-513b-b346-339b08bf9d62",
+            "c1310bc4-1ae3-5907-81ce-a170f05c9f38"
+          ],
+          "row": {
+            "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+            "fight_id": "d16ce11f-f1eb-5eee-aefa-304e9ce176d3",
+            "fighter_1_id": "3e69aa8b-850c-513b-b346-339b08bf9d62",
+            "fighter_2_id": "c1310bc4-1ae3-5907-81ce-a170f05c9f38",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T18:00:30+00:00",
+            "source_url": "manual://fight/68a758a6-bd6a-5ec7-933e-72251614d52f/tommy-mcmillen-vs-alberto-montes",
+            "weight_class": "featherweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "cdc06e597ab90a648ae8c8bfbeba61211cfa797d52c82e6839586960c50e52e3",
+          "statistics": []
+        },
+        {
+          "orientation": [
+            "3e69aa8b-850c-513b-b346-339b08bf9d62",
+            "c1310bc4-1ae3-5907-81ce-a170f05c9f38"
+          ],
+          "row": {
+            "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+            "fight_id": "f2783f53-9556-5653-9815-c15e8614412c",
+            "fighter_1_id": "3e69aa8b-850c-513b-b346-339b08bf9d62",
+            "fighter_2_id": "c1310bc4-1ae3-5907-81ce-a170f05c9f38",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T23:38:44+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/c64c6ba6eb1e1d06",
+            "weight_class": "featherweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "59aa495021f718f67532bd367976db13b2d7470b330ade216c91450471b4aa5a",
+          "statistics": []
+        }
+      ],
+      "unresolved_conflicts": []
+    },
+    {
+      "canonical_id": "e439fb69-cd79-5705-842a-4f98ddbf492a",
+      "card_occurrences": [
+        {
+          "occurrence": "ufcstats.com/fight-details/701c97405da76603",
+          "participant_links": [
+            "ufcstats.com/fighter-details/0d7b51c9d2649a6e",
+            "ufcstats.com/fighter-details/f1b2aa7853d1ed6e"
+          ]
+        }
+      ],
+      "chosen_source_lineage": {
+        "3119317d-2397-5e20-838f-d4508e3eea42": "e439fb69-cd79-5705-842a-4f98ddbf492a",
+        "e439fb69-cd79-5705-842a-4f98ddbf492a": "e439fb69-cd79-5705-842a-4f98ddbf492a"
+      },
+      "disposition": "proven_duplicate",
+      "event_date": "2026-07-18",
+      "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+      "evidence": [
+        {
+          "meaning": "identity-only event href projection",
+          "path": "data/raw/ufcstats/events/68a758a6-bd6a-5ec7-933e-72251614d52f.html",
+          "sha256": "7499107ad4ded97f494fc2a07207edae08c9a1978ec4f29b39148f61736afc47"
+        },
+        {
+          "meaning": "unique ACTIVE_BOUTS announcement and deterministic manual identity construction",
+          "path": "tools/apply_manual_catchup_cards.py",
+          "sha256": "467c2d1a2b17142f686242e51c45680a131952230662daa56d6e1a66cb3b127e"
+        }
+      ],
+      "excluded_original_ids": [
+        "3119317d-2397-5e20-838f-d4508e3eea42",
+        "e439fb69-cd79-5705-842a-4f98ddbf492a"
+      ],
+      "group": 7,
+      "manual_active_entry": [
+        "68a758a6-bd6a-5ec7-933e-72251614d52f",
+        "Dricus Du Plessis",
+        "Kamaru Usman",
+        "Middleweight",
+        5
+      ],
+      "manual_original_orientation": [
+        "7ff2b749-70a8-553c-a590-ce4daf8b47d7",
+        "d688d65d-4c13-5528-bbb4-99abc7f42d04"
+      ],
+      "occurrence_by_id": {
+        "3119317d-2397-5e20-838f-d4508e3eea42": "ufcstats.com/fight-details/701c97405da76603",
+        "e439fb69-cd79-5705-842a-4f98ddbf492a": "ufcstats.com/fight-details/701c97405da76603"
+      },
+      "original_ids": [
+        "3119317d-2397-5e20-838f-d4508e3eea42",
+        "e439fb69-cd79-5705-842a-4f98ddbf492a"
+      ],
+      "participant_ids": [
+        "7ff2b749-70a8-553c-a590-ce4daf8b47d7",
+        "d688d65d-4c13-5528-bbb4-99abc7f42d04"
+      ],
+      "participant_names": [
+        "Dricus Du Plessis",
+        "Kamaru Usman"
+      ],
+      "proof_kind": "manual_announcement_to_unique_source_occurrence",
+      "rationale": "Manual substitute construction reproduces the unique linked source announcement; compatible complete rows, no statistic merging",
+      "source_rows": [
+        {
+          "orientation": [
+            "7ff2b749-70a8-553c-a590-ce4daf8b47d7",
+            "d688d65d-4c13-5528-bbb4-99abc7f42d04"
+          ],
+          "row": {
+            "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+            "fight_id": "3119317d-2397-5e20-838f-d4508e3eea42",
+            "fighter_1_id": "7ff2b749-70a8-553c-a590-ce4daf8b47d7",
+            "fighter_2_id": "d688d65d-4c13-5528-bbb4-99abc7f42d04",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 5,
+            "scraped_at": "2026-08-08T18:00:30+00:00",
+            "source_url": "manual://fight/68a758a6-bd6a-5ec7-933e-72251614d52f/dricus-du-plessis-vs-kamaru-usman",
+            "weight_class": "middleweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "11f4d03ae4914881ce9210a2e5c9d1a0799a4df10df1d1b4293df6893a3cc5b6",
+          "statistics": []
+        },
+        {
+          "orientation": [
+            "7ff2b749-70a8-553c-a590-ce4daf8b47d7",
+            "d688d65d-4c13-5528-bbb4-99abc7f42d04"
+          ],
+          "row": {
+            "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+            "fight_id": "e439fb69-cd79-5705-842a-4f98ddbf492a",
+            "fighter_1_id": "7ff2b749-70a8-553c-a590-ce4daf8b47d7",
+            "fighter_2_id": "d688d65d-4c13-5528-bbb4-99abc7f42d04",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 5,
+            "scraped_at": "2026-08-08T23:38:49+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/701c97405da76603",
+            "weight_class": "middleweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "8ef4ae924434485d81917394493c658c1155e9cf7f934852384c7153f471cd6f",
+          "statistics": []
+        }
+      ],
+      "unresolved_conflicts": []
+    },
+    {
+      "canonical_id": "03bec0e0-8efe-55db-9971-bd36132b3c1e",
+      "card_occurrences": [
+        {
+          "occurrence": "ufcstats.com/fight-details/46d800ce45fdd3e6",
+          "participant_links": [
+            "ufcstats.com/fighter-details/e564146b9cf6dbef",
+            "ufcstats.com/fighter-details/9ac4e43ed56429ed"
+          ]
+        }
+      ],
+      "chosen_source_lineage": {
+        "03bec0e0-8efe-55db-9971-bd36132b3c1e": "03bec0e0-8efe-55db-9971-bd36132b3c1e",
+        "36c6e7dd-6acd-5f34-9f91-66afd004ffd5": "03bec0e0-8efe-55db-9971-bd36132b3c1e"
+      },
+      "disposition": "proven_duplicate",
+      "event_date": "2026-07-18",
+      "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+      "evidence": [
+        {
+          "meaning": "identity-only event href projection",
+          "path": "data/raw/ufcstats/events/68a758a6-bd6a-5ec7-933e-72251614d52f.html",
+          "sha256": "7499107ad4ded97f494fc2a07207edae08c9a1978ec4f29b39148f61736afc47"
+        },
+        {
+          "meaning": "unique ACTIVE_BOUTS announcement and deterministic manual identity construction",
+          "path": "tools/apply_manual_catchup_cards.py",
+          "sha256": "467c2d1a2b17142f686242e51c45680a131952230662daa56d6e1a66cb3b127e"
+        }
+      ],
+      "excluded_original_ids": [
+        "03bec0e0-8efe-55db-9971-bd36132b3c1e",
+        "36c6e7dd-6acd-5f34-9f91-66afd004ffd5"
+      ],
+      "group": 8,
+      "manual_active_entry": [
+        "68a758a6-bd6a-5ec7-933e-72251614d52f",
+        "Levi Rodrigues Jr.",
+        "Felipe Franco",
+        "Light Heavyweight",
+        3
+      ],
+      "manual_original_orientation": [
+        "d7b08d42-543a-5319-ac37-8ffdf0c9521b",
+        "ae00efba-5d34-5055-a671-088736818950"
+      ],
+      "occurrence_by_id": {
+        "03bec0e0-8efe-55db-9971-bd36132b3c1e": "ufcstats.com/fight-details/46d800ce45fdd3e6",
+        "36c6e7dd-6acd-5f34-9f91-66afd004ffd5": "ufcstats.com/fight-details/46d800ce45fdd3e6"
+      },
+      "original_ids": [
+        "03bec0e0-8efe-55db-9971-bd36132b3c1e",
+        "36c6e7dd-6acd-5f34-9f91-66afd004ffd5"
+      ],
+      "participant_ids": [
+        "ae00efba-5d34-5055-a671-088736818950",
+        "d7b08d42-543a-5319-ac37-8ffdf0c9521b"
+      ],
+      "participant_names": [
+        "Felipe Franco",
+        "Levi Rodrigues Jr."
+      ],
+      "proof_kind": "manual_announcement_to_unique_source_occurrence",
+      "rationale": "Manual substitute construction reproduces the unique linked source announcement; compatible complete rows, no statistic merging",
+      "source_rows": [
+        {
+          "orientation": [
+            "d7b08d42-543a-5319-ac37-8ffdf0c9521b",
+            "ae00efba-5d34-5055-a671-088736818950"
+          ],
+          "row": {
+            "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+            "fight_id": "03bec0e0-8efe-55db-9971-bd36132b3c1e",
+            "fighter_1_id": "d7b08d42-543a-5319-ac37-8ffdf0c9521b",
+            "fighter_2_id": "ae00efba-5d34-5055-a671-088736818950",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T23:38:41+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/46d800ce45fdd3e6",
+            "weight_class": "light_heavyweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "f8c0a35874a05cb70c5203c6e61c2a527b4818ce8883b003013f4d7b0680a777",
+          "statistics": []
+        },
+        {
+          "orientation": [
+            "d7b08d42-543a-5319-ac37-8ffdf0c9521b",
+            "ae00efba-5d34-5055-a671-088736818950"
+          ],
+          "row": {
+            "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+            "fight_id": "36c6e7dd-6acd-5f34-9f91-66afd004ffd5",
+            "fighter_1_id": "d7b08d42-543a-5319-ac37-8ffdf0c9521b",
+            "fighter_2_id": "ae00efba-5d34-5055-a671-088736818950",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T18:00:30+00:00",
+            "source_url": "manual://fight/68a758a6-bd6a-5ec7-933e-72251614d52f/levi-rodrigues-jr-vs-felipe-franco",
+            "weight_class": "light_heavyweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "89d0c59c26f8f4c84f28576143b2e62c31e354c539525877fcdef94330488592",
+          "statistics": []
+        }
+      ],
+      "unresolved_conflicts": []
+    },
+    {
+      "canonical_id": "89be14b9-3037-55de-8fb8-d9c514388569",
+      "card_occurrences": [
+        {
+          "occurrence": "ufcstats.com/fight-details/0c3c835e681972d3",
+          "participant_links": [
+            "ufcstats.com/fighter-details/b4b496ec2197ee3e",
+            "ufcstats.com/fighter-details/99df7d0a2a08a8a8"
+          ]
+        }
+      ],
+      "chosen_source_lineage": {
+        "89be14b9-3037-55de-8fb8-d9c514388569": "89be14b9-3037-55de-8fb8-d9c514388569",
+        "dc3dbfcd-1cd2-5c01-ba42-5826aa1a49a6": "89be14b9-3037-55de-8fb8-d9c514388569"
+      },
+      "disposition": "proven_duplicate",
+      "event_date": "2026-08-01",
+      "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+      "evidence": [
+        {
+          "meaning": "identity-only event href projection",
+          "path": "data/raw/ufcstats/events/6952ee17-a74d-5432-832f-b9c6d22f8e65.html",
+          "sha256": "8e7a01d293e3f1c332283eacbc072a54c991d024f4d91ab4d409bba0609085fb"
+        },
+        {
+          "meaning": "unique ACTIVE_BOUTS announcement and deterministic manual identity construction",
+          "path": "tools/apply_manual_catchup_cards.py",
+          "sha256": "467c2d1a2b17142f686242e51c45680a131952230662daa56d6e1a66cb3b127e"
+        }
+      ],
+      "excluded_original_ids": [
+        "89be14b9-3037-55de-8fb8-d9c514388569",
+        "dc3dbfcd-1cd2-5c01-ba42-5826aa1a49a6"
+      ],
+      "group": 9,
+      "manual_active_entry": [
+        "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+        "Jan Blachowicz",
+        "Navajo Stirling",
+        "Light Heavyweight",
+        3
+      ],
+      "manual_original_orientation": [
+        "21c90e7f-1c99-5094-a0cc-e06e88093e7a",
+        "0e6bdbf7-b388-5612-a7b3-f1da80a47c28"
+      ],
+      "occurrence_by_id": {
+        "89be14b9-3037-55de-8fb8-d9c514388569": "ufcstats.com/fight-details/0c3c835e681972d3",
+        "dc3dbfcd-1cd2-5c01-ba42-5826aa1a49a6": "ufcstats.com/fight-details/0c3c835e681972d3"
+      },
+      "original_ids": [
+        "89be14b9-3037-55de-8fb8-d9c514388569",
+        "dc3dbfcd-1cd2-5c01-ba42-5826aa1a49a6"
+      ],
+      "participant_ids": [
+        "0e6bdbf7-b388-5612-a7b3-f1da80a47c28",
+        "21c90e7f-1c99-5094-a0cc-e06e88093e7a"
+      ],
+      "participant_names": [
+        "Navajo Stirling",
+        "Jan Blachowicz"
+      ],
+      "proof_kind": "manual_announcement_to_unique_source_occurrence",
+      "rationale": "Manual substitute construction reproduces the unique linked source announcement; compatible complete rows, no statistic merging",
+      "source_rows": [
+        {
+          "orientation": [
+            "21c90e7f-1c99-5094-a0cc-e06e88093e7a",
+            "0e6bdbf7-b388-5612-a7b3-f1da80a47c28"
+          ],
+          "row": {
+            "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+            "fight_id": "89be14b9-3037-55de-8fb8-d9c514388569",
+            "fighter_1_id": "21c90e7f-1c99-5094-a0cc-e06e88093e7a",
+            "fighter_2_id": "0e6bdbf7-b388-5612-a7b3-f1da80a47c28",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T23:38:21+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/0c3c835e681972d3",
+            "weight_class": "light_heavyweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "3ea3fddc9e6e6cfe7d89f5d4fc5a6e1ef701afe2700a1c796d625f6688762717",
+          "statistics": []
+        },
+        {
+          "orientation": [
+            "21c90e7f-1c99-5094-a0cc-e06e88093e7a",
+            "0e6bdbf7-b388-5612-a7b3-f1da80a47c28"
+          ],
+          "row": {
+            "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+            "fight_id": "dc3dbfcd-1cd2-5c01-ba42-5826aa1a49a6",
+            "fighter_1_id": "21c90e7f-1c99-5094-a0cc-e06e88093e7a",
+            "fighter_2_id": "0e6bdbf7-b388-5612-a7b3-f1da80a47c28",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T18:00:30+00:00",
+            "source_url": "manual://fight/6952ee17-a74d-5432-832f-b9c6d22f8e65/jan-blachowicz-vs-navajo-stirling",
+            "weight_class": "light_heavyweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "3224fffc67f3c46f2eced498d152ef40f3d2a5fab612704e9c6dd048ea07d585",
+          "statistics": []
+        }
+      ],
+      "unresolved_conflicts": []
+    },
+    {
+      "canonical_id": "37015e6b-0070-5ffb-a692-eb3b72bf463a",
+      "card_occurrences": [
+        {
+          "occurrence": "ufcstats.com/fight-details/f1bce0c9a3fa4bcb",
+          "participant_links": [
+            "ufcstats.com/fighter-details/037cfd34a27d59e9",
+            "ufcstats.com/fighter-details/6b56e94a59b7b134"
+          ]
+        }
+      ],
+      "chosen_source_lineage": {
+        "108f5aca-513a-5fd9-af6f-c7c8f78e0e03": "37015e6b-0070-5ffb-a692-eb3b72bf463a",
+        "37015e6b-0070-5ffb-a692-eb3b72bf463a": "37015e6b-0070-5ffb-a692-eb3b72bf463a"
+      },
+      "disposition": "proven_duplicate",
+      "event_date": "2026-08-01",
+      "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+      "evidence": [
+        {
+          "meaning": "identity-only event href projection",
+          "path": "data/raw/ufcstats/events/6952ee17-a74d-5432-832f-b9c6d22f8e65.html",
+          "sha256": "8e7a01d293e3f1c332283eacbc072a54c991d024f4d91ab4d409bba0609085fb"
+        },
+        {
+          "meaning": "unique ACTIVE_BOUTS announcement and deterministic manual identity construction",
+          "path": "tools/apply_manual_catchup_cards.py",
+          "sha256": "467c2d1a2b17142f686242e51c45680a131952230662daa56d6e1a66cb3b127e"
+        }
+      ],
+      "excluded_original_ids": [
+        "108f5aca-513a-5fd9-af6f-c7c8f78e0e03",
+        "37015e6b-0070-5ffb-a692-eb3b72bf463a"
+      ],
+      "group": 10,
+      "manual_active_entry": [
+        "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+        "Oban Elliott",
+        "Michael Oliveira",
+        "Welterweight",
+        3
+      ],
+      "manual_original_orientation": [
+        "bb1528ff-105a-5528-af03-53018624ae46",
+        "1691f44d-2268-5baa-a732-bb412d331919"
+      ],
+      "occurrence_by_id": {
+        "108f5aca-513a-5fd9-af6f-c7c8f78e0e03": "ufcstats.com/fight-details/f1bce0c9a3fa4bcb",
+        "37015e6b-0070-5ffb-a692-eb3b72bf463a": "ufcstats.com/fight-details/f1bce0c9a3fa4bcb"
+      },
+      "original_ids": [
+        "108f5aca-513a-5fd9-af6f-c7c8f78e0e03",
+        "37015e6b-0070-5ffb-a692-eb3b72bf463a"
+      ],
+      "participant_ids": [
+        "1691f44d-2268-5baa-a732-bb412d331919",
+        "bb1528ff-105a-5528-af03-53018624ae46"
+      ],
+      "participant_names": [
+        "Michael Oliveira",
+        "Oban Elliott"
+      ],
+      "proof_kind": "manual_announcement_to_unique_source_occurrence",
+      "rationale": "Manual substitute construction reproduces the unique linked source announcement; compatible complete rows, no statistic merging",
+      "source_rows": [
+        {
+          "orientation": [
+            "bb1528ff-105a-5528-af03-53018624ae46",
+            "1691f44d-2268-5baa-a732-bb412d331919"
+          ],
+          "row": {
+            "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+            "fight_id": "108f5aca-513a-5fd9-af6f-c7c8f78e0e03",
+            "fighter_1_id": "bb1528ff-105a-5528-af03-53018624ae46",
+            "fighter_2_id": "1691f44d-2268-5baa-a732-bb412d331919",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T18:00:30+00:00",
+            "source_url": "manual://fight/6952ee17-a74d-5432-832f-b9c6d22f8e65/oban-elliott-vs-michael-oliveira",
+            "weight_class": "welterweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "64385cc7f1846412fec8861c18455e412d71c7d30199d1d045f9aee755cec33d",
+          "statistics": []
+        },
+        {
+          "orientation": [
+            "bb1528ff-105a-5528-af03-53018624ae46",
+            "1691f44d-2268-5baa-a732-bb412d331919"
+          ],
+          "row": {
+            "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+            "fight_id": "37015e6b-0070-5ffb-a692-eb3b72bf463a",
+            "fighter_1_id": "bb1528ff-105a-5528-af03-53018624ae46",
+            "fighter_2_id": "1691f44d-2268-5baa-a732-bb412d331919",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T23:38:13+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/f1bce0c9a3fa4bcb",
+            "weight_class": "welterweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "246ebdb07e8c63d4c0db0e97f6a3ae30ab1a4450de2b8fccbe747d840d3ee3e2",
+          "statistics": []
+        }
+      ],
+      "unresolved_conflicts": []
+    },
+    {
+      "canonical_id": "81a625a4-672a-5644-8bf9-26053f0a823f",
+      "card_occurrences": [
+        {
+          "occurrence": "ufcstats.com/fight-details/13aa6688d0538095",
+          "participant_links": [
+            "ufcstats.com/fighter-details/fb37795db81f93f3",
+            "ufcstats.com/fighter-details/c4d039123e62f6a9"
+          ]
+        }
+      ],
+      "chosen_source_lineage": {
+        "81a625a4-672a-5644-8bf9-26053f0a823f": "81a625a4-672a-5644-8bf9-26053f0a823f",
+        "ad8d2846-75b9-5a2b-a4e4-b4b593e386e4": "81a625a4-672a-5644-8bf9-26053f0a823f"
+      },
+      "disposition": "proven_duplicate",
+      "event_date": "2026-08-01",
+      "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+      "evidence": [
+        {
+          "meaning": "identity-only event href projection",
+          "path": "data/raw/ufcstats/events/6952ee17-a74d-5432-832f-b9c6d22f8e65.html",
+          "sha256": "8e7a01d293e3f1c332283eacbc072a54c991d024f4d91ab4d409bba0609085fb"
+        },
+        {
+          "meaning": "unique ACTIVE_BOUTS announcement and deterministic manual identity construction",
+          "path": "tools/apply_manual_catchup_cards.py",
+          "sha256": "467c2d1a2b17142f686242e51c45680a131952230662daa56d6e1a66cb3b127e"
+        }
+      ],
+      "excluded_original_ids": [
+        "81a625a4-672a-5644-8bf9-26053f0a823f",
+        "ad8d2846-75b9-5a2b-a4e4-b4b593e386e4"
+      ],
+      "group": 11,
+      "manual_active_entry": [
+        "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+        "Dennis Buzukja",
+        "Bogdan Grad",
+        "Featherweight",
+        3
+      ],
+      "manual_original_orientation": [
+        "48418d48-8e51-5df2-93fc-21bd6027db85",
+        "1f2ca711-b218-5d42-8abd-cd23623abf5f"
+      ],
+      "occurrence_by_id": {
+        "81a625a4-672a-5644-8bf9-26053f0a823f": "ufcstats.com/fight-details/13aa6688d0538095",
+        "ad8d2846-75b9-5a2b-a4e4-b4b593e386e4": "ufcstats.com/fight-details/13aa6688d0538095"
+      },
+      "original_ids": [
+        "81a625a4-672a-5644-8bf9-26053f0a823f",
+        "ad8d2846-75b9-5a2b-a4e4-b4b593e386e4"
+      ],
+      "participant_ids": [
+        "1f2ca711-b218-5d42-8abd-cd23623abf5f",
+        "48418d48-8e51-5df2-93fc-21bd6027db85"
+      ],
+      "participant_names": [
+        "Bogdan Grad",
+        "Dennis Buzukja"
+      ],
+      "proof_kind": "manual_announcement_to_unique_source_occurrence",
+      "rationale": "Manual substitute construction reproduces the unique linked source announcement; compatible complete rows, no statistic merging",
+      "source_rows": [
+        {
+          "orientation": [
+            "48418d48-8e51-5df2-93fc-21bd6027db85",
+            "1f2ca711-b218-5d42-8abd-cd23623abf5f"
+          ],
+          "row": {
+            "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+            "fight_id": "81a625a4-672a-5644-8bf9-26053f0a823f",
+            "fighter_1_id": "48418d48-8e51-5df2-93fc-21bd6027db85",
+            "fighter_2_id": "1f2ca711-b218-5d42-8abd-cd23623abf5f",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T23:38:11+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/13aa6688d0538095",
+            "weight_class": "featherweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "9135ebe3cce691f9175f2d341a37f2ee6371d7c40c7e906e2a5b8682a7e88198",
+          "statistics": []
+        },
+        {
+          "orientation": [
+            "48418d48-8e51-5df2-93fc-21bd6027db85",
+            "1f2ca711-b218-5d42-8abd-cd23623abf5f"
+          ],
+          "row": {
+            "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+            "fight_id": "ad8d2846-75b9-5a2b-a4e4-b4b593e386e4",
+            "fighter_1_id": "48418d48-8e51-5df2-93fc-21bd6027db85",
+            "fighter_2_id": "1f2ca711-b218-5d42-8abd-cd23623abf5f",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T18:00:30+00:00",
+            "source_url": "manual://fight/6952ee17-a74d-5432-832f-b9c6d22f8e65/dennis-buzukja-vs-bogdan-grad",
+            "weight_class": "featherweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "d7aed48af40a8a3bb510c517b88f7ec908de0893c0484ae7dc32d41c1b3c6d06",
+          "statistics": []
+        }
+      ],
+      "unresolved_conflicts": []
+    },
+    {
+      "canonical_id": "0a078174-ba92-5058-be64-d62257966f3d",
+      "card_occurrences": [
+        {
+          "occurrence": "ufcstats.com/fight-details/5425c577ed4f50b3",
+          "participant_links": [
+            "ufcstats.com/fighter-details/849c5d9979df5357",
+            "ufcstats.com/fighter-details/873626e5547b5235"
+          ]
+        }
+      ],
+      "chosen_source_lineage": {
+        "0a078174-ba92-5058-be64-d62257966f3d": "0a078174-ba92-5058-be64-d62257966f3d",
+        "7684f614-543d-53ab-b738-d9c77916713a": "0a078174-ba92-5058-be64-d62257966f3d"
+      },
+      "disposition": "proven_duplicate",
+      "event_date": "2026-08-01",
+      "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+      "evidence": [
+        {
+          "meaning": "identity-only event href projection",
+          "path": "data/raw/ufcstats/events/6952ee17-a74d-5432-832f-b9c6d22f8e65.html",
+          "sha256": "8e7a01d293e3f1c332283eacbc072a54c991d024f4d91ab4d409bba0609085fb"
+        },
+        {
+          "meaning": "unique ACTIVE_BOUTS announcement and deterministic manual identity construction",
+          "path": "tools/apply_manual_catchup_cards.py",
+          "sha256": "467c2d1a2b17142f686242e51c45680a131952230662daa56d6e1a66cb3b127e"
+        }
+      ],
+      "excluded_original_ids": [
+        "0a078174-ba92-5058-be64-d62257966f3d",
+        "7684f614-543d-53ab-b738-d9c77916713a"
+      ],
+      "group": 12,
+      "manual_active_entry": [
+        "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+        "Mateusz Rebecki",
+        "Kyle Prepolec",
+        "Lightweight",
+        3
+      ],
+      "manual_original_orientation": [
+        "af151ba8-797a-5a37-8125-89e8705bc01f",
+        "29e2be84-e6f9-564a-91ac-67038549c6ab"
+      ],
+      "occurrence_by_id": {
+        "0a078174-ba92-5058-be64-d62257966f3d": "ufcstats.com/fight-details/5425c577ed4f50b3",
+        "7684f614-543d-53ab-b738-d9c77916713a": "ufcstats.com/fight-details/5425c577ed4f50b3"
+      },
+      "original_ids": [
+        "0a078174-ba92-5058-be64-d62257966f3d",
+        "7684f614-543d-53ab-b738-d9c77916713a"
+      ],
+      "participant_ids": [
+        "29e2be84-e6f9-564a-91ac-67038549c6ab",
+        "af151ba8-797a-5a37-8125-89e8705bc01f"
+      ],
+      "participant_names": [
+        "Kyle Prepolec",
+        "Mateusz Rebecki"
+      ],
+      "proof_kind": "manual_announcement_to_unique_source_occurrence",
+      "rationale": "Manual substitute construction reproduces the unique linked source announcement; compatible complete rows, no statistic merging",
+      "source_rows": [
+        {
+          "orientation": [
+            "af151ba8-797a-5a37-8125-89e8705bc01f",
+            "29e2be84-e6f9-564a-91ac-67038549c6ab"
+          ],
+          "row": {
+            "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+            "fight_id": "0a078174-ba92-5058-be64-d62257966f3d",
+            "fighter_1_id": "af151ba8-797a-5a37-8125-89e8705bc01f",
+            "fighter_2_id": "29e2be84-e6f9-564a-91ac-67038549c6ab",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T23:38:10+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/5425c577ed4f50b3",
+            "weight_class": "lightweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "9f1e21b26a005f8842301f1e65d0069d3926a19303c7ab90b345f98032dce11e",
+          "statistics": []
+        },
+        {
+          "orientation": [
+            "af151ba8-797a-5a37-8125-89e8705bc01f",
+            "29e2be84-e6f9-564a-91ac-67038549c6ab"
+          ],
+          "row": {
+            "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+            "fight_id": "7684f614-543d-53ab-b738-d9c77916713a",
+            "fighter_1_id": "af151ba8-797a-5a37-8125-89e8705bc01f",
+            "fighter_2_id": "29e2be84-e6f9-564a-91ac-67038549c6ab",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T18:00:30+00:00",
+            "source_url": "manual://fight/6952ee17-a74d-5432-832f-b9c6d22f8e65/mateusz-rebecki-vs-kyle-prepolec",
+            "weight_class": "lightweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "835719e88ef8d3b5fe37fa389a1c84c705aca919448bf7dd51f5dfedbae93bb2",
+          "statistics": []
+        }
+      ],
+      "unresolved_conflicts": []
+    },
+    {
+      "canonical_id": "c51bc854-f7b8-59cf-80e5-3c332126916f",
+      "card_occurrences": [
+        {
+          "occurrence": "ufcstats.com/fight-details/94cef172179c9778",
+          "participant_links": [
+            "ufcstats.com/fighter-details/182a73d5b4e57871",
+            "ufcstats.com/fighter-details/56bf3ed155bd0fcd"
+          ]
+        }
+      ],
+      "chosen_source_lineage": {
+        "7ae9189e-11fb-5bb8-93f6-ccf755ce7435": "c51bc854-f7b8-59cf-80e5-3c332126916f",
+        "c51bc854-f7b8-59cf-80e5-3c332126916f": "c51bc854-f7b8-59cf-80e5-3c332126916f"
+      },
+      "disposition": "proven_duplicate",
+      "event_date": "2026-08-01",
+      "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+      "evidence": [
+        {
+          "meaning": "identity-only event href projection",
+          "path": "data/raw/ufcstats/events/6952ee17-a74d-5432-832f-b9c6d22f8e65.html",
+          "sha256": "8e7a01d293e3f1c332283eacbc072a54c991d024f4d91ab4d409bba0609085fb"
+        },
+        {
+          "meaning": "unique ACTIVE_BOUTS announcement and deterministic manual identity construction",
+          "path": "tools/apply_manual_catchup_cards.py",
+          "sha256": "467c2d1a2b17142f686242e51c45680a131952230662daa56d6e1a66cb3b127e"
+        }
+      ],
+      "excluded_original_ids": [
+        "7ae9189e-11fb-5bb8-93f6-ccf755ce7435",
+        "c51bc854-f7b8-59cf-80e5-3c332126916f"
+      ],
+      "group": 13,
+      "manual_active_entry": [
+        "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+        "Jovan Leka",
+        "Alexander Poppeck",
+        "Heavyweight",
+        3
+      ],
+      "manual_original_orientation": [
+        "f5513355-0d0c-55e0-baf3-e1e4cff286f6",
+        "55382684-28ee-514f-a311-a7141c91b4c0"
+      ],
+      "occurrence_by_id": {
+        "7ae9189e-11fb-5bb8-93f6-ccf755ce7435": "ufcstats.com/fight-details/94cef172179c9778",
+        "c51bc854-f7b8-59cf-80e5-3c332126916f": "ufcstats.com/fight-details/94cef172179c9778"
+      },
+      "original_ids": [
+        "7ae9189e-11fb-5bb8-93f6-ccf755ce7435",
+        "c51bc854-f7b8-59cf-80e5-3c332126916f"
+      ],
+      "participant_ids": [
+        "55382684-28ee-514f-a311-a7141c91b4c0",
+        "f5513355-0d0c-55e0-baf3-e1e4cff286f6"
+      ],
+      "participant_names": [
+        "Alexander Poppeck",
+        "Jovan Leka"
+      ],
+      "proof_kind": "manual_announcement_to_unique_source_occurrence",
+      "rationale": "Manual substitute construction reproduces the unique linked source announcement; compatible complete rows, no statistic merging",
+      "source_rows": [
+        {
+          "orientation": [
+            "f5513355-0d0c-55e0-baf3-e1e4cff286f6",
+            "55382684-28ee-514f-a311-a7141c91b4c0"
+          ],
+          "row": {
+            "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+            "fight_id": "7ae9189e-11fb-5bb8-93f6-ccf755ce7435",
+            "fighter_1_id": "f5513355-0d0c-55e0-baf3-e1e4cff286f6",
+            "fighter_2_id": "55382684-28ee-514f-a311-a7141c91b4c0",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T18:00:30+00:00",
+            "source_url": "manual://fight/6952ee17-a74d-5432-832f-b9c6d22f8e65/jovan-leka-vs-alexander-poppeck",
+            "weight_class": "heavyweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "74c30fb30bdba6d95d297ba85819b9bd743d2974c98a9d0e86e8fa7b8c3f5bc4",
+          "statistics": []
+        },
+        {
+          "orientation": [
+            "f5513355-0d0c-55e0-baf3-e1e4cff286f6",
+            "55382684-28ee-514f-a311-a7141c91b4c0"
+          ],
+          "row": {
+            "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+            "fight_id": "c51bc854-f7b8-59cf-80e5-3c332126916f",
+            "fighter_1_id": "f5513355-0d0c-55e0-baf3-e1e4cff286f6",
+            "fighter_2_id": "55382684-28ee-514f-a311-a7141c91b4c0",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T23:38:07+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/94cef172179c9778",
+            "weight_class": "heavyweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "7fde14567294f7f44edccae3fd18c01551c9182205cc0afbdd9775f4bedc842b",
+          "statistics": []
+        }
+      ],
+      "unresolved_conflicts": []
+    },
+    {
+      "canonical_id": "3a8bcd8d-f048-57ed-9a79-12f5745643f6",
+      "card_occurrences": [
+        {
+          "occurrence": "ufcstats.com/fight-details/fbd99ae7e1ff993a",
+          "participant_links": [
+            "ufcstats.com/fighter-details/ae81a3ac7b260411",
+            "ufcstats.com/fighter-details/5b86d491d63890c5"
+          ]
+        }
+      ],
+      "chosen_source_lineage": {
+        "3a8bcd8d-f048-57ed-9a79-12f5745643f6": "3a8bcd8d-f048-57ed-9a79-12f5745643f6",
+        "5077ad8f-9ef1-5fc3-a595-f3a79dcf2915": "3a8bcd8d-f048-57ed-9a79-12f5745643f6"
+      },
+      "disposition": "proven_duplicate",
+      "event_date": "2026-08-01",
+      "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+      "evidence": [
+        {
+          "meaning": "identity-only event href projection",
+          "path": "data/raw/ufcstats/events/6952ee17-a74d-5432-832f-b9c6d22f8e65.html",
+          "sha256": "8e7a01d293e3f1c332283eacbc072a54c991d024f4d91ab4d409bba0609085fb"
+        },
+        {
+          "meaning": "unique ACTIVE_BOUTS announcement and deterministic manual identity construction",
+          "path": "tools/apply_manual_catchup_cards.py",
+          "sha256": "467c2d1a2b17142f686242e51c45680a131952230662daa56d6e1a66cb3b127e"
+        }
+      ],
+      "excluded_original_ids": [
+        "3a8bcd8d-f048-57ed-9a79-12f5745643f6",
+        "5077ad8f-9ef1-5fc3-a595-f3a79dcf2915"
+      ],
+      "group": 14,
+      "manual_active_entry": [
+        "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+        "Ludovit Klein",
+        "Tofiq Musayev",
+        "Lightweight",
+        3
+      ],
+      "manual_original_orientation": [
+        "b2735b09-979b-5d62-8e38-c47ee63f9865",
+        "baf4cbdf-a8ab-5faa-82ab-f01bb93e0384"
+      ],
+      "occurrence_by_id": {
+        "3a8bcd8d-f048-57ed-9a79-12f5745643f6": "ufcstats.com/fight-details/fbd99ae7e1ff993a",
+        "5077ad8f-9ef1-5fc3-a595-f3a79dcf2915": "ufcstats.com/fight-details/fbd99ae7e1ff993a"
+      },
+      "original_ids": [
+        "3a8bcd8d-f048-57ed-9a79-12f5745643f6",
+        "5077ad8f-9ef1-5fc3-a595-f3a79dcf2915"
+      ],
+      "participant_ids": [
+        "b2735b09-979b-5d62-8e38-c47ee63f9865",
+        "baf4cbdf-a8ab-5faa-82ab-f01bb93e0384"
+      ],
+      "participant_names": [
+        "Ludovit Klein",
+        "Tofiq Musayev"
+      ],
+      "proof_kind": "manual_announcement_to_unique_source_occurrence",
+      "rationale": "Manual substitute construction reproduces the unique linked source announcement; compatible complete rows, no statistic merging",
+      "source_rows": [
+        {
+          "orientation": [
+            "b2735b09-979b-5d62-8e38-c47ee63f9865",
+            "baf4cbdf-a8ab-5faa-82ab-f01bb93e0384"
+          ],
+          "row": {
+            "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+            "fight_id": "3a8bcd8d-f048-57ed-9a79-12f5745643f6",
+            "fighter_1_id": "b2735b09-979b-5d62-8e38-c47ee63f9865",
+            "fighter_2_id": "baf4cbdf-a8ab-5faa-82ab-f01bb93e0384",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T23:38:15+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/fbd99ae7e1ff993a",
+            "weight_class": "lightweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "3b5acdd6bfa53b66fc64e81a1ea0d62c7e03453db419e74fea4e957d45da1f9c",
+          "statistics": []
+        },
+        {
+          "orientation": [
+            "b2735b09-979b-5d62-8e38-c47ee63f9865",
+            "baf4cbdf-a8ab-5faa-82ab-f01bb93e0384"
+          ],
+          "row": {
+            "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+            "fight_id": "5077ad8f-9ef1-5fc3-a595-f3a79dcf2915",
+            "fighter_1_id": "b2735b09-979b-5d62-8e38-c47ee63f9865",
+            "fighter_2_id": "baf4cbdf-a8ab-5faa-82ab-f01bb93e0384",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T18:00:30+00:00",
+            "source_url": "manual://fight/6952ee17-a74d-5432-832f-b9c6d22f8e65/ludovit-klein-vs-tofiq-musayev",
+            "weight_class": "lightweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "07edaf7fe037b08d06fb87dc82e481ca43b027cd19a310fe0c906c00698d2da2",
+          "statistics": []
+        }
+      ],
+      "unresolved_conflicts": []
+    }
+  ],
+  "parent_checksums_sha256": "eda0256815b59a749d215fe00ec533826150bd2a8f2240b90d2baa6f8370bf56",
+  "parent_manifest_sha256": "e23f7635c096e54090ffd229ab547ceb9e5f26fa7b71b2eac876be70f14ebe79",
+  "policy_sha256": "8b829d4a65641c4963f18931453e183b43eced8153e3e024010ebc72f05a16a9",
+  "ready": false,
+  "source_hashes": {
+    "sources/events.json": "e36c7250b9965ec8294fe9bac196f45ec96ad51624ef704e5e188b83eb868a78",
+    "sources/fight_stats_aggregate.json": "ec19a9e5e0b13766744e187f1d099e92c65103940ac02fefe804b4421414bcb4",
+    "sources/fighters.json": "1cf4a351788b7de8496e1e05c8591f5cf462739a4843f44831fa7168d20a4caf",
+    "sources/fights.json": "27738c6ca29fafa1cdde121b377607ef9683c79cfb7eacca4b96b1f166118b17",
+    "sources/schemas.json": "d4d0a931dc86598b1b2f26e5bd52347060094fe5beb64031b07bd359e431ee8a"
+  },
+  "supporting_evidence_hashes": {
+    "data/raw/ufcstats/events/68a758a6-bd6a-5ec7-933e-72251614d52f.html": "7499107ad4ded97f494fc2a07207edae08c9a1978ec4f29b39148f61736afc47",
+    "data/raw/ufcstats/events/6952ee17-a74d-5432-832f-b9c6d22f8e65.html": "8e7a01d293e3f1c332283eacbc072a54c991d024f4d91ab4d409bba0609085fb",
+    "data/raw/ufcstats/events/f9fdb60d-f963-535d-a85d-6d782b6e17f4.html": "260c1d3ac79d4629bfa960036961547015171aadeaf5dea0af3fc6f1eea5d44c",
+    "data/raw/ufcstats/events/fe881b94-92d3-5dbe-97e7-28014b17202d.html": "83370b7b25e07df9bd82e502b398b195ec6cb279cdc9f2b9ab684fecd07c4f98",
+    "data/raw/ufcstats/fights/498de4bd-d781-52af-a383-802158196d2d.html": "f13f8bf8f3e283abd50fcc7791f1c394367ca03529ccc36e610ae785b23e7b7a",
+    "data/raw/ufcstats/fights/4b08f65d-db68-5091-9568-4748c4cf7318.html": "096f1f16ac0a582dae9eeb3a8cfdaae4ff18edec3ee48b44a0d7ebb3b3994894",
+    "docs/phase5-history-identity-policy-v1.md": "8b829d4a65641c4963f18931453e183b43eced8153e3e024010ebc72f05a16a9",
+    "tools/apply_manual_catchup_cards.py": "467c2d1a2b17142f686242e51c45680a131952230662daa56d6e1a66cb3b127e"
+  }
+}

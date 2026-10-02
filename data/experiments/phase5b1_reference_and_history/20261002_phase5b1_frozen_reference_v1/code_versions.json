@@ -1,0 +1,23 @@
+{
+  "features/bout.py": "7c098a774e48c793bd333840eace71aac118910552d8d330bd6fa3b367e6d881",
+  "features/data_loader.py": "f63f31dc26c81afd91e86b5713cfe66580aff51fbd80d3b5407f0b5f065f5a10",
+  "features/debut_prior.py": "c38f733a7d60f840aea0ca954ed147174a08708a3832ad2ba8fbdac9d615af84",
+  "modeling/holdout.py": "bd97f90c242d8cb79c197fdf3fe9d6f091c36bb34a00857b68ae6b9cbf01d3e9",
+  "modeling/phase5_current_data.py": "1113f0a724c161fe8c479c33f4d77f3f6b3df52a58b77ac57e1705b84ee54c15",
+  "modeling/phase5_frozen_reference.py": "2e68e0ee6a27ee2126cc1b66370982fe01db02da8a03d026ee34947d28b62b2e",
+  "modeling/phase5_reference_adapter.py": "a865b7285f5faa2371a8484e6e9ceee73c31609a834a19fe9059205ba95f6ea9",
+  "modeling/phase5b1_artifacts.py": "dc07ab4c170171f0cdaeca7ba2637038aa582857f0a4a9d4056f8ca64f252930",
+  "modeling/reference_legacy_v1/__init__.py": "e8cf6ae06f315fad8463afd06d164a4ff23c7a314476baac2027a8b96f379e65",
+  "modeling/reference_legacy_v1/bout_row.py": "16457718d7234095b45f698afc6492ae602c74a89000ac9d2c40bbcf6f55a4ba",
+  "modeling/reference_legacy_v1/career.py": "2f0aa6009a48d9fa20b07edd28740ecbb85a831dfc101ffeaff9093669d5d710",
+  "modeling/reference_legacy_v1/decay.py": "383c46868b3bc2a1cca6a7075e3e0a0b1c559d72d337bbdb5888130127df7592",
+  "modeling/reference_legacy_v1/elo.py": "75debe3045c9d90cc52295527eda2d872b07e86d9fd4849a2eac6fa55fd2b197",
+  "modeling/reference_legacy_v1/history.py": "eabb6e853b60fd438bf7ced61ff22d1f1088fc9a0c576c21e6618a5cde406501",
+  "modeling/reference_legacy_v1/opponent.py": "11d81e95fd962f05bea45e82121d66f3403d9124829df021a94c889a982eeeb8",
+  "modeling/reference_legacy_v1/physical.py": "30d3a8e8a6bb24bbe21f960267e3fcdf9958c0ce1c0ccc459047c19be72e42a8",
+  "modeling/reference_legacy_v1/provenance.json": "e54aa725b9f0f8ef71c33d9f18a964a4ea5b40605b36ab10d939bcfeee731a44",
+  "modeling/reference_legacy_v1/rolling.py": "e87e4cd47463056c429be7eb77565f45e43f16654b6e967a2894648abd327b43",
+  "modeling/reference_legacy_v1/snapshot.py": "c056c4c7d3fcec12780a5401d67bec230a1caea03c2a6bbedf39d29fcad2d65b",
+  "modeling/refit_preflight.py": "a45f75794e276dc2b4626ead4fc8c860d2f11eba5394ab1b85d867e1a40b1713",
+  "tools/freeze_phase5b1_reference_and_history.py": "b345cb562a5a057da087d5cb27318ec2a99ca9f31f4f2ed741a5ad47e13b8ecd"
+}

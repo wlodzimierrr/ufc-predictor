@@ -1,0 +1,39 @@
+{
+  "adapter_audit_successors_added_real_fits": 0,
+  "authoritative_reference": {
+    "checksums_sha256": "12c17761fe76998e49fb5e79ea8a455861e22eaf57b37071f692bab17c1ba381",
+    "independent_verify_command_passed": true,
+    "manifest_sha256": "20a9695de6cd77d74ff67f5cb0b62da2f127fbcdc181fa9d9fc2b3f8f62ad48a",
+    "run": "20261002_phase5b1_frozen_reference_v3_identity_guarded",
+    "save_load_parity": "EXACT"
+  },
+  "challenger_fits": 0,
+  "historical_comparison": "STILL_BLOCKED",
+  "predictive_evaluations": 0,
+  "preserved_reference_predecessors": [
+    {
+      "checksums_sha256": "a1075709950149e25ca97c3b772366ae913b433a6ce759ffe41cf86e75b81982",
+      "current_loader_compatibility": "superseded code provenance",
+      "run": "20261002_phase5b1_frozen_reference_v1",
+      "saved_components_match_authoritative": true
+    },
+    {
+      "checksums_sha256": "cf13e2f9196b9ca83ffead6364386f6d6bbe586f4a75e8d02b3c8966d27aa9dd",
+      "current_loader_compatibility": "superseded code provenance",
+      "run": "20261002_phase5b1_frozen_reference_v2_identity_guarded",
+      "saved_components_match_authoritative": true
+    }
+  ],
+  "production_changes": 0,
+  "real_prospective_probabilities": 0,
+  "reconciliation": {
+    "checksums_sha256": "8c28425abf011bcce88cff2fa8d3f4d866156396a84a59f9a609050aa16344cb",
+    "fitting_readiness": "BLOCKED",
+    "independent_deterministic_payloads": 11,
+    "run": "20261002_phase5b1_history_reconciliation_v1_blocked"
+  },
+  "source_network_fetches": 0,
+  "total_real_platt_fits": 1,
+  "warehouse_reads": 0,
+  "warehouse_writes": 0
+}

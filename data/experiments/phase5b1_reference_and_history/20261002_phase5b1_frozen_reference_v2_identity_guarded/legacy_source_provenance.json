@@ -1,0 +1,56 @@
+{
+  "bout_row.py": {
+    "change": "verbatim extraction of weight ranks and two pure mapping functions; no writers/imports retained",
+    "original_sha256": "43625f3ab5e4254b4fbee704d3e4db4401977071d1e1d6d0b0ac4b0b56d8974d",
+    "source_commit": "6c000dfc19efc43a3ba24091baf9c8fcd760d226",
+    "source_path": "features/pipeline.py"
+  },
+  "career.py": {
+    "change": "import namespace relocation only",
+    "original_sha256": "c430641e299af898ba1fe16be0a66aff902c016e647a59afdc341bc2d3854250",
+    "source_commit": "6c000dfc19efc43a3ba24091baf9c8fcd760d226",
+    "source_path": "features/career.py"
+  },
+  "decay.py": {
+    "change": "import namespace relocation only",
+    "original_sha256": "8596160c8e26c6e18b866aeffc68bebca70d61760190a474a1ad9684f0a7dff1",
+    "source_commit": "6c000dfc19efc43a3ba24091baf9c8fcd760d226",
+    "source_path": "features/decay.py"
+  },
+  "elo.py": {
+    "change": "import namespace relocation only",
+    "original_sha256": "75debe3045c9d90cc52295527eda2d872b07e86d9fd4849a2eac6fa55fd2b197",
+    "source_commit": "6c000dfc19efc43a3ba24091baf9c8fcd760d226",
+    "source_path": "features/elo.py"
+  },
+  "history.py": {
+    "change": "import namespace relocation only",
+    "original_sha256": "eabb6e853b60fd438bf7ced61ff22d1f1088fc9a0c576c21e6618a5cde406501",
+    "source_commit": "6c000dfc19efc43a3ba24091baf9c8fcd760d226",
+    "source_path": "features/history.py"
+  },
+  "opponent.py": {
+    "change": "import namespace relocation only",
+    "original_sha256": "6e286bd8f206c47901de7e54e82760815bba99a4f7faa10d88da940182b893cb",
+    "source_commit": "6c000dfc19efc43a3ba24091baf9c8fcd760d226",
+    "source_path": "features/opponent.py"
+  },
+  "physical.py": {
+    "change": "import namespace relocation only",
+    "original_sha256": "ac9bd08f0a81f4b4bdc77cfae4640bab03a6ec2a5e89f6afd8585370de84743c",
+    "source_commit": "6c000dfc19efc43a3ba24091baf9c8fcd760d226",
+    "source_path": "features/physical.py"
+  },
+  "rolling.py": {
+    "change": "import namespace relocation only",
+    "original_sha256": "027f72aa815ce975d2f8f88cba67e7199d9689095f1fd0d9a65aeaf022c3e9e9",
+    "source_commit": "6c000dfc19efc43a3ba24091baf9c8fcd760d226",
+    "source_path": "features/rolling.py"
+  },
+  "snapshot.py": {
+    "change": "import namespace relocation only",
+    "original_sha256": "c9442928fbe248e8fc166ad67350ad12b67b50d5ee18eee39fa117dc50382cee",
+    "source_commit": "6c000dfc19efc43a3ba24091baf9c8fcd760d226",
+    "source_path": "features/snapshot.py"
+  }
+}

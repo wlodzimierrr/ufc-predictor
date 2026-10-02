@@ -1,0 +1,31 @@
+{
+  "command": "python3 -m pytest -q modeling/tests/test_phase5b1_reference_history.py modeling/tests/test_phase5a_prospective.py features/tests/test_replay.py features/tests/test_debut_prior.py features/tests/test_elo.py features/tests/test_history.py",
+  "completed_at": "2026-10-02T14:30:50.729029+00:00",
+  "duration_seconds": 15.11,
+  "failed": 0,
+  "initial_runs": [
+    {
+      "failed": 1,
+      "passed": 24,
+      "reason": "synthetic raw date strings required captured-schema decoding in the normalized history entry point; fixed before reference freeze",
+      "skipped": 15
+    },
+    {
+      "failed": 0,
+      "passed": 25,
+      "reason": "persisted reference tests intentionally unavailable until the one authorized freeze",
+      "skipped": 15
+    },
+    {
+      "failed": 1,
+      "passed": 136,
+      "reason": "freshness assertion mistakenly used all nonbinary source dispositions; corrected to the binary population boundary",
+      "skipped": 0
+    }
+  ],
+  "mutating_integration_or_live_integrity_tests_run": false,
+  "new_phase5b1_cases": 45,
+  "no_live_or_broad_test_discovery": true,
+  "passed": 137,
+  "skipped": 0
+}

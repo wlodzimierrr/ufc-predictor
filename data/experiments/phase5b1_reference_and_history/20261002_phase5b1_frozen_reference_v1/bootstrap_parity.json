@@ -1,0 +1,14 @@
+{
+  "calibration": {
+    "calibrated_sha256": "fe232afa31372b5efc1e6e8a43ca45bb7be149a64a8916651048cf0f13d2694a",
+    "matrix_sha256": "ac395be35d837ffbe94d23c706f39e7ee2b0f2fc09130c3dbf3cca55606ba3ea",
+    "raw_sha256": "d5b13d89037dd40613680856d6fb921e7ebb08b2bcb6aac7db61633484981b80",
+    "rows": 1009
+  },
+  "preprocessing": {
+    "calibrated_sha256": "c3b2b1d4031e4a555ea8ab729360bf157045e1f37ee5795cda6e6d75d9a24119",
+    "matrix_sha256": "f1877cbc54101728562c09b642c8b3088e6cc400a5d2912fcf84c760dd7c4de7",
+    "raw_sha256": "353d67903de5f12eb14af943538bbb06e1dc063bda9c8c8de2c4bfe2eca4fcb0",
+    "rows": 6391
+  }
+}

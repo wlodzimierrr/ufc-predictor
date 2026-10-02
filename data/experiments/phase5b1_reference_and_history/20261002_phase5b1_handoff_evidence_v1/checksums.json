@@ -1,0 +1,9 @@
+{
+  "files": {
+    "preservation_baseline.json": "03c4d262e28aba28ab5539559c01372812039c8e071cae35bfb01bc2a5d1a0a9",
+    "preservation_check.json": "ca9abef4d5c33ced24d5b74a516871486c08190c03648c7fa704a27be32b7f61",
+    "test_receipt.json": "22fdcf62d99090c81188ba61f327b7c7ebe793ac6343dfc987f364bac49c158b",
+    "test_source_sha256.json": "a0f8c33507ab338df1b2fcdfb3d8384f673db1d47fe6a78885f498ff6a359423",
+    "verification_receipts.json": "93bf8ca66b90679aea42269c2da33bffe11260545521fdebc9dadb51b4e5f980"
+  }
+}
