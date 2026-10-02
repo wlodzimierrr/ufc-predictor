@@ -1,0 +1,11 @@
+{
+  "eligible_rows": 0,
+  "features": {},
+  "limitations": [
+    "contemporary mutable physical profiles",
+    "unverified stored title defaults",
+    "warehouse statistics can inherit default zeros",
+    "source history coverage not independently certified",
+    "unknown stance retains legacy corrected-algorithm semantics; future metadata gate applies"
+  ]
+}

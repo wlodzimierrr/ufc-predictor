@@ -1,0 +1,149 @@
+{
+  "contract_version": "phase5_current_candidate_v1",
+  "debut_columns": "deferred_until_partition_specific_preprocessing_in_phase5b",
+  "decision": {
+    "high_confidence_inclusive_outer": [
+      0.3,
+      0.7
+    ],
+    "latent_label_one_at": 0.5,
+    "no_pick_inclusive": [
+      0.4,
+      0.6
+    ],
+    "version": "probability_band_v1"
+  },
+  "evaluation": {
+    "automatic_promotion": false,
+    "brier": "mean((p-y)^2) using unrounded unmodified calibrated p",
+    "calibration_bins": {
+      "closure": "first [0,0.1], then (lo,hi]",
+      "count": 10,
+      "edges": [
+        0,
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "empty": "null"
+    },
+    "checkpoint": {
+      "distinct_events_at_least": 20,
+      "power_guarantee": false,
+      "promotion_threshold": false,
+      "resolved_paired_binary_bouts_at_least": 200,
+      "timing": "first completed event ingestion batch satisfying both"
+    },
+    "early_monitoring": "descriptive_only_no_favorable_stopping_or_trial_based_modification",
+    "event_cluster_bootstrap": {
+      "difference": "challenger minus reference",
+      "interval": "percentile 2.5 and 97.5, numpy quantile method linear",
+      "paired": true,
+      "replicates": 10000,
+      "resample": "E event IDs with replacement; retain all paired bouts per sampled event, repeated events repeated",
+      "rng": "numpy_Generator_PCG64",
+      "seed": 42,
+      "weighting": "bout_weighted"
+    },
+    "include_no_pick": true,
+    "log_loss_clip_epsilon": 1e-08,
+    "outcome_based_filtering": false,
+    "outcome_ingestion": "later_separately_scoped_command_or_session",
+    "primary_metrics": [
+      "all_fight_log_loss",
+      "all_fight_brier"
+    ],
+    "primary_pair": [
+      "current_challenger",
+      "frozen_reference"
+    ],
+    "secondary_control": "march_research_control",
+    "threshold_tuning": false
+  },
+  "event_cutoff_rule": "UTC completion date of coherent source capture, exclusive",
+  "experiment_id": "prospective_shadow_v1",
+  "feature_algorithm_version": "v2_date_frozen_elo_schedule_unknown_v1",
+  "feature_version": 2,
+  "final_refit": {
+    "all_eligible_rows": true,
+    "early_stopping": false,
+    "independent_final_priors": true
+  },
+  "forecast": {
+    "common_observation_cutoff": true,
+    "event_boundary": "announced date 00:00 UTC",
+    "first_complete_paired_capture": true,
+    "maximum_lead_days": 14,
+    "minimum_lead_hours": 24,
+    "real_scoring_authorized_in_phase5a": false,
+    "register_before_predictions": true,
+    "revision_policy": "append_only_original_forecasts_retained"
+  },
+  "holdout_exclusion_count": 166,
+  "learner": {
+    "colsample_bytree": 0.8,
+    "eval_metric": "logloss",
+    "learning_rate": 0.02,
+    "max_depth": 6,
+    "min_child_weight": 100,
+    "n_estimators": 310,
+    "n_jobs": 1,
+    "objective": "binary:logistic",
+    "random_state": 42,
+    "reg_lambda": 1.0,
+    "subsample": 0.8,
+    "tree_method": "hist",
+    "verbosity": 0
+  },
+  "oof": {
+    "calendar_rule": "subtract calendar months from cutoff, clamp day to month end if needed",
+    "cutoff_month_offsets": [
+      -12,
+      -9,
+      -6,
+      -3,
+      0
+    ],
+    "early_stopping": false,
+    "exactly_one_prediction_per_eligible_row": true,
+    "expanding_training": true,
+    "preprocessing": "fold_training_rows_only",
+    "tuning": false
+  },
+  "phase5a": {
+    "evaluate_outcomes": false,
+    "fit_models": false,
+    "fit_priors": false,
+    "production_changes": false,
+    "real_probabilities": false
+  },
+  "platt": {
+    "C": 10000000000.0,
+    "clip_epsilon": 1e-08,
+    "input": "log_odds",
+    "max_iter": 1000,
+    "persist_estimator": true,
+    "positive_class": 1,
+    "same_row_calibrated_metrics_label": "calibration-fit diagnostics",
+    "solver": "lbfgs"
+  },
+  "roles": {
+    "current_challenger": "new_separate_artifact_to_be_fit_in_phase5b",
+    "frozen_reference": "existing_production_learner_plus_separately_persisted_legacy_recipe_components",
+    "march_control_checksums_sha256": "41f8c8afb8fd091fa0b04823ad9175cedcfdbf85ccf3f62d77c71e0d9219279f",
+    "march_control_latest_training_event": "2026-03-07",
+    "march_research_control": "data/experiments/phase3b_xgb_pre_april_2026/20261001_phase3b_retrospective_v1",
+    "reference_components_freeze_before_any_forecast_or_outcome": true,
+    "reference_is_recovered_historical_probability_stream": false
+  },
+  "scheduled_rounds": "unknown_for_all_targets_and_histories",
+  "source_mode": "contemporary_warehouse_retrospective_reconstruction",
+  "status": "preregistered_preparation_only"
+}

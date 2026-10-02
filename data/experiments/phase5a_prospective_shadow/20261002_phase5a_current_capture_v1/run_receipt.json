@@ -1,0 +1,16 @@
+{
+  "authorization": "user explicitly authorized prospective Phase5A current capture/preparation only",
+  "calibrator_fit": false,
+  "coherent_capture_completed_at": "2026-10-02T13:28:09.905938+00:00",
+  "contract_version": "phase5_current_candidate_v1",
+  "historical_comparison": "STILL_BLOCKED",
+  "model_fit": false,
+  "outcome_evaluation": false,
+  "preparation_completed_at": "2026-10-02T13:28:12.718935+00:00",
+  "preparation_started_at": "2026-10-02T13:28:04.706224+00:00",
+  "prior_fit": false,
+  "production_changes": false,
+  "real_probabilities": false,
+  "warehouse_capture_finished_at": "2026-10-02T13:28:09.643397+00:00",
+  "warehouse_capture_started_at": "2026-10-02T13:28:08.558979+00:00"
+}

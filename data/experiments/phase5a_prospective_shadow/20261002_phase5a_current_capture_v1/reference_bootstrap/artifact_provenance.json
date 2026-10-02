@@ -1,0 +1,12 @@
+{
+  "base_learner_path": "models/xgb/20260328T221117Z/model.joblib",
+  "base_learner_sha256": "0585077675968c2a3537ffd3fddb87a9eb610c98d36200b64dd5fe148599389a",
+  "freeze_in_phase5b_before_forecasts_or_outcomes": true,
+  "metadata_path": "models/xgb/20260328T221117Z/metadata.json",
+  "metadata_sha256": "d10a0e6fd17996edac5d6aa90b4436ade1a5d2424b7dbe2f9ed379c469c4e02a",
+  "not_recovered_historical_probabilities": true,
+  "production_pointer_sha256": "ff5272e0d2f11f9f6cbc6597f91a2cf9961ae317f8dd47f90bfb1f6e44dd5caa",
+  "production_scorer_fits_platt_at_scoring_time": true,
+  "production_scorer_persists_platt_estimator": false,
+  "reference_components_fit_in_phase5a": false
+}

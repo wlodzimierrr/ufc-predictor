@@ -1,0 +1,188 @@
+{
+  "model_name": "xgb",
+  "feature_cols": [
+    "diff_elo",
+    "diff_career_wins",
+    "diff_career_fights",
+    "diff_career_win_rate",
+    "diff_career_finish_rate",
+    "diff_career_sig_strikes_landed_pm",
+    "diff_career_sig_strike_accuracy",
+    "diff_career_takedown_accuracy",
+    "diff_career_control_rate",
+    "diff_age",
+    "diff_height_cm",
+    "diff_reach_cm",
+    "diff_days_since_last_fight",
+    "diff_win_rate_last3",
+    "diff_sig_strikes_landed_pm_last3",
+    "diff_takedown_accuracy_last3",
+    "diff_control_rate_last3",
+    "diff_sig_strikes_landed_pm_decay",
+    "diff_win_rate_decay",
+    "diff_opp_avg_elo",
+    "ratio_career_wins",
+    "ratio_career_fights",
+    "ratio_career_sig_strikes_landed_pm",
+    "ratio_career_control_rate",
+    "ratio_elo",
+    "is_title_fight",
+    "scheduled_rounds",
+    "is_orthodox_vs_southpaw",
+    "both_debuting",
+    "diff_career_ko_rate",
+    "diff_career_sub_rate",
+    "diff_career_decision_rate",
+    "diff_career_sig_strikes_absorbed_pm",
+    "diff_career_sig_strike_defense",
+    "diff_career_takedown_defense",
+    "diff_title_fight_count",
+    "diff_five_round_fights",
+    "diff_reach_height_ratio",
+    "diff_fights_per_year_last3",
+    "diff_slope_sig_strikes_last5",
+    "diff_slope_td_accuracy_last5",
+    "diff_slope_control_rate_last5",
+    "diff_std_sig_strikes_last5",
+    "diff_std_td_accuracy_last5",
+    "f1_is_southpaw",
+    "f2_is_southpaw",
+    "weight_class_rank",
+    "debut_prior_win_prob_f1",
+    "debut_height_adv",
+    "debut_reach_adv"
+  ],
+  "feature_version": 2,
+  "debut_priors_applied": true,
+  "train_rows": 6376,
+  "val_rows": 1007,
+  "test_rows": 1017,
+  "val_date": "2022-03-12",
+  "test_date": "2024-03-09",
+  "hyperparameters": {
+    "objective": "binary:logistic",
+    "eval_metric": "logloss",
+    "max_depth": 4,
+    "learning_rate": 0.02,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "min_child_weight": 20,
+    "reg_lambda": 5.0,
+    "random_state": 42,
+    "verbosity": 0,
+    "n_estimators": 500,
+    "best_iteration": 185,
+    "early_stopping_rounds": 50
+  },
+  "tune_results": {
+    "(3, 20, 0.1)": {
+      "mean": 0.6663011582812203,
+      "std": 0.013740603014708462
+    },
+    "(3, 20, 1.0)": {
+      "mean": 0.6660487052563593,
+      "std": 0.014304909033810117
+    },
+    "(3, 20, 5.0)": {
+      "mean": 0.6658372971820665,
+      "std": 0.013586160616308404
+    },
+    "(3, 50, 0.1)": {
+      "mean": 0.6665296227053499,
+      "std": 0.014763308352051195
+    },
+    "(3, 50, 1.0)": {
+      "mean": 0.6671853561701538,
+      "std": 0.014433895062342137
+    },
+    "(3, 50, 5.0)": {
+      "mean": 0.6665337122429981,
+      "std": 0.014368119486058142
+    },
+    "(3, 100, 0.1)": {
+      "mean": 0.6681516495378033,
+      "std": 0.01640419545734454
+    },
+    "(3, 100, 1.0)": {
+      "mean": 0.6678158185170195,
+      "std": 0.01602452853555239
+    },
+    "(3, 100, 5.0)": {
+      "mean": 0.6683327427377117,
+      "std": 0.016391374190753368
+    },
+    "(4, 20, 0.1)": {
+      "mean": 0.6656808906992205,
+      "std": 0.013288478770713891
+    },
+    "(4, 20, 1.0)": {
+      "mean": 0.6659382804054612,
+      "std": 0.013396420431852647
+    },
+    "(4, 20, 5.0)": {
+      "mean": 0.6648684573648868,
+      "std": 0.014747637066547081
+    },
+    "(4, 50, 0.1)": {
+      "mean": 0.6666731415292692,
+      "std": 0.013842352167453532
+    },
+    "(4, 50, 1.0)": {
+      "mean": 0.6668119695734992,
+      "std": 0.014405649967883207
+    },
+    "(4, 50, 5.0)": {
+      "mean": 0.6670022569521799,
+      "std": 0.014870677579383167
+    },
+    "(4, 100, 0.1)": {
+      "mean": 0.6674894317401503,
+      "std": 0.01672965649254538
+    },
+    "(4, 100, 1.0)": {
+      "mean": 0.6675183772982537,
+      "std": 0.016894645303514987
+    },
+    "(4, 100, 5.0)": {
+      "mean": 0.6672927530138566,
+      "std": 0.01648907479050921
+    },
+    "(6, 20, 0.1)": {
+      "mean": 0.6663224668335388,
+      "std": 0.015023733197505154
+    },
+    "(6, 20, 1.0)": {
+      "mean": 0.6655211921518339,
+      "std": 0.015579984814461564
+    },
+    "(6, 20, 5.0)": {
+      "mean": 0.6668673690903609,
+      "std": 0.015449651689787465
+    },
+    "(6, 50, 0.1)": {
+      "mean": 0.6667016914100514,
+      "std": 0.016007178362505255
+    },
+    "(6, 50, 1.0)": {
+      "mean": 0.666503364497883,
+      "std": 0.015500992183090607
+    },
+    "(6, 50, 5.0)": {
+      "mean": 0.6663835797263326,
+      "std": 0.01551714505582839
+    },
+    "(6, 100, 0.1)": {
+      "mean": 0.666865107798824,
+      "std": 0.01710782532955396
+    },
+    "(6, 100, 1.0)": {
+      "mean": 0.6674252579586889,
+      "std": 0.017588826352929635
+    },
+    "(6, 100, 5.0)": {
+      "mean": 0.6669862636801296,
+      "std": 0.016763340339701897
+    }
+  },
+  "saved_at": "20260328T221117Z"
+}

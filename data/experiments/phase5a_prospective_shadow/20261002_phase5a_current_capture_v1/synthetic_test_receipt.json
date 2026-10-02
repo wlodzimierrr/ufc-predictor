@@ -1,0 +1,23 @@
+{
+  "command": "python3 -m pytest modeling/tests/test_phase5a_prospective.py features/tests/test_replay.py features/tests/test_elo.py features/tests/test_history.py features/tests/test_career.py features/tests/test_opponent.py features/tests/test_rolling.py features/tests/test_decay.py features/tests/test_physical.py features/tests/test_debut_prior.py modeling/tests/test_holdout.py modeling/tests/test_refit_sql.py modeling/tests/test_decisions.py -q --junitxml=/tmp/phase5a-safe-tests.xml",
+  "completed_at": "2026-10-02T13:27:54.633626+00:00",
+  "earlier_broad_suite_selection_error": {
+    "failed": 21,
+    "passed": 339,
+    "scope": "mistaken features/tests directory selection included existing read-only live integrity checks and obsolete schema tests; no mutations, model fits or predictive outcome metrics; not rerun or repaired"
+  },
+  "excluded_tests": [
+    "features/tests/test_leakage.py",
+    "features/tests/test_snapshot_bout.py",
+    "tests/test_integration_pipeline.py"
+  ],
+  "new_phase5a_tests": 37,
+  "resources": "mocked connections/HTTP, synthetic features, disposable PostgreSQL only",
+  "safe_suite_counts": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 318
+  },
+  "suite_file": "/tmp/phase5a-safe-tests.xml"
+}

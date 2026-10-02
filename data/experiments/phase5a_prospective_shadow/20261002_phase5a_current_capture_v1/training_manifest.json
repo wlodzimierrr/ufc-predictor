@@ -1,0 +1,140 @@
+{
+  "capture_completed_at": "2026-10-02T13:28:09.905938+00:00",
+  "certification_status": "retrospective_reconstruction_only",
+  "config_sha256": "2b92e2bc0342265734bbf09e6c5b9d4fa9cdaa6555a0fe66e6e6d0ab44eb5b20",
+  "contract_version": "phase5_current_candidate_v1",
+  "event_cutoff_exclusive": "2026-10-02",
+  "experiment_id": "prospective_shadow_v1",
+  "feature_algorithm_version": "v2_date_frozen_elo_schedule_unknown_v1",
+  "feature_order": [
+    "diff_elo",
+    "diff_career_wins",
+    "diff_career_fights",
+    "diff_career_win_rate",
+    "diff_career_finish_rate",
+    "diff_career_sig_strikes_landed_pm",
+    "diff_career_sig_strike_accuracy",
+    "diff_career_takedown_accuracy",
+    "diff_career_control_rate",
+    "diff_age",
+    "diff_height_cm",
+    "diff_reach_cm",
+    "diff_days_since_last_fight",
+    "diff_win_rate_last3",
+    "diff_sig_strikes_landed_pm_last3",
+    "diff_takedown_accuracy_last3",
+    "diff_control_rate_last3",
+    "diff_sig_strikes_landed_pm_decay",
+    "diff_win_rate_decay",
+    "diff_opp_avg_elo",
+    "ratio_career_wins",
+    "ratio_career_fights",
+    "ratio_career_sig_strikes_landed_pm",
+    "ratio_career_control_rate",
+    "ratio_elo",
+    "is_title_fight",
+    "scheduled_rounds",
+    "is_orthodox_vs_southpaw",
+    "both_debuting",
+    "diff_career_ko_rate",
+    "diff_career_sub_rate",
+    "diff_career_decision_rate",
+    "diff_career_sig_strikes_absorbed_pm",
+    "diff_career_sig_strike_defense",
+    "diff_career_takedown_defense",
+    "diff_title_fight_count",
+    "diff_five_round_fights",
+    "diff_reach_height_ratio",
+    "diff_fights_per_year_last3",
+    "diff_slope_sig_strikes_last5",
+    "diff_slope_td_accuracy_last5",
+    "diff_slope_control_rate_last5",
+    "diff_std_sig_strikes_last5",
+    "diff_std_td_accuracy_last5",
+    "f1_is_southpaw",
+    "f2_is_southpaw",
+    "weight_class_rank",
+    "debut_prior_win_prob_f1",
+    "debut_height_adv",
+    "debut_reach_adv"
+  ],
+  "feature_version": 2,
+  "folds_sha256": "f73a54c52735cdf6d10770f77d9a636047668b2f0b472e573b426b0cac474583",
+  "no_model_prior_or_calibration_fitting": true,
+  "orientation": "captured fighter_1 minus fighter_2; label 1 means fighter_1 wins",
+  "per_bout_availability": "unverified",
+  "source_mode": "contemporary_warehouse_retrospective_reconstruction",
+  "source_sha256": {
+    "official_sources/01.response": "c428b6bdbfe11efd594b7eb02e014dff33c4624e9b212c5356a2bd68878849dc",
+    "official_sources/manifest.json": "22c4b281ec4532f24af53b5171ac3f990985d96c4577e1ff0a9306b14cb7fdfe",
+    "reference_bootstrap/stored_features.json": "74d0c51a8fb3f9f206c9534944e9fc60068d1c45aa2927450a8cc9557095f2ed",
+    "source_capture_receipt.json": "dafdb9b4d9b54f33a48b2f471708aa86c6d34a83b4c5f07e5f7b92708d9467eb",
+    "sources/events.json": "e36c7250b9965ec8294fe9bac196f45ec96ad51624ef704e5e188b83eb868a78",
+    "sources/fight_stats_aggregate.json": "ec19a9e5e0b13766744e187f1d099e92c65103940ac02fefe804b4421414bcb4",
+    "sources/fighters.json": "1cf4a351788b7de8496e1e05c8591f5cf462739a4843f44831fa7168d20a4caf",
+    "sources/fights.json": "27738c6ca29fafa1cdde121b377607ef9683c79cfb7eacca4b96b1f166118b17",
+    "sources/schemas.json": "d4d0a931dc86598b1b2f26e5bd52347060094fe5beb64031b07bd359e431ee8a"
+  },
+  "summary": {
+    "ready": false,
+    "structural_issues": [
+      {
+        "fight_id": "36c6e7dd-6acd-5f34-9f91-66afd004ffd5",
+        "reason": "duplicate_event_participant_pair"
+      },
+      {
+        "fight_id": "37015e6b-0070-5ffb-a692-eb3b72bf463a",
+        "reason": "duplicate_event_participant_pair"
+      },
+      {
+        "fight_id": "383d786b-c425-517e-a2af-d4cb19081135",
+        "reason": "duplicate_event_participant_pair"
+      },
+      {
+        "fight_id": "4b08f65d-db68-5091-9568-4748c4cf7318",
+        "reason": "duplicate_event_participant_pair"
+      },
+      {
+        "fight_id": "5077ad8f-9ef1-5fc3-a595-f3a79dcf2915",
+        "reason": "duplicate_event_participant_pair"
+      },
+      {
+        "fight_id": "6168dff5-3df1-5ddd-8a5f-17bff9a3b0df",
+        "reason": "duplicate_event_participant_pair"
+      },
+      {
+        "fight_id": "7684f614-543d-53ab-b738-d9c77916713a",
+        "reason": "duplicate_event_participant_pair"
+      },
+      {
+        "fight_id": "76e979fe-4b60-5d8a-ba49-811cf53505c3",
+        "reason": "duplicate_event_participant_pair"
+      },
+      {
+        "fight_id": "a01b704f-c26b-54b0-bc6c-68af89c315eb",
+        "reason": "duplicate_event_participant_pair"
+      },
+      {
+        "fight_id": "ad8d2846-75b9-5a2b-a4e4-b4b593e386e4",
+        "reason": "duplicate_event_participant_pair"
+      },
+      {
+        "fight_id": "c51bc854-f7b8-59cf-80e5-3c332126916f",
+        "reason": "duplicate_event_participant_pair"
+      },
+      {
+        "fight_id": "dc3dbfcd-1cd2-5c01-ba42-5826aa1a49a6",
+        "reason": "duplicate_event_participant_pair"
+      },
+      {
+        "fight_id": "e439fb69-cd79-5705-842a-4f98ddbf492a",
+        "reason": "duplicate_event_participant_pair"
+      },
+      {
+        "fight_id": "f2783f53-9556-5653-9815-c15e8614412c",
+        "reason": "duplicate_event_participant_pair"
+      }
+    ]
+  },
+  "training_sha256": "1a13d4a540b598ab144ec7fcdb9dec660a3851f5a0f5eb5a001c48e57645dba4"
+}

@@ -1,0 +1,5 @@
+{
+  "meaning": "offline preparation of identical captured bytes; no new warehouse/page access",
+  "parent_checksums_sha256": "1dd7aee05e8cacfe658ea03f4b3ea1700d6850657ca302a5a232ad00e039fd64",
+  "parent_run": "data/experiments/phase5a_prospective_shadow/20261002_phase5a_current_capture_v1"
+}

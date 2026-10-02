@@ -1,0 +1,9 @@
+{
+  "changed": [],
+  "checked_at": "2026-10-02T13:28:12.718756+00:00",
+  "files_checked": 14515,
+  "meaning": "hash-only preservation, no protected outcome parsing",
+  "missing": [],
+  "new_protected_files": [],
+  "status": "VERIFIED"
+}
