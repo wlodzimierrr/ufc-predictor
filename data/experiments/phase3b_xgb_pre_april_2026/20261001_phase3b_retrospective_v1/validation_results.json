@@ -1,0 +1,25 @@
+{
+  "candidate_tests": 57,
+  "commands": [
+    "python3 -m pytest modeling/tests/test_xgb_candidate.py -q",
+    "python3 -m pytest modeling/tests/test_xgb_candidate.py modeling/tests/test_xgb_candidate_bundle.py -q",
+    "python3 -m pytest modeling/tests/test_refit_preflight.py modeling/tests/test_refit_sql.py modeling/tests/test_holdout.py modeling/tests/test_holdout_recovery.py modeling/tests/test_data.py modeling/tests/test_calibrate.py modeling/tests/test_decisions.py modeling/tests/test_evaluate.py features/tests/test_replay.py features/tests/test_debut_prior.py features/tests/test_history.py features/tests/test_elo.py features/tests/test_opponent.py features/tests/test_career.py features/tests/test_rolling.py features/tests/test_decay.py features/tests/test_physical.py betting/tests/test_prediction_decision_compatibility.py -q",
+    "python3 -m compileall -q modeling/train_xgb_candidate.py modeling/xgb_candidate_contract.py modeling/xgb_candidate_bundle.py tools/verify_candidate_preservation.py",
+    "git diff --check -- modeling/train_xgb_candidate.py modeling/xgb_candidate_contract.py modeling/xgb_candidate_bundle.py modeling/tests/test_xgb_candidate.py modeling/tests/test_xgb_candidate_bundle.py tools/verify_candidate_preservation.py"
+  ],
+  "failed": 0,
+  "initial_test_fixture_correction": "First candidate-only run: 28 passed/1 failed because inherited synthetic schedule=3 contradicted this test fixture unknown-schedule assumption; fixture corrected to NaN, then 29 and 57 passed. No training procedure change.",
+  "intentional_non_runs": [
+    "live integration that writes warehouse/upcoming_features.csv",
+    "unrelated legacy v1 snapshot tests (19 known failures)",
+    "live leakage suite (34 known stored label discrepancies)"
+  ],
+  "regression_tests": 389,
+  "skipped": 0,
+  "status": "PASSED",
+  "test_code_sha256": {
+    "modeling/tests/test_xgb_candidate.py": "83d0dbb6867077e19b2168800cacea98dad5054f081c049af885cd6310b88d86",
+    "modeling/tests/test_xgb_candidate_bundle.py": "8176c7c4654c7a225be26694bbe884bba7a6cd2b3b611dd5fd733dad85505183"
+  },
+  "total_distinct_passed": 446
+}

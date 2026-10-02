@@ -1,0 +1,89 @@
+Preflight VALID: 8400 rows, exact source/code/config/package/fold provenance
+A 01/81 {'max_depth': 3, 'min_child_weight': 20, 'reg_lambda': 0.1} dev_2022 rounds=195 logloss=0.646714782
+A 02/81 {'max_depth': 3, 'min_child_weight': 20, 'reg_lambda': 0.1} dev_2023 rounds=191 logloss=0.663206730
+A 03/81 {'max_depth': 3, 'min_child_weight': 20, 'reg_lambda': 0.1} dev_2024 rounds=490 logloss=0.636953688
+A 04/81 {'max_depth': 3, 'min_child_weight': 20, 'reg_lambda': 1.0} dev_2022 rounds=255 logloss=0.646050474
+A 05/81 {'max_depth': 3, 'min_child_weight': 20, 'reg_lambda': 1.0} dev_2023 rounds=255 logloss=0.662635597
+A 06/81 {'max_depth': 3, 'min_child_weight': 20, 'reg_lambda': 1.0} dev_2024 rounds=496 logloss=0.636797766
+A 07/81 {'max_depth': 3, 'min_child_weight': 20, 'reg_lambda': 5.0} dev_2022 rounds=273 logloss=0.645767411
+A 08/81 {'max_depth': 3, 'min_child_weight': 20, 'reg_lambda': 5.0} dev_2023 rounds=186 logloss=0.663401037
+A 09/81 {'max_depth': 3, 'min_child_weight': 20, 'reg_lambda': 5.0} dev_2024 rounds=498 logloss=0.636811323
+A 10/81 {'max_depth': 3, 'min_child_weight': 50, 'reg_lambda': 0.1} dev_2022 rounds=219 logloss=0.645374156
+A 11/81 {'max_depth': 3, 'min_child_weight': 50, 'reg_lambda': 0.1} dev_2023 rounds=328 logloss=0.660893375
+A 12/81 {'max_depth': 3, 'min_child_weight': 50, 'reg_lambda': 0.1} dev_2024 rounds=499 logloss=0.635443524
+A 13/81 {'max_depth': 3, 'min_child_weight': 50, 'reg_lambda': 1.0} dev_2022 rounds=273 logloss=0.645882407
+A 14/81 {'max_depth': 3, 'min_child_weight': 50, 'reg_lambda': 1.0} dev_2023 rounds=328 logloss=0.661530007
+A 15/81 {'max_depth': 3, 'min_child_weight': 50, 'reg_lambda': 1.0} dev_2024 rounds=499 logloss=0.634616718
+A 16/81 {'max_depth': 3, 'min_child_weight': 50, 'reg_lambda': 5.0} dev_2022 rounds=303 logloss=0.645738364
+A 17/81 {'max_depth': 3, 'min_child_weight': 50, 'reg_lambda': 5.0} dev_2023 rounds=346 logloss=0.661878587
+A 18/81 {'max_depth': 3, 'min_child_weight': 50, 'reg_lambda': 5.0} dev_2024 rounds=481 logloss=0.637112230
+A 19/81 {'max_depth': 3, 'min_child_weight': 100, 'reg_lambda': 0.1} dev_2022 rounds=397 logloss=0.644833190
+A 20/81 {'max_depth': 3, 'min_child_weight': 100, 'reg_lambda': 0.1} dev_2023 rounds=240 logloss=0.662443847
+A 21/81 {'max_depth': 3, 'min_child_weight': 100, 'reg_lambda': 0.1} dev_2024 rounds=498 logloss=0.633911126
+A 22/81 {'max_depth': 3, 'min_child_weight': 100, 'reg_lambda': 1.0} dev_2022 rounds=375 logloss=0.644353773
+A 23/81 {'max_depth': 3, 'min_child_weight': 100, 'reg_lambda': 1.0} dev_2023 rounds=235 logloss=0.663568362
+A 24/81 {'max_depth': 3, 'min_child_weight': 100, 'reg_lambda': 1.0} dev_2024 rounds=498 logloss=0.633581020
+A 25/81 {'max_depth': 3, 'min_child_weight': 100, 'reg_lambda': 5.0} dev_2022 rounds=390 logloss=0.645016505
+A 26/81 {'max_depth': 3, 'min_child_weight': 100, 'reg_lambda': 5.0} dev_2023 rounds=240 logloss=0.663855653
+A 27/81 {'max_depth': 3, 'min_child_weight': 100, 'reg_lambda': 5.0} dev_2024 rounds=498 logloss=0.633927935
+A 28/81 {'max_depth': 4, 'min_child_weight': 20, 'reg_lambda': 0.1} dev_2022 rounds=178 logloss=0.648958748
+A 29/81 {'max_depth': 4, 'min_child_weight': 20, 'reg_lambda': 0.1} dev_2023 rounds=179 logloss=0.661525596
+A 30/81 {'max_depth': 4, 'min_child_weight': 20, 'reg_lambda': 0.1} dev_2024 rounds=339 logloss=0.635726303
+A 31/81 {'max_depth': 4, 'min_child_weight': 20, 'reg_lambda': 1.0} dev_2022 rounds=178 logloss=0.647041237
+A 32/81 {'max_depth': 4, 'min_child_weight': 20, 'reg_lambda': 1.0} dev_2023 rounds=180 logloss=0.661317577
+A 33/81 {'max_depth': 4, 'min_child_weight': 20, 'reg_lambda': 1.0} dev_2024 rounds=337 logloss=0.635174124
+A 34/81 {'max_depth': 4, 'min_child_weight': 20, 'reg_lambda': 5.0} dev_2022 rounds=193 logloss=0.647733176
+A 35/81 {'max_depth': 4, 'min_child_weight': 20, 'reg_lambda': 5.0} dev_2023 rounds=182 logloss=0.661629592
+A 36/81 {'max_depth': 4, 'min_child_weight': 20, 'reg_lambda': 5.0} dev_2024 rounds=344 logloss=0.635890231
+A 37/81 {'max_depth': 4, 'min_child_weight': 50, 'reg_lambda': 0.1} dev_2022 rounds=192 logloss=0.647235813
+A 38/81 {'max_depth': 4, 'min_child_weight': 50, 'reg_lambda': 0.1} dev_2023 rounds=171 logloss=0.661705834
+A 39/81 {'max_depth': 4, 'min_child_weight': 50, 'reg_lambda': 0.1} dev_2024 rounds=481 logloss=0.635413973
+A 40/81 {'max_depth': 4, 'min_child_weight': 50, 'reg_lambda': 1.0} dev_2022 rounds=180 logloss=0.647943638
+A 41/81 {'max_depth': 4, 'min_child_weight': 50, 'reg_lambda': 1.0} dev_2023 rounds=273 logloss=0.661000316
+A 42/81 {'max_depth': 4, 'min_child_weight': 50, 'reg_lambda': 1.0} dev_2024 rounds=393 logloss=0.636550016
+A 43/81 {'max_depth': 4, 'min_child_weight': 50, 'reg_lambda': 5.0} dev_2022 rounds=192 logloss=0.647478417
+A 44/81 {'max_depth': 4, 'min_child_weight': 50, 'reg_lambda': 5.0} dev_2023 rounds=179 logloss=0.661703543
+A 45/81 {'max_depth': 4, 'min_child_weight': 50, 'reg_lambda': 5.0} dev_2024 rounds=473 logloss=0.635688765
+A 46/81 {'max_depth': 4, 'min_child_weight': 100, 'reg_lambda': 0.1} dev_2022 rounds=303 logloss=0.642617753
+A 47/81 {'max_depth': 4, 'min_child_weight': 100, 'reg_lambda': 0.1} dev_2023 rounds=172 logloss=0.663154427
+A 48/81 {'max_depth': 4, 'min_child_weight': 100, 'reg_lambda': 0.1} dev_2024 rounds=498 logloss=0.633830366
+A 49/81 {'max_depth': 4, 'min_child_weight': 100, 'reg_lambda': 1.0} dev_2022 rounds=279 logloss=0.643197197
+A 50/81 {'max_depth': 4, 'min_child_weight': 100, 'reg_lambda': 1.0} dev_2023 rounds=154 logloss=0.662810753
+A 51/81 {'max_depth': 4, 'min_child_weight': 100, 'reg_lambda': 1.0} dev_2024 rounds=498 logloss=0.634295423
+A 52/81 {'max_depth': 4, 'min_child_weight': 100, 'reg_lambda': 5.0} dev_2022 rounds=332 logloss=0.644045077
+A 53/81 {'max_depth': 4, 'min_child_weight': 100, 'reg_lambda': 5.0} dev_2023 rounds=194 logloss=0.663375952
+A 54/81 {'max_depth': 4, 'min_child_weight': 100, 'reg_lambda': 5.0} dev_2024 rounds=498 logloss=0.634621341
+A 55/81 {'max_depth': 6, 'min_child_weight': 20, 'reg_lambda': 0.1} dev_2022 rounds=170 logloss=0.645599378
+A 56/81 {'max_depth': 6, 'min_child_weight': 20, 'reg_lambda': 0.1} dev_2023 rounds=133 logloss=0.660493895
+A 57/81 {'max_depth': 6, 'min_child_weight': 20, 'reg_lambda': 0.1} dev_2024 rounds=297 logloss=0.634570604
+A 58/81 {'max_depth': 6, 'min_child_weight': 20, 'reg_lambda': 1.0} dev_2022 rounds=177 logloss=0.645002284
+A 59/81 {'max_depth': 6, 'min_child_weight': 20, 'reg_lambda': 1.0} dev_2023 rounds=133 logloss=0.659046612
+A 60/81 {'max_depth': 6, 'min_child_weight': 20, 'reg_lambda': 1.0} dev_2024 rounds=338 logloss=0.635307898
+A 61/81 {'max_depth': 6, 'min_child_weight': 20, 'reg_lambda': 5.0} dev_2022 rounds=179 logloss=0.647186960
+A 62/81 {'max_depth': 6, 'min_child_weight': 20, 'reg_lambda': 5.0} dev_2023 rounds=133 logloss=0.660161425
+A 63/81 {'max_depth': 6, 'min_child_weight': 20, 'reg_lambda': 5.0} dev_2024 rounds=338 logloss=0.633782125
+A 64/81 {'max_depth': 6, 'min_child_weight': 50, 'reg_lambda': 0.1} dev_2022 rounds=132 logloss=0.646862620
+A 65/81 {'max_depth': 6, 'min_child_weight': 50, 'reg_lambda': 0.1} dev_2023 rounds=183 logloss=0.662567993
+A 66/81 {'max_depth': 6, 'min_child_weight': 50, 'reg_lambda': 0.1} dev_2024 rounds=466 logloss=0.633706242
+A 67/81 {'max_depth': 6, 'min_child_weight': 50, 'reg_lambda': 1.0} dev_2022 rounds=129 logloss=0.647671414
+A 68/81 {'max_depth': 6, 'min_child_weight': 50, 'reg_lambda': 1.0} dev_2023 rounds=151 logloss=0.662975900
+A 69/81 {'max_depth': 6, 'min_child_weight': 50, 'reg_lambda': 1.0} dev_2024 rounds=324 logloss=0.636008079
+A 70/81 {'max_depth': 6, 'min_child_weight': 50, 'reg_lambda': 5.0} dev_2022 rounds=178 logloss=0.645382217
+A 71/81 {'max_depth': 6, 'min_child_weight': 50, 'reg_lambda': 5.0} dev_2023 rounds=221 logloss=0.663635395
+A 72/81 {'max_depth': 6, 'min_child_weight': 50, 'reg_lambda': 5.0} dev_2024 rounds=391 logloss=0.631636833
+A 73/81 {'max_depth': 6, 'min_child_weight': 100, 'reg_lambda': 0.1} dev_2022 rounds=273 logloss=0.642036988
+A 74/81 {'max_depth': 6, 'min_child_weight': 100, 'reg_lambda': 0.1} dev_2023 rounds=165 logloss=0.663167363
+A 75/81 {'max_depth': 6, 'min_child_weight': 100, 'reg_lambda': 0.1} dev_2024 rounds=357 logloss=0.633124295
+A 76/81 {'max_depth': 6, 'min_child_weight': 100, 'reg_lambda': 1.0} dev_2022 rounds=310 logloss=0.642593144
+A 77/81 {'max_depth': 6, 'min_child_weight': 100, 'reg_lambda': 1.0} dev_2023 rounds=165 logloss=0.663410863
+A 78/81 {'max_depth': 6, 'min_child_weight': 100, 'reg_lambda': 1.0} dev_2024 rounds=500 logloss=0.631681337
+A 79/81 {'max_depth': 6, 'min_child_weight': 100, 'reg_lambda': 5.0} dev_2022 rounds=273 logloss=0.643899337
+A 80/81 {'max_depth': 6, 'min_child_weight': 100, 'reg_lambda': 5.0} dev_2023 rounds=166 logloss=0.662526315
+A 81/81 {'max_depth': 6, 'min_child_weight': 100, 'reg_lambda': 5.0} dev_2024 rounds=498 logloss=0.632317254
+A SELECTED {'max_depth': 6, 'min_child_weight': 100, 'reg_lambda': 1.0} rounds=310
+B oof_1: 7941/129, fixed 310 rounds
+B oof_2: 8070/126, fixed 310 rounds
+B oof_3: 8196/128, fixed 310 rounds
+B oof_4: 8324/76, fixed 310 rounds
+C Platt persisted: converged=True iterations=5
+A–D and exact 8400-row save/load parity VERIFIED. Staging: /home/wlodzimierrr/ufc-data/data/experiments/phase3b_xgb_pre_april_2026/.incomplete-20261001_phase3b_retrospective_v1

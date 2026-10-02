@@ -1,0 +1,260 @@
+Work in `/home/wlodzimierrr/ufc-data`.
+
+Complete Phase 3B: implement, train, persist, and verify an isolated pre-April-2026 XGBoost candidate. Produce a complete handoff report at the end.
+
+This is an implementation-and-training task, not another readiness audit. Complete stages A–D below unless a concrete input, correctness, or execution blocker prevents completion.
+
+1. Explicit authorization and limitations
+
+By providing this prompt, I explicitly authorize candidate training in `retrospective_git_pre_cutoff` mode using the accepted Phase 3A metadata-safe snapshot.
+
+I accept these experiment limitations:
+- This is chronological retrospective reconstruction, not certified historical replay.
+- Source versions are pinned before the global knowledge cutoff, but availability before every historical bout is unverified.
+- Scheduled rounds remain unknown. Do not derive them from finish rounds, results, or title status.
+- The eligible population is exactly 8,400 archived binary-result bouts through March 7, 2026. Do not add missing March or other bouts from today's warehouse.
+- The frozen forecast outcomes were already inspected; those populations are not blind or unseen tests.
+
+Do not request this mode approval again. Record this authorization in a separate run receipt. Preserve the existing configuration and snapshot approval-required flags; do not edit accepted artifacts to make authorization appear historical.
+
+This authorizes isolated candidate training, development/OOF predictions, calibration, and bundle-verification predictions only. It does not authorize scoring the frozen 108 or 146 forecasts, production promotion, or live changes.
+
+2. Read and validate the existing contracts
+
+Read applicable AGENTS.md instructions, inspect the worktree, and preserve existing user changes.
+
+Read:
+- docs/implementation-reports/phase3a-training-readiness-report.md
+- docs/xgb-production-refit-plan.md
+- configs/xgb_refit_pre_april_2026.toml
+- modeling/refit_preflight.py
+- modeling/holdout.py
+- docs/no-pick-contract.md
+- Relevant Phase 1b/2 reports and accepted manifests
+- Existing debut-prior, XGBoost, calibration, and artifact-loading code as needed
+
+Use only:
+data/experiments/phase3a_pre_april_2026_git_1f477d3_metadata_safe/
+
+Pinned manifest SHA-256:
+42e8e1661409b2ca758a4e18775f9816865439448fbce0d88af68dda22325671
+
+Pinned training.csv SHA-256:
+e53cd2f253985290ca2e03185fd4b67ee67c209473f595d5fda3cecbb34e764c
+
+Pinned folds.json SHA-256:
+c425c98ff96f7e4dba4505e1215ace017587fef3d6a41f8996ad5ce726b615d1
+
+Source commit:
+1f477d3ddc87b123d0099025b669e728e7881a34
+
+Exclusive event cutoff:
+event_date < "2026-03-31"
+
+Knowledge cutoff:
+2026-03-31T12:09:04.077607+00:00
+
+Feature algorithm:
+v2_date_frozen_elo_schedule_unknown_v1
+
+Load through the existing guarded snapshot API with the pinned manifest hash and explicit source mode. Reject the preliminary snapshot marked REJECTED.
+
+Verify source, schema, code/configuration provenance, package versions, feature order, row count, date bounds, and exact fold memberships before training. Document discrepancies; do not silently rewrite accepted hashes or regenerate the snapshot.
+
+Record new trainer/bundle code hashes separately from the preparation provenance.
+
+3. Implement a dedicated candidate lifecycle
+
+Create candidate-specific training and bundle-loading modules/entrypoints. Do not invoke the legacy trainer or production scorer.
+
+Keep changes tightly scoped. Prefer new modules and tests; do not redesign existing feature algorithms or change the frozen preparation inputs.
+
+The training workflow must run offline from the accepted snapshot. It must not fetch current warehouse features, results, or profiles.
+
+Before every preprocessing/model-fitting operation:
+- Validate its exact membership and chronological boundaries.
+- Enforce the existing 166-ID exclusion guard.
+- Guard development early-stopping labels and calibration labels as well as base-model training labels.
+- Preserve fighter orientation: label 1 and probability p mean fighter 1 wins.
+- Keep entire dates/events together.
+
+The three deferred debut columns must be computed using the relevant training partition, never passed as all-NaN placeholders to the learner. Preserve legitimate other NaNs without dropping bouts or global imputation.
+
+Never open frozen outcome files or joined holdout evidence in the training/preprocessing path.
+
+4. Stage A — development selection
+
+Execute the exact procedure already fixed in the TOML/specification.
+
+Use the three development windows and memberships in folds.json:
+- 6,414 training / 502 validation
+- 6,916 training / 519 validation
+- 7,435 training / 506 validation
+
+Evaluate all 27 combinations:
+- max_depth: 3, 4, 6
+- min_child_weight: 20, 50, 100
+- reg_lambda: 0.1, 1.0, 5.0
+
+Use the fixed base parameters from the TOML, including learning_rate 0.02, subsample and colsample_bytree 0.8, seed 42, n_jobs 1, and histogram trees.
+
+Development fits may use at most 500 boosting rounds with early-stopping patience 50 on their own validation partition.
+
+Compute debut priors separately from each fold's training rows. Save those priors and membership hashes.
+
+Calculate validation probabilities at the best iteration, handling the installed XGBoost API correctly.
+
+Select by row-weighted development log loss, not an unweighted mean of fold scores. Resolve exact ties lexicographically by the three grid parameters.
+
+Choose the final round count as:
+floor(median(best_iteration + 1 across the winning configuration's three folds) + 0.5)
+
+Save all 81 development-fit results, settings, rounds, fold metrics, membership hashes, and prior lineage.
+
+Persist the selected configuration and round count before generating OOF predictions. Do not borrow the production artifact's old best iteration.
+
+5. Stage B — frozen-settings OOF predictions
+
+Use the four exact expanding OOF folds:
+- 7,941 training / 129 predictions
+- 8,070 training / 126 predictions
+- 8,196 training / 128 predictions
+- 8,324 training / 76 predictions
+
+Use only Stage A's selected parameters and fixed round count.
+
+No OOF-window early stopping, evaluation-set-driven fitting, hyperparameter changes, or tuning based on OOF metrics.
+
+Compute and save training-only priors separately for each OOF fold.
+
+Produce exactly 459 full-precision raw OOF probabilities, one per eligible row in the fixed final-12-month interval.
+
+Save identity/orientation, date, label, fold, settings/round digest, training-membership digest, and prior digest alongside predictions.
+
+Run validate_oof_inputs and provenance checks before calibration. Missing/duplicate rows, wrong memberships, altered labels/orientation, invalid probabilities, or single-class calibration inputs must fail clearly.
+
+Freeze the raw OOF artifact before calibration. Do not alter the procedure if its metrics disappoint.
+
+6. Stage C — persisted Platt calibration
+
+Fit exactly one logistic regression on the validated OOF log odds:
+- Clip raw probabilities with epsilon 1e-8
+- C = 1e10
+- solver = lbfgs
+- max_iter = 1000
+- Require both label classes
+
+Save the fitted estimator as calibrator.joblib, including its clipping/input/class-orientation contract in metadata.
+
+Do not use a convenience helper that discards the estimator.
+
+Report raw OOF log loss and Brier score. Also report calibrated metrics on these same rows, explicitly labeled “calibration-fit diagnostics,” not independent validation.
+
+Record coefficients, intercept, convergence status, and the exact calibration-input hash. Do not silently change settings to address warnings or unfavorable results.
+
+7. Stage D — final refit
+
+Compute final debut priors using all 8,400 eligible rows and save them separately.
+
+Fit the final XGBoost learner on all eligible rows with Stage A's frozen settings and round count.
+
+No early stopping and no retained legacy two-year validation/test reservation.
+
+Record the actual training endpoint as March 7, 2026. This is a pre-April historical candidate, not a model trained through today's date.
+
+8. Publish and verify the isolated bundle
+
+Use a new, non-overwriting run directory beneath:
+data/experiments/phase3b_xgb_pre_april_2026/
+
+Never overwrite an existing run. Publish a complete bundle only after successful validation; clearly distinguish incomplete work from a completed artifact.
+
+Include every file required by the TOML:
+- base_learner.json
+- calibrator.joblib
+- final_debut_priors.json
+- metadata.json
+- training_manifest.json
+- source_manifest.json
+- selection.json
+- folds.json
+- oof.csv
+- oof_manifest.json
+- package_versions.json
+- checksums.json
+
+Also preserve the authorization/run receipt, effective configuration, fold priors, development results, and necessary provenance.
+
+Checksums must cover the bundle components without inventing a self-referential checksum.
+
+Implement an offline loader/inference path that:
+- Verifies required components, checksums, feature order, algorithm/version, and estimator contracts.
+- Loads saved final priors and the fitted calibrator.
+- Never refits preprocessing or calibration from a live database.
+- Fails on missing required features/components or incompatible inputs instead of silently supplying defaults.
+- Preserves legitimate NaNs, full-precision probabilities, and fighter orientation.
+- Uses unchanged probability_band_v1, including inclusive 0.40–0.60 NO PICK.
+
+Require explicit compatible feature provenance; matching column names alone must not make legacy warehouse features acceptable.
+
+Verify save/load probability parity against the in-memory final pipeline on synthetic or eligible non-holdout inputs. This is serialization/inference verification, not evidence of final-model predictive performance.
+
+9. Tests and actual execution
+
+Add focused tests for:
+- Exclusions and temporal/membership checks before fitting
+- Fold-specific and final prior isolation
+- Selection weighting, best-iteration predictions, tie-breaking, and round selection
+- No OOF/final early stopping or OOF-driven tuning
+- Exact OOF coverage, orientation, labels, and provenance
+- Calibrator persistence, clipping, class handling, and convergence reporting
+- Bundle round-trip predictions and missing/tampered/incompatible components
+- Full-precision decision boundaries
+- No warehouse access or frozen-outcome access in the training path
+
+Run affected tests, relevant Phase 3A preflight/replay/holdout regressions, and calibration/decision regressions. Learned-model tests are authorized in this phase.
+
+Do not run the known live integration test that writes warehouse records or overwrites upcoming_features.csv. Use offline/mocked or disposable-database tests instead.
+
+Do not repair the documented unrelated legacy snapshot-test failures or warehouse label discrepancies.
+
+Execute real stages A–D on the accepted data. Do not stop after implementing the CLI or running synthetic tests. Keep progress updates during long training.
+
+If blocked, report the exact failure and completed stages. Do not label an incomplete bundle completed.
+
+10. Preservation and scope
+
+Before and after work, verify preservation of existing:
+- models/, saved predictions, and production pointers
+- Both accepted holdout directories
+- Phase 1/2/3A evidence, reports, audits, and preparation snapshots
+
+Production pointer expected SHA-256:
+ff5272e0d2f11f9f6cbc6597f91a2cf9961ae317f8dd47f90bfb1f6e44dd5caa
+
+No production-pointer changes, artifact promotion, holdout comparison, live migrations, warehouse writes, dashboard work, confidence modifiers, market stacking, commit, or push.
+
+11. Mandatory final handoff report
+
+Create:
+docs/implementation-reports/phase3b-xgb-candidate-build-report.md
+
+Include:
+- COMPLETED, PARTIAL, or BLOCKED status
+- Explicit accepted source mode and limitations
+- Changed/new files and exact executed commands
+- Input/configuration/code hashes and package versions
+- All development results, winning parameters, and selected rounds
+- Per-OOF-fold counts and raw metrics
+- Exact 459-row calibration coverage and fitted-calibrator details
+- Clearly labeled calibration-fit diagnostics
+- Final 8,400-row fit, saved priors, training endpoint, and feature algorithm
+- Bundle path, component checksums, and offline load/parity verification
+- Tests passed/failed/skipped and known unrelated failures
+- Preservation checks and unchanged production-pointer hash
+- Any blockers or deviations, without hiding them
+- Recommended next-session inputs and remaining scoring-time source requirements for the 108 original forecasts
+
+Do not claim these diagnostics establish promotion readiness or unbiased final-model performance.
+
+End with a concise status summary and reproduce the complete handoff report so I can feed it back into the planning session.

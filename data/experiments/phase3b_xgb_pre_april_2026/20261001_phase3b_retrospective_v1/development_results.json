@@ -1,0 +1,3404 @@
+[
+  {
+    "best_iteration": 194,
+    "best_score": 0.6467147816818549,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 245,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.22799974573014078,
+      "log_loss": 0.6467147819193565
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      195
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 190,
+    "best_score": 0.663206730676754,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 241,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.2358236755186512,
+      "log_loss": 0.6632067297182095
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      191
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 489,
+    "best_score": 0.6369536878033117,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 500,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.22367079183971855,
+      "log_loss": 0.6369536880342802
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      490
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 254,
+    "best_score": 0.6460504744691677,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 305,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.22777776130105168,
+      "log_loss": 0.6460504739782676
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      255
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 254,
+    "best_score": 0.6626355962429432,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 305,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.23552310002278393,
+      "log_loss": 0.6626355969797111
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      255
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 495,
+    "best_score": 0.6367977650121973,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 500,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.22363829374951244,
+      "log_loss": 0.6367977662548576
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      496
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 272,
+    "best_score": 0.6457674121298638,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 323,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.227667110903932,
+      "log_loss": 0.6457674105208443
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      273
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 185,
+    "best_score": 0.6634010359903292,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 236,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.23587112181991612,
+      "log_loss": 0.6634010366317394
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      186
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 497,
+    "best_score": 0.6368113239350998,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 500,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.2235555207627047,
+      "log_loss": 0.6368113231854484
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      498
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 218,
+    "best_score": 0.6453741577220153,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 269,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.22755553089916375,
+      "log_loss": 0.6453741562363263
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      219
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 327,
+    "best_score": 0.6608933741818963,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 378,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.2346774825635377,
+      "log_loss": 0.6608933749184166
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      328
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 498,
+    "best_score": 0.63544352454218,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 500,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.22295858147027142,
+      "log_loss": 0.6354435244706588
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      499
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 272,
+    "best_score": 0.6458824097338426,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 323,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.227805749836817,
+      "log_loss": 0.6458824068760005
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      273
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 327,
+    "best_score": 0.6615300067415127,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 378,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.23498513000146384,
+      "log_loss": 0.6615300074126309
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      328
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 498,
+    "best_score": 0.6346167179465059,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 500,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.22252895017547264,
+      "log_loss": 0.6346167182862398
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      499
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 302,
+    "best_score": 0.6457383635925107,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 353,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.22772150082527148,
+      "log_loss": 0.6457383642385683
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      303
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 345,
+    "best_score": 0.6618785874232621,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 396,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.23512775147037235,
+      "log_loss": 0.661878587088132
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      346
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 480,
+    "best_score": 0.6371122286783848,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 500,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 50,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.22362607754351757,
+      "log_loss": 0.637112229712885
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      481
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 396,
+    "best_score": 0.6448331887562911,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 447,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.2272692109089088,
+      "log_loss": 0.6448331900221769
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      397
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 239,
+    "best_score": 0.6624438478422991,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 290,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.23532752431619366,
+      "log_loss": 0.6624438473261401
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      240
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 497,
+    "best_score": 0.6339111263926321,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 500,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.22205060949439284,
+      "log_loss": 0.633911126197887
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      498
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 374,
+    "best_score": 0.644353774023721,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 425,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.2270412014865447,
+      "log_loss": 0.6443537725195225
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      375
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 234,
+    "best_score": 0.6635683637421026,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 285,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.23584197820942449,
+      "log_loss": 0.6635683623330724
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      235
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 497,
+    "best_score": 0.6335810197318495,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 500,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.2218533258847344,
+      "log_loss": 0.6335810200087363
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      498
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 389,
+    "best_score": 0.6450165041473758,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 440,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.227359861880374,
+      "log_loss": 0.645016504713878
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      390
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 239,
+    "best_score": 0.6638556541964727,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 290,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.2359866481974668,
+      "log_loss": 0.6638556531503186
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      240
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 497,
+    "best_score": 0.633927937052231,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 500,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 3,
+      "min_child_weight": 100,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.2220459682258926,
+      "log_loss": 0.6339279349820618
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      498
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 177,
+    "best_score": 0.6489587466555288,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 228,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.22911818661689842,
+      "log_loss": 0.6489587475001102
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      178
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 178,
+    "best_score": 0.6615255960552219,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 229,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.23504240306789687,
+      "log_loss": 0.6615255959041141
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      179
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 338,
+    "best_score": 0.6357263029799631,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 389,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.22299863486440025,
+      "log_loss": 0.6357263033129804
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      339
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 177,
+    "best_score": 0.6470412354604657,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 228,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.22819475578980894,
+      "log_loss": 0.6470412367739456
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      178
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 179,
+    "best_score": 0.6613175769072737,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 230,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.23493329037215754,
+      "log_loss": 0.6613175770941593
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      180
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 336,
+    "best_score": 0.6351741237838278,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 387,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.22276902186702363,
+      "log_loss": 0.6351741236368855
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      337
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 192,
+    "best_score": 0.6477331771734226,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 243,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.2285215701369852,
+      "log_loss": 0.6477331757462237
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      193
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 181,
+    "best_score": 0.6616295911156373,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 232,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.2350583654062879,
+      "log_loss": 0.6616295917476732
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      182
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 343,
+    "best_score": 0.6358902315377247,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 394,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 20,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.22301690479965836,
+      "log_loss": 0.6358902314709813
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      344
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 191,
+    "best_score": 0.6472358127454837,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 242,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.22832758282646778,
+      "log_loss": 0.6472358128930716
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      192
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 170,
+    "best_score": 0.6617058328638187,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 221,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.23498844742113034,
+      "log_loss": 0.6617058336789533
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      171
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 480,
+    "best_score": 0.6354139727713327,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 500,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.22289204399202428,
+      "log_loss": 0.6354139733564903
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      481
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 179,
+    "best_score": 0.6479436380573478,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 230,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.2286988377490648,
+      "log_loss": 0.6479436379272385
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      180
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 272,
+    "best_score": 0.6610003157387809,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 323,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.23460169492698973,
+      "log_loss": 0.6610003164536633
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      273
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 392,
+    "best_score": 0.6365500138741237,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 443,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.22334530716333242,
+      "log_loss": 0.6365500155174247
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      393
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 191,
+    "best_score": 0.6474784168885999,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 242,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.22844149123174512,
+      "log_loss": 0.6474784174295773
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      192
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 178,
+    "best_score": 0.661703542506534,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 229,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.2350003922852163,
+      "log_loss": 0.6617035430097186
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      179
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 472,
+    "best_score": 0.6356887657180605,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 500,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 50,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.22291292442960814,
+      "log_loss": 0.6356887651536799
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      473
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 302,
+    "best_score": 0.6426177532133828,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 353,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.226170304473475,
+      "log_loss": 0.6426177534734462
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      303
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 171,
+    "best_score": 0.6631544276009635,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 222,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.23567032658331466,
+      "log_loss": 0.6631544266512295
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      172
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 497,
+    "best_score": 0.6338303655739358,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 500,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.22190407262427717,
+      "log_loss": 0.6338303656185927
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      498
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 278,
+    "best_score": 0.6431971973335125,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 329,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.2264551913707333,
+      "log_loss": 0.6431971965991783
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      279
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 153,
+    "best_score": 0.6628107518417068,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 204,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.23550713305459203,
+      "log_loss": 0.6628107527521159
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      154
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 497,
+    "best_score": 0.63429542433603,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 500,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.22214099667384943,
+      "log_loss": 0.634295423244279
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      498
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 331,
+    "best_score": 0.6440450763441177,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 382,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.2269250729497172,
+      "log_loss": 0.6440450774333678
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      332
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 193,
+    "best_score": 0.6633759517373378,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 244,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.23575460226097603,
+      "log_loss": 0.6633759522760886
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      194
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 497,
+    "best_score": 0.6346213396771152,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 500,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 4,
+      "min_child_weight": 100,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.22230133052247902,
+      "log_loss": 0.6346213409158402
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      498
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 169,
+    "best_score": 0.6455993773749625,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 220,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.22744678008613162,
+      "log_loss": 0.6455993781891045
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      170
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 132,
+    "best_score": 0.6604938968183448,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 183,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.23437147898906774,
+      "log_loss": 0.6604938951256615
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      133
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 296,
+    "best_score": 0.6345706024895543,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 347,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.2226153772619443,
+      "log_loss": 0.6345706036647043
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      297
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 176,
+    "best_score": 0.6450022847885155,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 227,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.22710195737636166,
+      "log_loss": 0.645002284196758
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      177
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 132,
+    "best_score": 0.6590466101390089,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 183,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.23375623392168868,
+      "log_loss": 0.6590466121788623
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      133
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 337,
+    "best_score": 0.6353078969117445,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 388,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.2229841872726676,
+      "log_loss": 0.6353078975884123
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      338
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 178,
+    "best_score": 0.6471869594369276,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 229,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.22814411138417007,
+      "log_loss": 0.6471869600572348
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      179
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 132,
+    "best_score": 0.6601614246076701,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 183,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.2341770033252498,
+      "log_loss": 0.6601614246950535
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      133
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 337,
+    "best_score": 0.6337821240511101,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 388,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 20,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.22205519356941703,
+      "log_loss": 0.6337821246491999
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      338
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 131,
+    "best_score": 0.6468626202280778,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 182,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.22812802679951055,
+      "log_loss": 0.6468626200516688
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      132
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 182,
+    "best_score": 0.6625679938377443,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 233,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.23525951207905574,
+      "log_loss": 0.6625679927595529
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      183
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 465,
+    "best_score": 0.633706240785923,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 500,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.2220084509137069,
+      "log_loss": 0.6337062421399694
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      466
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 128,
+    "best_score": 0.64767141215711,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 179,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.22851873078649332,
+      "log_loss": 0.6476714139182443
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      129
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 150,
+    "best_score": 0.6629758999469423,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 201,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.23544999020101184,
+      "log_loss": 0.662975900411117
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      151
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 323,
+    "best_score": 0.6360080789612688,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 374,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.22292695062763418,
+      "log_loss": 0.6360080792872573
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      324
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 177,
+    "best_score": 0.6453822173801551,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 228,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.22751383610098905,
+      "log_loss": 0.6453822174420043
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      178
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 220,
+    "best_score": 0.6636353951945241,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 271,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.2356028640386221,
+      "log_loss": 0.6636353945169001
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      221
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 390,
+    "best_score": 0.6316368331757223,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 441,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 50,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.22089222926284968,
+      "log_loss": 0.6316368331555748
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      391
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 272,
+    "best_score": 0.6420369874611794,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 323,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.2259340958575031,
+      "log_loss": 0.6420369884545887
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      273
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 164,
+    "best_score": 0.6631673629286202,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 215,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.2355593730910882,
+      "log_loss": 0.6631673630373709
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      165
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 356,
+    "best_score": 0.6331242958724264,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 0.1,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 407,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "reg_lambda": 0.1
+    },
+    "metrics": {
+      "brier_score": 0.22159068163661602,
+      "log_loss": 0.6331242952490023
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      357
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 309,
+    "best_score": 0.6425931437972532,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 360,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.2262650651064407,
+      "log_loss": 0.642593143725039
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      310
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 164,
+    "best_score": 0.6634108638372954,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 215,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.2356288065246436,
+      "log_loss": 0.663410862636397
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      165
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 499,
+    "best_score": 0.6316813379526138,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 1.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 500,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "reg_lambda": 1.0
+    },
+    "metrics": {
+      "brier_score": 0.22083976909267755,
+      "log_loss": 0.6316813372488825
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      500
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  },
+  {
+    "best_iteration": 272,
+    "best_score": 0.6438993364572525,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 323,
+    "fold": "dev_2022",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.2268024349074414,
+      "log_loss": 0.6438993372960324
+    },
+    "prediction_ids_sha256": "9c9fecee50d3df5630edb4a9c819019d520d9df8f1ee261bb8c5aecdbc3b9aee",
+    "prediction_iteration_range": [
+      0,
+      273
+    ],
+    "prediction_rows": 502,
+    "prior_path": "fold_priors/dev_2022.json",
+    "prior_sha256": "3f8a851a81b7414cc4019f6be5958e81973d283ed142df7602e56a135dd58064",
+    "train_ids_sha256": "d262d66b43432fa8014fc07386eb94ea408dad59100a77197d694caf972a03ef",
+    "training_rows": 6414
+  },
+  {
+    "best_iteration": 165,
+    "best_score": 0.6625263154334415,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 216,
+    "fold": "dev_2023",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.23529197449537648,
+      "log_loss": 0.6625263145915494
+    },
+    "prediction_ids_sha256": "da992e75706fc0a266494d2452570b2051d599b6d5c6186a0057129916967e58",
+    "prediction_iteration_range": [
+      0,
+      166
+    ],
+    "prediction_rows": 519,
+    "prior_path": "fold_priors/dev_2023.json",
+    "prior_sha256": "8f69af4a4c782ea07a28770e3761030b38657956e453ffe4342770f3b0ab804c",
+    "train_ids_sha256": "ce4f10fbe2cf75a39fc1e5edfe24c5d6e27e0668c5283cb256a982386f1aeaf7",
+    "training_rows": 6916
+  },
+  {
+    "best_iteration": 497,
+    "best_score": 0.6323172541799046,
+    "effective_parameters": {
+      "colsample_bytree": 0.8,
+      "early_stopping_rounds": 50,
+      "eval_metric": "logloss",
+      "learning_rate": 0.02,
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "missing": "NaN (native)",
+      "n_estimators": 500,
+      "n_jobs": 1,
+      "objective": "binary:logistic",
+      "random_state": 42,
+      "reg_lambda": 5.0,
+      "subsample": 0.8,
+      "tree_method": "hist",
+      "verbosity": 0
+    },
+    "fitted_rounds": 500,
+    "fold": "dev_2024",
+    "grid_parameters": {
+      "max_depth": 6,
+      "min_child_weight": 100,
+      "reg_lambda": 5.0
+    },
+    "metrics": {
+      "brier_score": 0.22110824908403037,
+      "log_loss": 0.63231725371569
+    },
+    "prediction_ids_sha256": "019027b8fd3288a499c301e71e5ec93b0a40e85314fea03dd74bfceb95b42ed1",
+    "prediction_iteration_range": [
+      0,
+      498
+    ],
+    "prediction_rows": 506,
+    "prior_path": "fold_priors/dev_2024.json",
+    "prior_sha256": "df2f817124c5a71a0ffd4e8708a06277172ce1abf8d200b07f6135b803d550da",
+    "train_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+    "training_rows": 7435
+  }
+]

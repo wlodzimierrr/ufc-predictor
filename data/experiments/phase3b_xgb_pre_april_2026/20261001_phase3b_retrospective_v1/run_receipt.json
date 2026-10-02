@@ -1,0 +1,43 @@
+{
+  "accepted_limitations": [
+    "chronological retrospective reconstruction; not certified replay",
+    "global pre-cutoff source versions; per-bout availability unverified",
+    "scheduled rounds unknown; no result/finish/title inference",
+    "exactly 8400 archived binary bouts through 2026-03-07; no warehouse supplementation",
+    "frozen forecast outcomes previously inspected; not blind/unseen tests"
+  ],
+  "authorization_kind": "explicit user request for this Phase 3B run",
+  "authorization_recorded_at": "2026-10-01T20:42:26.041293+00:00",
+  "authorization_request_sha256": "ef17526a8461a4a6c662db8c35b754303681e16675f78dbd12164941da03f226",
+  "authorization_scope": "isolated development/OOF/calibration/final fit and bundle verification",
+  "authorized_source_mode": "retrospective_git_pre_cutoff",
+  "command": [
+    "/usr/bin/python3",
+    "-m",
+    "modeling.train_xgb_candidate",
+    "--source-mode",
+    "retrospective_git_pre_cutoff",
+    "--manifest-sha256",
+    "42e8e1661409b2ca758a4e18775f9816865439448fbce0d88af68dda22325671",
+    "--authorization-request",
+    "/home/wlodzimierrr/.codex/attachments/0342d801-fe7a-49fb-a0e5-2f254821cb75/Pasted text.txt",
+    "--preservation-baseline",
+    "/tmp/ufc-phase3b-preservation-baseline.json",
+    "--run-name",
+    "20261001_phase3b_retrospective_v1"
+  ],
+  "completed_stages": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "fits_finished_at": "2026-10-01T20:43:31.249475+00:00",
+  "preparation_approval_flags_preserved": true,
+  "prohibited_scope": "108/146 forecast scoring, promotion, production/live changes",
+  "published_at": "2026-10-01T20:44:52.122233+00:00",
+  "published_destination": "data/experiments/phase3b_xgb_pre_april_2026/20261001_phase3b_retrospective_v1",
+  "schema_version": 1,
+  "started_at": "2026-10-01T20:42:26.041276+00:00",
+  "status": "COMPLETED"
+}

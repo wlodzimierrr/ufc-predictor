@@ -1,0 +1,12 @@
+{
+  "calibrated_max_absolute_difference": 0.0,
+  "calibrated_probability_digest": "499e4e98385e91e5a05a277a0465e09bfd949941238dbe8eb89515b43d0241ac",
+  "checked_at": "2026-10-01T20:43:31.249258+00:00",
+  "exact_probability_parity": true,
+  "input": "eligible non-holdout snapshot rows",
+  "meaning": "serialization/inference verification, not final-model predictive performance",
+  "raw_max_absolute_difference": 0.0,
+  "raw_probability_digest": "73fa57197a86d462b73495b98337da7ab34909f0e63a9f0e59e4bc5f3646acc8",
+  "rows": 8400,
+  "status": "VERIFIED"
+}

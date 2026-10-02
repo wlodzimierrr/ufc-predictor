@@ -1,0 +1,128 @@
+{
+  "actual_training_endpoint": "2024-03-30",
+  "feature_algorithm_version": "v2_date_frozen_elo_schedule_unknown_v1",
+  "fit_partition": "train_only",
+  "name": "dev_2024",
+  "priors": {
+    "base_prior": 0.5,
+    "global_height_std": 6.50286827731723,
+    "global_reach_std": 8.311824836494262,
+    "height_stats": {
+      "bantamweight": {
+        "mean": -0.04807570977917988,
+        "std": 5.93821142273092
+      },
+      "catch_weight": {
+        "mean": -1.3096874999999955,
+        "std": 5.9867037777909005
+      },
+      "featherweight": {
+        "mean": -0.5087114845938373,
+        "std": 6.713041275166111
+      },
+      "flyweight": {
+        "mean": -0.5976470588235296,
+        "std": 5.281335414764378
+      },
+      "heavyweight": {
+        "mean": 0.22477876106194666,
+        "std": 8.322761773614923
+      },
+      "light_heavyweight": {
+        "mean": 0.37386949924127494,
+        "std": 5.868710399392751
+      },
+      "lightweight": {
+        "mean": -0.26620961386918857,
+        "std": 6.388368957743008
+      },
+      "middleweight": {
+        "mean": 0.40145896656534896,
+        "std": 6.045332625323386
+      },
+      "open_weight": {
+        "mean": 1.6349425287356296,
+        "std": 10.306449197216185
+      },
+      "welterweight": {
+        "mean": 0.30911128903122453,
+        "std": 6.3245089447523295
+      },
+      "women_bantamweight": {
+        "mean": 0.5259595959595966,
+        "std": 6.291087793277462
+      },
+      "women_featherweight": {
+        "mean": -1.6641379310344804,
+        "std": 8.125614489836343
+      },
+      "women_flyweight": {
+        "mean": 0.596958525345621,
+        "std": 5.650651221330488
+      },
+      "women_strawweight": {
+        "mean": 0.01751724137930931,
+        "std": 6.601204202928996
+      }
+    },
+    "reach_stats": {
+      "bantamweight": {
+        "mean": -0.3777403035413153,
+        "std": 8.501330000478655
+      },
+      "catch_weight": {
+        "mean": -0.16666666666666666,
+        "std": 8.004589079252202
+      },
+      "featherweight": {
+        "mean": -0.17267267267267267,
+        "std": 7.818730416588244
+      },
+      "flyweight": {
+        "mean": -0.30293159609120524,
+        "std": 6.873465927850278
+      },
+      "heavyweight": {
+        "mean": 0.5459882583170255,
+        "std": 10.19906467029607
+      },
+      "light_heavyweight": {
+        "mean": 0.7787307032590052,
+        "std": 8.649777648525736
+      },
+      "lightweight": {
+        "mean": 0.08043875685557587,
+        "std": 7.734437279265728
+      },
+      "middleweight": {
+        "mean": 0.45552884615384615,
+        "std": 8.269843914622054
+      },
+      "welterweight": {
+        "mean": 0.4261523988711195,
+        "std": 8.589177318507739
+      },
+      "women_bantamweight": {
+        "mean": 0.125,
+        "std": 7.129516112612412
+      },
+      "women_featherweight": {
+        "mean": -2.8620689655172415,
+        "std": 7.259103338621664
+      },
+      "women_flyweight": {
+        "mean": 0.677570093457944,
+        "std": 8.166906867153193
+      },
+      "women_strawweight": {
+        "mean": -0.10218978102189781,
+        "std": 8.053197368827313
+      }
+    },
+    "training_debut_win_rate": 0.7509881422924901
+  },
+  "schema_version": 1,
+  "training_end_exclusive": "2024-03-31",
+  "training_ids_sha256": "72821f86867fe92c2a3065494ea185e89988a406dd6c703d79da0753c06e5ab2",
+  "training_rows": 7435
+}

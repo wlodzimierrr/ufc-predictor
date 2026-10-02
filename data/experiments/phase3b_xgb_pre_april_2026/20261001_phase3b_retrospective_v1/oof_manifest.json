@@ -1,0 +1,82 @@
+{
+  "eligible_coverage": "exactly once; 2025-03-31 <= event_date < 2026-03-31",
+  "folds": [
+    {
+      "boosting_rounds": 310,
+      "early_stopping": false,
+      "eval_set": false,
+      "name": "oof_1",
+      "prediction_ids_sha256": "f8826d45de2d8e824ee7b2f7f04c8c22b1c6eeae5e45d9dbc1a0caa31ddc50f3",
+      "prediction_rows": 129,
+      "prior_sha256": "51cdb46dc180d9de210f86313415016b078ef69225abce037d830f054c885eeb",
+      "raw_metrics": {
+        "brier_score": 0.20579625976644775,
+        "log_loss": 0.5997556833419911
+      },
+      "settings_rounds_sha256": "06e33ada191190f33b7792939f91743a619960fb2068687ce270a5138f7a7359",
+      "train_rows": 7941,
+      "training_ids_sha256": "0e6c64a1be161db739331026acead085a59091ec2e126a798ce00f66429ce0b4"
+    },
+    {
+      "boosting_rounds": 310,
+      "early_stopping": false,
+      "eval_set": false,
+      "name": "oof_2",
+      "prediction_ids_sha256": "160435953e6a0ec91cacf5a08ce09a0e4f1de0caa132fd27ef801c9194c533ec",
+      "prediction_rows": 126,
+      "prior_sha256": "723a6ed014d5e10b7efc97f3e3f14f01878c749784f69570ca202dbac5bcd751",
+      "raw_metrics": {
+        "brier_score": 0.22836307148718807,
+        "log_loss": 0.6477765362420116
+      },
+      "settings_rounds_sha256": "06e33ada191190f33b7792939f91743a619960fb2068687ce270a5138f7a7359",
+      "train_rows": 8070,
+      "training_ids_sha256": "d3ea21e89105997043c81fafa56ab71a2e4959702d3f0479a96f26ed5f75b839"
+    },
+    {
+      "boosting_rounds": 310,
+      "early_stopping": false,
+      "eval_set": false,
+      "name": "oof_3",
+      "prediction_ids_sha256": "fabe89bdec6ed15c0c5e6f3077a3b65ce17d11a198e0947fe3613e55c0ff7edb",
+      "prediction_rows": 128,
+      "prior_sha256": "801ea4da4c7d3bdc3228ab528ca497d213cdc9909fb960434107e4c595426883",
+      "raw_metrics": {
+        "brier_score": 0.2198870835008024,
+        "log_loss": 0.6262381835827535
+      },
+      "settings_rounds_sha256": "06e33ada191190f33b7792939f91743a619960fb2068687ce270a5138f7a7359",
+      "train_rows": 8196,
+      "training_ids_sha256": "259ddfec107bba197737dd972e39c0e1530e47ae6a5300a8a16c30ca9f72aee3"
+    },
+    {
+      "boosting_rounds": 310,
+      "early_stopping": false,
+      "eval_set": false,
+      "name": "oof_4",
+      "prediction_ids_sha256": "cb589f1d821df51441dac2a23404e642a45c66be66bd6d27035f4f83207eb76a",
+      "prediction_rows": 76,
+      "prior_sha256": "47f32c3534c96194916416bd52fbc414c6d849c709076422b85aaca49d82c131",
+      "raw_metrics": {
+        "brier_score": 0.2029462658554301,
+        "log_loss": 0.5910939460308258
+      },
+      "settings_rounds_sha256": "06e33ada191190f33b7792939f91743a619960fb2068687ce270a5138f7a7359",
+      "train_rows": 8324,
+      "training_ids_sha256": "45ae08735bfeecfcb6731c01263c896f3e750422ed0b0c8e04772f9e46fa962d"
+    }
+  ],
+  "frozen_at": "2026-10-01T20:43:29.474943+00:00",
+  "input_manifest_sha256": "42e8e1661409b2ca758a4e18775f9816865439448fbce0d88af68dda22325671",
+  "no_oof_early_stopping_or_tuning": true,
+  "oof_csv_sha256": "7d771e1117071da3af50a14e335d0e8b5315d0c9ee1e03e8064027e0a4b9c4f7",
+  "orientation": "p_and_label_1_mean_fighter_1_wins",
+  "raw_metrics": {
+    "brier_score": 0.21544864359558352,
+    "log_loss": 0.6188887889205785
+  },
+  "rows": 459,
+  "schema_version": 1,
+  "selection_file_sha256": "489d99b1e7ffe5c4b483bbd340bb704593272229d63b0e798696d4d8d9a52d81",
+  "settings_rounds_sha256": "06e33ada191190f33b7792939f91743a619960fb2068687ce270a5138f7a7359"
+}
