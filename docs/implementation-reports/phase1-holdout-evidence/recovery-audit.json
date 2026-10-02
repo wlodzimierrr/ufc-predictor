@@ -1,0 +1,3196 @@
+{
+  "candidates": [
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-07-11": 11,
+        "2026-07-18": 12,
+        "2026-08-01": 14,
+        "2026-08-08": 12,
+        "2026-08-15": 11,
+        "2026-08-22": 14,
+        "2026-08-29": 9
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 58,
+          "count": 89
+        },
+        "high_confidence": {
+          "correct": 28,
+          "count": 41
+        },
+        "total": {
+          "correct": 79,
+          "count": 142
+        },
+        "uncertain": {
+          "correct": 21,
+          "count": 53
+        }
+      },
+      "provenance": {
+        "catchup_scored_before_result_load": 38,
+        "database_scored_at_before_event": 131
+      },
+      "resolved_unique_fights": 142,
+      "selection_rule": "April\u2013August 2026; resolved rows",
+      "source": "data/reports/pre_event_prediction_fights.csv",
+      "source_sha256": "b834e7a210aa2a3f1a3c2090fa1f6245788f4a61588497a7835b0dd19cd119e1",
+      "unique_fights": 169,
+      "window_rows": 169
+    },
+    {
+      "event_counts": {
+        "2026-04-18": 12,
+        "2026-04-25": 11,
+        "2026-05-02": 11,
+        "2026-05-09": 11,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 14,
+          "count": 21
+        },
+        "high_confidence": {
+          "correct": 4,
+          "count": 7
+        },
+        "total": {
+          "correct": 20,
+          "count": 38
+        },
+        "uncertain": {
+          "correct": 6,
+          "count": 17
+        }
+      },
+      "provenance": {
+        "unspecified": 72
+      },
+      "resolved_unique_fights": 38,
+      "selection_rule": "April\u2013August 2026; resolved rows",
+      "source": "models/pre_event_prediction_fights.csv",
+      "source_sha256": "823275e8a5774e3a965cc6d8f6c1c69c56e4d78da75cf0d6c0a566338d3108b4",
+      "unique_fights": 72,
+      "window_rows": 72
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-07-11": 11,
+        "2026-07-18": 12,
+        "2026-08-01": 14,
+        "2026-08-08": 12,
+        "2026-08-15": 11,
+        "2026-08-22": 14,
+        "2026-08-29": 9
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 54,
+          "count": 82
+        },
+        "high_confidence": {
+          "correct": 28,
+          "count": 40
+        },
+        "total": {
+          "correct": 74,
+          "count": 133
+        },
+        "uncertain": {
+          "correct": 20,
+          "count": 51
+        }
+      },
+      "provenance": {
+        "catchup_scored_before_result_load": 38,
+        "database_scored_at_before_event": 131
+      },
+      "resolved_unique_fights": 133,
+      "selection_rule": "April\u2013August 2026; resolved rows",
+      "source": "git:6e5c0cd6afcb360c58036eaa1c489e71f1d4bc81:data/reports/pre_event_prediction_fights.csv",
+      "source_sha256": "81b5655a02c0b34ecae2168979a1811659feaa990931726374d1875564e9c4cd",
+      "unique_fights": 169,
+      "window_rows": 169
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-07-11": 11,
+        "2026-07-18": 12,
+        "2026-08-01": 14,
+        "2026-08-08": 12,
+        "2026-08-15": 11,
+        "2026-08-22": 8,
+        "2026-08-29": 9
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 50,
+          "count": 74
+        },
+        "high_confidence": {
+          "correct": 25,
+          "count": 36
+        },
+        "total": {
+          "correct": 69,
+          "count": 122
+        },
+        "uncertain": {
+          "correct": 19,
+          "count": 48
+        }
+      },
+      "provenance": {
+        "catchup_scored_before_result_load": 38,
+        "database_scored_at_before_event": 125
+      },
+      "resolved_unique_fights": 122,
+      "selection_rule": "April\u2013August 2026; resolved rows",
+      "source": "git:4af6c2f63ebcf63e13fbdbbdcf3bce59243334e4:data/reports/pre_event_prediction_fights.csv",
+      "source_sha256": "e414087f50aa5d5fa93811b830c1aacb381fa7e36abed0c48fe9ad2883c8762d",
+      "unique_fights": 163,
+      "window_rows": 163
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-07-11": 11,
+        "2026-08-15": 11,
+        "2026-08-22": 8,
+        "2026-08-29": 9
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 31,
+          "count": 45
+        },
+        "high_confidence": {
+          "correct": 11,
+          "count": 15
+        },
+        "total": {
+          "correct": 45,
+          "count": 84
+        },
+        "uncertain": {
+          "correct": 14,
+          "count": 39
+        }
+      },
+      "provenance": {
+        "database_scored_at_before_event": 125
+      },
+      "resolved_unique_fights": 84,
+      "selection_rule": "April\u2013August 2026; resolved rows",
+      "source": "git-blob:2b206b017e1f53893591e6864fa15f2d248a4b41",
+      "source_sha256": "b51dd577537c8f561a677357aff8007044a8bce8e79a1cd7d77688572e8c6186",
+      "unique_fights": 125,
+      "window_rows": 125
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 24,
+          "count": 36
+        },
+        "high_confidence": {
+          "correct": 6,
+          "count": 9
+        },
+        "total": {
+          "correct": 37,
+          "count": 68
+        },
+        "uncertain": {
+          "correct": 13,
+          "count": 32
+        }
+      },
+      "provenance": {
+        "database_scored_at_before_event": 86
+      },
+      "resolved_unique_fights": 68,
+      "selection_rule": "April\u2013August 2026; resolved rows",
+      "source": "git-blob:4b8de841fdd6f8cf870e7fc2520fa0b4910a9e03",
+      "source_sha256": "f2f10147de9ab99431df159175a0aa2418f99791e52d792096c58ce4555021f3",
+      "unique_fights": 86,
+      "window_rows": 86
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-07-11": 11,
+        "2026-07-18": 12,
+        "2026-08-01": 14,
+        "2026-08-08": 12,
+        "2026-08-15": 11,
+        "2026-08-22": 14,
+        "2026-08-29": 9
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 58,
+          "count": 88
+        },
+        "high_confidence": {
+          "correct": 28,
+          "count": 40
+        },
+        "total": {
+          "correct": 79,
+          "count": 141
+        },
+        "uncertain": {
+          "correct": 21,
+          "count": 53
+        }
+      },
+      "provenance": {
+        "catchup_scored_before_result_load": 38,
+        "database_scored_at_before_event": 131
+      },
+      "resolved_unique_fights": 141,
+      "selection_rule": "April\u2013August 2026; resolved rows",
+      "source": "git-blob:55f8f96c633c99d0ae4dcaafb1bf8b5ec448b9e3",
+      "source_sha256": "5233145f0213ae6b9bda3054257b176d049585a23cca5ec42b9e17b61ddb86f6",
+      "unique_fights": 169,
+      "window_rows": 169
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-07-11": 11,
+        "2026-07-18": 12,
+        "2026-08-01": 14,
+        "2026-08-08": 12,
+        "2026-08-15": 11,
+        "2026-08-22": 14,
+        "2026-08-29": 9
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 58,
+          "count": 88
+        },
+        "high_confidence": {
+          "correct": 28,
+          "count": 40
+        },
+        "total": {
+          "correct": 79,
+          "count": 141
+        },
+        "uncertain": {
+          "correct": 21,
+          "count": 53
+        }
+      },
+      "provenance": {
+        "catchup_scored_before_result_load": 38,
+        "database_scored_at_before_event": 131
+      },
+      "resolved_unique_fights": 141,
+      "selection_rule": "April\u2013August 2026; resolved rows",
+      "source": "git-blob:5863fb45fd5789833ca22cb83bfb90c6d5d97448",
+      "source_sha256": "0d50ae8fc25ce09eaefb498bc81b29a998813f2943a9b5dfeeb5b8781550992d",
+      "unique_fights": 169,
+      "window_rows": 169
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 1,
+        "2026-04-18": 12,
+        "2026-04-25": 11,
+        "2026-05-02": 11,
+        "2026-05-09": 11,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 24,
+          "count": 35
+        },
+        "high_confidence": {
+          "correct": 7,
+          "count": 11
+        },
+        "total": {
+          "correct": 33,
+          "count": 65
+        },
+        "uncertain": {
+          "correct": 9,
+          "count": 30
+        }
+      },
+      "provenance": {
+        "prediction_dir_before_event": 73,
+        "scored_at_before_event": 11
+      },
+      "resolved_unique_fights": 65,
+      "selection_rule": "April\u2013August 2026; resolved rows",
+      "source": "git-blob:77f7fbd4485ba9ba3a698e91d088f8c7aa820580",
+      "source_sha256": "a3f4d9b35d24208ee569dbd8ed1d965576a5ad89b89d7bf87fc1c16920009245",
+      "unique_fights": 84,
+      "window_rows": 84
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-07-11": 11
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 27,
+          "count": 40
+        },
+        "high_confidence": {
+          "correct": 8,
+          "count": 12
+        },
+        "total": {
+          "correct": 40,
+          "count": 74
+        },
+        "uncertain": {
+          "correct": 13,
+          "count": 34
+        }
+      },
+      "provenance": {
+        "database_scored_at_before_event": 97
+      },
+      "resolved_unique_fights": 74,
+      "selection_rule": "April\u2013August 2026; resolved rows",
+      "source": "git-blob:7853cde6c232783beb2ecde1211a7c699cf6764b",
+      "source_sha256": "9169b0acd5ce837e6f38e1ff743544be52801131d4182a1fbd67dc02b796656f",
+      "unique_fights": 97,
+      "window_rows": 97
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 19,
+          "count": 30
+        },
+        "high_confidence": {
+          "correct": 5,
+          "count": 8
+        },
+        "total": {
+          "correct": 31,
+          "count": 52
+        },
+        "uncertain": {
+          "correct": 12,
+          "count": 22
+        }
+      },
+      "provenance": {
+        "database_scored_at_before_event": 80
+      },
+      "resolved_unique_fights": 52,
+      "selection_rule": "April\u2013August 2026; resolved rows",
+      "source": "git-blob:807dd47cb48eb673dd0e38a6c768a345cb68d827",
+      "source_sha256": "7adba5d4a1697986318d52dd4ce88949dcbccbccd4401f5a633289ba4b226ced",
+      "unique_fights": 80,
+      "window_rows": 80
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 23,
+          "count": 35
+        },
+        "high_confidence": {
+          "correct": 6,
+          "count": 9
+        },
+        "total": {
+          "correct": 36,
+          "count": 65
+        },
+        "uncertain": {
+          "correct": 13,
+          "count": 30
+        }
+      },
+      "provenance": {
+        "database_scored_at_before_event": 86
+      },
+      "resolved_unique_fights": 65,
+      "selection_rule": "April\u2013August 2026; resolved rows",
+      "source": "git-blob:c868d96dfeb90285f1818335e5113db573c27a5f",
+      "source_sha256": "8a34e41185f7f5f7ab01851131598ed96e0e4445978ef14a60a5cbbe0ad7d781",
+      "unique_fights": 86,
+      "window_rows": 86
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-07-11": 11
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 31,
+          "count": 45
+        },
+        "high_confidence": {
+          "correct": 11,
+          "count": 15
+        },
+        "total": {
+          "correct": 45,
+          "count": 84
+        },
+        "uncertain": {
+          "correct": 14,
+          "count": 39
+        }
+      },
+      "provenance": {
+        "database_scored_at_before_event": 97
+      },
+      "resolved_unique_fights": 84,
+      "selection_rule": "April\u2013August 2026; resolved rows",
+      "source": "git-blob:e434058c18e78c26fd42e2f805ce02ece4f62ee4",
+      "source_sha256": "1701b18f3ad69c5d05e020a72dce5d97eba23a63e99bd9365654f1a39d90fc39",
+      "unique_fights": 97,
+      "window_rows": 97
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-07-11": 11,
+        "2026-07-18": 12,
+        "2026-08-01": 14,
+        "2026-08-08": 12,
+        "2026-08-15": 11,
+        "2026-08-22": 14,
+        "2026-08-29": 9
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 59,
+          "count": 91
+        },
+        "high_confidence": {
+          "correct": 30,
+          "count": 44
+        },
+        "total": {
+          "correct": 81,
+          "count": 146
+        },
+        "uncertain": {
+          "correct": 22,
+          "count": 55
+        }
+      },
+      "provenance": {
+        "catchup_scored_before_result_load": 38,
+        "database_scored_at_before_event": 131
+      },
+      "resolved_unique_fights": 146,
+      "selection_rule": "April\u2013August 2026; resolved rows",
+      "source": "git-blob:e7a6e34bb35e015d91975f182572613ad4d5b48e",
+      "source_sha256": "8b66ee10d706061a739604aaa74a6b71fcd3b02731d534c4a134eb9243c5d5ae",
+      "unique_fights": 169,
+      "window_rows": 169
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-07-11": 11,
+        "2026-07-18": 12,
+        "2026-08-01": 14,
+        "2026-08-15": 11,
+        "2026-08-22": 8,
+        "2026-08-29": 9
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 45,
+          "count": 68
+        },
+        "high_confidence": {
+          "correct": 23,
+          "count": 34
+        },
+        "total": {
+          "correct": 61,
+          "count": 110
+        },
+        "uncertain": {
+          "correct": 16,
+          "count": 42
+        }
+      },
+      "provenance": {
+        "catchup_scored_before_result_load": 26,
+        "database_scored_at_before_event": 125
+      },
+      "resolved_unique_fights": 110,
+      "selection_rule": "April\u2013August 2026; resolved rows",
+      "source": "git-blob:fa9f884098f624ba33202477d8c4d7bdaae01337",
+      "source_sha256": "2dd4e63d53ffca9b0001a0681384cfd004d8a4cc7190cb277ad8ea4576c25b25",
+      "unique_fights": 151,
+      "window_rows": 151
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 1,
+        "2026-04-18": 12,
+        "2026-04-25": 11,
+        "2026-05-02": 11,
+        "2026-05-09": 11,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-06-20": 11,
+        "2026-06-27": 12,
+        "2026-07-11": 11,
+        "2026-07-18": 12,
+        "2026-08-01": 14,
+        "2026-08-08": 12,
+        "2026-08-15": 11,
+        "2026-08-22": 14,
+        "2026-08-29": 9
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 51,
+          "count": 75
+        },
+        "high_confidence": {
+          "correct": 19,
+          "count": 26
+        },
+        "total": {
+          "correct": 73,
+          "count": 132
+        },
+        "uncertain": {
+          "correct": 22,
+          "count": 57
+        }
+      },
+      "provenance": {
+        "unspecified": 190
+      },
+      "resolved_unique_fights": 132,
+      "selection_rule": "all saved",
+      "source": "models/predictions/*/predictions.csv + data/fights.csv",
+      "unique_fights": 190,
+      "window_rows": 190
+    },
+    {
+      "event_counts": {
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-07-11": 11,
+        "2026-08-15": 11,
+        "2026-08-22": 14,
+        "2026-08-29": 9
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 16,
+          "count": 25
+        },
+        "high_confidence": {
+          "correct": 8,
+          "count": 11
+        },
+        "total": {
+          "correct": 19,
+          "count": 39
+        },
+        "uncertain": {
+          "correct": 3,
+          "count": 14
+        }
+      },
+      "provenance": {
+        "unspecified": 56
+      },
+      "resolved_unique_fights": 39,
+      "selection_rule": "scored before event day",
+      "source": "models/predictions/*/predictions.csv + data/fights.csv",
+      "unique_fights": 56,
+      "window_rows": 56
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 1,
+        "2026-04-18": 12,
+        "2026-04-25": 11,
+        "2026-05-02": 11,
+        "2026-05-09": 11,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-20": 11,
+        "2026-06-27": 12,
+        "2026-07-18": 12,
+        "2026-08-01": 14,
+        "2026-08-08": 12
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 35,
+          "count": 50
+        },
+        "high_confidence": {
+          "correct": 11,
+          "count": 15
+        },
+        "total": {
+          "correct": 54,
+          "count": 93
+        },
+        "uncertain": {
+          "correct": 19,
+          "count": 43
+        }
+      },
+      "provenance": {
+        "unspecified": 134
+      },
+      "resolved_unique_fights": 93,
+      "selection_rule": "scored on/after event day",
+      "source": "models/predictions/*/predictions.csv + data/fights.csv",
+      "unique_fights": 134,
+      "window_rows": 134
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-07-11": 11,
+        "2026-07-18": 12,
+        "2026-08-01": 14,
+        "2026-08-08": 12,
+        "2026-08-15": 11,
+        "2026-08-22": 14,
+        "2026-08-29": 9
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 58,
+          "count": 89
+        },
+        "high_confidence": {
+          "correct": 28,
+          "count": 41
+        },
+        "total": {
+          "correct": 79,
+          "count": 142
+        },
+        "uncertain": {
+          "correct": 21,
+          "count": 53
+        }
+      },
+      "provenance": {
+        "catchup_scored_before_result_load": 38,
+        "database_scored_at_before_event": 131
+      },
+      "resolved_unique_fights": 142,
+      "selection_rule": "April\u2013August 2026; resolved rows",
+      "source": "warehouse:pre_event_prediction_fights",
+      "unique_fights": 169,
+      "window_rows": 169
+    },
+    {
+      "event_counts": {
+        "2026-07-18": 12,
+        "2026-08-01": 14,
+        "2026-08-08": 12,
+        "2026-08-22": 13
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 24,
+          "count": 38
+        },
+        "high_confidence": {
+          "correct": 16,
+          "count": 25
+        },
+        "total": {
+          "correct": 31,
+          "count": 51
+        },
+        "uncertain": {
+          "correct": 7,
+          "count": 13
+        }
+      },
+      "provenance": {
+        "unspecified": 51
+      },
+      "resolved_unique_fights": 51,
+      "selection_rule": "April\u2013August 2026; resolved rows",
+      "source": "warehouse:reviewed_prediction_fights",
+      "unique_fights": 51,
+      "window_rows": 51
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 12,
+        "2026-04-25": 11,
+        "2026-05-02": 11,
+        "2026-05-09": 11,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-06-20": 11,
+        "2026-06-27": 12,
+        "2026-07-11": 11,
+        "2026-07-18": 14,
+        "2026-08-01": 16,
+        "2026-08-08": 12,
+        "2026-08-15": 11,
+        "2026-08-22": 14,
+        "2026-08-29": 9
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 55,
+          "count": 81
+        },
+        "high_confidence": {
+          "correct": 19,
+          "count": 25
+        },
+        "total": {
+          "correct": 81,
+          "count": 142
+        },
+        "uncertain": {
+          "correct": 26,
+          "count": 61
+        }
+      },
+      "provenance": {
+        "unspecified": 204
+      },
+      "resolved_unique_fights": 142,
+      "selection_rule": "all scoring timestamps; earliest per fight",
+      "source": "warehouse:predictions + fights + events",
+      "unique_fights": 204,
+      "window_rows": 204
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 12,
+        "2026-04-25": 11,
+        "2026-05-02": 11,
+        "2026-05-09": 11,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-06-20": 11,
+        "2026-06-27": 12,
+        "2026-07-11": 11,
+        "2026-07-18": 14,
+        "2026-08-01": 16,
+        "2026-08-08": 12,
+        "2026-08-15": 11,
+        "2026-08-22": 14,
+        "2026-08-29": 9
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 55,
+          "count": 80
+        },
+        "high_confidence": {
+          "correct": 19,
+          "count": 26
+        },
+        "total": {
+          "correct": 80,
+          "count": 142
+        },
+        "uncertain": {
+          "correct": 25,
+          "count": 62
+        }
+      },
+      "provenance": {
+        "unspecified": 204
+      },
+      "resolved_unique_fights": 142,
+      "selection_rule": "all scoring timestamps; latest per fight",
+      "source": "warehouse:predictions + fights + events",
+      "unique_fights": 204,
+      "window_rows": 204
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-07-11": 11,
+        "2026-08-15": 11,
+        "2026-08-22": 14,
+        "2026-08-29": 9
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 39,
+          "count": 60
+        },
+        "high_confidence": {
+          "correct": 14,
+          "count": 20
+        },
+        "total": {
+          "correct": 55,
+          "count": 104
+        },
+        "uncertain": {
+          "correct": 16,
+          "count": 44
+        }
+      },
+      "provenance": {
+        "unspecified": 131
+      },
+      "resolved_unique_fights": 104,
+      "selection_rule": "scored before event day; earliest per fight",
+      "source": "warehouse:predictions + fights + events",
+      "unique_fights": 131,
+      "window_rows": 131
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-07-11": 11,
+        "2026-08-15": 11,
+        "2026-08-22": 14,
+        "2026-08-29": 9
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 39,
+          "count": 60
+        },
+        "high_confidence": {
+          "correct": 14,
+          "count": 20
+        },
+        "total": {
+          "correct": 55,
+          "count": 104
+        },
+        "uncertain": {
+          "correct": 16,
+          "count": 44
+        }
+      },
+      "provenance": {
+        "unspecified": 131
+      },
+      "resolved_unique_fights": 104,
+      "selection_rule": "scored before event day; latest per fight",
+      "source": "warehouse:predictions + fights + events",
+      "unique_fights": 131,
+      "window_rows": 131
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-07-11": 11,
+        "2026-07-18": 12,
+        "2026-08-01": 14,
+        "2026-08-08": 12,
+        "2026-08-15": 11,
+        "2026-08-22": 14,
+        "2026-08-29": 9
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 63,
+          "count": 97
+        },
+        "high_confidence": {
+          "correct": 30,
+          "count": 44
+        },
+        "total": {
+          "correct": 86,
+          "count": 154
+        },
+        "uncertain": {
+          "correct": 23,
+          "count": 57
+        }
+      },
+      "provenance": {
+        "database_scored_at_before_event": 118,
+        "unspecified": 51
+      },
+      "resolved_unique_fights": 154,
+      "selection_rule": "April\u2013August 2026; reviewed rows take precedence by fight_id",
+      "source": "warehouse:view with reviewed outcomes restored",
+      "unique_fights": 169,
+      "window_rows": 169
+    },
+    {
+      "event_counts": {
+        "2026-04-04": 11,
+        "2026-04-11": 11,
+        "2026-04-18": 10,
+        "2026-04-25": 9,
+        "2026-05-02": 8,
+        "2026-05-09": 10,
+        "2026-05-16": 8,
+        "2026-05-30": 8,
+        "2026-06-06": 5,
+        "2026-06-14": 6,
+        "2026-07-11": 11,
+        "2026-07-18": 12,
+        "2026-08-01": 14,
+        "2026-08-08": 12,
+        "2026-08-15": 11,
+        "2026-08-22": 14
+      },
+      "matches_all_invariants": false,
+      "metrics": {
+        "actionable": {
+          "correct": 59,
+          "count": 91
+        },
+        "high_confidence": {
+          "correct": 30,
+          "count": 44
+        },
+        "total": {
+          "correct": 81,
+          "count": 146
+        },
+        "uncertain": {
+          "correct": 22,
+          "count": 55
+        }
+      },
+      "provenance": {
+        "database_scored_at_before_event": 109,
+        "unspecified": 51
+      },
+      "resolved_unique_fights": 146,
+      "selection_rule": "April 1 through August 22; reviewed rows take precedence by fight_id",
+      "source": "warehouse:view with reviewed outcomes restored",
+      "unique_fights": 160,
+      "window_rows": 160
+    }
+  ],
+  "examined_sources": [
+    {
+      "refs": [
+        "refs/codex/turn-diffs/captures/1790844048217/491c938e-8d36-4ba6-a7f0-80d528b630f8/base 2114dd62b56127b14178cacff3ba7a1a29c367e1",
+        "refs/codex/turn-diffs/checkpoints/ae287569a8d4f8bfd94e58ab51602500b5655df901408e2e2f414175411997e4/93b32b06de97ed45c824cf56229a39b79b53c38a447035954fc220d730cd374a/1790843876111/8a9b4f93-2c90-48e9-9db0-647354e741b1 2114dd62b56127b14178cacff3ba7a1a29c367e1",
+        "refs/codex/turn-diffs/checkpoints/f7360e47cf0bf7a84bb66515e6c4fd59455987c1f6693d5e13320275a504e3b1/9fbe4de9932cf9a9cac5ea5e2d4c83b525d82b8008766eec4e55a8d979cf7bfd/1790794393890/daf28303-d0c9-4717-895e-61f5903818b1 2114dd62b56127b14178cacff3ba7a1a29c367e1",
+        "refs/heads/main a38dd70c6809953b232bffa611e5c9d1ea2f044b",
+        "refs/remotes/origin/main 81b729a21eab4b9fa50018be21fdd7e3f3390abf"
+      ],
+      "source": "git history, refs, reflogs, stash and unreachable objects",
+      "stash": [],
+      "unreachable_blobs_inspected": 366
+    },
+    {
+      "rows": 1,
+      "scored_at_values": [
+        "2026-05-31T20:14:28.201894+00:00"
+      ],
+      "sha256": "0383c09875968847dee7f8b7ae73b6ea042626ec0bf027df325be47f7e2a4e95",
+      "source": "models/predictions/2026-03-30/predictions.csv",
+      "window_rows": 0
+    },
+    {
+      "rows": 11,
+      "scored_at_values": [
+        "2026-04-06T17:11:01.455546+00:00"
+      ],
+      "sha256": "e49af517d1198f8b4186a75cf02ae5893d0d25afd19df26155a66fd67d98347a",
+      "source": "models/predictions/2026-04-04/predictions.csv",
+      "window_rows": 11
+    },
+    {
+      "rows": 1,
+      "scored_at_values": [
+        "2026-05-31T20:14:28.201894+00:00"
+      ],
+      "sha256": "9b4af1ecc91a6db812bfd3574dd1abeb15db6372618aef82a01d386d782689bf",
+      "source": "models/predictions/2026-04-11/predictions.csv",
+      "window_rows": 1
+    },
+    {
+      "rows": 12,
+      "scored_at_values": [
+        "2026-05-31T20:14:28.201894+00:00"
+      ],
+      "sha256": "6128467d2941e71ebf0b0be4e812935b738cbd6c5400e76544392e3ee5b7da1b",
+      "source": "models/predictions/2026-04-18/predictions.csv",
+      "window_rows": 12
+    },
+    {
+      "rows": 11,
+      "scored_at_values": [
+        "2026-05-31T20:14:28.201894+00:00"
+      ],
+      "sha256": "5600ea8329ea109809dca0f92a07ffc0c5ef843ef3d62cac2977de3ba71bfdda",
+      "source": "models/predictions/2026-04-25/predictions.csv",
+      "window_rows": 11
+    },
+    {
+      "rows": 11,
+      "scored_at_values": [
+        "2026-05-31T20:14:28.201894+00:00"
+      ],
+      "sha256": "41978da48c58ad5e154215385363bf8355a1f4a8b0525775c1a49b11c3533ada",
+      "source": "models/predictions/2026-05-02/predictions.csv",
+      "window_rows": 11
+    },
+    {
+      "rows": 11,
+      "scored_at_values": [
+        "2026-05-31T20:14:28.201894+00:00"
+      ],
+      "sha256": "00f5248a66b68a273a8ecedbb2180df1585a621c7166b5550becf321b1aa1001",
+      "source": "models/predictions/2026-05-09/predictions.csv",
+      "window_rows": 11
+    },
+    {
+      "rows": 8,
+      "scored_at_values": [
+        "2026-05-31T20:14:28.201894+00:00"
+      ],
+      "sha256": "d9b521bbda6008e36b252f17fc2dafc449ede3a3371d7db98acf7d779afa1fb5",
+      "source": "models/predictions/2026-05-16/predictions.csv",
+      "window_rows": 8
+    },
+    {
+      "rows": 8,
+      "scored_at_values": [
+        "2026-05-31T20:14:28.201894+00:00"
+      ],
+      "sha256": "2a72261781d960fa513c3ca93a4a65ec99a4f2dddfb50069045f33d6dfe71b01",
+      "source": "models/predictions/2026-05-30/predictions.csv",
+      "window_rows": 8
+    },
+    {
+      "rows": 5,
+      "scored_at_values": [
+        "2026-05-31T20:14:28.201894+00:00"
+      ],
+      "sha256": "8bba6dba1e60a34e137374930325efb9e27df0268e40a1f5bc79d00aa67575d5",
+      "source": "models/predictions/2026-06-06/predictions.csv",
+      "window_rows": 5
+    },
+    {
+      "rows": 6,
+      "scored_at_values": [
+        "2026-05-31T20:14:28.201894+00:00"
+      ],
+      "sha256": "85b11b75669b34a00cf374c9e12251afd580cfec877c9157d897edc2474d1e98",
+      "source": "models/predictions/2026-06-14/predictions.csv",
+      "window_rows": 6
+    },
+    {
+      "rows": 11,
+      "scored_at_values": [
+        "2026-07-01T09:58:27.270609+00:00"
+      ],
+      "sha256": "276d4b12b9f086d176b3d89b4fd91dd7bc90a557536a9561be163ea41e5f3d4e",
+      "source": "models/predictions/2026-06-20/predictions.csv",
+      "window_rows": 11
+    },
+    {
+      "rows": 12,
+      "scored_at_values": [
+        "2026-07-01T09:58:28.865039+00:00"
+      ],
+      "sha256": "5e1e99b7b56e934007c122f32c7ae5743a34000ce0d3c453978891ab749271c3",
+      "source": "models/predictions/2026-06-27/predictions.csv",
+      "window_rows": 12
+    },
+    {
+      "rows": 11,
+      "scored_at_values": [
+        "2026-07-01T10:06:40.765321+00:00"
+      ],
+      "sha256": "d1cf19e4b55855254248624b2aafa25d127d07117a6bebd30c01cf35d39cf5b8",
+      "source": "models/predictions/2026-07-11/predictions.csv",
+      "window_rows": 11
+    },
+    {
+      "rows": 12,
+      "scored_at_values": [
+        "2026-08-08T18:05:36.577481+00:00"
+      ],
+      "sha256": "a5a2b492f157b7ddf6fb4e2000e18de4a8cfb21c90a48b7d77437de25c576850",
+      "source": "models/predictions/2026-07-18/predictions.csv",
+      "window_rows": 12
+    },
+    {
+      "rows": 14,
+      "scored_at_values": [
+        "2026-08-08T18:05:36.577481+00:00"
+      ],
+      "sha256": "058df3922acbfc2e9601d02778102a05331a7cdfa88189c24823622cef08e26a",
+      "source": "models/predictions/2026-08-01/predictions.csv",
+      "window_rows": 14
+    },
+    {
+      "rows": 12,
+      "scored_at_values": [
+        "2026-08-09T11:44:27.480069+00:00"
+      ],
+      "sha256": "6ea25addc8a16afbc51369407dcf7405f7d27fb2cf964c7c1e708cc7c3ea2ac3",
+      "source": "models/predictions/2026-08-08/predictions.csv",
+      "window_rows": 12
+    },
+    {
+      "rows": 11,
+      "scored_at_values": [
+        "2026-08-09T11:17:50.025384+00:00"
+      ],
+      "sha256": "71b969fe9a6effbd18a7468e1daa1fb75ce5768894dc64988efc3c37f757a663",
+      "source": "models/predictions/2026-08-15/predictions.csv",
+      "window_rows": 11
+    },
+    {
+      "rows": 14,
+      "scored_at_values": [
+        "2026-08-16T20:25:39.927324+00:00"
+      ],
+      "sha256": "05dc46e86879f72d613e609668e7bafd778629e0c785f8b7c029d0c3b4d71bf3",
+      "source": "models/predictions/2026-08-22/predictions.csv",
+      "window_rows": 14
+    },
+    {
+      "rows": 9,
+      "scored_at_values": [
+        "2026-08-24T13:38:11.321163+00:00"
+      ],
+      "sha256": "03a34d743e442cab043a5f3e3d00d34881f18bdec6fe3b65748ede9ecb7dffed",
+      "source": "models/predictions/2026-08-29/predictions.csv",
+      "window_rows": 9
+    },
+    {
+      "rows": 11,
+      "scored_at_values": [
+        "2026-09-12T16:45:56.181544+00:00"
+      ],
+      "sha256": "8feb32354ca9b3cdaffae2f010b6a60c54b830fb7b6ab4c5165abe3d7a56d4d5",
+      "source": "models/predictions/2026-09-05/predictions.csv",
+      "window_rows": 0
+    },
+    {
+      "rows": 13,
+      "scored_at_values": [
+        "2026-09-12T16:47:25.126603+00:00"
+      ],
+      "sha256": "1116f3374c22891309e280a5baa548202043bbec1472ef8655b1ffa08f017639",
+      "source": "models/predictions/2026-09-12/predictions.csv",
+      "window_rows": 0
+    },
+    {
+      "rows": 13,
+      "scored_at_values": [
+        "2026-09-18T18:03:43.797610+00:00"
+      ],
+      "sha256": "8927ff1d53bc15f8c132c946346bf83aafbaa2ac47ffe94f3ba92bb85c9688fb",
+      "source": "models/predictions/2026-09-19/predictions.csv",
+      "window_rows": 0
+    },
+    {
+      "rows": 11,
+      "scored_at_values": [
+        "2026-09-26T10:56:15.976410+00:00"
+      ],
+      "sha256": "ccb721609eb5e08ecbe68d89e0b4a6b07a969ebc2c592ac5a9ad68d076070e27",
+      "source": "models/predictions/2026-09-26/predictions.csv",
+      "window_rows": 0
+    },
+    {
+      "rows": 14,
+      "scored_at_values": [
+        "2026-09-30T18:49:49.316634+00:00"
+      ],
+      "sha256": "281ab89435d963a76d2bd19feeb7064943c00bf57e33d5dfdd9644baeff8fbf6",
+      "source": "models/predictions/2026-10-03/predictions.csv",
+      "window_rows": 0
+    },
+    {
+      "rows": 1,
+      "scored_at_values": [
+        "2026-09-30T18:49:49.316634+00:00"
+      ],
+      "sha256": "17e9dea353c4f6d2e9280d1345804a9f1e0da3f9efe4096b277e93cd0ad0bfc4",
+      "source": "models/predictions/2026-10-10/predictions.csv",
+      "window_rows": 0
+    },
+    {
+      "rows": 12,
+      "scored_at_values": [
+        "2026-09-30T18:49:49.316634+00:00"
+      ],
+      "sha256": "8c6e60c01d4e1caf9e4847a0b322f3f02ddb0f863741b4eb03d62807daed5404",
+      "source": "models/predictions/2026-10-17/predictions.csv",
+      "window_rows": 0
+    },
+    {
+      "rows": 6,
+      "scored_at_values": [
+        "2026-09-30T18:49:49.316634+00:00"
+      ],
+      "sha256": "08930c3bd20de044c6bd45aae0eaca4899b97203aa9729a098d25eba69c19637",
+      "source": "models/predictions/2026-10-24/predictions.csv",
+      "window_rows": 0
+    },
+    {
+      "rows": 1,
+      "scored_at_values": [
+        "2026-09-30T18:49:49.316634+00:00"
+      ],
+      "sha256": "ca47e9f6ea1217cd4f20ca6c9f3a9738ea31907c0d2e68dfa597d619034c577c",
+      "source": "models/predictions/2026-10-31/predictions.csv",
+      "window_rows": 0
+    },
+    {
+      "rows": 1,
+      "scored_at_values": [
+        "2026-09-30T18:49:49.316634+00:00"
+      ],
+      "sha256": "7e010234e86601b4507b2e57b0eef340c43da4947463c9414c0d4572647b7ce6",
+      "source": "models/predictions/2026-11-07/predictions.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [],
+      "rows": 0,
+      "sha256": "fc9a3393ad8b71d7e436f7a764404bfef90650f787e297262ee42220cb178d72",
+      "source": "data/reports/balldontlie_current_odds_matching_qa.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "source",
+        "line_type",
+        "row_status",
+        "match_reason",
+        "rejection_reason",
+        "balldontlie_event_id",
+        "balldontlie_event_name",
+        "balldontlie_event_date",
+        "balldontlie_fight_id",
+        "balldontlie_odds_id",
+        "balldontlie_fighter_1_id",
+        "balldontlie_fighter_1_name",
+        "balldontlie_fighter_2_id",
+        "balldontlie_fighter_2_name",
+        "vendor",
+        "odds_timestamp",
+        "local_event_id",
+        "local_event_name",
+        "local_fight_id",
+        "local_fighter_1_id",
+        "local_fighter_1_name",
+        "local_fighter_2_id",
+        "local_fighter_2_name",
+        "canonical_rows"
+      ],
+      "rows": 47,
+      "sha256": "4bb295bfa73dff8d592c9ec777ba6050bd571647322b06cc4777724a7837043f",
+      "source": "data/reports/balldontlie_odds_matching_qa.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "bets",
+        "wins",
+        "losses",
+        "pushes",
+        "passes",
+        "staked",
+        "profit_loss",
+        "roi",
+        "ending_bankroll",
+        "drawdown_after_event",
+        "bankroll_before_event",
+        "peak_bankroll",
+        "max_drawdown",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction"
+      ],
+      "rows": 18,
+      "sha256": "94f87e0a2eaa631b037f5efc9e42f7d63567a31ad3cb6c8c883dc7989a2e7e41",
+      "source": "data/reports/betting_backtest_events.csv",
+      "window_rows": 14
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "fight_id",
+        "fighter_id",
+        "fighter_name",
+        "opponent_fighter_id",
+        "opponent_fighter_name",
+        "bookmaker",
+        "market",
+        "line_type",
+        "odds_timestamp",
+        "scored_at",
+        "model_probability",
+        "market_implied_probability",
+        "no_vig_market_probability",
+        "edge",
+        "edge_bucket",
+        "ev_per_unit",
+        "offered_decimal_odds",
+        "decision",
+        "recommended_fighter_id",
+        "recommended_fighter_name",
+        "confidence_tier",
+        "reason_codes",
+        "full_kelly_fraction",
+        "fractional_kelly_fraction",
+        "final_stake_fraction",
+        "stake_amount",
+        "bet_result",
+        "profit_loss_amount",
+        "bankroll_before_event",
+        "bankroll_after_event",
+        "peak_bankroll",
+        "drawdown",
+        "max_drawdown",
+        "actual_winner_fighter_id",
+        "actual_winner_name",
+        "result_type",
+        "resolved",
+        "detail_mode",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "ending_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 174,
+      "sha256": "9529ceded9e7dc601ae9360a1568c405bf69e317fd2e97d3cabecdd7deab7653",
+      "source": "data/reports/betting_backtest_fights.csv",
+      "window_rows": 132
+    },
+    {
+      "columns": [
+        "summary_type",
+        "group",
+        "total_bets",
+        "wins",
+        "losses",
+        "pushes",
+        "total_staked",
+        "profit_loss",
+        "roi",
+        "hit_rate",
+        "average_odds",
+        "max_drawdown",
+        "starting_bankroll",
+        "ending_bankroll",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 24,
+      "sha256": "f1ede4e8f36293f4150e77a7463c0df7b87bc42d21bb19f41d5ffdf4f88374c9",
+      "source": "data/reports/betting_backtest_summary.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "split",
+        "calibration_method",
+        "rows",
+        "accuracy",
+        "log_loss",
+        "brier_score",
+        "ece",
+        "roc_auc"
+      ],
+      "rows": 9,
+      "sha256": "7c26021d93523c540284c3d580ce18949d9a66b8ec372d8aa32f81af55c18156",
+      "source": "data/reports/betting_calibration_walkforward.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "bets",
+        "wins",
+        "losses",
+        "pushes",
+        "passes",
+        "staked",
+        "profit_loss",
+        "roi",
+        "ending_bankroll",
+        "drawdown_after_event",
+        "bankroll_before_event",
+        "peak_bankroll",
+        "max_drawdown",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction"
+      ],
+      "rows": 23,
+      "sha256": "920f172d41d5b8da11e66387648bcd61d2a373588f66997d03c1cb7861f0eaf2",
+      "source": "data/reports/betting_conservative_candidate/betting_backtest_events.csv",
+      "window_rows": 14
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "fight_id",
+        "fighter_id",
+        "fighter_name",
+        "opponent_fighter_id",
+        "opponent_fighter_name",
+        "bookmaker",
+        "market",
+        "line_type",
+        "odds_timestamp",
+        "scored_at",
+        "model_probability",
+        "market_implied_probability",
+        "no_vig_market_probability",
+        "edge",
+        "edge_bucket",
+        "ev_per_unit",
+        "offered_decimal_odds",
+        "decision",
+        "recommended_fighter_id",
+        "recommended_fighter_name",
+        "confidence_tier",
+        "reason_codes",
+        "full_kelly_fraction",
+        "fractional_kelly_fraction",
+        "final_stake_fraction",
+        "stake_amount",
+        "bet_result",
+        "profit_loss_amount",
+        "bankroll_before_event",
+        "bankroll_after_event",
+        "peak_bankroll",
+        "drawdown",
+        "max_drawdown",
+        "actual_winner_fighter_id",
+        "actual_winner_name",
+        "result_type",
+        "resolved",
+        "detail_mode",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "ending_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 210,
+      "sha256": "3f1b73dc4d43d9866b244464ebe0c12e3d8c9ac56083e8f42f5efd000c7eef5d",
+      "source": "data/reports/betting_conservative_candidate/betting_backtest_fights.csv",
+      "window_rows": 143
+    },
+    {
+      "columns": [
+        "summary_type",
+        "group",
+        "total_bets",
+        "wins",
+        "losses",
+        "pushes",
+        "total_staked",
+        "profit_loss",
+        "roi",
+        "hit_rate",
+        "average_odds",
+        "max_drawdown",
+        "starting_bankroll",
+        "ending_bankroll",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 30,
+      "sha256": "a2745f2e9327b29450c923fb48646fc8a1348d2cca7cea8c61fe74cb4af418e5",
+      "source": "data/reports/betting_conservative_candidate/betting_backtest_summary.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "bets",
+        "wins",
+        "losses",
+        "pushes",
+        "passes",
+        "staked",
+        "profit_loss",
+        "roi",
+        "ending_bankroll",
+        "drawdown_after_event",
+        "bankroll_before_event",
+        "peak_bankroll",
+        "max_drawdown",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction"
+      ],
+      "rows": 23,
+      "sha256": "b30cc28207babb3738169003d7221fa8438ea9bb93736f4b1326dcb0074ecda9",
+      "source": "data/reports/betting_default/betting_backtest_events.csv",
+      "window_rows": 14
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "fight_id",
+        "fighter_id",
+        "fighter_name",
+        "opponent_fighter_id",
+        "opponent_fighter_name",
+        "bookmaker",
+        "market",
+        "line_type",
+        "odds_timestamp",
+        "scored_at",
+        "model_probability",
+        "market_implied_probability",
+        "no_vig_market_probability",
+        "edge",
+        "edge_bucket",
+        "ev_per_unit",
+        "offered_decimal_odds",
+        "decision",
+        "recommended_fighter_id",
+        "recommended_fighter_name",
+        "confidence_tier",
+        "reason_codes",
+        "full_kelly_fraction",
+        "fractional_kelly_fraction",
+        "final_stake_fraction",
+        "stake_amount",
+        "bet_result",
+        "profit_loss_amount",
+        "bankroll_before_event",
+        "bankroll_after_event",
+        "peak_bankroll",
+        "drawdown",
+        "max_drawdown",
+        "actual_winner_fighter_id",
+        "actual_winner_name",
+        "result_type",
+        "resolved",
+        "detail_mode",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "ending_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 210,
+      "sha256": "cd20b1e1d0c472bbec23d0432a9699f5ed9cee1f5d262414373afbd9933fb7f8",
+      "source": "data/reports/betting_default/betting_backtest_fights.csv",
+      "window_rows": 143
+    },
+    {
+      "columns": [
+        "summary_type",
+        "group",
+        "total_bets",
+        "wins",
+        "losses",
+        "pushes",
+        "total_staked",
+        "profit_loss",
+        "roi",
+        "hit_rate",
+        "average_odds",
+        "max_drawdown",
+        "starting_bankroll",
+        "ending_bankroll",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 30,
+      "sha256": "b083e5bf6b4909853dd316356713e3c3606ea3b7ed5352960cd53488b9acdd66",
+      "source": "data/reports/betting_default/betting_backtest_summary.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "bets_recommended",
+        "total_stake_fraction",
+        "total_stake_amount",
+        "event_exposure_fraction",
+        "pass_count",
+        "top_pass_reasons",
+        "bfo_benchmark_fresh_rows",
+        "bfo_benchmark_stale_rows",
+        "bfo_benchmark_missing_rows",
+        "bfo_benchmark_other_unusable_rows",
+        "drawdown_protection_enabled",
+        "drawdown_protection_fired"
+      ],
+      "rows": 1,
+      "sha256": "142ffa29d00ac1746740164ef358b462215814378b01533b9d973fd0ab84b961",
+      "source": "data/reports/betting_event_summary.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "bets",
+        "wins",
+        "losses",
+        "pushes",
+        "passes",
+        "staked",
+        "profit_loss",
+        "roi",
+        "ending_bankroll",
+        "drawdown_after_event",
+        "bankroll_before_event",
+        "peak_bankroll",
+        "max_drawdown",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction"
+      ],
+      "rows": 53,
+      "sha256": "b03fcca1228b1b251ed37e83df35f97e3f047f2675d4a6ab2ef2c380813c59f8",
+      "source": "data/reports/betting_policy_tuned_holdout/events.csv",
+      "window_rows": 1
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "fight_id",
+        "fighter_id",
+        "fighter_name",
+        "opponent_fighter_id",
+        "opponent_fighter_name",
+        "bookmaker",
+        "market",
+        "line_type",
+        "odds_timestamp",
+        "scored_at",
+        "model_probability",
+        "market_implied_probability",
+        "no_vig_market_probability",
+        "edge",
+        "edge_bucket",
+        "ev_per_unit",
+        "offered_decimal_odds",
+        "decision",
+        "recommended_fighter_id",
+        "recommended_fighter_name",
+        "confidence_tier",
+        "reason_codes",
+        "full_kelly_fraction",
+        "fractional_kelly_fraction",
+        "final_stake_fraction",
+        "stake_amount",
+        "bet_result",
+        "profit_loss_amount",
+        "bankroll_before_event",
+        "bankroll_after_event",
+        "peak_bankroll",
+        "drawdown",
+        "max_drawdown",
+        "actual_winner_fighter_id",
+        "actual_winner_name",
+        "result_type",
+        "resolved",
+        "detail_mode",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "ending_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 4627,
+      "sha256": "3fc24804167a3f6993dda8fdd2c2e632d37d97477bee6d2facbe6e48dbde13e0",
+      "source": "data/reports/betting_policy_tuned_holdout/fights.csv",
+      "window_rows": 11
+    },
+    {
+      "columns": [
+        "summary_type",
+        "group",
+        "total_bets",
+        "wins",
+        "losses",
+        "pushes",
+        "total_staked",
+        "profit_loss",
+        "roi",
+        "hit_rate",
+        "average_odds",
+        "max_drawdown",
+        "starting_bankroll",
+        "ending_bankroll",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 60,
+      "sha256": "80ba28169e46844b58a6739d2299049b01b7dcafd7cdeaa27d30e99750a90b52",
+      "source": "data/reports/betting_policy_tuned_holdout/summary.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "split",
+        "calibration_method",
+        "min_edge",
+        "min_ev",
+        "kelly_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "toss_up_tier_cap",
+        "total_bets",
+        "wins",
+        "losses",
+        "pushes",
+        "total_staked",
+        "profit_loss",
+        "roi",
+        "hit_rate",
+        "max_drawdown",
+        "ending_bankroll"
+      ],
+      "rows": 768,
+      "sha256": "f3393abf11c2409e6350e1b9e0fc5b00703daf98a3650273e409a231aeecd03a",
+      "source": "data/reports/betting_policy_tuning.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "fight_id",
+        "fighter_id",
+        "fighter_name",
+        "opponent_fighter_id",
+        "opponent_fighter_name",
+        "bookmaker",
+        "market",
+        "line_type",
+        "odds_timestamp",
+        "model_probability",
+        "market_implied_probability",
+        "no_vig_market_probability",
+        "edge",
+        "ev_per_unit",
+        "ev_percent",
+        "full_kelly_fraction",
+        "fractional_kelly_fraction",
+        "final_stake_fraction",
+        "stake_amount",
+        "decision",
+        "recommended_fighter_id",
+        "recommended_fighter_name",
+        "confidence_tier",
+        "drawdown_protection_enabled",
+        "drawdown_protection_fired",
+        "current_drawdown",
+        "reason_codes",
+        "bfo_benchmark_label",
+        "bfo_benchmark_freshness_status",
+        "bfo_benchmark_exclusion_reason",
+        "bfo_benchmark_odds_timestamp",
+        "bfo_benchmark_odds_age_hours",
+        "bfo_benchmark_decimal_odds",
+        "bfo_benchmark_no_vig_market_probability",
+        "bfo_benchmark_edge",
+        "bfo_benchmark_ev_per_unit"
+      ],
+      "rows": 69,
+      "sha256": "a0ab3eef67a70a9fcd8f62d56d8155958507ec2a1a307a81a0107e77861a81dc",
+      "source": "data/reports/betting_recommendations.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "fight_id",
+        "fighter_names",
+        "side_count",
+        "row_count",
+        "market_group_count",
+        "first_odds_timestamp",
+        "last_odds_timestamp",
+        "has_two_sides",
+        "source_url_count"
+      ],
+      "rows": 12,
+      "sha256": "14c2963200b4a89ee7f16e1026f36e9c5e8a8fbd440b4986891912a01820a92e",
+      "source": "data/reports/bfo_mean_market_benchmark/bfo_mean_canonical_coverage.csv",
+      "window_rows": 12
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "bets",
+        "wins",
+        "losses",
+        "pushes",
+        "passes",
+        "staked",
+        "profit_loss",
+        "roi",
+        "ending_bankroll",
+        "drawdown_after_event",
+        "bankroll_before_event",
+        "peak_bankroll",
+        "max_drawdown",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction"
+      ],
+      "rows": 1,
+      "sha256": "92ca50d3db1d9173151ffccd2391f4722a2695c3184ece4f05f846b21be066a0",
+      "source": "data/reports/bfo_mean_market_benchmark/bfo_mean_market_benchmark_events.csv",
+      "window_rows": 1
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "fight_id",
+        "fighter_id",
+        "fighter_name",
+        "opponent_fighter_id",
+        "opponent_fighter_name",
+        "bookmaker",
+        "market",
+        "line_type",
+        "odds_timestamp",
+        "scored_at",
+        "model_probability",
+        "market_implied_probability",
+        "no_vig_market_probability",
+        "edge",
+        "edge_bucket",
+        "ev_per_unit",
+        "offered_decimal_odds",
+        "decision",
+        "recommended_fighter_id",
+        "recommended_fighter_name",
+        "confidence_tier",
+        "reason_codes",
+        "full_kelly_fraction",
+        "fractional_kelly_fraction",
+        "final_stake_fraction",
+        "stake_amount",
+        "bet_result",
+        "profit_loss_amount",
+        "bankroll_before_event",
+        "bankroll_after_event",
+        "peak_bankroll",
+        "drawdown",
+        "max_drawdown",
+        "actual_winner_fighter_id",
+        "actual_winner_name",
+        "result_type",
+        "resolved",
+        "detail_mode",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "ending_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 22,
+      "sha256": "7d37ac211f8fd3c6de5eb1f2565fdf779a2cb82ce83fbd77fdfa9b30ede6a38c",
+      "source": "data/reports/bfo_mean_market_benchmark/bfo_mean_market_benchmark_fights.csv",
+      "window_rows": 22
+    },
+    {
+      "columns": [
+        "summary_type",
+        "group",
+        "total_bets",
+        "wins",
+        "losses",
+        "pushes",
+        "total_staked",
+        "profit_loss",
+        "roi",
+        "hit_rate",
+        "average_odds",
+        "max_drawdown",
+        "starting_bankroll",
+        "ending_bankroll",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 8,
+      "sha256": "e01901125cb793b1b3f68b49fc3babc7cd2006f6e62d3b8853a8354428ba4fdc",
+      "source": "data/reports/bfo_mean_market_benchmark/bfo_mean_market_benchmark_summary.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "benchmark_label",
+        "benchmark_freshness_status",
+        "benchmark_exclusion_reason",
+        "as_of",
+        "max_odds_age_hours",
+        "event_id",
+        "event_name",
+        "event_date",
+        "fight_id",
+        "fighter_id",
+        "fighter_name",
+        "opponent_fighter_id",
+        "opponent_fighter_name",
+        "bookmaker",
+        "market",
+        "line_type",
+        "odds_timestamp",
+        "odds_age_hours",
+        "scored_at",
+        "model_probability",
+        "market_implied_probability",
+        "no_vig_market_probability",
+        "edge",
+        "ev_per_unit",
+        "offered_decimal_odds"
+      ],
+      "rows": 102,
+      "sha256": "3b2bafa1e399572a64527f1d5a07b7cf9f15b783e301ebabf471ae25a01ea34f",
+      "source": "data/reports/bfo_mean_market_benchmark/bfo_mean_upcoming_market_snapshot.csv",
+      "window_rows": 18
+    },
+    {
+      "columns": [
+        "fight_id",
+        "event_date",
+        "fighter_1_id",
+        "fighter_2_id",
+        "fighter_1_name",
+        "fighter_2_name",
+        "weight_class",
+        "predicted_prob_f1",
+        "calibrated_prob_f1",
+        "confidence_tier",
+        "is_uncertain",
+        "model_name",
+        "model_artifact",
+        "scored_at"
+      ],
+      "rows": 4,
+      "sha256": "857fa5a23db10e26c8dee1efd1f8357cc65ed994b23dbcf8fd639b9cca8eaeba",
+      "source": "data/reports/canceled_fight_predictions_backup_20260912.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "fighter_id",
+        "fighter_url",
+        "full_name",
+        "flags",
+        "flag_count"
+      ],
+      "rows": 636,
+      "sha256": "56caaf58a2c4c7627c6723af9cdc43bed484cb037c9b6f837dabc0b1614180df",
+      "source": "data/reports/fighter_review.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "bets",
+        "wins",
+        "losses",
+        "pushes",
+        "passes",
+        "staked",
+        "profit_loss",
+        "roi",
+        "ending_bankroll",
+        "drawdown_after_event",
+        "bankroll_before_event",
+        "peak_bankroll",
+        "max_drawdown",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction"
+      ],
+      "rows": 768,
+      "sha256": "c9708d4fa45374c983ff9c94952ae20775da9820c10f303bc913f6c8fdc06b11",
+      "source": "data/reports/kaggle_research_backtest_events.csv",
+      "window_rows": 1
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "fight_id",
+        "fighter_id",
+        "fighter_name",
+        "opponent_fighter_id",
+        "opponent_fighter_name",
+        "bookmaker",
+        "market",
+        "line_type",
+        "odds_timestamp",
+        "scored_at",
+        "model_probability",
+        "market_implied_probability",
+        "no_vig_market_probability",
+        "edge",
+        "edge_bucket",
+        "ev_per_unit",
+        "offered_decimal_odds",
+        "decision",
+        "recommended_fighter_id",
+        "recommended_fighter_name",
+        "confidence_tier",
+        "reason_codes",
+        "full_kelly_fraction",
+        "fractional_kelly_fraction",
+        "final_stake_fraction",
+        "stake_amount",
+        "bet_result",
+        "profit_loss_amount",
+        "bankroll_before_event",
+        "bankroll_after_event",
+        "peak_bankroll",
+        "drawdown",
+        "max_drawdown",
+        "actual_winner_fighter_id",
+        "actual_winner_name",
+        "result_type",
+        "resolved",
+        "detail_mode",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "ending_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 18518,
+      "sha256": "261290f2cdb09d0526bef116905dadfe80c0d18edfb962c751341f27c940fc89",
+      "source": "data/reports/kaggle_research_backtest_fights.csv",
+      "window_rows": 11
+    },
+    {
+      "columns": [
+        "summary_type",
+        "group",
+        "total_bets",
+        "wins",
+        "losses",
+        "pushes",
+        "total_staked",
+        "profit_loss",
+        "roi",
+        "hit_rate",
+        "average_odds",
+        "max_drawdown",
+        "starting_bankroll",
+        "ending_bankroll",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 775,
+      "sha256": "bc6bc879a1f0fba5e9dfba294277c53492fa41dcce5b005429b22a3da1b19571",
+      "source": "data/reports/kaggle_research_backtest_summary.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "bets",
+        "wins",
+        "losses",
+        "pushes",
+        "passes",
+        "staked",
+        "profit_loss",
+        "roi",
+        "ending_bankroll",
+        "drawdown_after_event",
+        "bankroll_before_event",
+        "peak_bankroll",
+        "max_drawdown",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction"
+      ],
+      "rows": 768,
+      "sha256": "a1d9719d4bef02757a937dd91fb3573b9fbf0bb67db5f591709af460f156a516",
+      "source": "data/reports/kaggle_research_draftkings/kaggle_research_backtest_events.csv",
+      "window_rows": 1
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "fight_id",
+        "fighter_id",
+        "fighter_name",
+        "opponent_fighter_id",
+        "opponent_fighter_name",
+        "bookmaker",
+        "market",
+        "line_type",
+        "odds_timestamp",
+        "scored_at",
+        "model_probability",
+        "market_implied_probability",
+        "no_vig_market_probability",
+        "edge",
+        "edge_bucket",
+        "ev_per_unit",
+        "offered_decimal_odds",
+        "decision",
+        "recommended_fighter_id",
+        "recommended_fighter_name",
+        "confidence_tier",
+        "reason_codes",
+        "full_kelly_fraction",
+        "fractional_kelly_fraction",
+        "final_stake_fraction",
+        "stake_amount",
+        "bet_result",
+        "profit_loss_amount",
+        "bankroll_before_event",
+        "bankroll_after_event",
+        "peak_bankroll",
+        "drawdown",
+        "max_drawdown",
+        "actual_winner_fighter_id",
+        "actual_winner_name",
+        "result_type",
+        "resolved",
+        "detail_mode",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "ending_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 8532,
+      "sha256": "e0884af27fe765dbbee5f2680ce29d4de7640c8b8c712eed38a360fa3a1f5387",
+      "source": "data/reports/kaggle_research_draftkings/kaggle_research_backtest_fights.csv",
+      "window_rows": 11
+    },
+    {
+      "columns": [
+        "summary_type",
+        "group",
+        "total_bets",
+        "wins",
+        "losses",
+        "pushes",
+        "total_staked",
+        "profit_loss",
+        "roi",
+        "hit_rate",
+        "average_odds",
+        "max_drawdown",
+        "starting_bankroll",
+        "ending_bankroll",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 775,
+      "sha256": "75572195ff21414ab5051dd3eb0f5daf244bf1602bb5ebb4c9bb5666a3ef1131",
+      "source": "data/reports/kaggle_research_draftkings/kaggle_research_backtest_summary.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "bets",
+        "wins",
+        "losses",
+        "pushes",
+        "passes",
+        "staked",
+        "profit_loss",
+        "roi",
+        "ending_bankroll",
+        "drawdown_after_event",
+        "bankroll_before_event",
+        "peak_bankroll",
+        "max_drawdown",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction"
+      ],
+      "rows": 768,
+      "sha256": "f9996fbf54cc68bff7629dbc2742c944afea4fbeb6313d635e6b90c145cc78b2",
+      "source": "data/reports/kaggle_research_fanduel/kaggle_research_backtest_events.csv",
+      "window_rows": 1
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "fight_id",
+        "fighter_id",
+        "fighter_name",
+        "opponent_fighter_id",
+        "opponent_fighter_name",
+        "bookmaker",
+        "market",
+        "line_type",
+        "odds_timestamp",
+        "scored_at",
+        "model_probability",
+        "market_implied_probability",
+        "no_vig_market_probability",
+        "edge",
+        "edge_bucket",
+        "ev_per_unit",
+        "offered_decimal_odds",
+        "decision",
+        "recommended_fighter_id",
+        "recommended_fighter_name",
+        "confidence_tier",
+        "reason_codes",
+        "full_kelly_fraction",
+        "fractional_kelly_fraction",
+        "final_stake_fraction",
+        "stake_amount",
+        "bet_result",
+        "profit_loss_amount",
+        "bankroll_before_event",
+        "bankroll_after_event",
+        "peak_bankroll",
+        "drawdown",
+        "max_drawdown",
+        "actual_winner_fighter_id",
+        "actual_winner_name",
+        "result_type",
+        "resolved",
+        "detail_mode",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "ending_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 8532,
+      "sha256": "5a700d9767c5841db851298e16eac1d3c8ee8904b91eb204415b059b91689f86",
+      "source": "data/reports/kaggle_research_fanduel/kaggle_research_backtest_fights.csv",
+      "window_rows": 11
+    },
+    {
+      "columns": [
+        "summary_type",
+        "group",
+        "total_bets",
+        "wins",
+        "losses",
+        "pushes",
+        "total_staked",
+        "profit_loss",
+        "roi",
+        "hit_rate",
+        "average_odds",
+        "max_drawdown",
+        "starting_bankroll",
+        "ending_bankroll",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 775,
+      "sha256": "3e7fad43fb597095679bf710999a6911ac0dd17583f99dd327a10aa7518b2188",
+      "source": "data/reports/kaggle_research_fanduel/kaggle_research_backtest_summary.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "bets",
+        "wins",
+        "losses",
+        "pushes",
+        "passes",
+        "staked",
+        "profit_loss",
+        "roi",
+        "ending_bankroll",
+        "drawdown_after_event",
+        "bankroll_before_event",
+        "peak_bankroll",
+        "max_drawdown",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction"
+      ],
+      "rows": 768,
+      "sha256": "488ff73937619b74eed56e7f38f890732bbba60e862fbab5bb063d15f458765a",
+      "source": "data/reports/kaggle_research_zewnetrzne/kaggle_research_backtest_events.csv",
+      "window_rows": 1
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "fight_id",
+        "fighter_id",
+        "fighter_name",
+        "opponent_fighter_id",
+        "opponent_fighter_name",
+        "bookmaker",
+        "market",
+        "line_type",
+        "odds_timestamp",
+        "scored_at",
+        "model_probability",
+        "market_implied_probability",
+        "no_vig_market_probability",
+        "edge",
+        "edge_bucket",
+        "ev_per_unit",
+        "offered_decimal_odds",
+        "decision",
+        "recommended_fighter_id",
+        "recommended_fighter_name",
+        "confidence_tier",
+        "reason_codes",
+        "full_kelly_fraction",
+        "fractional_kelly_fraction",
+        "final_stake_fraction",
+        "stake_amount",
+        "bet_result",
+        "profit_loss_amount",
+        "bankroll_before_event",
+        "bankroll_after_event",
+        "peak_bankroll",
+        "drawdown",
+        "max_drawdown",
+        "actual_winner_fighter_id",
+        "actual_winner_name",
+        "result_type",
+        "resolved",
+        "detail_mode",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "starting_bankroll",
+        "ending_bankroll",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 14530,
+      "sha256": "329bdb377301304d43cfedab67efefceff9b39d86c65bc05beda97479fe286ed",
+      "source": "data/reports/kaggle_research_zewnetrzne/kaggle_research_backtest_fights.csv",
+      "window_rows": 11
+    },
+    {
+      "columns": [
+        "summary_type",
+        "group",
+        "total_bets",
+        "wins",
+        "losses",
+        "pushes",
+        "total_staked",
+        "profit_loss",
+        "roi",
+        "hit_rate",
+        "average_odds",
+        "max_drawdown",
+        "starting_bankroll",
+        "ending_bankroll",
+        "odds_policy",
+        "require_odds_before_prediction",
+        "max_one_bet_per_fight",
+        "kelly_fraction",
+        "min_edge",
+        "min_ev",
+        "max_single_bet_fraction",
+        "max_event_fraction",
+        "medium_tier_cap",
+        "high_tier_cap",
+        "toss_up_tier_cap",
+        "drawdown_protection_threshold"
+      ],
+      "rows": 775,
+      "sha256": "9d7f1e22f393df5cfa8e2a9de4140a83642d934a075c20a7bf395fc2d709fb4d",
+      "source": "data/reports/kaggle_research_zewnetrzne/kaggle_research_backtest_summary.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "source",
+        "row_number",
+        "row_status",
+        "match_reason",
+        "rejection_reason",
+        "source_event_name",
+        "source_event_date",
+        "source_fighter_1_name",
+        "source_fighter_2_name",
+        "source_bookmaker",
+        "source_region",
+        "source_market",
+        "source_line_type",
+        "source_odds_timestamp",
+        "odds_1",
+        "odds_2",
+        "candidate_event_id",
+        "candidate_event_name",
+        "candidate_event_date",
+        "candidate_fight_id",
+        "candidate_fighter_1_id",
+        "candidate_fighter_1_name",
+        "candidate_fighter_2_id",
+        "candidate_fighter_2_name",
+        "canonical_rows",
+        "notes",
+        "matched_count",
+        "unmatched_count",
+        "duplicate_count",
+        "ambiguous_count",
+        "rejected_count"
+      ],
+      "rows": 199392,
+      "sha256": "c303958cb8be2577593689515253054daa6af1dd7ab4e122bb1feed3bddf39f5",
+      "source": "data/reports/odds_matching_qa.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "model_name",
+        "pre_event_evidence",
+        "n_predicted_fights",
+        "correct",
+        "accuracy",
+        "log_loss",
+        "brier_score",
+        "first_scored_at",
+        "last_scored_at",
+        "high_count",
+        "medium_count",
+        "toss_up_count",
+        "high_accuracy",
+        "medium_accuracy",
+        "toss_up_accuracy"
+      ],
+      "rows": 17,
+      "sha256": "2e0ede062b1e6e72836cf7ce981bc41daa33eded2e3ebda104e875817208ab69",
+      "source": "data/reports/pre_event_prediction_events.csv",
+      "window_rows": 17
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "fight_id",
+        "fighter_1_name",
+        "fighter_2_name",
+        "weight_class",
+        "scored_at",
+        "pre_event_evidence",
+        "prediction_dir_mtime",
+        "prediction_file",
+        "predicted_prob_f1",
+        "calibrated_prob_f1",
+        "predicted_label",
+        "predicted_winner_name",
+        "confidence_tier",
+        "is_uncertain",
+        "actual_label",
+        "actual_winner_name",
+        "resolved",
+        "correct",
+        "model_name",
+        "model_artifact"
+      ],
+      "rows": 234,
+      "sha256": "b834e7a210aa2a3f1a3c2090fa1f6245788f4a61588497a7835b0dd19cd119e1",
+      "source": "data/reports/pre_event_prediction_fights.csv",
+      "window_rows": 169
+    },
+    {
+      "columns": [
+        "source",
+        "row_status",
+        "match_reason",
+        "rejection_reason",
+        "sportsdataio_event_id",
+        "sportsdataio_event_name",
+        "sportsdataio_event_date",
+        "sportsdataio_fight_id",
+        "sportsdataio_fighter_a_id",
+        "sportsdataio_fighter_a_name",
+        "sportsdataio_fighter_b_id",
+        "sportsdataio_fighter_b_name",
+        "sportsbook",
+        "created",
+        "updated",
+        "local_event_id",
+        "local_event_name",
+        "local_fight_id",
+        "local_fighter_1_id",
+        "local_fighter_1_name",
+        "local_fighter_2_id",
+        "local_fighter_2_name",
+        "canonical_rows"
+      ],
+      "rows": 11423,
+      "sha256": "e5354fec89c5d7d25084ecea51d34038deab7cf72734b535eb83a02e5c65b62b",
+      "source": "data/reports/sportsdataio_odds_matching_qa.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "fight_id",
+        "event_id",
+        "fight_url",
+        "finish_method",
+        "fetch_status",
+        "agg_stats",
+        "round_stats",
+        "gap_reason"
+      ],
+      "rows": 149,
+      "sha256": "84cea08c8a1c70a81512819780a7d1f0c53fd4489b82d578bd8fb59d9864120f",
+      "source": "data/reports/stats_coverage.csv",
+      "window_rows": 0
+    },
+    {
+      "columns": [
+        "event_name",
+        "event_date",
+        "n_fights",
+        "accuracy",
+        "log_loss",
+        "brier_score",
+        "model_name"
+      ],
+      "rows": 5,
+      "sha256": "0b4e03414873649591dbed9acaa801496774c49b07bff7cd89f8593f25850755",
+      "source": "models/prediction_log.csv",
+      "window_rows": 5
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "model_name",
+        "n_predicted_fights",
+        "correct",
+        "accuracy",
+        "log_loss",
+        "brier_score",
+        "first_scored_at",
+        "last_scored_at",
+        "high_count",
+        "medium_count",
+        "toss_up_count",
+        "high_accuracy",
+        "medium_accuracy",
+        "toss_up_accuracy"
+      ],
+      "rows": 4,
+      "sha256": "45950d60a6aa956faac34682abfbb63145727592bbe81ffd1ac36bda3b601517",
+      "source": "models/pre_event_prediction_events.csv",
+      "window_rows": 4
+    },
+    {
+      "columns": [
+        "fight_id",
+        "fighter_1_id",
+        "fighter_2_id",
+        "event_date",
+        "weight_class",
+        "label",
+        "predicted_prob_f1",
+        "calibrated_prob_f1",
+        "predicted_label",
+        "predicted_correct",
+        "predicted_prob_winner",
+        "confidence_tier",
+        "is_uncertain",
+        "event_id",
+        "event_name",
+        "winner_fighter_id",
+        "fighter_1_name",
+        "fighter_2_name",
+        "actual_winner_name",
+        "result_type",
+        "predicted_winner_id",
+        "predicted_winner_name",
+        "actual_label",
+        "model_name",
+        "model_artifact",
+        "scored_at"
+      ],
+      "rows": 8469,
+      "sha256": "716cf05b76d4735d374aadc8dc61873c90f987c62a273f2f004a099bd978821c",
+      "source": "models/backtests/past_event_predictions.csv",
+      "window_rows": 11
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "n_fights",
+        "correct",
+        "accuracy",
+        "log_loss",
+        "brier_score",
+        "high_count",
+        "medium_count",
+        "toss_up_count",
+        "high_accuracy",
+        "medium_accuracy",
+        "toss_up_accuracy"
+      ],
+      "rows": 768,
+      "sha256": "c70c57347b983985dbfde0c19924e64362d2d18be804c0663ea2aef66bb01675",
+      "source": "models/backtests/past_event_summary.csv",
+      "window_rows": 1
+    },
+    {
+      "cells_with_outputs": 11,
+      "original_analysis_146_reference": false,
+      "source": "notebooks/01_data_exploration.ipynb"
+    },
+    {
+      "cells_with_outputs": 14,
+      "original_analysis_146_reference": false,
+      "source": "notebooks/02_model_comparison.ipynb"
+    },
+    {
+      "cells_with_outputs": 10,
+      "original_analysis_146_reference": false,
+      "source": "notebooks/03_phase5_modeling.ipynb"
+    },
+    {
+      "cells_with_outputs": 7,
+      "original_analysis_146_reference": false,
+      "source": "notebooks/04_upcoming_predictions.ipynb"
+    },
+    {
+      "cells_with_outputs": 5,
+      "original_analysis_146_reference": false,
+      "source": "notebooks/05_post_event_review.ipynb"
+    },
+    {
+      "cells_with_outputs": 0,
+      "original_analysis_146_reference": false,
+      "source": "notebooks/06_saved_predictions_review.ipynb"
+    }
+  ],
+  "required_invariants": {
+    "actionable": [
+      91,
+      59
+    ],
+    "high_confidence": [
+      57,
+      39
+    ],
+    "total": [
+      146,
+      81
+    ],
+    "uncertain": [
+      55,
+      22
+    ]
+  },
+  "status": "EVIDENCE_ONLY",
+  "warehouse": {
+    "access": "read-only repeatable-read",
+    "queries": {
+      "pre_event_prediction_events": "SELECT * FROM pre_event_prediction_events ORDER BY event_date, event_name",
+      "pre_event_prediction_fights": "SELECT * FROM pre_event_prediction_fights ORDER BY event_date, fight_id",
+      "predictions": "SELECT p.*, f.event_id, e.event_name, f.result_type, f.winner_fighter_id FROM predictions p JOIN fights f USING(fight_id) JOIN events e USING(event_id) ORDER BY p.event_date, p.fight_id, p.scored_at",
+      "reviewed_prediction_events": "SELECT * FROM reviewed_prediction_events ORDER BY event_date, event_name",
+      "reviewed_prediction_fights": "SELECT * FROM reviewed_prediction_fights ORDER BY event_date, fight_id"
+    },
+    "table_row_counts": {
+      "pre_event_prediction_events": 17,
+      "pre_event_prediction_fights": 236,
+      "predictions": 571,
+      "reviewed_prediction_events": 4,
+      "reviewed_prediction_fights": 51
+    },
+    "timezone": "UTC"
+  }
+}

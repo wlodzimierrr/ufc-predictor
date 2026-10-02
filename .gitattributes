@@ -1,0 +1,5 @@
+# Preserve exact bytes for checksum-locked evidence and experiment artifacts.
+data/holdouts/** -text
+data/audits/** -text
+data/experiments/** -text
+docs/implementation-reports/phase1-holdout-evidence/** -text

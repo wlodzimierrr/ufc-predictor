@@ -1,0 +1,106 @@
+{
+  "offline_validation": {
+    "frozen_hashes": {
+      "data/holdouts/historical_2026_apr_aug/README.md": "0fe410be7eb8b933c4980aacdff4e7a7e789fb807cd06ea490b073ce1c5d0b56",
+      "data/holdouts/historical_2026_apr_aug/identity-exclusions.json": "a9119e05aa62907b49a3bfae52c602551de840e3f541d7d8f0fbca3ed2956567",
+      "data/holdouts/historical_2026_apr_aug/manifest.json": "51b27abaa13718240f245a125f06e8b6c865fdcdd8062d876b1ad46726721b30",
+      "data/holdouts/historical_2026_apr_aug/outcomes.csv": "d884948188eff812bb73e5c9333df5499710ea5210fe6708a46f5c94587862a0",
+      "data/holdouts/historical_2026_apr_aug/predictions.csv": "8bbeaa886e5b5002fb8676a75b1c588463594a5e62b8770fee372bec6bbcacf8",
+      "data/holdouts/pre_event_2026_apr_aug/README.md": "d5b85fa5ef0d0ef8f1200124e116ab833f37ce9733621f00d9e23a76e115d872",
+      "data/holdouts/pre_event_2026_apr_aug/identity-exclusions.json": "a9119e05aa62907b49a3bfae52c602551de840e3f541d7d8f0fbca3ed2956567",
+      "data/holdouts/pre_event_2026_apr_aug/manifest.json": "f28c9b052dbe883d05c00d3b46fe711997dfa39c7fca09d8a722c6fc2fb36f6a",
+      "data/holdouts/pre_event_2026_apr_aug/outcomes.csv": "04eeff282639b6f6a888e296bcc75a45321c95f82454d05e585010eadac7285f",
+      "data/holdouts/pre_event_2026_apr_aug/predictions.csv": "81e133bcb88422d3e0ddae12ac79de4ce6b9f60ab4d009545d7bfb41ff1a522b"
+    },
+    "unchanged_frozen_hashes": true,
+    "validations": {
+      "historical_2026_apr_aug": {
+        "exit_codes": [
+          0,
+          0
+        ],
+        "identical_output": true,
+        "metrics": {
+          "actionable": {
+            "accuracy": 0.6483516483516484,
+            "correct": 59,
+            "count": 91
+          },
+          "high_confidence": {
+            "accuracy": 0.6818181818181818,
+            "correct": 30,
+            "count": 44
+          },
+          "strongest_57": {
+            "accuracy": 0.6842105263157895,
+            "correct": 39,
+            "count": 57
+          },
+          "total": {
+            "accuracy": 0.5547945205479452,
+            "correct": 81,
+            "count": 146
+          },
+          "uncertain": {
+            "accuracy": 0.4,
+            "correct": 22,
+            "count": 55
+          }
+        },
+        "output_sha256": "f6743ba9a2112327a10089162f32f71381ec9818ba3d0da37c0206edd4345557"
+      },
+      "pre_event_2026_apr_aug": {
+        "exit_codes": [
+          0,
+          0
+        ],
+        "identical_output": true,
+        "metrics": {
+          "actionable": {
+            "accuracy": 0.6451612903225806,
+            "correct": 40,
+            "count": 62
+          },
+          "high_confidence": {
+            "accuracy": 0.6956521739130435,
+            "correct": 16,
+            "count": 23
+          },
+          "total": {
+            "accuracy": 0.5277777777777778,
+            "correct": 57,
+            "count": 108
+          },
+          "uncertain": {
+            "accuracy": 0.3695652173913043,
+            "correct": 17,
+            "count": 46
+          }
+        },
+        "output_sha256": "6794f55f37e2730c429c96d530b55129b788998eb5487aba3a69be8c7d79f7b8"
+      }
+    }
+  },
+  "preservation": {
+    "authorized_modified_files": [
+      "data/holdouts/prospective_2026_apr_aug/README.md",
+      "modeling/holdout.py",
+      "modeling/tests/test_holdout.py",
+      "modeling/tests/test_holdout_recovery.py",
+      "tools/audit_holdout_recovery.py",
+      "tools/validate_prospective_holdout.py"
+    ],
+    "baseline_file_count": 42026,
+    "missing_files": [],
+    "model_hash_inventory_sha256": "22f2761342d8866a21bfe27cb0667e36f0492d8c3d97233fecc45c2f86efc98b",
+    "models_file_count": 55,
+    "production_pointer_sha256": "ff5272e0d2f11f9f6cbc6597f91a2cf9961ae317f8dd47f90bfb1f6e44dd5caa",
+    "unchanged_file_count": 42020,
+    "unrelated_changed_files": []
+  },
+  "test_command": "python3 -m pytest modeling/tests/test_holdout.py modeling/tests/test_holdout_recovery.py modeling/tests/test_data.py -q",
+  "test_result": {
+    "failed": 0,
+    "passed": 90
+  }
+}
