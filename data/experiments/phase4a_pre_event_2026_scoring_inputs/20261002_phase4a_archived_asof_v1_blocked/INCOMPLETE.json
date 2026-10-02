@@ -1,0 +1,9 @@
+{
+  "gap_counts": {
+    "missing_target_profile": 1,
+    "unknown_target_title_status": 95,
+    "unresolved_experience_for_supplemented_profile": 4
+  },
+  "meaning": "complete target/source/protocol evidence; no completed 108-row scoring input; do not score",
+  "status": "BLOCKED"
+}

@@ -1,0 +1,9 @@
+{
+  "changed": [],
+  "existing_files_checked": 422,
+  "missing": [],
+  "new_protected_files": [],
+  "outcome_preservation_method": "hash-only; no parsing or interpretation",
+  "production_pointer_sha256": "ff5272e0d2f11f9f6cbc6597f91a2cf9961ae317f8dd47f90bfb1f6e44dd5caa",
+  "status": "VERIFIED"
+}

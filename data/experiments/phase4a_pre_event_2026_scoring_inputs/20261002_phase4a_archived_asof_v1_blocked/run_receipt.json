@@ -1,0 +1,10 @@
+{
+  "authorization": "deterministic repository-evidenced archived-as-of selection at original scored_at; no fitting, scoring or outcomes",
+  "authorization_sha256": "2a4f9196ea1773100206ff8d512b3b43a61a1cc79e436b70bb6dfb3b26f06553",
+  "finished_at": "2026-10-02T08:38:28.771632+00:00",
+  "promotion_authorized": false,
+  "rebuild_parity": true,
+  "receipt_time_meaning": "preparation/publication time, never historical source availability",
+  "started_at": "2026-10-02T08:38:21.046282+00:00",
+  "status": "BLOCKED"
+}

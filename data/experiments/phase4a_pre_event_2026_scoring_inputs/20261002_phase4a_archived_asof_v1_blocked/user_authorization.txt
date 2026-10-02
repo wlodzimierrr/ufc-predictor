@@ -1,0 +1,260 @@
+Work in `/home/wlodzimierrr/ufc-data`.
+
+Complete Phase 4A: prepare and freeze outcome-free, scoring-time-compatible feature inputs for the 108 accepted original pre-event forecasts. Also freeze the comparison protocol for Phase 4B.
+
+Implement and execute the preparation workflow. Do not train, score the candidate on these forecasts, or evaluate outcomes in this session.
+
+Produce a complete handoff report at the end.
+
+1. Authorization and accepted limitations
+
+I authorize deterministic, repository-evidenced archive selection at each original scored_at.
+
+Exact archived versions must have evidence that they existed no later than that scoring instant. Git timestamps count as repository evidence, not independently trusted timestamps. Complete historical source availability and archive completeness must not be claimed without supporting evidence.
+
+This accepts an explicitly qualified archived-as-of retrospective comparison. It does not authorize using post-scoring versions merely because their fights occurred earlier.
+
+Keep separate:
+- Source-version availability
+- Chronological filtering of histories
+- Feature-algorithm compatibility
+- Archive completeness/staleness
+
+Do not repeat Phase 3A's broad audit or reinvestigate the eight catch-up identities. Investigate only gaps affecting these 108 scoring inputs.
+
+2. Read the contracts and preserve existing work
+
+Inspect applicable AGENTS.md instructions and the worktree. Preserve unrelated user changes.
+
+Read:
+- docs/implementation-reports/phase3b-xgb-candidate-build-report.md
+- docs/implementation-reports/phase3a-training-readiness-report.md
+- docs/implementation-reports/phase1b-holdout-freeze-report.md
+- docs/xgb-production-refit-plan.md
+- docs/no-pick-contract.md
+- modeling/xgb_candidate_bundle.py
+- modeling/xgb_candidate_contract.py
+- modeling/refit_preflight.py
+- modeling/holdout.py
+- features/replay.py and relevant feature modules/tests
+
+Frozen candidate:
+data/experiments/phase3b_xgb_pre_april_2026/20261001_phase3b_retrospective_v1/
+
+Expected checksums.json SHA-256:
+41f8c8afb8fd091fa0b04823ad9175cedcfdbf85ccf3f62d77c71e0d9219279f
+
+Primary forecast population:
+data/holdouts/pre_event_2026_apr_aug/
+
+Expected manifest.json SHA-256:
+f28c9b052dbe883d05c00d3b46fe711997dfa39c7fca09d8a722c6fc2fb36f6a
+
+Expected predictions.csv SHA-256:
+81e133bcb88422d3e0ddae12ac79de4ce6b9f60ab4d009545d7bfb41ff1a522b
+
+Verify these pins and candidate component integrity without altering artifacts.
+
+3. Establish the exact 108 forecast targets
+
+Read the outcome-free frozen predictions and identity evidence.
+
+Preserve exactly:
+- fight_id and event_id
+- Original fighter IDs and orientation
+- Event date and original scored_at
+- Relevant original forecast metadata
+
+Normalize scored_at to UTC without changing its instant.
+
+Use an explicit metadata-column allowlist. Baseline probabilities, confidence tiers, predicted winners, and manifest performance summaries must not influence source selection or feature construction.
+
+Do not open:
+- Either frozen outcomes.csv
+- Joined identity/outcome audit records
+- Other outcome-bearing evaluation reports for feature development
+
+Hash-only preservation checks may cover those files without parsing them.
+
+Do not change identities, silently drop rows, replace forecasts with later predictions, or expand this session to the mixed historical 146 population.
+
+Any unresolved identity or essential-input problem affecting the 108 must be visible and must prevent publication of a completed 108-row scoring input.
+
+4. Select sources by a fixed, outcome-independent rule
+
+Implement a documented deterministic source-selection policy before constructing features.
+
+Default: select the latest eligible coherent, schema-compatible source snapshot evidenced no later than each forecast's scored_at. Resolve timestamp ties deterministically. Do not select versions based on model probabilities or results.
+
+Use bounded searches of:
+- Git history for data/events.csv, data/fights.csv, data/fighters.csv, and data/fight_stats.csv
+- Existing Phase 3A source evidence
+- Relevant preserved raw captures and fetch manifests when necessary
+
+The repository contains later source refreshes beyond March. Inspect their exact versions and timestamps rather than assuming the March training archive must supply all later forecast histories.
+
+Do not:
+- Fetch today's website and call it historical
+- Use current warehouse profiles/features as historical replacements
+- Treat a fetched_at record as proof that an overwritten body survives
+- Use a later revision of an earlier fight's results/statistics
+- Mix source versions ad hoc to improve coverage
+
+If coherent snapshots cannot cover a required input, document the gap. Any bounded supplemental-source rule must be established before reconstruction and retain exact per-component provenance.
+
+A stale archive may be usable under the accepted qualified mode. Report its capture date, last resolved event date, missingness, and known coverage limitations; do not call it complete.
+
+Missing values genuinely supported by the existing feature contract may remain missing. Do not invent profiles, assume unknown title status means false, or manufacture zero experience to force completion.
+
+5. Reconstruct features at the original scoring instant
+
+Use feature algorithm:
+v2_date_frozen_elo_schedule_unknown_v1
+
+Use the exact candidate 50-column order, with the three debut columns deferred. Do not apply or refit priors during feature preparation; Phase 4B will load the saved final priors.
+
+Scheduled rounds remain unknown for targets and histories, consistently with the candidate. Never infer them from finish rounds, results, or title status.
+
+For each forecast:
+- Eligible result/statistic histories must precede
+  min(event_date, UTC(scored_at).date()).
+- Exclude the entire scoring day and target day when result timing is date-only.
+- Apply the same cap to Elo and opponent histories.
+- Preserve date-frozen Elo and deterministic ordering.
+- Remove target result, winner, duration, finish and label fields from the target matchup before feature construction.
+- Use only the selected source versions.
+
+Separate history eligibility from the date used to compute target-date features.
+
+Inspect reconstruct_at_scored_at carefully: it currently passes the history cutoff into build_fighter_snapshot, which also controls age, activity and rolling-rate date calculations. Determine the training-compatible reference-date semantics before reconstruction.
+
+Known future event dates can be used for event-date calculations without admitting intervening results. If necessary, implement a new forecast-specific wrapper separating history_cutoff from feature_reference_date. Do not modify the frozen Phase 3A preparation code or change the candidate's training feature definitions.
+
+Record the chosen date semantics and test them.
+
+Previously resolved fights among the fitting-excluded identities may inform later histories when independently sourced and available by that later scoring instant. The 166-ID guard forbids their use in training, selection and calibration; it does not prohibit legitimate inference histories.
+
+Never source those histories from frozen outcome files.
+
+6. Establish honest candidate compatibility
+
+The bundle's predict method requires an exact input_feature_provenance dictionary linked to the training preparation manifest.
+
+Do not simply copy that dictionary onto new vectors and claim they came from the training snapshot.
+
+Create a separate scoring-input provenance and compatibility receipt that distinguishes:
+- Actual scoring-source versions and availability evidence
+- Reconstruction code and date semantics
+- Required training feature contract
+- Verified compatibility with the unchanged candidate
+
+The preparation-manifest hash may identify the training contract being matched; it must not masquerade as the source of newly reconstructed forecasts.
+
+Keep the original bundle, metadata, checksums and existing loader unchanged.
+
+If a future inference adapter is needed, implement a narrow validator that establishes compatibility before supplying the loader's reference contract. No bypass flags, unchecked metadata relabeling, or direct estimator calls that evade validation.
+
+Do not invoke real candidate prediction on the 108 in this session.
+
+7. Publish outcome-free scoring inputs
+
+Use a new, non-overwriting run beneath:
+data/experiments/phase4a_pre_event_2026_scoring_inputs/
+
+For a completed preparation, publish:
+- targets.csv: exact forecast identities, orientation, dates and timestamps
+- features.csv: exactly 108 rows, ordered features and required metadata
+- source-selection.json: deterministic policy and per-forecast source assignments
+- source-manifest.json: exact source hashes, versions and availability evidence
+- feature-lineage.json: chronology, reference dates, missingness and compatibility
+- compatibility.json
+- comparison-protocol.json
+- package_versions.json
+- validation_results.json
+- checksums.json
+- Run/authorization receipt
+
+Preserve exact selected source bytes, or immutable Git blob references with a tested resolver sufficient to reproduce the inputs.
+
+Feature and target files must contain no actual labels, correctness fields, target-result information, or candidate probabilities. Source archives may contain independently available prior results; document that distinction.
+
+Require exact population/orientation/timestamp coverage, deterministic rebuild parity, and successful compatibility validation before completed publication.
+
+Do not publish a reduced cohort as the completed primary population. Keep incomplete work clearly marked if blocked.
+
+8. Freeze the Phase 4B comparison protocol
+
+Write the protocol now; do not calculate its outcome metrics.
+
+Specify:
+- Primary comparison: saved candidate calibrated probabilities versus original frozen calibrated baseline probabilities on the same 108 fights.
+- Primary metrics: all-fight paired log loss and Brier score, with fixed numerical clipping rules.
+- Candidate raw probabilities as a predeclared secondary diagnostic, not an alternative chosen after seeing results.
+- Baseline probabilities remain exactly as frozen, including their historical rounding limitations.
+- Overall latent accuracy and actionable/high-confidence accuracy with counts and coverage.
+- Inclusive NO PICK: 0.40 <= p <= 0.60.
+- High confidence: p <= 0.30 or p >= 0.70.
+- Each model's own selected groups, plus paired reporting on the baseline-selected and jointly actionable groups.
+- A fixed calibration-bin definition.
+- A fixed paired event-cluster bootstrap procedure, seed, replicate count and interval definition; acknowledge the small event count.
+- No threshold tuning, feature/source changes, recalibration or model reselection after results are opened.
+
+Do not confuse the historical strongest-57 ranking with the high-confidence probability threshold or transfer 146-fight figures onto this 108-fight population.
+
+Require candidate predictions to be saved and hash-locked before Phase 4B opens outcomes.
+
+Neither qualified retrospective results nor this protocol authorize automatic promotion.
+
+9. Tests and verification
+
+Add focused tests covering:
+- Exact 108-target coverage and original orientation/timestamps
+- Source versions before/after scored_at and deterministic selection
+- Missing/stale source classification and rejection of later revisions
+- Target/future/same-scoring-day invariance
+- Elo/opponent-history caps
+- Distinct history cutoff and feature reference date
+- Unknown schedules and deferred debut columns
+- Feature order, missingness, and compatibility checks
+- Honest separation of training-contract and scoring-source provenance
+- Deterministic rebuild/checksums and refusal to overwrite
+- No frozen-outcome access, warehouse writes, model fitting or real holdout scoring
+
+Use synthetic fixtures for adversarial outcome changes. Do not inspect real outcomes to design tests.
+
+Run relevant existing replay, holdout and candidate-contract regressions. Avoid the known mutating live integration test and unrelated legacy failures.
+
+10. Preservation and mandatory handoff report
+
+Verify unchanged:
+- models/ and production pointers
+- Both accepted holdout directories
+- All Phase 1–3 evidence and accepted preparation artifacts
+- The complete Phase 3B candidate bundle
+- Unrelated user changes
+
+Production pointer expected SHA-256:
+ff5272e0d2f11f9f6cbc6597f91a2cf9961ae317f8dd47f90bfb1f6e44dd5caa
+
+No training, calibration fitting, real candidate scoring, outcome evaluation, production promotion, live migration, warehouse repair/write, dashboard work, commit or push.
+
+Create:
+docs/implementation-reports/phase4a-scoring-input-readiness-report.md
+
+Report:
+- READY_ARCHIVED_ASOF or BLOCKED, with exact reasons
+- Strict source-availability certification separately
+- Files changed/created and commands executed
+- Source policy, versions, timestamps, hashes and coverage/staleness
+- Exact 108-row identity/orientation/timestamp verification
+- Date semantics and feature compatibility findings
+- Missingness and unresolved gaps
+- Published artifact paths and checksums
+- Frozen comparison protocol
+- Tests and deterministic rebuild results
+- Preservation checks
+- Exact inputs and remaining constraints for Phase 4B
+
+Missing independently trusted timestamps alone are an accepted qualification, not a reason to repeat the completed broad audit. Genuine incompatible or unavailable essential inputs must still block completed publication.
+
+End with a concise status summary and reproduce the complete report so I can feed it back into the planning session.
