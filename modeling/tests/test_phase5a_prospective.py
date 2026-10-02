@@ -433,3 +433,19 @@ def test_incomplete_publication_and_protected_destination_fail(tmp_path):
     with pytest.raises(PreflightError,match='separate Phase5A root'):
         current.publish(ROOT/'models/synthetic_phase5a_forbidden',{'test.json':b'{}'})
     assert not (ROOT/'models/synthetic_phase5a_forbidden').exists()
+
+
+def test_distinct_ambiguous_bouts_preserved_in_blocked_diagnostic_dataset():
+    data=source()
+    duplicate={**data.fights[0],'fight_id':'ambiguous-other-id'}
+    data.fights.append(duplicate)
+    frame, summary, ledger=current.prepare_current(data,CUTOFF)
+    assert not summary['ready'] and summary['fitting_eligible_rows']==0
+    assert summary['dataset_role']=='blocked_diagnostic_reconstruction'
+    assert {duplicate['fight_id'],data.fights[0]['fight_id']} <= set(frame.fight_id)
+    assert len(ledger)==len(data.fights) and all(not r['eligible'] for r in ledger)
+    with pytest.raises(PreflightError,match='Duplicate bout'):
+        current.current_folds(frame,CUTOFF)
+    folds=current.current_folds(frame,CUTOFF,permit_diagnostic_blocked=True)
+    assert folds['diagnostic_only'] and not folds['ready'] and len(folds['folds'])==4
+    assert all(not f['ready'] for f in folds['folds'])

@@ -154,6 +154,11 @@ def main():
     verify = sub.add_parser("verify")
     verify.add_argument("--run", type=Path, required=True)
     verify.add_argument("--checksums-sha256", required=True)
+    reprepare = sub.add_parser("reprepare")
+    reprepare.add_argument("--parent-run", type=Path, required=True)
+    reprepare.add_argument("--parent-checksums-sha256", required=True)
+    reprepare.add_argument("--run-name", required=True)
+    reprepare.add_argument("--test-receipt", type=Path, required=True)
     args = parser.parse_args()
     if args.command == "verify":
         print(json.dumps(rebuild(args.run, args.checksums_sha256), indent=2))
@@ -164,21 +169,37 @@ def main():
     if destination.exists():
         parser.error("Existing runs must never be overwritten")
     started = now()
-    baseline_raw = args.preservation_baseline.read_bytes()
+    if args.command == "reprepare":
+        verify_checksums(args.parent_run, expected_checksums_sha256=args.parent_checksums_sha256)
+        baseline_raw = (args.parent_run / "preservation_baseline.json").read_bytes()
+    else:
+        baseline_raw = args.preservation_baseline.read_bytes()
     baseline = json.loads(baseline_raw)
     preservation_check(baseline)
     config = json.loads((ROOT / "configs/phase5_prospective_shadow_v1.json").read_bytes())
     metadata, artifact_inputs = reference_artifact_inputs()
     # Import connection helper only in the explicit authorized capture command.
     from warehouse.db import get_connection
-    try:
-        sources, capture_receipt = capture_warehouse(get_connection, metadata, load_holdout_fight_ids())
-    except Exception as exc:
-        # Never emit driver exception text or a credential-bearing traceback.
-        parser.exit(1, f"Warehouse capture failed ({type(exc).__name__}); no run published; driver details suppressed.\n")
-    if args.official_pages:
-        sources.update(targeted_official_reads(sources))
-    completed = now()
+    parent_provenance = None
+    if args.command == "reprepare":
+        parent_manifest = json.loads((args.parent_run / "training_manifest.json").read_bytes())
+        sources = {n: (args.parent_run/n).read_bytes() for n in parent_manifest["source_sha256"]}
+        capture_receipt = json.loads(sources["source_capture_receipt.json"])
+        completed = parent_manifest["capture_completed_at"]
+        metadata = json.loads((args.parent_run / "reference_bootstrap/production_metadata.json").read_bytes())
+        artifact_inputs = {n: (args.parent_run/n).read_bytes() for n in
+                          ("reference_bootstrap/production_metadata.json", "reference_bootstrap/artifact_provenance.json")}
+        parent_provenance = {"parent_run": str(args.parent_run), "parent_checksums_sha256": args.parent_checksums_sha256,
+            "meaning": "offline preparation of identical captured bytes; no new warehouse/page access"}
+    else:
+        try:
+            sources, capture_receipt = capture_warehouse(get_connection, metadata, load_holdout_fight_ids())
+        except Exception as exc:
+            # Never emit driver exception text or a credential-bearing traceback.
+            parser.exit(1, f"Warehouse capture failed ({type(exc).__name__}); no run published; driver details suppressed.\n")
+        if args.official_pages:
+            sources.update(targeted_official_reads(sources))
+        completed = now()
     first = build_payloads(sources, metadata, config, completed)
     second = build_payloads(sources, metadata, config, completed)
     if first != second:
@@ -206,6 +227,8 @@ def main():
             "model_fit": False, "prior_fit": False, "calibrator_fit": False,
             "real_probabilities": False, "outcome_evaluation": False,
             "historical_comparison": "STILL_BLOCKED", "production_changes": False})}
+    if parent_provenance is not None:
+        payloads["parent_capture_provenance.json"] = json_bytes(parent_provenance)
     root_hash = publish(destination, payloads)
     verification = rebuild(destination, root_hash)
     print(json.dumps({"run": str(destination), "checksums_sha256": root_hash,

@@ -223,6 +223,10 @@ def structural_issues(data: WarehouseData, capture_date: date) -> list[dict]:
 def prepare_current(data: WarehouseData, cutoff: str) -> tuple[pd.DataFrame, dict, list[dict]]:
     data = deepcopy(data)
     issues = structural_issues(data, date.fromisoformat(cutoff))
+    # Ambiguous distinct bout IDs still have well-formed source rows. Preserve
+    # all of them in a diagnostic reconstruction, never a fit-ready dataset.
+    # This does not coalesce identities, choose an alias or remove histories.
+    reconstructable_block = bool(issues) and all(i["reason"] == "duplicate_event_participant_pair" for i in issues)
     exclusions = load_holdout_fight_ids()
     if len(exclusions) != 166:
         raise PreflightError("Exclusion contract changed")
@@ -241,12 +245,14 @@ def prepare_current(data: WarehouseData, cutoff: str) -> tuple[pd.DataFrame, dic
         result = fight.get("result_type")
         if result != "win":
             reasons.append(f"nonbinary_or_unresolved_{result}")
+        reconstruction_eligible = not reasons
         if issues:
             reasons.append("structural_defects_block_entire_preparation")
         records.append({"fight_id": fight.get("fight_id"), "event_id": fight.get("event_id"),
             "event_date": event_date.isoformat() if isinstance(event_date, date) else None,
             "fighter_1_id": fight.get("fighter_1_id"), "fighter_2_id": fight.get("fighter_2_id"),
-            "eligible": not reasons, "reasons": reasons})
+            "eligible": not reasons, "chronology_binary_exclusion_eligible": reconstruction_eligible,
+            "reasons": reasons})
         # Independently captured excluded results may inform later history. No
         # exclusion label reaches the returned fitting targets.
         if isinstance(event_date, date) and event_date < cutoff_date and result in {"win", "draw", "nc"}:
@@ -254,9 +260,9 @@ def prepare_current(data: WarehouseData, cutoff: str) -> tuple[pd.DataFrame, dic
             fr, ft = fight.get("finish_round"), fight.get("finish_time_seconds")
             fight["elapsed_duration_seconds"] = (fr - 1) * 300 + ft if fr is not None and ft is not None else None
             histories.append(fight)
-        if not reasons:
+        if reconstruction_eligible:
             eligible.append(fight)
-    if issues:
+    if issues and not reconstructable_block:
         return pd.DataFrame(columns=META + FEATURE_ORDER), {"ready": False, "structural_issues": issues}, records
     historical = WarehouseData(fights=histories, fighter_by_id=data.fighter_by_id,
                                stats_by_fight_fighter=data.stats_by_fight_fighter)
@@ -267,15 +273,18 @@ def prepare_current(data: WarehouseData, cutoff: str) -> tuple[pd.DataFrame, dic
         frame[col] = np.nan if col in DEBUT_COLS else pd.to_numeric(frame[col], errors="raise").astype(float)
     frame["event_date"] = pd.to_datetime(frame.event_date)
     frame = frame[META + FEATURE_ORDER].sort_values(["event_date", "fight_id"]).reset_index(drop=True)
-    validate_training_frame(frame, event_cutoff=cutoff)
+    validate_current_frame(frame, cutoff, permit_diagnostic_blocked=reconstructable_block)
     expected = {f["fight_id"]: f for f in eligible}
     for row in frame.to_dict("records"):
         f = expected[row["fight_id"]]
         if any(row[k] != f[k] for k in ("event_id", "fighter_1_id", "fighter_2_id")) or row["label"] != int(f["winner_fighter_id"] == f["fighter_1_id"]):
             raise PreflightError("Reconstruction changed identities/orientation/labels")
     excluded_history = [f["fight_id"] for f in histories if f["fight_id"] in exclusions]
-    summary = {"ready": True, "structural_issues": [], "source_fights": len(data.fights),
+    summary = {"ready": not issues, "structural_issues": issues, "source_fights": len(data.fights),
         "eligible_rows": len(frame), "event_count": int(frame.event_id.nunique()),
+        "fitting_eligible_rows": 0 if issues else len(frame),
+        "dataset_role": "blocked_diagnostic_reconstruction" if issues else "current_challenger_training_preparation",
+        "history_identity_conflicts_repaired": False,
         "date_count": int(frame.event_date.nunique()),
         "earliest_included_event": frame.event_date.min().date().isoformat(),
         "latest_included_event": frame.event_date.max().date().isoformat(),
@@ -292,8 +301,28 @@ def prepare_current(data: WarehouseData, cutoff: str) -> tuple[pd.DataFrame, dic
     return frame, summary, records
 
 
-def current_folds(frame: pd.DataFrame, cutoff: str) -> dict:
-    validate_training_frame(frame, event_cutoff=cutoff)
+def validate_current_frame(frame: pd.DataFrame, cutoff: str, *, permit_diagnostic_blocked=False) -> None:
+    """Strict fitting validation; diagnostic mode only tolerates the logged pair defect.
+
+    Labels, numeric values, identities, chronology, schema and exclusions still
+    pass full validation. The old preparation/trainer guards are unchanged.
+    """
+    assert_no_holdout_fights(frame)
+    if list(frame.columns) != META + FEATURE_ORDER:
+        raise PreflightError("Current exact ordered schema mismatch")
+    for col in FEATURE_ORDER:
+        values = pd.to_numeric(frame[col], errors="raise").to_numpy(dtype=float)
+        if np.isinf(values).any():
+            raise PreflightError("Infinite current feature: " + col)
+    try:
+        validate_training_frame(frame, event_cutoff=cutoff)
+    except PreflightError as exc:
+        if not permit_diagnostic_blocked or str(exc) != "Duplicate bout identity/self matchup" or frame.fighter_1_id.eq(frame.fighter_2_id).any():
+            raise
+
+
+def current_folds(frame: pd.DataFrame, cutoff: str, *, permit_diagnostic_blocked=False) -> dict:
+    validate_current_frame(frame, cutoff, permit_diagnostic_blocked=permit_diagnostic_blocked)
     boundaries = [(pd.Timestamp(cutoff) - pd.DateOffset(months=m)).date().isoformat()
                   for m in (12, 9, 6, 3, 0)]
     folds, coverage = [], []
@@ -310,12 +339,14 @@ def current_folds(frame: pd.DataFrame, cutoff: str) -> dict:
             "train_ids_sha256": sha256(json_bytes(train_ids)), "prediction_ids_sha256": sha256(json_bytes(pred_ids)),
             "preprocessing_fit_partition": "train_only", "boosting_rounds": 310,
             "early_stopping": False, "tuning": False,
-            "ready": bool(train_ids and pred_ids)})
+            "ready": bool(train_ids and pred_ids) and not permit_diagnostic_blocked})
         coverage.extend(pred_ids)
     expected = sorted(frame.loc[frame.event_date >= pd.Timestamp(boundaries[0]), "fight_id"])
     if sorted(coverage) != expected or len(set(coverage)) != len(coverage):
         raise PreflightError("Missing/duplicate OOF memberships")
     return {"contract_version": VERSION, "boundaries": boundaries, "folds": folds,
+        "membership_stage": "chronology_binary_166_exclusion_guard_before_structural_fitting_gate",
+        "diagnostic_only": permit_diagnostic_blocked,
         "ready": all(f["ready"] for f in folds), "oof_rows": len(coverage),
         "oof_ids_sha256": sha256(json_bytes(expected)), "final_training_rows": len(frame),
         "final_training_ids_sha256": sha256(json_bytes(sorted(frame.fight_id)))}
@@ -392,7 +423,7 @@ def build_payloads(source_payloads: dict[str, bytes], metadata: dict, config: di
     cutoff = datetime.fromisoformat(capture_completed_at).astimezone(timezone.utc).date().isoformat()
     data = source_data(source_payloads)
     frame, summary, eligibility_rows = prepare_current(data, cutoff)
-    folds = current_folds(frame, cutoff) if summary["ready"] else {"contract_version": VERSION, "ready": False, "folds": []}
+    folds = current_folds(frame, cutoff, permit_diagnostic_blocked=not summary["ready"]) if not frame.empty else {"contract_version": VERSION, "ready": False, "folds": []}
     summary["ready"] = summary["ready"] and folds["ready"]
     manifest = {"contract_version": VERSION, "experiment_id": config["experiment_id"],
         "event_cutoff_exclusive": cutoff, "capture_completed_at": capture_completed_at,
@@ -401,6 +432,7 @@ def build_payloads(source_payloads: dict[str, bytes], metadata: dict, config: di
         "feature_version": FEATURE_VERSION, "feature_order": FEATURE_ORDER,
         "orientation": "captured fighter_1 minus fighter_2; label 1 means fighter_1 wins",
         "summary": summary, "training_sha256": sha256(csv_bytes(frame)),
+        "fitting_readiness_gate": "blocked rows/memberships are diagnostic only; Phase5B loader refuses them",
         "folds_sha256": sha256(json_bytes(folds)), "config_sha256": sha256(json_bytes(config)),
         "source_sha256": {n: sha256(b) for n, b in sorted(source_payloads.items())},
         "no_model_prior_or_calibration_fitting": True}
