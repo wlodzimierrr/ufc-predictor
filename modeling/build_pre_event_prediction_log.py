@@ -26,12 +26,15 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from sklearn.metrics import accuracy_score, brier_score_loss, log_loss
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from warehouse.csv_utils import iter_data_rows
 from warehouse.db import get_connection
+from modeling.decisions import (
+    DECISION_FIELDS, DECISION_METRIC_FIELDS, DECISION_POLICY_VERSION, attach_decisions, decision_metrics,
+    write_prediction_csv,
+)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PREDICTIONS_DIR = REPO_ROOT / "models" / "predictions"
@@ -58,19 +61,21 @@ def _load_database_predictions() -> pd.DataFrame:
                 pre_event_evidence,
                 ''::text AS prediction_dir_mtime,
                 ''::text AS prediction_file,
-                predicted_prob_f1,
-                calibrated_prob_f1,
-                predicted_label,
+                predicted_prob_f1_full AS predicted_prob_f1,
+                calibrated_prob_f1_full AS calibrated_prob_f1,
+                latent_label_full AS predicted_label,
                 predicted_winner_name,
                 confidence_tier,
                 is_uncertain,
                 actual_label,
                 actual_winner_name,
                 resolved,
-                correct,
+                latent_correct_full AS correct,
                 model_name,
-                model_artifact
-            FROM pre_event_prediction_fights
+                model_artifact,
+                decision_origin,
+                decision_policy_version
+            FROM pre_event_prediction_fight_decisions
             ORDER BY event_date, event_name, fight_id
         """
         with conn.cursor() as cur:
@@ -89,6 +94,8 @@ def _build_fight_log_from_database() -> pd.DataFrame:
 
     preds["event_date"] = pd.to_datetime(preds["event_date"], errors="coerce").dt.date
     preds["scored_at"] = pd.to_datetime(preds["scored_at"], errors="coerce", utc=True)
+    preds["predicted_winner_name"] = np.where(preds["predicted_label"].eq(1),
+                                               preds["fighter_1_name"], preds["fighter_2_name"])
 
     columns = [
         "event_id",
@@ -115,7 +122,7 @@ def _build_fight_log_from_database() -> pd.DataFrame:
         "model_name",
         "model_artifact",
     ]
-    return preds[columns].sort_values(["event_date", "event_name", "fight_id"])
+    return attach_decisions(preds[columns + ["decision_origin", "decision_policy_version"]]).sort_values(["event_date", "event_name", "fight_id"])
 
 
 def _read_csv_rows(path: Path) -> pd.DataFrame:
@@ -127,11 +134,11 @@ def _read_csv_rows(path: Path) -> pd.DataFrame:
 def _load_saved_predictions(predictions_dir: Path) -> pd.DataFrame:
     frames = []
     for path in sorted(predictions_dir.glob("*/predictions.csv")):
-        df = pd.read_csv(path)
+        df = pd.read_csv(path, float_precision="round_trip")
         if df.empty:
             continue
         prediction_dir_mtime = pd.to_datetime(path.parent.stat().st_mtime, unit="s", utc=True)
-        df["prediction_file"] = str(path.relative_to(REPO_ROOT))
+        df["prediction_file"] = str(path.relative_to(REPO_ROOT)) if path.is_relative_to(REPO_ROOT) else str(path)
         df["prediction_dir_mtime"] = prediction_dir_mtime
         frames.append(df)
 
@@ -335,38 +342,40 @@ def _build_fight_log(predictions_dir: Path) -> pd.DataFrame:
         "model_name",
         "model_artifact",
     ]
+    review = attach_decisions(review)
+    columns += [*DECISION_FIELDS, "decision_origin", "pick_correct"]
     return review[[c for c in columns if c in review.columns]].sort_values(
         ["event_date", "event_name", "fight_id"],
     )
 
 
 def _build_event_log(fight_log: pd.DataFrame) -> pd.DataFrame:
-    resolved = fight_log[fight_log["resolved"].eq(True) & fight_log["actual_label"].notna()].copy()
-    if resolved.empty:
+    if fight_log.empty:
         return pd.DataFrame()
+    fight_log = attach_decisions(fight_log)
 
     rows = []
-    group_cols = ["event_id", "event_name", "event_date", "model_name"]
-    for keys, grp in resolved.groupby(group_cols, dropna=False, sort=True):
-        event_id, event_name, event_date, model_name = keys
-        y_true = grp["actual_label"].astype(int).values
-        y_prob = grp["calibrated_prob_f1"].astype(float).values
-        y_pred = grp["predicted_label"].astype(int).values
-        correct = grp["correct"].astype(bool)
-        scored_at_min = pd.to_datetime(grp["scored_at"], errors="coerce", utc=True).min()
-        scored_at_max = pd.to_datetime(grp["scored_at"], errors="coerce", utc=True).max()
+    group_cols = ["event_id", "event_name", "event_date", "model_name", "pre_event_evidence"]
+    for keys, all_grp in fight_log.groupby(group_cols, dropna=False, sort=True):
+        grp = all_grp[all_grp["resolved"].eq(True) & all_grp["actual_label"].isin([0, 1])]
+        metrics = decision_metrics(all_grp)
+        event_id, event_name, event_date, model_name, evidence = keys
+        scored_at_min = pd.to_datetime(all_grp["scored_at"], errors="coerce", utc=True).min()
+        scored_at_max = pd.to_datetime(all_grp["scored_at"], errors="coerce", utc=True).max()
 
         row = {
             "event_id": event_id,
             "event_name": event_name,
             "event_date": event_date,
             "model_name": model_name,
-            "pre_event_evidence": ",".join(sorted(grp["pre_event_evidence"].dropna().unique())),
+            "pre_event_evidence": evidence,
             "n_predicted_fights": int(len(grp)),
-            "correct": int(correct.sum()),
-            "accuracy": float(accuracy_score(y_true, y_pred)),
-            "log_loss": float(log_loss(y_true, y_prob, labels=[0, 1])),
-            "brier_score": float(brier_score_loss(y_true, y_prob)),
+            "correct": metrics["latent_correct_count"],
+            "accuracy": metrics["latent_accuracy"],
+            "log_loss": metrics["log_loss"],
+            "brier_score": metrics["brier_score"],
+            **{field: metrics[field] for field in DECISION_METRIC_FIELDS},
+            "decision_policy_version": DECISION_POLICY_VERSION,
             "first_scored_at": scored_at_min.isoformat() if pd.notna(scored_at_min) else "",
             "last_scored_at": scored_at_max.isoformat() if pd.notna(scored_at_max) else "",
             "high_count": int((grp["confidence_tier"] == "high").sum()),
@@ -378,7 +387,7 @@ def _build_event_log(fight_log: pd.DataFrame) -> pd.DataFrame:
             mask = grp["confidence_tier"] == tier
             key = tier.replace("-", "_")
             row[f"{key}_accuracy"] = (
-                float(grp.loc[mask, "correct"].astype(bool).mean()) if mask.any() else np.nan
+                float(grp.loc[mask, "correct"].astype(bool).mean()) if mask.any() else None
             )
 
         rows.append(row)
@@ -416,15 +425,15 @@ def _load_reviewed_event_log(existing_event_log: pd.DataFrame) -> pd.DataFrame:
             continue
 
         n_fights = int(row["n_fights"])
-        accuracy = float(row["accuracy"])
+        accuracy = float(row["accuracy"]) if pd.notna(row["accuracy"]) else None
         rows.append({
             "event_id": "",
             "event_name": row["event_name"],
             "event_date": row["event_date"],
             "model_name": row.get("model_name", ""),
-            "pre_event_evidence": "reviewed_prediction_log",
+            "pre_event_evidence": row.get("review_type", "reviewed_prediction_log"),
             "n_predicted_fights": n_fights,
-            "correct": int(round(n_fights * accuracy)),
+            "correct": int(round(n_fights * accuracy)) if accuracy is not None else 0,
             "accuracy": accuracy,
             "log_loss": float(row["log_loss"]),
             "brier_score": float(row["brier_score"]),
@@ -436,6 +445,8 @@ def _load_reviewed_event_log(existing_event_log: pd.DataFrame) -> pd.DataFrame:
             "high_accuracy": np.nan,
             "medium_accuracy": np.nan,
             "toss_up_accuracy": np.nan,
+            **{field: row.get(field, None) for field in DECISION_METRIC_FIELDS},
+            "decision_policy_version": row.get("decision_policy_version"),
         })
 
     return pd.DataFrame(rows)
@@ -491,7 +502,7 @@ def main() -> None:
     fight_path.parent.mkdir(parents=True, exist_ok=True)
     event_path.parent.mkdir(parents=True, exist_ok=True)
 
-    fight_log.to_csv(fight_path, index=False)
+    write_prediction_csv(fight_log, fight_path)
     event_log.to_csv(event_path, index=False)
 
     print(f"Saved fight-level pre-event log: {fight_path}")

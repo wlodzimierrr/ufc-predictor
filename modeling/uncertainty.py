@@ -25,17 +25,21 @@ from modeling.evaluate import compute_metrics
 from modeling.artifacts import load_model, latest_artifact
 from features.debut_prior import compute_debut_priors, apply_debut_features
 from warehouse.db import get_connection
+from modeling.decisions import (
+    HIGH_CONFIDENCE_HIGH, HIGH_CONFIDENCE_LOW, NO_PICK_HIGH, NO_PICK_LOW,
+    validated_probabilities,
+)
 
 
 # ── Public API ───────────────────────────────────────────────────────────────
 
 def flag_uncertain(
     y_prob: np.ndarray,
-    low: float = 0.40,
-    high: float = 0.60,
+    low: float = NO_PICK_LOW,
+    high: float = NO_PICK_HIGH,
 ) -> np.ndarray:
     """Return boolean mask for predictions in the uncertain band."""
-    y_prob = np.asarray(y_prob, dtype=float)
+    y_prob = validated_probabilities(y_prob)
     return (y_prob >= low) & (y_prob <= high)
 
 
@@ -45,10 +49,10 @@ def confidence_tier(y_prob: np.ndarray) -> np.ndarray:
     Returns:
         Array of strings: "high", "medium", or "toss-up".
     """
-    y_prob = np.asarray(y_prob, dtype=float)
+    y_prob = validated_probabilities(y_prob)
     tiers = np.full(len(y_prob), "medium", dtype=object)
-    tiers[flag_uncertain(y_prob, 0.40, 0.60)] = "toss-up"
-    tiers[(y_prob >= 0.70) | (y_prob <= 0.30)] = "high"
+    tiers[flag_uncertain(y_prob)] = "toss-up"
+    tiers[(y_prob >= HIGH_CONFIDENCE_HIGH) | (y_prob <= HIGH_CONFIDENCE_LOW)] = "high"
     return tiers
 
 

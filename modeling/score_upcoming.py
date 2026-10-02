@@ -25,6 +25,7 @@ from modeling.artifacts import load_model
 from modeling.calibrate import calibrate_platt
 from modeling.data import load_bout_data
 from modeling.uncertainty import confidence_tier, flag_uncertain
+from modeling.decisions import attach_decisions, write_prediction_csv
 from features.debut_prior import compute_debut_priors, apply_debut_features
 from warehouse.db import get_connection
 
@@ -87,12 +88,12 @@ def score_upcoming(conn) -> pd.DataFrame:
     upcoming_csv = REPO_ROOT / "models" / "upcoming" / "upcoming_features.csv"
     if not upcoming_csv.exists():
         print("  No upcoming features found. Run: make build_upcoming_features")
-        return pd.DataFrame()
+        return attach_decisions(pd.DataFrame(), origin="recorded_at_scoring")
 
     df = pd.read_csv(upcoming_csv)
     if df.empty:
         print("  No upcoming fights to score.")
-        return pd.DataFrame()
+        return attach_decisions(pd.DataFrame(), origin="recorded_at_scoring")
 
     print(f"  Loaded {len(df)} upcoming fight(s)")
 
@@ -143,7 +144,7 @@ def score_upcoming(conn) -> pd.DataFrame:
         "scored_at": datetime.now(timezone.utc).isoformat(),
     })
 
-    return predictions
+    return attach_decisions(predictions, origin="recorded_at_scoring")
 
 
 def _get_fighter_names(conn, df: pd.DataFrame) -> dict[str, str]:
@@ -161,6 +162,7 @@ def _print_card(predictions: pd.DataFrame) -> None:
     """Print formatted fight card with predictions."""
     if predictions.empty:
         return
+    predictions = attach_decisions(predictions)
 
     # Sort by confidence (most confident first)
     preds = predictions.sort_values("calibrated_prob_f1", key=lambda x: abs(x - 0.5), ascending=False)
@@ -193,15 +195,9 @@ def _print_card(predictions: pd.DataFrame) -> None:
         f2_len = bar_len - f1_len
         bar = "█" * f1_len + "░" * f2_len
 
-        if prob >= 0.5:
-            fav = f1
-            fav_prob = prob
-        else:
-            fav = f2
-            fav_prob = 1 - prob
-
         print(f"    {f1:<25s} vs  {f2:<25s}  [{wc}]")
-        print(f"    {bar}  {prob:.1%} — {fav} ({fav_prob:.1%})")
+        decision = "NO PICK" if not row["is_actionable"] else f"PICK: {row['pick_winner_name']}"
+        print(f"    {bar}  {f1}: {prob:.1%} | {f2}: {1 - prob:.1%} — {decision}")
         print()
 
 
@@ -221,13 +217,13 @@ def main() -> None:
             date_dir = out_dir / str(ed)[:10]
             date_dir.mkdir(parents=True, exist_ok=True)
             mask = predictions["event_date"] == ed
-            predictions[mask].to_csv(date_dir / "predictions.csv", index=False)
+            write_prediction_csv(predictions[mask], date_dir / "predictions.csv")
             print(f"  Saved predictions to {date_dir / 'predictions.csv'}")
 
         # If no event dates, save to a generic location
         if len(event_dates) == 0:
             out_dir.mkdir(parents=True, exist_ok=True)
-            predictions.to_csv(out_dir / "predictions.csv", index=False)
+            write_prediction_csv(predictions, out_dir / "predictions.csv")
             print(f"  Saved predictions to {out_dir / 'predictions.csv'}")
 
         _print_card(predictions)

@@ -16,14 +16,17 @@ import re
 import sys
 import unicodedata
 from pathlib import Path
+from datetime import datetime, timezone
 
 import numpy as np
 import pandas as pd
-from sklearn.metrics import accuracy_score, log_loss, brier_score_loss
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from warehouse.db import get_connection
+from modeling.decisions import (
+    DECISION_FIELDS, DECISION_METRIC_FIELDS, DECISION_POLICY_VERSION, attach_decisions, decision_metrics,
+)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PREDICTIONS_DIR = REPO_ROOT / "models" / "predictions"
@@ -34,9 +37,8 @@ PRODUCTION_MODEL = REPO_ROOT / "models" / "production_model.json"
 def _retroactive_predictions(event_id: str, event_name: str, date_str: str, conn) -> pd.DataFrame | None:
     """Score completed fights retroactively using bout_features + production model.
 
-    bout_features are computed from pre-fight data only (verified by leakage
-    tests), so these predictions are equivalent to what we would have generated
-    before the event.
+    These are explicitly retroactive; historical feature availability must be
+    audited before treating them as equivalent to a pre-event forecast.
     """
     from modeling.artifacts import load_model
     from modeling.calibrate import calibrate_platt
@@ -132,6 +134,7 @@ def _retroactive_predictions(event_id: str, event_name: str, date_str: str, conn
         "fighter_1_name": [name_map.get(fid, "Unknown") for fid in df["fighter_1_id"]],
         "fighter_2_name": [name_map.get(fid, "Unknown") for fid in df["fighter_2_id"]],
         "weight_class": df.get("weight_class"),
+        "predicted_prob_f1": y_prob_raw,
         "calibrated_prob_f1": y_prob_cal,
         "confidence_tier": confidence_tier(y_prob_cal),
         "is_uncertain": flag_uncertain(y_prob_cal),
@@ -143,7 +146,7 @@ def _retroactive_predictions(event_id: str, event_name: str, date_str: str, conn
     preds["retroactive"] = True
 
     print(f"  Scored {len(preds)} fight(s) retroactively using production model")
-    return preds
+    return attach_decisions(preds, origin="derived_at_review")
 
 
 def _find_predictions(event_name: str, conn) -> pd.DataFrame | None:
@@ -169,7 +172,7 @@ def _find_predictions(event_name: str, conn) -> pd.DataFrame | None:
     # Try saved predictions first
     pred_path = PREDICTIONS_DIR / date_str / "predictions.csv"
     if pred_path.exists():
-        preds = pd.read_csv(pred_path)
+        preds = pd.read_csv(pred_path, float_precision="round_trip")
         # Check if saved predictions cover the full card
         with conn.cursor() as cur:
             cur.execute("""
@@ -192,7 +195,7 @@ def _find_predictions(event_name: str, conn) -> pd.DataFrame | None:
     if retro is not None:
         # Merge with any saved predictions (saved take priority)
         if pred_path.exists():
-            saved = pd.read_csv(pred_path)
+            saved = pd.read_csv(pred_path, float_precision="round_trip")
             saved["event_id"] = event_id
             saved["event_name"] = ename
             saved["event_date_str"] = date_str
@@ -412,22 +415,18 @@ def review_event(event_name: str) -> dict | None:
     finally:
         conn.close()
 
-    if not actuals:
-        print(f"  No actual results found for these fights. Event may not be completed yet.")
-        return None
+    preds = attach_decisions(preds)
 
     # Join predictions with actuals
     results = []
     for _, row in preds.iterrows():
         fid = row["fight_id"]
-        actual = actuals.get(fid)
-        if actual is None or actual["label"] is None:
-            continue
+        actual = actuals.get(fid, {})
 
         prob = float(row["calibrated_prob_f1"])
-        label = actual["label"]
+        label = actual.get("label")
         predicted_winner = 1 if prob >= 0.5 else 0
-        correct = predicted_winner == label
+        correct = predicted_winner == label if label in (0, 1) else None
         fighter_1_name = row.get("fighter_1_name", "?")
         fighter_2_name = row.get("fighter_2_name", "?")
 
@@ -446,7 +445,12 @@ def review_event(event_name: str) -> dict | None:
             "confidence_tier": row.get("confidence_tier", ""),
             "is_uncertain": row.get("is_uncertain"),
             "actual_label": label,
-            "actual_winner_name": fighter_1_name if label == 1 else fighter_2_name,
+            "actual_winner_name": (fighter_1_name if label == 1 else fighter_2_name) if label in (0, 1) else None,
+            "resolved": label in (0, 1),
+            **{field: row[field] for field in (*DECISION_FIELDS, "decision_origin")},
+            "retroactive": row.get("retroactive", False),
+            "pre_event_evidence": row.get("pre_event_evidence"),
+            "matched_by": actual.get("matched_by"),
             "result_type": actual.get("result_type"),
             "is_title_fight": actual.get("is_title_fight"),
             "is_interim_title": actual.get("is_interim_title"),
@@ -464,13 +468,12 @@ def review_event(event_name: str) -> dict | None:
         print("  No resolved fights with predictions to compare.")
         return None
 
-    rdf = pd.DataFrame(results)
-    y_true = rdf["actual_label"].values
-    y_prob = rdf["calibrated_prob_f1"].values
-
-    accuracy = accuracy_score(y_true, (y_prob >= 0.5).astype(int))
-    ll = log_loss(y_true, y_prob)
-    brier = brier_score_loss(y_true, y_prob)
+    all_reviewed = attach_decisions(pd.DataFrame(results))
+    metrics = decision_metrics(all_reviewed)
+    rdf = all_reviewed[all_reviewed["resolved"]].copy()
+    accuracy = metrics["latent_accuracy"]
+    ll = metrics["log_loss"]
+    brier = metrics["brier_score"]
 
     # Accuracy by tier
     tier_stats = {}
@@ -499,6 +502,8 @@ def review_event(event_name: str) -> dict | None:
         if before_event
         else "catchup_scored_before_result_load"
     )
+    if "retroactive" in preds and preds["retroactive"].eq(True).any():
+        review_type = "retroactive_review"
 
     # Print report
     n_retro = int(preds.get("retroactive", pd.Series(dtype=bool)).sum()) if "retroactive" in preds.columns else 0
@@ -510,9 +515,15 @@ def review_event(event_name: str) -> dict | None:
     print(f"{'═' * 70}\n")
 
     print(f"  Overall Metrics:")
-    print(f"    Accuracy:    {accuracy:.1%}  ({int(rdf['predicted_correct'].sum())}/{len(rdf)})")
-    print(f"    Log Loss:    {ll:.4f}")
-    print(f"    Brier Score: {brier:.4f}")
+    def display(value, spec):
+        return format(value, spec) if value is not None else "N/A"
+
+    print(f"    Latent accuracy: {display(accuracy, '.1%')}  ({int(rdf['predicted_correct'].sum())}/{len(rdf)})")
+    print(f"    Actionable: {metrics['actionable_count']} ({display(metrics['actionable_coverage'], '.1%')} coverage); accuracy {display(metrics['actionable_accuracy'], '.1%')}")
+    print(f"    NO PICK: {metrics['no_pick_count']} ({display(metrics['no_pick_share'], '.1%')})")
+    print(f"    Threshold high: {metrics['threshold_high_count']}; accuracy {display(metrics['threshold_high_accuracy'], '.1%')}")
+    print(f"    Log Loss:    {display(ll, '.4f')}")
+    print(f"    Brier Score: {display(brier, '.4f')}")
 
     if tier_stats:
         print(f"\n  Accuracy by Confidence Tier:")
@@ -525,7 +536,7 @@ def review_event(event_name: str) -> dict | None:
     print(f"  {'─' * 22} {'─' * 22} {'─' * 5} {'─' * 8} {'─' * 10}")
     for _, row in rdf.iterrows():
         prob = row["calibrated_prob_f1"]
-        mark = "✓" if row["predicted_correct"] else "✗"
+        mark = "NO PICK" if not row["is_actionable"] else ("✓" if row["pick_correct"] else "✗")
         actual = "F1 won" if row["actual_label"] == 1 else "F2 won"
         print(f"  {row['fighter_1']:<22s} {row['fighter_2']:<22s} "
               f"{prob:>5.1%} {row['confidence_tier']:<8s} {actual:<7s} {mark}")
@@ -545,6 +556,8 @@ def review_event(event_name: str) -> dict | None:
         "review_type": review_type,
         "first_scored_at": scored_at.min().isoformat() if not scored_at.isna().all() else None,
         "last_scored_at": scored_at.max().isoformat() if not scored_at.isna().all() else None,
+        **{field: metrics[field] for field in DECISION_METRIC_FIELDS},
+        "decision_policy_version": DECISION_POLICY_VERSION,
     }
 
     # Append to prediction log
@@ -564,10 +577,14 @@ def _append_to_log(summary: dict) -> None:
         "event_name": summary["event_name"],
         "event_date": summary["event_date"],
         "n_fights": summary["n_fights"],
-        "accuracy": f"{summary['accuracy']:.4f}",
-        "log_loss": f"{summary['log_loss']:.4f}",
-        "brier_score": f"{summary['brier_score']:.4f}",
+        "accuracy": summary["accuracy"],
+        "log_loss": summary["log_loss"],
+        "brier_score": summary["brier_score"],
         "model_name": summary["model_name"],
+        "review_type": summary["review_type"],
+        **{field: summary[field] for field in DECISION_METRIC_FIELDS},
+        "decision_policy_version": summary["decision_policy_version"],
+        "reviewed_at": datetime.now(timezone.utc).isoformat(),
     }
 
     if PREDICTION_LOG.exists():
@@ -589,175 +606,67 @@ def _append_to_log(summary: dict) -> None:
 
 
 def _upsert_review_summary(summary: dict) -> None:
-    """Store reviewed event summaries for dashboard views."""
+    """Persist the resolved latent summary and additive decision denominators."""
+    from warehouse.db import upsert
+
+    row = {
+        "event_name": summary["event_name"], "event_date": summary["event_date"],
+        "review_type": summary["review_type"], "model_name": summary["model_name"],
+        "n_predicted_fights": summary["n_fights"],
+        "correct": summary["latent_correct_count"], "accuracy": summary["accuracy"],
+        "log_loss": summary["log_loss"], "brier_score": summary["brier_score"],
+        "first_scored_at": summary.get("first_scored_at"),
+        "last_scored_at": summary.get("last_scored_at"),
+        **{field: summary[field] for field in DECISION_METRIC_FIELDS},
+        "decision_policy_version": summary["decision_policy_version"],
+        "reviewed_at": datetime.now(timezone.utc).isoformat(),
+    }
     conn = get_connection()
     try:
         with conn:
-            with conn.cursor() as cur:
-                cur.execute("""
-                    INSERT INTO reviewed_prediction_events (
-                        event_name,
-                        event_date,
-                        review_type,
-                        model_name,
-                        n_predicted_fights,
-                        correct,
-                        accuracy,
-                        log_loss,
-                        brier_score,
-                        first_scored_at,
-                        last_scored_at
-                    )
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                    ON CONFLICT (event_name, event_date, review_type)
-                    DO UPDATE SET
-                        model_name = EXCLUDED.model_name,
-                        n_predicted_fights = EXCLUDED.n_predicted_fights,
-                        correct = EXCLUDED.correct,
-                        accuracy = EXCLUDED.accuracy,
-                        log_loss = EXCLUDED.log_loss,
-                        brier_score = EXCLUDED.brier_score,
-                        first_scored_at = EXCLUDED.first_scored_at,
-                        last_scored_at = EXCLUDED.last_scored_at,
-                        reviewed_at = now()
-                """, (
-                    summary["event_name"],
-                    summary["event_date"],
-                    summary["review_type"],
-                    summary["model_name"],
-                    summary["n_fights"],
-                    int(round(summary["n_fights"] * summary["accuracy"])),
-                    float(summary["accuracy"]),
-                    float(summary["log_loss"]),
-                    float(summary["brier_score"]),
-                    summary.get("first_scored_at"),
-                    summary.get("last_scored_at"),
-                ))
-        print("  Updated reviewed_prediction_events")
+            upsert(conn, "reviewed_prediction_events", [row],
+                   pk_columns=["event_name", "event_date", "review_type"])
     finally:
         conn.close()
 
 
-def _to_none(value):
-    if pd.isna(value):
-        return None
-    return value
-
-
 def _upsert_review_fights(summary: dict, reviewed: pd.DataFrame, event_id: str) -> None:
-    """Store fight-level reviewed rows for dashboard home-page summaries."""
-    if reviewed.empty:
-        return
+    """Persist resolved reviews with precise probabilities and decision provenance."""
+    from modeling.decisions import json_safe
+    from warehouse.db import upsert
 
     rows = []
-    for _, row in reviewed.iterrows():
-        rows.append((
-            event_id or None,
-            summary["event_name"],
-            summary["event_date"],
-            summary["review_type"],
-            row["fight_id"],
-            row.get("actual_fight_id"),
-            _to_none(row.get("fighter_1_id")),
-            _to_none(row.get("fighter_2_id")),
-            row.get("fighter_1"),
-            row.get("fighter_2"),
-            _to_none(row.get("weight_class")),
-            bool(row.get("is_title_fight")) if pd.notna(row.get("is_title_fight")) else None,
-            bool(row.get("is_interim_title")) if pd.notna(row.get("is_interim_title")) else None,
-            int(row.get("scheduled_rounds")) if pd.notna(row.get("scheduled_rounds")) else None,
-            _to_none(row.get("scored_at")),
-            _to_none(row.get("predicted_prob_f1")),
-            float(row.get("calibrated_prob_f1")),
-            int(row.get("predicted_label")),
-            row.get("predicted_winner_name"),
-            row.get("confidence_tier"),
-            bool(row.get("is_uncertain")) if pd.notna(row.get("is_uncertain")) else None,
-            int(row.get("actual_label")),
-            row.get("actual_winner_name"),
-            row.get("result_type"),
-            row.get("finish_method"),
-            int(row.get("finish_round")) if pd.notna(row.get("finish_round")) else None,
-            int(row.get("finish_time_seconds")) if pd.notna(row.get("finish_time_seconds")) else None,
-            bool(row.get("predicted_correct")),
-            row.get("model_name"),
-            row.get("model_artifact"),
-        ))
-
+    columns = (
+        "fight_id", "actual_fight_id", "fighter_1_id", "fighter_2_id", "weight_class",
+        "is_title_fight", "is_interim_title", "scheduled_rounds", "scored_at",
+        "predicted_prob_f1", "calibrated_prob_f1", "predicted_label",
+        "predicted_winner_name", "confidence_tier", "is_uncertain", "actual_label",
+        "actual_winner_name", "result_type", "finish_method", "finish_round",
+        "finish_time_seconds", "model_name", "model_artifact",
+        *DECISION_FIELDS, "decision_origin",
+    )
+    for _, row in attach_decisions(reviewed).iterrows():
+        if pd.isna(row.get("actual_label")):
+            continue
+        record = json_safe({column: row.get(column) for column in columns})
+        record.update({
+            "event_id": event_id or None, "event_name": summary["event_name"],
+            "event_date": summary["event_date"], "review_type": summary["review_type"],
+            "fighter_1_name": row.get("fighter_1"), "fighter_2_name": row.get("fighter_2"),
+            "correct": bool(row["predicted_correct"]),
+            "pick_correct": json_safe(row["pick_correct"]),
+            "calibrated_prob_f1_full": float(row["calibrated_prob_f1"]),
+            "predicted_prob_f1_full": json_safe(row.get("predicted_prob_f1")),
+            "reviewed_at": datetime.now(timezone.utc).isoformat(),
+        })
+        rows.append(record)
+    if not rows:
+        return
     conn = get_connection()
     try:
         with conn:
-            with conn.cursor() as cur:
-                cur.executemany("""
-                    INSERT INTO reviewed_prediction_fights (
-                        event_id,
-                        event_name,
-                        event_date,
-                        review_type,
-                        fight_id,
-                        actual_fight_id,
-                        fighter_1_id,
-                        fighter_2_id,
-                        fighter_1_name,
-                        fighter_2_name,
-                        weight_class,
-                        is_title_fight,
-                        is_interim_title,
-                        scheduled_rounds,
-                        scored_at,
-                        predicted_prob_f1,
-                        calibrated_prob_f1,
-                        predicted_label,
-                        predicted_winner_name,
-                        confidence_tier,
-                        is_uncertain,
-                        actual_label,
-                        actual_winner_name,
-                        result_type,
-                        finish_method,
-                        finish_round,
-                        finish_time_seconds,
-                        correct,
-                        model_name,
-                        model_artifact
-                    )
-                    VALUES (
-                        %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
-                        %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
-                        %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
-                    )
-                    ON CONFLICT (event_date, review_type, fight_id)
-                    DO UPDATE SET
-                        event_id = EXCLUDED.event_id,
-                        event_name = EXCLUDED.event_name,
-                        actual_fight_id = EXCLUDED.actual_fight_id,
-                        fighter_1_id = EXCLUDED.fighter_1_id,
-                        fighter_2_id = EXCLUDED.fighter_2_id,
-                        fighter_1_name = EXCLUDED.fighter_1_name,
-                        fighter_2_name = EXCLUDED.fighter_2_name,
-                        weight_class = EXCLUDED.weight_class,
-                        is_title_fight = EXCLUDED.is_title_fight,
-                        is_interim_title = EXCLUDED.is_interim_title,
-                        scheduled_rounds = EXCLUDED.scheduled_rounds,
-                        scored_at = EXCLUDED.scored_at,
-                        predicted_prob_f1 = EXCLUDED.predicted_prob_f1,
-                        calibrated_prob_f1 = EXCLUDED.calibrated_prob_f1,
-                        predicted_label = EXCLUDED.predicted_label,
-                        predicted_winner_name = EXCLUDED.predicted_winner_name,
-                        confidence_tier = EXCLUDED.confidence_tier,
-                        is_uncertain = EXCLUDED.is_uncertain,
-                        actual_label = EXCLUDED.actual_label,
-                        actual_winner_name = EXCLUDED.actual_winner_name,
-                        result_type = EXCLUDED.result_type,
-                        finish_method = EXCLUDED.finish_method,
-                        finish_round = EXCLUDED.finish_round,
-                        finish_time_seconds = EXCLUDED.finish_time_seconds,
-                        correct = EXCLUDED.correct,
-                        model_name = EXCLUDED.model_name,
-                        model_artifact = EXCLUDED.model_artifact,
-                        reviewed_at = now()
-                """, rows)
-        print("  Updated reviewed_prediction_fights")
+            upsert(conn, "reviewed_prediction_fights", rows,
+                   pk_columns=["event_date", "review_type", "fight_id"])
     finally:
         conn.close()
 

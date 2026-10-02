@@ -16,6 +16,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from contextlib import redirect_stdout
 from pathlib import Path
 
 import pandas as pd
@@ -23,6 +24,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from modeling.score_upcoming import score_upcoming, _print_card
+from modeling.decisions import DECISION_FIELDS, attach_decisions, json_safe, write_prediction_csv
 from warehouse.db import get_connection, upsert
 
 REPO_ROOT = Path(__file__).resolve().parent
@@ -74,20 +76,41 @@ def _filter_next(predictions: pd.DataFrame) -> pd.DataFrame:
 def _output_json(predictions: pd.DataFrame) -> None:
     """Output predictions as JSON."""
     records = []
-    for _, row in predictions.iterrows():
+    for _, row in attach_decisions(predictions).iterrows():
         records.append({
             "fight_id": row["fight_id"],
             "fighter_1": row["fighter_1_name"],
             "fighter_2": row["fighter_2_name"],
             "weight_class": row.get("weight_class"),
-            "predicted_prob_f1": round(float(row["predicted_prob_f1"]), 4),
-            "calibrated_prob_f1": round(float(row["calibrated_prob_f1"]), 4),
+            "predicted_prob_f1": float(row["predicted_prob_f1"]),
+            "calibrated_prob_f1": float(row["calibrated_prob_f1"]),
+            "calibrated_prob_f2": 1 - float(row["calibrated_prob_f1"]),
             "confidence_tier": row["confidence_tier"],
             "is_uncertain": bool(row["is_uncertain"]),
             "model": row["model_name"],
             "scored_at": row["scored_at"],
+            **{field: row[field] for field in (*DECISION_FIELDS, "decision_origin")},
         })
-    print(json.dumps(records, indent=2))
+    print(json.dumps(json_safe(records), indent=2, allow_nan=False))
+
+
+def _database_rows(predictions: pd.DataFrame) -> list[dict]:
+    """Persist precise model values alongside the compatible rounded columns."""
+    columns = [
+        "fight_id", "event_date", "fighter_1_id", "fighter_2_id", "fighter_1_name",
+        "fighter_2_name", "weight_class", "predicted_prob_f1", "calibrated_prob_f1",
+        "confidence_tier", "is_uncertain", "model_name", "model_artifact", "scored_at",
+        *DECISION_FIELDS, "decision_origin",
+    ]
+    records = []
+    for _, row in attach_decisions(predictions).iterrows():
+        record = json_safe({column: row.get(column) for column in columns})
+        record["event_date"] = str(row["event_date"])[:10] if pd.notna(row["event_date"]) else None
+        for column in ("predicted_prob_f1", "calibrated_prob_f1"):
+            record[column] = float(row[column])
+            record[column + "_full"] = record[column]
+        records.append(record)
+    return records
 
 
 def main() -> None:
@@ -101,11 +124,19 @@ def main() -> None:
 
     conn = get_connection()
     try:
-        predictions = score_upcoming(conn)
+        # JSON stdout must contain only the payload, including scoring progress.
+        if args.format == "json":
+            with redirect_stdout(sys.stderr):
+                predictions = score_upcoming(conn)
+        else:
+            predictions = score_upcoming(conn)
     finally:
         conn.close()
 
     if predictions.empty:
+        if args.format == "json":
+            _output_json(predictions)
+            return
         print("\nNo predictions available.")
         print("To generate predictions:")
         print("  1. make load_upcoming       # load upcoming fights")
@@ -115,11 +146,18 @@ def main() -> None:
 
     # Apply filters
     if args.event:
-        predictions = _filter_event(predictions, args.event)
+        if args.format == "json":
+            with redirect_stdout(sys.stderr):
+                predictions = _filter_event(predictions, args.event)
+        else:
+            predictions = _filter_event(predictions, args.event)
     elif args.next_event:
         predictions = _filter_next(predictions)
 
     if predictions.empty:
+        if args.format == "json":
+            _output_json(predictions)
+            return
         print("\nNo predictions match the filter.")
         return
 
@@ -130,32 +168,15 @@ def main() -> None:
         date_dir = out_dir / str(ed)[:10]
         date_dir.mkdir(parents=True, exist_ok=True)
         mask = predictions["event_date"] == ed
-        predictions[mask].to_csv(date_dir / "predictions.csv", index=False)
+        write_prediction_csv(predictions[mask], date_dir / "predictions.csv")
 
     # Save predictions to database
     conn = get_connection()
     try:
-        db_rows = []
-        for _, row in predictions.iterrows():
-            db_rows.append({
-                "fight_id": row["fight_id"],
-                "event_date": str(row["event_date"])[:10] if pd.notna(row["event_date"]) else None,
-                "fighter_1_id": row["fighter_1_id"],
-                "fighter_2_id": row["fighter_2_id"],
-                "fighter_1_name": row["fighter_1_name"],
-                "fighter_2_name": row["fighter_2_name"],
-                "weight_class": row.get("weight_class"),
-                "predicted_prob_f1": float(row["predicted_prob_f1"]),
-                "calibrated_prob_f1": float(row["calibrated_prob_f1"]),
-                "confidence_tier": row["confidence_tier"],
-                "is_uncertain": bool(row["is_uncertain"]),
-                "model_name": row["model_name"],
-                "model_artifact": row["model_artifact"],
-                "scored_at": row["scored_at"],
-            })
+        db_rows = _database_rows(predictions)
         with conn:
             n = upsert(conn, "predictions", db_rows, pk_columns=["fight_id", "scored_at"])
-        print(f"\n  Saved {n} prediction(s) to database")
+        print(f"\n  Saved {n} prediction(s) to database", file=sys.stderr if args.format == "json" else sys.stdout)
     finally:
         conn.close()
 
