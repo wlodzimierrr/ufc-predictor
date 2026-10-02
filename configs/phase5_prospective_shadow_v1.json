@@ -1,0 +1,67 @@
+{
+  "contract_version": "phase5_current_candidate_v1",
+  "experiment_id": "prospective_shadow_v1",
+  "status": "preregistered_preparation_only",
+  "source_mode": "contemporary_warehouse_retrospective_reconstruction",
+  "feature_algorithm_version": "v2_date_frozen_elo_schedule_unknown_v1",
+  "feature_version": 2,
+  "event_cutoff_rule": "UTC completion date of coherent source capture, exclusive",
+  "holdout_exclusion_count": 166,
+  "scheduled_rounds": "unknown_for_all_targets_and_histories",
+  "debut_columns": "deferred_until_partition_specific_preprocessing_in_phase5b",
+  "roles": {
+    "march_research_control": "data/experiments/phase3b_xgb_pre_april_2026/20261001_phase3b_retrospective_v1",
+    "march_control_checksums_sha256": "41f8c8afb8fd091fa0b04823ad9175cedcfdbf85ccf3f62d77c71e0d9219279f",
+    "march_control_latest_training_event": "2026-03-07",
+    "current_challenger": "new_separate_artifact_to_be_fit_in_phase5b",
+    "frozen_reference": "existing_production_learner_plus_separately_persisted_legacy_recipe_components",
+    "reference_is_recovered_historical_probability_stream": false,
+    "reference_components_freeze_before_any_forecast_or_outcome": true
+  },
+  "learner": {
+    "objective": "binary:logistic", "eval_metric": "logloss",
+    "max_depth": 6, "min_child_weight": 100, "reg_lambda": 1.0,
+    "learning_rate": 0.02, "subsample": 0.8, "colsample_bytree": 0.8,
+    "random_state": 42, "n_jobs": 1, "tree_method": "hist", "verbosity": 0,
+    "n_estimators": 310
+  },
+  "oof": {
+    "cutoff_month_offsets": [-12, -9, -6, -3, 0],
+    "calendar_rule": "subtract calendar months from cutoff, clamp day to month end if needed",
+    "expanding_training": true, "preprocessing": "fold_training_rows_only",
+    "exactly_one_prediction_per_eligible_row": true,
+    "early_stopping": false, "tuning": false
+  },
+  "platt": {
+    "clip_epsilon": 1e-8, "C": 1e10, "solver": "lbfgs", "max_iter": 1000,
+    "input": "log_odds", "positive_class": 1, "persist_estimator": true,
+    "same_row_calibrated_metrics_label": "calibration-fit diagnostics"
+  },
+  "final_refit": {"all_eligible_rows": true, "independent_final_priors": true, "early_stopping": false},
+  "forecast": {
+    "first_complete_paired_capture": true, "maximum_lead_days": 14,
+    "minimum_lead_hours": 24, "event_boundary": "announced date 00:00 UTC",
+    "common_observation_cutoff": true, "register_before_predictions": true,
+    "revision_policy": "append_only_original_forecasts_retained",
+    "real_scoring_authorized_in_phase5a": false
+  },
+  "decision": {
+    "version": "probability_band_v1", "no_pick_inclusive": [0.40, 0.60],
+    "high_confidence_inclusive_outer": [0.30, 0.70], "latent_label_one_at": 0.50
+  },
+  "evaluation": {
+    "primary_pair": ["current_challenger", "frozen_reference"],
+    "secondary_control": "march_research_control",
+    "primary_metrics": ["all_fight_log_loss", "all_fight_brier"],
+    "include_no_pick": true, "log_loss_clip_epsilon": 1e-8,
+    "brier": "mean((p-y)^2) using unrounded unmodified calibrated p",
+    "calibration_bins": {"count": 10, "edges": [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1], "closure": "first [0,0.1], then (lo,hi]", "empty": "null"},
+    "event_cluster_bootstrap": {"replicates": 10000, "seed": 42, "rng": "numpy_Generator_PCG64", "resample": "E event IDs with replacement; retain all paired bouts per sampled event, repeated events repeated", "weighting": "bout_weighted", "interval": "percentile 2.5 and 97.5, numpy quantile method linear", "difference": "challenger minus reference", "paired": true},
+    "checkpoint": {"resolved_paired_binary_bouts_at_least": 200, "distinct_events_at_least": 20, "timing": "first completed event ingestion batch satisfying both", "power_guarantee": false, "promotion_threshold": false},
+    "early_monitoring": "descriptive_only_no_favorable_stopping_or_trial_based_modification",
+    "threshold_tuning": false, "outcome_based_filtering": false,
+    "outcome_ingestion": "later_separately_scoped_command_or_session",
+    "automatic_promotion": false
+  },
+  "phase5a": {"fit_models": false, "fit_priors": false, "real_probabilities": false, "evaluate_outcomes": false, "production_changes": false}
+}
