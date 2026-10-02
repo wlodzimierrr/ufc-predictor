@@ -1,5 +1,7 @@
 PYTHON ?= python3
 BETTING_BACKTEST_COMPARE_ARGS ?= --line-type opening --odds-policy latest-before-prediction
+DASHBOARD_BACKTEST_ARGS ?= --line-type current --odds-policy latest-before-event --initial-bankroll 1000
+DASHBOARD_RECOMMENDATION_ARGS ?= --next --line-type current --bankroll 1000
 
 # ── Warehouse ──────────────────────────────────────────────────────────────────
 
@@ -102,6 +104,21 @@ load_odds:
 adapt_kaggle_odds:
 	$(PYTHON) warehouse/adapt_kaggle_odds.py $(ARGS)
 
+adapt_bfo_live_odds:
+	$(PYTHON) warehouse/adapt_bestfightodds_live_snapshots.py $(ARGS)
+
+promote_bfo_live_odds:
+	$(PYTHON) warehouse/promote_odds_source_to_canonical.py \
+	  --source-csv data/odds/sources/bestfightodds_live_fight_odds.csv $(ARGS)
+
+# Capture current per-bookmaker odds for one upcoming card, then promote them.
+# Usage: make refresh_current_odds BFO_EVENT_ID=ufc-331-4302
+refresh_current_odds:
+	@test -n "$(BFO_EVENT_ID)" || { echo "Set BFO_EVENT_ID, e.g. make refresh_current_odds BFO_EVENT_ID=ufc-331-4302"; exit 1; }
+	$(PYTHON) warehouse/probe_bestfightodds_snapshot.py --event-id $(BFO_EVENT_ID)
+	$(MAKE) adapt_bfo_live_odds
+	$(MAKE) promote_bfo_live_odds
+
 betting_recommendations:
 	$(PYTHON) betting/recommend.py $(ARGS)
 
@@ -115,6 +132,29 @@ betting_backtest:
 betting_backtest_compare:
 	$(PYTHON) betting/backtest.py --max-one-bet-per-fight --report-dir data/reports/betting_default $(BETTING_BACKTEST_COMPARE_ARGS) $(ARGS)
 	$(PYTHON) betting/backtest.py --max-one-bet-per-fight --config configs/betting_conservative_candidate.toml $(BETTING_BACKTEST_COMPARE_ARGS) $(ARGS)
+
+betting_dashboard_reports:
+	$(PYTHON) betting/backtest.py --max-one-bet-per-fight --report-dir data/reports/betting_default $(DASHBOARD_BACKTEST_ARGS) $(ARGS)
+	$(PYTHON) betting/backtest.py --max-one-bet-per-fight --config configs/betting_conservative_candidate.toml $(DASHBOARD_BACKTEST_ARGS) $(ARGS)
+	$(PYTHON) betting/recommend.py $(DASHBOARD_RECOMMENDATION_ARGS)
+
+load_betting_reports:
+	$(PYTHON) warehouse/load_betting_reports.py
+
+update_dashboard_data:
+	$(MAKE) load_events
+	$(MAKE) load_fights
+	$(MAKE) load_upcoming
+	$(MAKE) load_odds ARGS="--csv data/odds/fight_odds.csv"
+	$(MAKE) pre_event_log
+	$(MAKE) predict_pipeline
+	# predict_pipeline only writes prediction CSVs. `predict` is what persists rows to
+	# the predictions table, which current_event_predictions (and so
+	# `betting/recommend.py --next`) reads. Without it, --next silently falls through
+	# to whatever future event still has stale persisted predictions.
+	$(MAKE) predict
+	$(MAKE) betting_dashboard_reports
+	$(MAKE) load_betting_reports
 
 betting_tune_policy:
 	$(PYTHON) betting/tune_policy.py $(ARGS)
@@ -146,7 +186,9 @@ predict_pipeline: load_upcoming build_upcoming_features score_upcoming
         train_logreg train_lgbm train_lgbm_v2 train_xgb train_ensemble \
         compare_models score_upcoming predict review_event review_all_events backtest_past pre_event_log \
         uncertainty_analysis error_analysis train_all_v2 \
-        load_odds adapt_kaggle_odds betting_recommendations betting_recommendations_compare \
-        betting_backtest betting_backtest_compare betting_tune_policy test_betting \
+        load_odds adapt_kaggle_odds adapt_bfo_live_odds promote_bfo_live_odds refresh_current_odds \
+        betting_recommendations betting_recommendations_compare \
+        betting_backtest betting_backtest_compare betting_dashboard_reports load_betting_reports \
+        update_dashboard_data betting_tune_policy test_betting \
         test_integration predict_pipeline \
         refresh_scrape post_event

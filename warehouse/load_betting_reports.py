@@ -22,10 +22,15 @@ from psycopg2.extras import execute_values
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from betting.config import default_config
 from warehouse.db import get_connection
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 REPORT_ROOT = REPO_ROOT / "data" / "reports"
+CURRENT_REPORT_KEY = "current_bfo_mean"
+CURRENT_REPORT_LABEL = "Current BFO Mean"
+CURRENT_RECOMMENDATIONS_PATH = REPORT_ROOT / "betting_recommendations.csv"
+CURRENT_EVENT_SUMMARY_PATH = REPORT_ROOT / "betting_event_summary.csv"
 
 
 @dataclass(frozen=True)
@@ -188,6 +193,20 @@ def load_betting_reports(conn, reports: Iterable[BettingReportSource] = DEFAULT_
                     f"{len(summary_rows)} summary rows, {len(fight_rows)} fight rows, {bet_count} bets"
                 )
 
+            current_rows = _current_recommendation_report_rows(imported_at)
+            if current_rows is not None:
+                summary_rows, fight_rows = current_rows
+                cur.execute("DELETE FROM betting_report_summaries WHERE report_key = %s", (CURRENT_REPORT_KEY,))
+                cur.execute("DELETE FROM betting_report_fights WHERE report_key = %s", (CURRENT_REPORT_KEY,))
+                _insert_rows(cur, "betting_report_summaries", SUMMARY_COLUMNS, summary_rows)
+                _insert_rows(cur, "betting_report_fights", FIGHT_COLUMNS, fight_rows)
+
+                bet_count = sum(1 for row in fight_rows if row["decision"] == "bet")
+                print(
+                    f"  loaded {CURRENT_REPORT_LABEL}: "
+                    f"{len(summary_rows)} summary rows, {len(fight_rows)} fight rows, {bet_count} bets"
+                )
+
 
 def _insert_rows(cur, table: str, columns: list[str], rows: list[dict]) -> None:
     if not rows:
@@ -196,6 +215,179 @@ def _insert_rows(cur, table: str, columns: list[str], rows: list[dict]) -> None:
     column_sql = ", ".join(f'"{column}"' for column in columns)
     values = [tuple(row[column] for column in columns) for row in rows]
     execute_values(cur, f"INSERT INTO {table} ({column_sql}) VALUES %s", values)
+
+
+def _current_recommendation_report_rows(
+    imported_at: datetime,
+) -> tuple[list[dict], list[dict]] | None:
+    if not CURRENT_RECOMMENDATIONS_PATH.exists() or not CURRENT_EVENT_SUMMARY_PATH.exists():
+        print(f"  skipped {CURRENT_REPORT_LABEL}: current recommendation CSVs not found")
+        return None
+
+    report_generated_at = datetime.fromtimestamp(
+        max(CURRENT_RECOMMENDATIONS_PATH.stat().st_mtime, CURRENT_EVENT_SUMMARY_PATH.stat().st_mtime),
+        timezone.utc,
+    )
+    recommendations = _read_csv(CURRENT_RECOMMENDATIONS_PATH)
+    event_summaries = _read_csv(CURRENT_EVENT_SUMMARY_PATH)
+    config = default_config()
+    risk = config.risk
+
+    summary_rows = [_current_summary_row(
+        recommendations,
+        event_summaries,
+        report_generated_at,
+        imported_at,
+        risk=risk,
+    )]
+    fight_rows = [
+        _current_fight_row(row_number, row, report_generated_at, imported_at, risk=risk)
+        for row_number, row in enumerate(recommendations, start=1)
+    ]
+    return summary_rows, fight_rows
+
+
+def _current_summary_row(
+    recommendations: list[dict[str, str]],
+    event_summaries: list[dict[str, str]],
+    report_generated_at: datetime,
+    imported_at: datetime,
+    *,
+    risk,
+) -> dict:
+    bet_rows = [row for row in recommendations if _text(row, "decision") == "bet"]
+    total_bets = sum(_int(row, "bets_recommended") for row in event_summaries) or len(bet_rows)
+    total_staked = (
+        sum(_decimal(row, "total_stake_amount") for row in event_summaries)
+        or sum(_decimal(row, "stake_amount") for row in bet_rows)
+    )
+    average_odds = _average_decimal(
+        _decimal(row, "bfo_benchmark_decimal_odds")
+        for row in bet_rows
+        if _text(row, "bfo_benchmark_decimal_odds")
+    )
+
+    return {
+        "report_key": CURRENT_REPORT_KEY,
+        "label": CURRENT_REPORT_LABEL,
+        "source": "honest",
+        "summary_type": "current_recommendations",
+        "group_name": "overall",
+        "total_bets": total_bets,
+        "wins": 0,
+        "losses": 0,
+        "pushes": 0,
+        "total_staked": total_staked,
+        "profit_loss": Decimal("0"),
+        "roi": None,
+        "hit_rate": None,
+        "average_odds": average_odds,
+        "max_drawdown": Decimal("0"),
+        "starting_bankroll": Decimal("0"),
+        "ending_bankroll": Decimal("0"),
+        "odds_policy": "latest_current",
+        "require_odds_before_prediction": True,
+        "max_one_bet_per_fight": True,
+        "kelly_fraction": Decimal(str(risk.kelly_fraction)),
+        "min_edge": Decimal(str(risk.min_edge)),
+        "min_ev": Decimal(str(risk.min_ev)),
+        "max_single_bet_fraction": Decimal(str(risk.max_single_bet_fraction)),
+        "max_event_fraction": Decimal(str(risk.max_event_fraction)),
+        "medium_tier_cap": Decimal(str(risk.medium_tier_cap)),
+        "high_tier_cap": Decimal(str(risk.high_tier_cap)),
+        "toss_up_tier_cap": Decimal(str(risk.toss_up_tier_cap)),
+        "drawdown_protection_threshold": (
+            Decimal(str(risk.drawdown_protection_threshold))
+            if risk.drawdown_protection_threshold is not None
+            else None
+        ),
+        "report_generated_at": report_generated_at,
+        "imported_at": imported_at,
+    }
+
+
+def _current_fight_row(
+    row_number: int,
+    row: Mapping[str, str],
+    report_generated_at: datetime,
+    imported_at: datetime,
+    *,
+    risk,
+) -> dict:
+    return {
+        "report_key": CURRENT_REPORT_KEY,
+        "label": CURRENT_REPORT_LABEL,
+        "source": "honest",
+        "row_number": row_number,
+        "event_id": _text(row, "event_id"),
+        "event_name": _text(row, "event_name"),
+        "event_date": _optional_text(row, "event_date"),
+        "fight_id": _text(row, "fight_id"),
+        "fighter_id": _text(row, "fighter_id"),
+        "fighter_name": _text(row, "fighter_name"),
+        "opponent_fighter_id": _text(row, "opponent_fighter_id"),
+        "opponent_fighter_name": _text(row, "opponent_fighter_name"),
+        "bookmaker": _text(row, "bookmaker"),
+        "market": _text(row, "market"),
+        "line_type": _text(row, "line_type"),
+        "odds_timestamp": _optional_text(row, "odds_timestamp"),
+        "scored_at": None,
+        "model_probability": _decimal(row, "model_probability"),
+        "market_implied_probability": _decimal(row, "market_implied_probability"),
+        "no_vig_market_probability": _decimal(row, "no_vig_market_probability"),
+        "edge": _decimal(row, "edge"),
+        "edge_bucket": "",
+        "ev_per_unit": _decimal(row, "ev_per_unit"),
+        "offered_decimal_odds": _decimal(row, "bfo_benchmark_decimal_odds"),
+        "decision": _text(row, "decision"),
+        "recommended_fighter_id": _text(row, "recommended_fighter_id"),
+        "recommended_fighter_name": _text(row, "recommended_fighter_name"),
+        "confidence_tier": _text(row, "confidence_tier"),
+        "reason_codes": _text(row, "reason_codes"),
+        "full_kelly_fraction": _decimal(row, "full_kelly_fraction"),
+        "fractional_kelly_fraction": _decimal(row, "fractional_kelly_fraction"),
+        "final_stake_fraction": _decimal(row, "final_stake_fraction"),
+        "stake_amount": _decimal(row, "stake_amount"),
+        "bet_result": "",
+        "profit_loss_amount": Decimal("0"),
+        "bankroll_before_event": Decimal("0"),
+        "bankroll_after_event": Decimal("0"),
+        "peak_bankroll": Decimal("0"),
+        "drawdown": Decimal("0"),
+        "max_drawdown": Decimal("0"),
+        "actual_winner_fighter_id": "",
+        "actual_winner_name": "",
+        "result_type": "",
+        "resolved": False,
+        "detail_mode": "current_recommendations",
+        "odds_policy": "latest_current",
+        "require_odds_before_prediction": True,
+        "max_one_bet_per_fight": True,
+        "starting_bankroll": Decimal("0"),
+        "ending_bankroll": Decimal("0"),
+        "kelly_fraction": Decimal(str(risk.kelly_fraction)),
+        "min_edge": Decimal(str(risk.min_edge)),
+        "min_ev": Decimal(str(risk.min_ev)),
+        "max_single_bet_fraction": Decimal(str(risk.max_single_bet_fraction)),
+        "max_event_fraction": Decimal(str(risk.max_event_fraction)),
+        "medium_tier_cap": Decimal(str(risk.medium_tier_cap)),
+        "high_tier_cap": Decimal(str(risk.high_tier_cap)),
+        "toss_up_tier_cap": Decimal(str(risk.toss_up_tier_cap)),
+        "drawdown_protection_threshold": (
+            Decimal(str(risk.drawdown_protection_threshold))
+            if risk.drawdown_protection_threshold is not None
+            else None
+        ),
+        "report_generated_at": report_generated_at,
+        "imported_at": imported_at,
+    }
+
+
+def _average_decimal(values: Iterable[Decimal]) -> Decimal | None:
+    collected = list(values)
+    if not collected:
+        return None
+    return sum(collected) / Decimal(len(collected))
 
 
 def _read_csv(path: Path) -> list[dict[str, str]]:

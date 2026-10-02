@@ -69,6 +69,24 @@ def test_build_line_history_contexts_extracts_event_page_matchup_context():
     assert side_two.opponent_name == "Fighter One"
 
 
+def test_build_line_history_contexts_extracts_homepage_event_context_with_snapshot_year():
+    snapshot = _snapshot(
+        "homepage_event_context.html",
+        source_url="https://www.bestfightodds.com/",
+    )
+
+    contexts = build_line_history_contexts([snapshot])
+
+    side_one = contexts[("789", "1")][0]
+    side_two = contexts[("789", "2")][0]
+    assert side_one.source_event_name == "UFC Test City"
+    assert side_one.source_event_date == "2026-08-01"
+    assert side_one.fighter_name == "Fighter One"
+    assert side_one.opponent_name == "Fighter Two"
+    assert side_two.fighter_name == "Fighter Two"
+    assert side_two.opponent_name == "Fighter One"
+
+
 def test_read_line_history_payloads_decodes_stored_api_payload(tmp_path):
     payload_dir = tmp_path / "payloads"
     payload_dir.mkdir()

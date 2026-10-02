@@ -394,6 +394,7 @@ def _contexts_from_snapshot(snapshot: BfoSnapshot) -> tuple[LineHistoryContext, 
     soup = BeautifulSoup(snapshot.html_text, "html.parser")
     contexts: list[LineHistoryContext] = []
     contexts.extend(_event_contexts_from_snapshot(snapshot, soup))
+    contexts.extend(_homepage_event_contexts_from_snapshot(snapshot, soup))
     for table in soup.find_all("table", class_="team-stats-table"):
         event_name = ""
         event_date = ""
@@ -447,6 +448,54 @@ def _contexts_from_snapshot(snapshot: BfoSnapshot) -> tuple[LineHistoryContext, 
     return tuple(contexts)
 
 
+def _homepage_event_contexts_from_snapshot(snapshot: BfoSnapshot, soup: BeautifulSoup) -> tuple[LineHistoryContext, ...]:
+    """Extract contexts from BFO homepage/current-event odds tables."""
+    contexts: list[LineHistoryContext] = []
+    for event_div in soup.select("div.table-div"):
+        header = event_div.select_one(".table-header h1")
+        date_label = event_div.select_one(".table-header-date")
+        event_name = _event_name_without_date(_clean_event_name(header.get_text(" ", strip=True) if header else ""))
+        event_date = _date_from_homepage_label(
+            date_label.get_text(" ", strip=True) if date_label else "",
+            snapshot.fetched_at,
+        )
+        if not event_date:
+            continue
+
+        for tr in event_div.find_all("tr", id=re.compile(r"^mu-\d+$")):
+            matchup_id = (_text(tr.get("id")) or "").replace("mu-", "")
+            fighter_name = _event_page_fighter_name_from_row(tr)
+            opponent_row = tr.find_next_sibling("tr")
+            opponent_name = _event_page_fighter_name_from_row(opponent_row) if opponent_row else ""
+            if not matchup_id or not fighter_name or not opponent_name:
+                continue
+            contexts.extend([
+                LineHistoryContext(
+                    matchup_id=matchup_id,
+                    side="1",
+                    source_snapshot_path=str(snapshot.path),
+                    source_snapshot_sha256=snapshot.content_sha256,
+                    source_url=snapshot.source_url,
+                    source_event_name=event_name,
+                    source_event_date=event_date,
+                    fighter_name=fighter_name,
+                    opponent_name=opponent_name,
+                ),
+                LineHistoryContext(
+                    matchup_id=matchup_id,
+                    side="2",
+                    source_snapshot_path=str(snapshot.path),
+                    source_snapshot_sha256=snapshot.content_sha256,
+                    source_url=snapshot.source_url,
+                    source_event_name=event_name,
+                    source_event_date=event_date,
+                    fighter_name=opponent_name,
+                    opponent_name=fighter_name,
+                ),
+            ])
+    return tuple(contexts)
+
+
 def _event_contexts_from_snapshot(snapshot: BfoSnapshot, soup: BeautifulSoup) -> tuple[LineHistoryContext, ...]:
     event_name, event_date = _event_identity_from_event_snapshot(soup)
     if not event_date:
@@ -485,6 +534,35 @@ def _event_contexts_from_snapshot(snapshot: BfoSnapshot, soup: BeautifulSoup) ->
             ),
         ])
     return tuple(contexts)
+
+
+def _clean_event_name(value: str) -> str:
+    return re.sub(r"\s+Odds\s*$", "", value).strip()
+
+
+def _date_from_homepage_label(label: str, fetched_at: str) -> str | None:
+    text = _text(label)
+    if text is None:
+        return None
+    explicit = _date_from_event_text(text)
+    if explicit:
+        return explicit
+
+    fetched_year = _year_from_timestamp(fetched_at)
+    if fetched_year is None:
+        return None
+    candidate = f"{text} {fetched_year}"
+    return _date_from_event_text(candidate) or _date_iso(candidate)
+
+
+def _year_from_timestamp(value: str) -> int | None:
+    text = _text(value)
+    if text is None:
+        return None
+    try:
+        return datetime.fromisoformat(text.replace("Z", "+00:00")).year
+    except ValueError:
+        return None
 
 
 def _event_identity_from_event_snapshot(soup: BeautifulSoup) -> tuple[str, str]:

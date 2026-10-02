@@ -290,6 +290,29 @@ dropped. Current-card recommendation CSVs can surface those BFO benchmark fields
 with `bfo_benchmark_*` columns, but the executable sportsbook odds join,
 bet/pass policy, and staking decisions remain separate. Canonical BFO coverage
 can be audited with `warehouse/report_bestfightodds_canonical_coverage.py`.
+Current per-bookmaker odds for an upcoming card come from a separate path.
+`warehouse/adapt_bestfightodds_live_snapshots.py` reads the per-bookmaker
+moneyline grid on a stored BFO event-page snapshot and writes `line_type=current`
+rows under the `bestfightodds_live_snapshot` source label to
+`data/odds/sources/bestfightodds_live_fight_odds.csv`. These are named-bookmaker
+rows (FanDuel, BetRivers, Caesars, and so on) read from each cell's
+`data-li="[bookmaker_id, side, matchup_id]"` attribute, so they are executable
+sportsbook prices rather than `BestFightOdds Mean` market-benchmark rows. Each
+row is timestamped with the snapshot capture time
+(`source_timestamp_quality=observed_snapshot_capture_time`), which is an
+observation time, not a bookmaker-published line-change time. Prop and total rows
+are skipped; only rows whose header cell links to a fighter page are treated as
+moneyline sides. Rows that cannot be matched to a local fight go to
+`data/odds/sources/bestfightodds_live_unmatched_odds.csv` for review.
+
+Name matching tolerates internal spacing ("Doo Ho Choi" / "Dooho Choi") and
+generational suffixes ("Michael Aswell" / "Michael Aswell Jr."). Anything beyond
+that needs a reviewed entry in `data/odds/bfo_name_aliases.csv`; without one the
+rows stay in the review output rather than being guessed. Because BestFightOdds
+labels an event with its local calendar date, matching also tries one day either
+side of the labelled date, and the matched local fight's event date wins. See
+`COMMANDS.md` for the capture/adapt/promote commands.
+
 MMAOddsBreaker is the documented fallback for permissioned/manual article review
 if BestFightOdds is blocked or insufficient. OddsPortal should be avoided unless
 explicit permission or a licensed path is obtained.
