@@ -1,0 +1,25 @@
+{
+  "compilation": "PASSED",
+  "final_guarded_tests": {
+    "failed": 0,
+    "passed": 104,
+    "seconds": 38.58,
+    "skipped": 0
+  },
+  "git_fetch_head_upstream_difference": [
+    0,
+    0
+  ],
+  "initial_guarded_tests": {
+    "failed": 0,
+    "passed": 102,
+    "seconds": 37.4,
+    "skipped": 0
+  },
+  "initial_head": "ac05b60ed71e426c162983e8f849f62a4cf48050",
+  "initial_worktree": "clean",
+  "live_integration_tests_run": 0,
+  "new_test_cases": 63,
+  "no_broad_discovery": true,
+  "scoped_whitespace": "PASSED"
+}

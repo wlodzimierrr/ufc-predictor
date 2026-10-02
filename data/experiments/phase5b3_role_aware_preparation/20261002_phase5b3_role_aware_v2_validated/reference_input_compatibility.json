@@ -1,0 +1,15 @@
+{
+  "adapter_changes_required": [],
+  "forecast_readiness": "BLOCKED",
+  "identity_input_contract": "phase5_normalized_history_input_v1",
+  "limitations": [
+    "title and experience remain unattested",
+    "capture predates reference component freezes",
+    "new challenger not fit",
+    "legacy numeric recipe and source-order semantics unchanged"
+  ],
+  "packaging": "admitted history plus selected outcome-free target source rows; history-scoped statistics; retain original legacy schedules",
+  "real_adapter_feature_calls": 0,
+  "saved_component_loads": 0,
+  "structural_compatibility": "READY"
+}

@@ -1,0 +1,9 @@
+{
+  "command": "python3 tools/prepare_phase5b3_role_aware.py verify --run data/experiments/phase5b3_role_aware_preparation/20261002_phase5b3_role_aware_v2_validated --checksums-sha256 7d36dc2bdb2a99eb81a44424fe603a6beab74d05435e41c8a1489cea11f0bd4f --manifest-sha256 00f445f4fc93af986db5dbda5631c89181ccaa85271f643660dade66b4c9aa4b",
+  "fitting_input_readiness": "READY",
+  "fitting_rows": 8558,
+  "meaning": "captured result of separate guarded CLI process; independent deterministic read-back",
+  "oof_rows": 341,
+  "status": "VERIFIED",
+  "verified_at": "2026-10-02T17:04:09.676154+00:00"
+}

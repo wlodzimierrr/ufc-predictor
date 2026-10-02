@@ -1,0 +1,316 @@
+[
+  {
+    "fight_id": "0a2d3ada-1c34-5fd6-b7a4-c4151be392c9",
+    "reasons": [
+      "less_than_24_hours_before_utc_event_boundary",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "2285491c-14ce-54b9-9584-3c70abf40263",
+    "reasons": [
+      "less_than_24_hours_before_utc_event_boundary",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "548f2d75-f656-5b62-b42d-21ec31424bf0",
+    "reasons": [
+      "less_than_24_hours_before_utc_event_boundary",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "54e53d0e-1fd1-531c-b16a-0327f8a8894d",
+    "reasons": [
+      "less_than_24_hours_before_utc_event_boundary",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "78127a7a-d501-5bae-8c45-db220bc0206d",
+    "reasons": [
+      "less_than_24_hours_before_utc_event_boundary",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "7d682248-030b-5922-b44b-86d2ec5c1636",
+    "reasons": [
+      "less_than_24_hours_before_utc_event_boundary",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "83978961-8298-5ec3-9201-adf2dcdfca70",
+    "reasons": [
+      "less_than_24_hours_before_utc_event_boundary",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "87499a34-2739-59f3-9b91-3106fb69ecdc",
+    "reasons": [
+      "less_than_24_hours_before_utc_event_boundary",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "94a68a73-94e4-5889-8965-efa45c4544c8",
+    "reasons": [
+      "less_than_24_hours_before_utc_event_boundary",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "b0114180-efe2-5931-8cac-48055b64c162",
+    "reasons": [
+      "less_than_24_hours_before_utc_event_boundary",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "b3ac2da0-bfc9-56b9-a033-619f7ca100bf",
+    "reasons": [
+      "less_than_24_hours_before_utc_event_boundary",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "c55c2b7b-5373-537a-acaa-106fe1dc9003",
+    "reasons": [
+      "less_than_24_hours_before_utc_event_boundary",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "e5a97d90-f2f8-5eab-9d17-f8a8d904626f",
+    "reasons": [
+      "less_than_24_hours_before_utc_event_boundary",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "f2740e77-7251-5467-a4af-a0c879e86194",
+    "reasons": [
+      "less_than_24_hours_before_utc_event_boundary",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "6fe1d59a-6ae9-5436-bc78-767da12a4707",
+    "reasons": [
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "129b49aa-9be9-5739-a710-4e63b5254405",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "142b43e4-12ae-574b-a291-81a81180425c",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "5c415656-53c0-5ced-be99-0c3174f30428",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "6b62ff0e-40af-52ea-adc5-320cc1e55c4d",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "94ba7a17-ad0c-5c58-b3a9-3719537c9589",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "98009768-20cc-531b-940d-e75927dde7c7",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "9a7c6c84-1f6b-5ff2-aea1-abd5d3766771",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "9c1577d1-6233-547f-a938-a9165014bfa5",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "af2f4613-5141-5eb7-8834-e7472d389806",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "c888bed7-46b6-5e8a-b967-c3a76f2abbd9",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "df4d8d52-7d3e-5bab-a462-e68dfb4824ea",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "f990b2fc-c164-5c8d-a102-df3e570840b3",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "4511da39-38b6-50cd-9f1b-653a3a6e03c5",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "52e6221f-141d-5f35-a45e-788d5d547556",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "6298e7bf-13d9-53c6-a98d-25c230184deb",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "69566aab-ee67-538b-8e36-1879b0db79a9",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "8d6e5c38-9149-5131-8f80-8d9b883111bd",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "d015b2b0-db52-51fe-b0e8-d0dd8169f8d0",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "f39b18a2-2f7f-591e-a1e5-9d8afdfa2a2c",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  },
+  {
+    "fight_id": "1a20b2d9-e495-57f5-97be-d825e4923d3a",
+    "reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ]
+  }
+]

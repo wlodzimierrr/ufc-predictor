@@ -1,0 +1,190 @@
+{
+  "april_original_states": {
+    "498de4bd-d781-52af-a383-802158196d2d": "draw",
+    "4b08f65d-db68-5091-9568-4748c4cf7318": "upcoming"
+  },
+  "cancellations": [],
+  "groups": [
+    {
+      "canonical_id": null,
+      "card_occurrences": [
+        {
+          "occurrence": "ufcstats.com/fight-details/552f7cdaf93e1055",
+          "participant_links": [
+            "ufcstats.com/fighter-details/5fa2974cbd18e05c",
+            "ufcstats.com/fighter-details/0e6b611451a9a7d8"
+          ]
+        }
+      ],
+      "chosen_source_lineage": null,
+      "disposition": "unresolved",
+      "event_date": "2026-04-18",
+      "event_id": "f9fdb60d-f963-535d-a85d-6d782b6e17f4",
+      "evidence": [
+        {
+          "meaning": "identity-only event href projection",
+          "path": "data/raw/ufcstats/events/f9fdb60d-f963-535d-a85d-6d782b6e17f4.html",
+          "sha256": "260c1d3ac79d4629bfa960036961547015171aadeaf5dea0af3fc6f1eea5d44c"
+        },
+        {
+          "meaning": "preserved page bytes; event/participant hrefs only, no result ingestion",
+          "path": "data/raw/ufcstats/fights/498de4bd-d781-52af-a383-802158196d2d.html",
+          "sha256": "f13f8bf8f3e283abd50fcc7791f1c394367ca03529ccc36e610ae785b23e7b7a"
+        },
+        {
+          "meaning": "preserved page bytes; event/participant hrefs only, no result ingestion",
+          "path": "data/raw/ufcstats/fights/4b08f65d-db68-5091-9568-4748c4cf7318.html",
+          "sha256": "096f1f16ac0a582dae9eeb3a8cfdaae4ff18edec3ee48b44a0d7ebb3b3994894"
+        }
+      ],
+      "excluded_original_ids": [],
+      "group": 2,
+      "occurrence_by_id": {
+        "498de4bd-d781-52af-a383-802158196d2d": "ufcstats.com/fight-details/552f7cdaf93e1055",
+        "4b08f65d-db68-5091-9568-4748c4cf7318": "ufcstats.com/fight-details/a842a365f408bb4a"
+      },
+      "original_ids": [
+        "498de4bd-d781-52af-a383-802158196d2d",
+        "4b08f65d-db68-5091-9568-4748c4cf7318"
+      ],
+      "participant_ids": [
+        "6d0eb73f-ebaa-58c0-afd5-39c22957a36f",
+        "7f39e479-ed06-5ae8-ba13-9fac7ba21d6d"
+      ],
+      "participant_names": [
+        "John Castaneda",
+        "Mark Vologdin"
+      ],
+      "required_evidence": "Preserved source ID transition/redirect or announcement revision explicitly linking a842a365f408bb4a to 552f7cdaf93e1055; otherwise evidence of separate/cancelled occurrences",
+      "source_rows": [
+        {
+          "orientation": [
+            "6d0eb73f-ebaa-58c0-afd5-39c22957a36f",
+            "7f39e479-ed06-5ae8-ba13-9fac7ba21d6d"
+          ],
+          "row": {
+            "event_id": "f9fdb60d-f963-535d-a85d-6d782b6e17f4",
+            "fight_id": "498de4bd-d781-52af-a383-802158196d2d",
+            "fighter_1_id": "6d0eb73f-ebaa-58c0-afd5-39c22957a36f",
+            "fighter_2_id": "7f39e479-ed06-5ae8-ba13-9fac7ba21d6d",
+            "finish_detail": "majority",
+            "finish_method": "decision",
+            "finish_round": 3,
+            "finish_time_seconds": 300,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": "Jason Herzog",
+            "result_type": "draw",
+            "scheduled_rounds": 3,
+            "scraped_at": "2026-08-08T23:34:38+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/552f7cdaf93e1055",
+            "weight_class": "catch_weight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "ac90225555558211fb7c04c082b540ee157e7d4f73bddd3dfa48912f21270a08",
+          "statistics": [
+            {
+              "row": {
+                "control_time_seconds": 75,
+                "fight_id": "498de4bd-d781-52af-a383-802158196d2d",
+                "fight_stat_id": "7ab7a505-11ab-553e-b562-3abdbd04732a",
+                "fighter_id": "6d0eb73f-ebaa-58c0-afd5-39c22957a36f",
+                "knockdowns": 0,
+                "reversals": 0,
+                "scraped_at": "2026-08-09T03:01:29+00:00",
+                "sig_strikes_attempted": 253,
+                "sig_strikes_body_attempted": 31,
+                "sig_strikes_body_landed": 19,
+                "sig_strikes_clinch_attempted": 18,
+                "sig_strikes_clinch_landed": 10,
+                "sig_strikes_distance_attempted": 233,
+                "sig_strikes_distance_landed": 124,
+                "sig_strikes_ground_attempted": 2,
+                "sig_strikes_ground_landed": 1,
+                "sig_strikes_head_attempted": 181,
+                "sig_strikes_head_landed": 79,
+                "sig_strikes_landed": 135,
+                "sig_strikes_leg_attempted": 41,
+                "sig_strikes_leg_landed": 37,
+                "source_url": "http://ufcstats.com/fight-details/552f7cdaf93e1055",
+                "submissions_attempted": 0,
+                "takedowns_attempted": 0,
+                "takedowns_landed": 0,
+                "total_strikes_attempted": 279,
+                "total_strikes_landed": 160
+              },
+              "row_sha256": "24cabfb87b1c7970ac8b0ee1b5dc978214548f7d0d46b9f365a341b2cc151f73"
+            },
+            {
+              "row": {
+                "control_time_seconds": 31,
+                "fight_id": "498de4bd-d781-52af-a383-802158196d2d",
+                "fight_stat_id": "e137df54-4213-5924-8b81-ea5b5562cbc2",
+                "fighter_id": "7f39e479-ed06-5ae8-ba13-9fac7ba21d6d",
+                "knockdowns": 0,
+                "reversals": 0,
+                "scraped_at": "2026-08-09T03:01:29+00:00",
+                "sig_strikes_attempted": 217,
+                "sig_strikes_body_attempted": 34,
+                "sig_strikes_body_landed": 26,
+                "sig_strikes_clinch_attempted": 15,
+                "sig_strikes_clinch_landed": 7,
+                "sig_strikes_distance_attempted": 202,
+                "sig_strikes_distance_landed": 84,
+                "sig_strikes_ground_attempted": 0,
+                "sig_strikes_ground_landed": 0,
+                "sig_strikes_head_attempted": 165,
+                "sig_strikes_head_landed": 53,
+                "sig_strikes_landed": 91,
+                "sig_strikes_leg_attempted": 18,
+                "sig_strikes_leg_landed": 12,
+                "source_url": "http://ufcstats.com/fight-details/552f7cdaf93e1055",
+                "submissions_attempted": 0,
+                "takedowns_attempted": 6,
+                "takedowns_landed": 1,
+                "total_strikes_attempted": 222,
+                "total_strikes_landed": 96
+              },
+              "row_sha256": "734224dd5afceec96da52899fa0d09379281d3e5ccbe6c79e22774f129e49f78"
+            }
+          ]
+        },
+        {
+          "orientation": [
+            "6d0eb73f-ebaa-58c0-afd5-39c22957a36f",
+            "7f39e479-ed06-5ae8-ba13-9fac7ba21d6d"
+          ],
+          "row": {
+            "event_id": "f9fdb60d-f963-535d-a85d-6d782b6e17f4",
+            "fight_id": "4b08f65d-db68-5091-9568-4748c4cf7318",
+            "fighter_1_id": "6d0eb73f-ebaa-58c0-afd5-39c22957a36f",
+            "fighter_2_id": "7f39e479-ed06-5ae8-ba13-9fac7ba21d6d",
+            "finish_detail": null,
+            "finish_method": null,
+            "finish_round": null,
+            "finish_time_seconds": null,
+            "is_interim_title": false,
+            "is_title_fight": false,
+            "referee": null,
+            "result_type": "upcoming",
+            "scheduled_rounds": null,
+            "scraped_at": "2026-03-31T10:52:29+00:00",
+            "source_url": "http://www.ufcstats.com/fight-details/a842a365f408bb4a",
+            "weight_class": "bantamweight",
+            "winner_fighter_id": null
+          },
+          "row_sha256": "29f0316a6b96293c659be780dcf55deadb71720679ae49ca2c6ac648322208e8",
+          "statistics": []
+        }
+      ],
+      "unresolved_conflicts": [
+        "Different old/new official URLs; no explicit URL transition, cancellation/replacement or occurrence mapping",
+        "upcoming versus draw and bantamweight versus catch_weight fields cannot be coalesced by priority"
+      ]
+    }
+  ],
+  "new_aliases": [],
+  "preferred_occurrences": [],
+  "relationship_resolved": false,
+  "status": "UNRESOLVED"
+}

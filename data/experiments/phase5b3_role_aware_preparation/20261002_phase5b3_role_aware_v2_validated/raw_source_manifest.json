@@ -1,0 +1,151 @@
+{
+  "capture_completed_at": "2026-10-02T13:28:09.905938+00:00",
+  "challenger_sources": [
+    "sources/events.json",
+    "sources/fighters.json",
+    "sources/fights.json",
+    "sources/fight_stats_aggregate.json"
+  ],
+  "contract_version": "phase5_current_candidate_v1",
+  "database_schemas_file": "sources/schemas.json",
+  "files": {
+    "official_sources/01.response": {
+      "bytes": 2998,
+      "sha256": "c428b6bdbfe11efd594b7eb02e014dff33c4624e9b212c5356a2bd68878849dc"
+    },
+    "official_sources/manifest.json": {
+      "bytes": 946,
+      "sha256": "22c4b281ec4532f24af53b5171ac3f990985d96c4577e1ff0a9306b14cb7fdfe"
+    },
+    "reference_bootstrap/stored_features.json": {
+      "bytes": 16909746,
+      "sha256": "74d0c51a8fb3f9f206c9534944e9fc60068d1c45aa2927450a8cc9557095f2ed"
+    },
+    "source_capture_receipt.json": {
+      "bytes": 16778,
+      "sha256": "dafdb9b4d9b54f33a48b2f471708aa86c6d34a83b4c5f07e5f7b92708d9467eb"
+    },
+    "sources/events.json": {
+      "bytes": 254222,
+      "sha256": "e36c7250b9965ec8294fe9bac196f45ec96ad51624ef704e5e188b83eb868a78"
+    },
+    "sources/fight_stats_aggregate.json": {
+      "bytes": 15164378,
+      "sha256": "ec19a9e5e0b13766744e187f1d099e92c65103940ac02fefe804b4421414bcb4"
+    },
+    "sources/fighters.json": {
+      "bytes": 1588338,
+      "sha256": "1cf4a351788b7de8496e1e05c8591f5cf462739a4843f44831fa7168d20a4caf"
+    },
+    "sources/fights.json": {
+      "bytes": 5655627,
+      "sha256": "27738c6ca29fafa1cdde121b377607ef9683c79cfb7eacca4b96b1f166118b17"
+    },
+    "sources/schemas.json": {
+      "bytes": 23204,
+      "sha256": "d4d0a931dc86598b1b2f26e5bd52347060094fe5beb64031b07bd359e431ee8a"
+    }
+  },
+  "freshness": {
+    "events": {
+      "columns": [
+        "city",
+        "country",
+        "event_date",
+        "event_id",
+        "event_name",
+        "event_status",
+        "scraped_at",
+        "source_url",
+        "state"
+      ],
+      "earliest_recorded_scrape": "2026-06-01T00:03:05+00:00",
+      "latest_recorded_scrape": "2026-09-30T18:46:41+00:00",
+      "missing_scraped_at": 1,
+      "rows": 798
+    },
+    "fight_stats_aggregate": {
+      "columns": [
+        "control_time_seconds",
+        "fight_id",
+        "fight_stat_id",
+        "fighter_id",
+        "knockdowns",
+        "reversals",
+        "scraped_at",
+        "sig_strikes_attempted",
+        "sig_strikes_body_attempted",
+        "sig_strikes_body_landed",
+        "sig_strikes_clinch_attempted",
+        "sig_strikes_clinch_landed",
+        "sig_strikes_distance_attempted",
+        "sig_strikes_distance_landed",
+        "sig_strikes_ground_attempted",
+        "sig_strikes_ground_landed",
+        "sig_strikes_head_attempted",
+        "sig_strikes_head_landed",
+        "sig_strikes_landed",
+        "sig_strikes_leg_attempted",
+        "sig_strikes_leg_landed",
+        "source_url",
+        "submissions_attempted",
+        "takedowns_attempted",
+        "takedowns_landed",
+        "total_strikes_attempted",
+        "total_strikes_landed"
+      ],
+      "earliest_recorded_scrape": "2026-08-08T23:39:44+00:00",
+      "latest_recorded_scrape": "2026-08-09T03:09:44+00:00",
+      "missing_scraped_at": 0,
+      "rows": 17386
+    },
+    "fighters": {
+      "columns": [
+        "dob",
+        "fighter_id",
+        "first_name",
+        "full_name",
+        "height_cm",
+        "last_name",
+        "nickname",
+        "reach_cm",
+        "scraped_at",
+        "source_url",
+        "stance",
+        "weight_lbs"
+      ],
+      "earliest_recorded_scrape": "2026-08-08T18:00:30+00:00",
+      "latest_recorded_scrape": "2026-09-30T18:46:41+00:00",
+      "missing_scraped_at": 0,
+      "rows": 4522
+    },
+    "fights": {
+      "columns": [
+        "event_id",
+        "fight_id",
+        "fighter_1_id",
+        "fighter_2_id",
+        "finish_detail",
+        "finish_method",
+        "finish_round",
+        "finish_time_seconds",
+        "is_interim_title",
+        "is_title_fight",
+        "referee",
+        "result_type",
+        "scheduled_rounds",
+        "scraped_at",
+        "source_url",
+        "weight_class",
+        "winner_fighter_id"
+      ],
+      "earliest_recorded_scrape": "2026-03-30T10:24:47.177619+00:00",
+      "latest_recorded_scrape": "2026-09-30T18:46:41+00:00",
+      "missing_scraped_at": 0,
+      "rows": 8992
+    }
+  },
+  "historical_availability": "unverified; no historical per-bout audit conducted",
+  "queries_and_clocks_file": "source_capture_receipt.json",
+  "reference_only": "reference_bootstrap/stored_features.json"
+}

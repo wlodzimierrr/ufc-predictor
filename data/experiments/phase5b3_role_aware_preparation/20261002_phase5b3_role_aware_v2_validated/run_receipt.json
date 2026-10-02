@@ -1,0 +1,18 @@
+{
+  "baseline_sha256": "cb58a405a490b500b6fcbe38101a850ecd9cf17a5dbeecf344465f81fd98dcba",
+  "computation_started_at": "2026-10-02T17:02:57.019271+00:00",
+  "contract_version": "phase5_role_aware_preparation_v2",
+  "data_network_calls": 0,
+  "deterministic_payloads": 84,
+  "first_build_completed_at": "2026-10-02T17:03:04.280847+00:00",
+  "first_build_started_at": "2026-10-02T17:02:57.025695+00:00",
+  "fitting_calls": 0,
+  "frozen_outcome_parsing": 0,
+  "publication_started_at": "2026-10-02T17:03:12.316197+00:00",
+  "real_prediction_calls": 0,
+  "second_build_completed_at": "2026-10-02T17:03:11.383117+00:00",
+  "second_build_started_at": "2026-10-02T17:03:04.280881+00:00",
+  "source_capture_advanced": false,
+  "two_independent_builds_byte_identical": true,
+  "warehouse_connections": 0
+}

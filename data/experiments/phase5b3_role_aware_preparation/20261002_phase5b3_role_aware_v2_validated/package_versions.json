@@ -1,0 +1,10 @@
+{
+  "joblib": "1.5.3",
+  "numpy": "2.4.3",
+  "pandas": "3.0.1",
+  "psycopg2-binary": "2.9.11",
+  "pytest": "9.0.2",
+  "python": "3.11.2",
+  "scikit-learn": "1.8.0",
+  "xgboost": "3.2.0"
+}

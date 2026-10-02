@@ -1,0 +1,181 @@
+{
+  "conflict_gates": [
+    {
+      "gate": "Ambiguous repeated event/participant occurrences in history",
+      "mutation": "promote_ambiguous_to_win"
+    },
+    {
+      "gate": "Ambiguous repeated event/participant occurrences in history",
+      "mutation": "promote_ambiguous_to_draw"
+    },
+    {
+      "gate": "Ambiguous repeated event/participant occurrences in history",
+      "mutation": "resolved_duplicate_new_id"
+    }
+  ],
+  "consumer_actual_value_sha256": {
+    "actual_date_frozen_elo_values": "1004693e576afebc3b1374a2185f787f7ac21770c806e5565d747bb14c53c1f5",
+    "actual_unfitted_partition_values_final_training": "c81db81bef2f088736741e3741becc3f58ce8cdd2881c7da1ad72f3013518385",
+    "actual_unfitted_partition_values_later_calibration_oof": "73c27d5804e6d2224b1abf2a48886447c64119618bcd6091675cb077216b4a17",
+    "actual_unfitted_partition_values_oof_1_oof_transform": "0a82297afb8af488af078a32d57017058b70c14f3f6e49eab03f571e0e7abdf1",
+    "actual_unfitted_partition_values_oof_1_train_preprocessing": "bbad4c84b37fbd1a7696b37e333b461c4b36537a4861d83fcd4832eaef584243",
+    "actual_unfitted_partition_values_oof_2_oof_transform": "ed9f8744016641b9b0a0c001af73d2213b57a83a35ced19d7b10f2163d7a43e9",
+    "actual_unfitted_partition_values_oof_2_train_preprocessing": "73ff9f87590eadd041b2cb185abece262ba820db22aca8dd4b4b04e8c32a7449",
+    "actual_unfitted_partition_values_oof_3_oof_transform": "ab2a8e7e867b0de3aed7d6b0108ad49d8d14d3221939b3d64740c59e32f57482",
+    "actual_unfitted_partition_values_oof_3_train_preprocessing": "80c6ebe0907e05f6616be15d56fb652e21b1dc61cfca489730c7d05732c28644",
+    "actual_unfitted_partition_values_oof_4_oof_transform": "9fc4bf42a05e05aa0d18e841f8d8a80499480bd37048bb1a10dc29b5de291771",
+    "actual_unfitted_partition_values_oof_4_train_preprocessing": "a2b9ea04aaafec0e99129527823f456887c2d6d3625eb4b3327a648e5878942a",
+    "admitted_statistic_values_and_participants": "63ffd34ef843c7a4c25ddfb14a821f5ad20a0d259d3d4331b0f26e420c887203",
+    "complete_feature_values_and_binary_identities": "c81db81bef2f088736741e3741becc3f58ce8cdd2881c7da1ad72f3013518385",
+    "experience_debut_and_selected_history_identities": "88c123d859e35b93920131631c57336a0f2dbcfba9692e2d79c53ae459f5cda1",
+    "full_fighter_opponent_statistic_histories": "70ac21dc708f0bf184342c80510ff15936f2278924f9331c1e718418bc82eb25",
+    "oof_membership_and_ordering": "55478696b73a5110c4512437c14491ea3303b1b3e09ce3392d838007ae5e8e99",
+    "preprocessing_selection_identities_and_order": "f72852cf93b306f2950579019ad6d076acc04e079c839a6143b81b320a9628ff"
+  },
+  "draw_in_later_history_exactly_once": true,
+  "fixtures": "synthetic_only",
+  "mutations": [
+    {
+      "all_actual_values_and_selected_identities_equal": true,
+      "consumers_compared": [
+        "actual_date_frozen_elo_values",
+        "actual_unfitted_partition_values_final_training",
+        "actual_unfitted_partition_values_later_calibration_oof",
+        "actual_unfitted_partition_values_oof_1_oof_transform",
+        "actual_unfitted_partition_values_oof_1_train_preprocessing",
+        "actual_unfitted_partition_values_oof_2_oof_transform",
+        "actual_unfitted_partition_values_oof_2_train_preprocessing",
+        "actual_unfitted_partition_values_oof_3_oof_transform",
+        "actual_unfitted_partition_values_oof_3_train_preprocessing",
+        "actual_unfitted_partition_values_oof_4_oof_transform",
+        "actual_unfitted_partition_values_oof_4_train_preprocessing",
+        "admitted_statistic_values_and_participants",
+        "complete_feature_values_and_binary_identities",
+        "experience_debut_and_selected_history_identities",
+        "full_fighter_opponent_statistic_histories",
+        "oof_membership_and_ordering",
+        "preprocessing_selection_identities_and_order"
+      ],
+      "mutation": "add"
+    },
+    {
+      "all_actual_values_and_selected_identities_equal": true,
+      "consumers_compared": [
+        "actual_date_frozen_elo_values",
+        "actual_unfitted_partition_values_final_training",
+        "actual_unfitted_partition_values_later_calibration_oof",
+        "actual_unfitted_partition_values_oof_1_oof_transform",
+        "actual_unfitted_partition_values_oof_1_train_preprocessing",
+        "actual_unfitted_partition_values_oof_2_oof_transform",
+        "actual_unfitted_partition_values_oof_2_train_preprocessing",
+        "actual_unfitted_partition_values_oof_3_oof_transform",
+        "actual_unfitted_partition_values_oof_3_train_preprocessing",
+        "actual_unfitted_partition_values_oof_4_oof_transform",
+        "actual_unfitted_partition_values_oof_4_train_preprocessing",
+        "admitted_statistic_values_and_participants",
+        "complete_feature_values_and_binary_identities",
+        "experience_debut_and_selected_history_identities",
+        "full_fighter_opponent_statistic_histories",
+        "oof_membership_and_ordering",
+        "preprocessing_selection_identities_and_order"
+      ],
+      "mutation": "remove"
+    },
+    {
+      "all_actual_values_and_selected_identities_equal": true,
+      "consumers_compared": [
+        "actual_date_frozen_elo_values",
+        "actual_unfitted_partition_values_final_training",
+        "actual_unfitted_partition_values_later_calibration_oof",
+        "actual_unfitted_partition_values_oof_1_oof_transform",
+        "actual_unfitted_partition_values_oof_1_train_preprocessing",
+        "actual_unfitted_partition_values_oof_2_oof_transform",
+        "actual_unfitted_partition_values_oof_2_train_preprocessing",
+        "actual_unfitted_partition_values_oof_3_oof_transform",
+        "actual_unfitted_partition_values_oof_3_train_preprocessing",
+        "actual_unfitted_partition_values_oof_4_oof_transform",
+        "actual_unfitted_partition_values_oof_4_train_preprocessing",
+        "admitted_statistic_values_and_participants",
+        "complete_feature_values_and_binary_identities",
+        "experience_debut_and_selected_history_identities",
+        "full_fighter_opponent_statistic_histories",
+        "oof_membership_and_ordering",
+        "preprocessing_selection_identities_and_order"
+      ],
+      "mutation": "reorder"
+    },
+    {
+      "all_actual_values_and_selected_identities_equal": true,
+      "consumers_compared": [
+        "actual_date_frozen_elo_values",
+        "actual_unfitted_partition_values_final_training",
+        "actual_unfitted_partition_values_later_calibration_oof",
+        "actual_unfitted_partition_values_oof_1_oof_transform",
+        "actual_unfitted_partition_values_oof_1_train_preprocessing",
+        "actual_unfitted_partition_values_oof_2_oof_transform",
+        "actual_unfitted_partition_values_oof_2_train_preprocessing",
+        "actual_unfitted_partition_values_oof_3_oof_transform",
+        "actual_unfitted_partition_values_oof_3_train_preprocessing",
+        "actual_unfitted_partition_values_oof_4_oof_transform",
+        "actual_unfitted_partition_values_oof_4_train_preprocessing",
+        "admitted_statistic_values_and_participants",
+        "complete_feature_values_and_binary_identities",
+        "experience_debut_and_selected_history_identities",
+        "full_fighter_opponent_statistic_histories",
+        "oof_membership_and_ordering",
+        "preprocessing_selection_identities_and_order"
+      ],
+      "mutation": "alter_metadata"
+    },
+    {
+      "all_actual_values_and_selected_identities_equal": true,
+      "consumers_compared": [
+        "actual_date_frozen_elo_values",
+        "actual_unfitted_partition_values_final_training",
+        "actual_unfitted_partition_values_later_calibration_oof",
+        "actual_unfitted_partition_values_oof_1_oof_transform",
+        "actual_unfitted_partition_values_oof_1_train_preprocessing",
+        "actual_unfitted_partition_values_oof_2_oof_transform",
+        "actual_unfitted_partition_values_oof_2_train_preprocessing",
+        "actual_unfitted_partition_values_oof_3_oof_transform",
+        "actual_unfitted_partition_values_oof_3_train_preprocessing",
+        "actual_unfitted_partition_values_oof_4_oof_transform",
+        "actual_unfitted_partition_values_oof_4_train_preprocessing",
+        "admitted_statistic_values_and_participants",
+        "complete_feature_values_and_binary_identities",
+        "experience_debut_and_selected_history_identities",
+        "full_fighter_opponent_statistic_histories",
+        "oof_membership_and_ordering",
+        "preprocessing_selection_identities_and_order"
+      ],
+      "mutation": "alter_participants_and_event"
+    },
+    {
+      "all_actual_values_and_selected_identities_equal": true,
+      "consumers_compared": [
+        "actual_date_frozen_elo_values",
+        "actual_unfitted_partition_values_final_training",
+        "actual_unfitted_partition_values_later_calibration_oof",
+        "actual_unfitted_partition_values_oof_1_oof_transform",
+        "actual_unfitted_partition_values_oof_1_train_preprocessing",
+        "actual_unfitted_partition_values_oof_2_oof_transform",
+        "actual_unfitted_partition_values_oof_2_train_preprocessing",
+        "actual_unfitted_partition_values_oof_3_oof_transform",
+        "actual_unfitted_partition_values_oof_3_train_preprocessing",
+        "actual_unfitted_partition_values_oof_4_oof_transform",
+        "actual_unfitted_partition_values_oof_4_train_preprocessing",
+        "admitted_statistic_values_and_participants",
+        "complete_feature_values_and_binary_identities",
+        "experience_debut_and_selected_history_identities",
+        "full_fighter_opponent_statistic_histories",
+        "oof_membership_and_ordering",
+        "preprocessing_selection_identities_and_order"
+      ],
+      "mutation": "rename_ids"
+    }
+  ],
+  "non_target_upcoming_statistics_cannot_supply_defaults": true,
+  "partition_inputs_are_unfitted_actual_values": true,
+  "same_day_and_future_outcome_feature_invariance": true,
+  "status": "PROVEN"
+}

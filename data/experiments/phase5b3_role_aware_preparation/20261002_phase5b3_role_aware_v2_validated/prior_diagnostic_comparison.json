@@ -1,0 +1,15 @@
+{
+  "added_ids": [],
+  "changed_feature_cells": 0,
+  "changed_feature_fight_ids": [],
+  "feature_csv_byte_identical": true,
+  "new_final_membership_sha256": "93ac5c098cf43a69d8f251dba4aec754d0d43a3862e56779069c1540b3c5b6bf",
+  "new_fitting_rows": 8558,
+  "new_oof_membership_sha256": "ec2eabb18c777c99126be92fe5b09cb82f399ee016d379b0a4099b7c2c6f924d",
+  "new_oof_rows": 341,
+  "prior_diagnostic_rows": 8558,
+  "prior_final_membership_sha256": "93ac5c098cf43a69d8f251dba4aec754d0d43a3862e56779069c1540b3c5b6bf",
+  "prior_oof_membership_sha256": "ec2eabb18c777c99126be92fe5b09cb82f399ee016d379b0a4099b7c2c6f924d",
+  "prior_oof_rows": 341,
+  "removed_ids": []
+}

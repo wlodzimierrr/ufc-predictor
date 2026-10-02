@@ -1,0 +1,21 @@
+{
+  "checksums_sha256": "7d36dc2bdb2a99eb81a44424fe603a6beab74d05435e41c8a1489cea11f0bd4f",
+  "fitting_input_readiness": "READY",
+  "fitting_rows": 8558,
+  "guarded_loading": "PASSED",
+  "oof_rows": 341,
+  "path": "/home/wlodzimierrr/ufc-data/data/experiments/phase5b3_role_aware_preparation/20261002_phase5b3_role_aware_v2_validated",
+  "post_publication_preservation": {
+    "changed": [],
+    "checked_at": "2026-10-02T17:03:20.641729+00:00",
+    "existing_files_checked": 15355,
+    "missing": [],
+    "new_protected_files": [],
+    "protected_outcomes": "hash-only, never parsed",
+    "status": "VERIFIED"
+  },
+  "publication_readback_and_third_rebuild": "EXACT",
+  "readback_completed_at": "2026-10-02T17:03:19.819009+00:00",
+  "readback_started_at": "2026-10-02T17:03:12.514290+00:00",
+  "training_manifest_sha256": "00f445f4fc93af986db5dbda5631c89181ccaa85271f643660dade66b4c9aa4b"
+}

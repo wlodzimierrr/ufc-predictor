@@ -1,0 +1,60 @@
+{
+  "allowed_initial_urls": [
+    "http://www.ufcstats.com/fight-details/a842a365f408bb4a",
+    "http://www.ufcstats.com/fight-details/552f7cdaf93e1055",
+    "http://www.ufcstats.com/event-details/c3ac8d0da7b05772"
+  ],
+  "completed_at": "2026-10-02T15:11:52.517623+00:00",
+  "initial_requests_made": 1,
+  "maximum_initial_requests": 3,
+  "maximum_redirects_per_request": 3,
+  "no_retries_bypass_proxy_rotation_or_cookies": true,
+  "records": [
+    {
+      "access_block_detected": true,
+      "body_bytes": 2998,
+      "body_file": "response-01.body",
+      "body_sha256": "54a0c9fb23e34f464df30c0aa1413267e063f20e90f9a717f23a1f42d267562f",
+      "credentials_or_cookies_sent": false,
+      "hop": 0,
+      "initial_url": "http://www.ufcstats.com/fight-details/a842a365f408bb4a",
+      "method": "GET",
+      "request_headers": {
+        "Accept-encoding": "identity"
+      },
+      "request_started_at": "2026-10-02T15:11:52.292943+00:00",
+      "response_completed_at": "2026-10-02T15:11:52.515979+00:00",
+      "response_header_capture": "relevant allowlisted headers only; cookie/authentication headers excluded",
+      "response_headers": [
+        [
+          "Server",
+          "nginx/1.10.1"
+        ],
+        [
+          "Cache-Control",
+          "no-store, no-cache, must-revalidate"
+        ],
+        [
+          "Content-Type",
+          "text/html; charset=utf-8"
+        ],
+        [
+          "Date",
+          "Fri, 02 Oct 2026 15:13:16 GMT"
+        ]
+      ],
+      "response_headers_received_at": "2026-10-02T15:11:52.515906+00:00",
+      "response_url": "http://www.ufcstats.com/fight-details/a842a365f408bb4a",
+      "status": 200,
+      "url": "http://www.ufcstats.com/fight-details/a842a365f408bb4a"
+    }
+  ],
+  "request_count": 1,
+  "scope": "Phase5B.2 ordinary identity/occurrence evidence gate only; no source refresh or result/statistic ingestion",
+  "started_after_original_capture": true,
+  "stop_reason": "Access-check/block response; no further requests permitted",
+  "unrequested_initial_urls": [
+    "http://www.ufcstats.com/fight-details/552f7cdaf93e1055",
+    "http://www.ufcstats.com/event-details/c3ac8d0da7b05772"
+  ]
+}

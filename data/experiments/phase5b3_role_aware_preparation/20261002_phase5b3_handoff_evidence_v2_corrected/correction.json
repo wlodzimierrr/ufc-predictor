@@ -1,0 +1,10 @@
+{
+  "correct_value": 50,
+  "evidence": "guarded explicit --collect-only of modeling/tests/test_phase5b3_role_aware.py: 50 tests collected in 0.01s",
+  "field": "verification-summary.json/new_test_cases",
+  "final_suite_result_unchanged": "104 passed in 38.58s",
+  "meaning": "Correction of a manually recorded summary count; no code, test result or preparation changes; v1 preserved unchanged",
+  "original_value": 63,
+  "parent_checksums_sha256": "e8aa9f935f17d9cb76959be19e676b57bdfc8c268577f0972985218bd5e03137",
+  "parent_run": "20261002_phase5b3_handoff_evidence_v1"
+}

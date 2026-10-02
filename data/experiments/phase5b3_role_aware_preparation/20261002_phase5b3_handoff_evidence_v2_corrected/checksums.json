@@ -1,0 +1,12 @@
+{
+  "files": {
+    "correction.json": "e0d71ba027ea4f2d716564fd16a4f7df6064538a6c2b902f33e172db0c5b04db",
+    "evidence_manifest.json": "bd1b20ebad7b3a45d4ce3011caaaea817d8411c03b5e19907e80d1867d1c9cd4",
+    "final-preservation-verification.json": "44241a37e994911e3a9be773318a2dc7f4fb7aff7bac3eab43097d5d54bdafdc",
+    "independent-verification.json": "143705ea2f957c5a30466a93d19a756a88ee5200bae37df5459d2a1145c97e24",
+    "publication-verification.json": "6c51924bf69db51b91a3bfd3e56f6cac6bd36143c7df9a41c482b1cec594fd92",
+    "tests-final.json": "e6eb89505de408408fc095e13bbb1a529dc8c4d33a89db8c239e255a54f8ad23",
+    "tests-initial.json": "37771aaf458407d6ab0a168c03458920f9ff01d6f0282fc17fcfaff09a158a22",
+    "verification-summary.json": "d89527ec2fd08eee5fcc1dc70895929346470359dac99a719a87f6724829e874"
+  }
+}

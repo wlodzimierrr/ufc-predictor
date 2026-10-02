@@ -1,0 +1,8 @@
+{
+  "identity_evidence": false,
+  "manifest_sha256": "39b2f56724d62ba340089762d4876f7f8a90775c61569dd9552b780bdf5ed9ac",
+  "meaning": "Access-check body and allowlisted response metadata only; relationship UNRESOLVED",
+  "new_requests_made": 0,
+  "original_manifest_path": "/tmp/phase5b2-april-gate-vf4sz672/source-check-manifest.json",
+  "status": "PRESERVED_VERIFIED"
+}

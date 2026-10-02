@@ -1,0 +1,9 @@
+{
+  "artifact_role": "phase5b3_handoff_verification_evidence",
+  "preparation_checksums_sha256": "7d36dc2bdb2a99eb81a44424fe603a6beab74d05435e41c8a1489cea11f0bd4f",
+  "preparation_manifest_sha256": "00f445f4fc93af986db5dbda5631c89181ccaa85271f643660dade66b4c9aa4b",
+  "preparation_run": "20261002_phase5b3_role_aware_v2_validated",
+  "preservation_baseline_in_preparation": "preservation_baseline.json",
+  "preservation_baseline_sha256": "cb58a405a490b500b6fcbe38101a850ecd9cf17a5dbeecf344465f81fd98dcba",
+  "training_inputs": false
+}
