@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from features.forecast_replay import DATE_SEMANTICS, reconstruct_forecast
+from features.forecast_replay import DATE_SEMANTICS, reconstruct_forecast, utc_instant
 from features.replay import index_source
 from features.snapshot import build_fighter_snapshot
 from features.tests.test_replay import synthetic_source
@@ -70,7 +70,17 @@ def test_source_before_after_scoring_and_deterministic_ties():
 def test_real_later_archives_are_inspected_and_rejected_without_union(real_payload):
     payload, validation = real_payload
     sources = json.loads(payload["source-manifest.json"])["actual_scoring_sources"]
-    assert len(sources) == 6
+    historical_commits = {
+        "0a13162ea60e0a2ede49d8d8d10b30a81683b717",
+        "1f477d3ddc87b123d0099025b669e728e7881a34",
+        "8bb0552fc2fa4f91e1e769c41dc999ac61b2f14b",
+        "e23dd7cf3572c41776197c1990a09f17c9d96cc9",
+        "4af6c2f63ebcf63e13fbdbbdcf3bce59243334e4",
+        "6e5c0cd6afcb360c58036eaa1c489e71f1d4bc81",
+    }
+    source_commits = {s["commit"] for s in sources}
+    assert len(source_commits) == len(sources)
+    assert historical_commits <= source_commits
     by = {s["commit"][:7]: s for s in sources}
     assert by["1f477d3"]["coherent"]
     assert by["e23dd7c"]["structure"]["events"]["duplicate_identity_keys"] == 8
@@ -80,6 +90,13 @@ def test_real_later_archives_are_inspected_and_rejected_without_union(real_paylo
     assert not by["6e5c0cd"]["coherent"]
     assignments = json.loads(payload["source-selection.json"])["assignments"]
     assert {a["source_commit"] for a in assignments} == {by["1f477d3"]["commit"]}
+    # Committing refreshed CSVs adds archives, but cannot make their versions
+    # available to the already-frozen historical forecasts.
+    last_scored_at = max(utc_instant(a["scored_at"]) for a in assignments)
+    for source in sources:
+        if source["commit"] not in historical_commits:
+            assert utc_instant(source["availability_utc"]) > last_scored_at
+            assert source["commit"] not in {a["source_commit"] for a in assignments}
     assert validation["gap_counts"] == {"unknown_target_title_status": 95, "missing_target_profile": 1,
                                         "unresolved_experience_for_supplemented_profile": 4}
     assert validation["forecasts_with_essential_gaps"] == 98
