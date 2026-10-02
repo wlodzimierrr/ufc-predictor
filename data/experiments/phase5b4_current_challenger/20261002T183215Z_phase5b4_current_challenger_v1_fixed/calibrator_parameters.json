@@ -1,0 +1,37 @@
+{
+  "classes": [
+    0,
+    1
+  ],
+  "coefficients": [
+    [
+      1.4672337196210894
+    ]
+  ],
+  "contract": {
+    "C": 10000000000.0,
+    "classes": [
+      0,
+      1
+    ],
+    "clip_epsilon": 1e-08,
+    "contract_version": "phase5b4_current_challenger_v1",
+    "input": "log(p / (1-p)) after explicit clipping",
+    "max_iter": 1000,
+    "method": "platt_log_odds",
+    "orientation": "p_and_label_1_mean_fighter_1_wins",
+    "positive_class": 1,
+    "solver": "lbfgs"
+  },
+  "converged": true,
+  "convergence_warnings": [],
+  "fit_completed_at": "2026-10-02T18:32:44.618267+00:00",
+  "fit_started_at": "2026-10-02T18:32:44.616162+00:00",
+  "input_sha256": "aac18a137e540fd6096e441e12706003210a93a88080c1bcb718bfadf816a581",
+  "intercept": [
+    -0.45713446552549547
+  ],
+  "n_iter": [
+    5
+  ]
+}

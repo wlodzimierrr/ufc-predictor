@@ -1,0 +1,30 @@
+{
+  "folds": {
+    "oof_1": {
+      "learner_sha256": "2cccb6cb2939839cc67f2e9555656605456cd83a8a557110b9a6048c7c5460ba",
+      "prediction_ids_sha256": "fabe89bdec6ed15c0c5e6f3077a3b65ce17d11a198e0947fe3613e55c0ff7edb",
+      "prior_sha256": "ddaab7a2bfc7fb6f840c0952ac765560330b066cf94f80899a0c0a3a0a35efa2",
+      "train_ids_sha256": "7f16e390cb5de36b62b39f2e7f05044e7d8a13e599b2806f6dddd6c0078455fa"
+    },
+    "oof_2": {
+      "learner_sha256": "533fd1b19a6e00b91674b18d855ad438e5ac8a40bb3bd9392b541e946b279993",
+      "prediction_ids_sha256": "432eefa6ddba6f3e5ae9bc7ad45247582c3f3c466b08293af192f6e39b1e8c7b",
+      "prior_sha256": "027363f411bb092a9c91611de3dcaa78b30536231fbf71f25653da49e09a653a",
+      "train_ids_sha256": "6c527d91a9d89f11f9c0aa38e094b842dbed0a51e304db67d09fc8a3bcc29c6d"
+    },
+    "oof_3": {
+      "learner_sha256": "d45dad0a2f814dfc6d3a0ae609c9c15529008405e1cef918d20438e7856d9e7b",
+      "prediction_ids_sha256": "223310cee0b1122e82ed150fb448cf3b287d16f10650757d0d7a57ae1ef1d984",
+      "prior_sha256": "4b90afa4858e06c8bc2d70b1d9a9496ca10a8389cf0fdfb0459fe9b63865940b",
+      "train_ids_sha256": "985457ef7741e13ae4f99df6958c09cf7d253fdd35788220d5d9edf760acbc9b"
+    },
+    "oof_4": {
+      "learner_sha256": "f60b5cd90969809b2ee2e5b597713f66d7dbbbff3f179062ad37763dfb4af7f4",
+      "prediction_ids_sha256": "8ce16f6f578a66a0c65e4d5d0f021236f13bb8c4e1b0673993a764ee8fbefa15",
+      "prior_sha256": "4b8b00c1de42d5aef80fbd0fcd48ab901350a573091ec5a5dcebe3cb83161982",
+      "train_ids_sha256": "1068c87b2ef1ce5c935baa4cf197aa0c7d09b1019a9835ea49f67a3ba49ed08a"
+    }
+  },
+  "oof_csv_sha256": "2efbc2aa8103f95a1d02f540ba6cfd61fe36f58c9c7fd098b1f243f64d6f1e85",
+  "orientation": "p_and_label_1_mean_fighter_1_wins"
+}

@@ -1,0 +1,23 @@
+{
+  "artifact_role": "phase5b4_handoff_receipts",
+  "challenger_checksums_sha256": "59ffd4995946cc9ec7512f2f14caade09fd3144d2cfb3ee2d3b9b0951f5ca300",
+  "challenger_manifest_sha256": "7330bbebd06a6f5c0233cf8892be5c1728edc8805add02b1511499bf198b0c73",
+  "created_at": "2026-10-02T18:36:46.150297+00:00",
+  "final_suite_synthetic_estimator_fits": {
+    "platt": 1,
+    "xgboost": 1
+  },
+  "final_test_counts": {
+    "failed": 0,
+    "passed": 79,
+    "skipped": 0
+  },
+  "historical_comparison": "STILL_BLOCKED",
+  "prospective_forecasting": "BLOCKED",
+  "real_run_estimator_fits": {
+    "final_xgboost": 1,
+    "oof_xgboost": 4,
+    "platt": 1
+  },
+  "test_development": "First collection was blocked by cache writes. Second attempt exposed legitimate missing weight classes and test-only patch issues. Third/fourth/fifth suites passed 67/72/79. No real estimator was fitted before the fifth suite passed."
+}

@@ -1,0 +1,15 @@
+{
+  "C": 10000000000.0,
+  "classes": [
+    0,
+    1
+  ],
+  "clip_epsilon": 1e-08,
+  "contract_version": "phase5b4_current_challenger_v1",
+  "input": "log(p / (1-p)) after explicit clipping",
+  "max_iter": 1000,
+  "method": "platt_log_odds",
+  "orientation": "p_and_label_1_mean_fighter_1_wins",
+  "positive_class": 1,
+  "solver": "lbfgs"
+}

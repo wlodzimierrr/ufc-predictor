@@ -1,0 +1,118 @@
+{
+  "effective_booster_configuration": {
+    "learner": {
+      "generic_param": {
+        "device": "cpu",
+        "fail_on_invalid_gpu_id": "0",
+        "n_jobs": "1",
+        "nthread": "1",
+        "random_state": "42",
+        "seed": "42",
+        "seed_per_iteration": "0",
+        "validate_parameters": "1"
+      },
+      "gradient_booster": {
+        "gbtree_model_param": {
+          "num_parallel_tree": "1",
+          "num_trees": "310"
+        },
+        "gbtree_train_param": {
+          "process_type": "default",
+          "tree_method": "hist",
+          "updater": "grow_quantile_histmaker",
+          "updater_seq": "grow_quantile_histmaker"
+        },
+        "name": "gbtree",
+        "specified_updater": false,
+        "tree_train_param": {
+          "alpha": "0",
+          "colsample_bylevel": "1",
+          "colsample_bynode": "1",
+          "colsample_bytree": "0.800000012",
+          "eta": "0.0199999996",
+          "gamma": "0",
+          "grow_policy": "depthwise",
+          "interaction_constraints": "",
+          "lambda": "1",
+          "learning_rate": "0.0199999996",
+          "max_bin": "256",
+          "max_cat_threshold": "64",
+          "max_cat_to_onehot": "4",
+          "max_delta_step": "0",
+          "max_depth": "6",
+          "max_leaves": "0",
+          "min_child_weight": "100",
+          "min_split_loss": "0",
+          "monotone_constraints": "()",
+          "refresh_leaf": "1",
+          "reg_alpha": "0",
+          "reg_lambda": "1",
+          "sampling_method": "uniform",
+          "sparse_threshold": "0.20000000000000001",
+          "subsample": "0.800000012"
+        },
+        "updater": [
+          {
+            "hist_train_param": {
+              "debug_synchronize": "0",
+              "max_cached_hist_node": "18446744073709551615"
+            },
+            "name": "grow_quantile_histmaker"
+          }
+        ]
+      },
+      "learner_model_param": {
+        "base_score": "[6.428656E-1]",
+        "boost_from_average": "1",
+        "num_class": "0",
+        "num_feature": "50",
+        "num_target": "1"
+      },
+      "learner_train_param": {
+        "booster": "gbtree",
+        "disable_default_eval_metric": "0",
+        "multi_strategy": "one_output_per_tree",
+        "objective": "binary:logistic"
+      },
+      "metrics": [
+        {
+          "name": "logloss"
+        }
+      ],
+      "objective": {
+        "name": "binary:logistic",
+        "reg_loss_param": {
+          "scale_pos_weight": "1"
+        }
+      }
+    },
+    "version": [
+      3,
+      2,
+      0
+    ]
+  },
+  "fit_arguments": [
+    "X",
+    "y"
+  ],
+  "fit_completed_at": "2026-10-02T18:32:40.156476+00:00",
+  "fit_started_at": "2026-10-02T18:32:39.671497+00:00",
+  "orientation": "p_and_label_1_mean_fighter_1_wins",
+  "parameters": {
+    "colsample_bytree": 0.8,
+    "eval_metric": "logloss",
+    "learning_rate": 0.02,
+    "max_depth": 6,
+    "min_child_weight": 100,
+    "n_estimators": 310,
+    "n_jobs": 1,
+    "objective": "binary:logistic",
+    "random_state": 42,
+    "reg_lambda": 1.0,
+    "subsample": 0.8,
+    "tree_method": "hist",
+    "verbosity": 0
+  },
+  "rounds": 310
+}

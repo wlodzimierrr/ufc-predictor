@@ -1,0 +1,226 @@
+Work in `/home/wlodzimierrr/ufc-data`.
+
+Complete Phase 5B.4: train, verify and publish an isolated challenger using the accepted role-aware preparation and fixed preregistered recipe.
+
+This explicitly authorizes partition-specific debut preprocessing, four OOF XGBoost fits, one Platt fit and one final XGBoost fit.
+
+It does NOT authorize hyperparameter search, source refresh, prospective forecasting, historical holdout scoring, trial-outcome ingestion, production changes or promotion.
+
+Finish with a detailed handoff report, logical commits and a normal push.
+
+1. Read and verify
+
+Read completely:
+- docs/implementation-reports/phase5b3-role-aware-preparation-report.md
+- docs/phase5-modeling-eligibility-policy-v2.md
+- docs/phase5-prospective-shadow-protocol-v1.md
+- configs/phase5_prospective_shadow_v1.json
+- configs/phase5_role_aware_preparation_v2.json
+- docs/implementation-reports/next-phase-git-handoff.md
+
+Inspect applicable instructions, worktree, branch, upstream and remote. Preserve unrelated changes and establish a preservation baseline.
+
+Accepted preparation:
+data/experiments/phase5b3_role_aware_preparation/20261002_phase5b3_role_aware_v2_validated/
+
+Required pins:
+- checksums.json:
+  7d36dc2bdb2a99eb81a44424fe603a6beab74d05435e41c8a1489cea11f0bd4f
+- training_manifest.json:
+  00f445f4fc93af986db5dbda5631c89181ccaa85271f643660dade66b4c9aa4b
+- preregistered configuration:
+  6d63abe99fa6a401df2e779c68b1e3ab8aa81fd3a3d2253058c812a644732438
+
+Consume it through:
+modeling.phase5_role_aware.load_role_aware_preparation
+
+Do not read the CSV directly as a substitute for guarded loading.
+
+Verify exact features, identities, labels/orientation, packages, code, memberships, role admissions and exclusions before fitting.
+
+Expected populations:
+- Final fitting: 8,558 rows.
+- Combined OOF: 341 rows.
+- All 166 fitting exclusions remain enforced.
+- Exclusive event cutoff: 2026-10-02.
+- Actual latest binary training event: 2026-08-29.
+
+2. Implement a separate training lifecycle
+
+Use new versioned trainer, contract and bundle-loader modules.
+
+Do not run, relax or modify the Phase 3B trainer: it hardcodes March populations/cutoffs. Preserve code pinned by existing artifacts.
+
+Reuse pure helpers only where their contracts genuinely match. Implement current-population partition guards independently.
+
+Record the actual authorization, its hash, commands and execution timestamps. Preserve preregistration bytes; this session’s authorization does not rewrite preparation-only status fields in old artifacts.
+
+Before every preprocessing or fitting operation, verify:
+- Exact approved membership and chronology.
+- No excluded IDs or aliases.
+- Original labels, orientation and non-debut feature values.
+- Correct ordered 50-column schema.
+- No unexpected additions, omissions or event/date splits.
+
+Use deep copies so preprocessing cannot mutate accepted inputs.
+
+3. Execute the fixed recipe
+
+Use exactly the preregistered XGBoost settings:
+- objective: binary:logistic
+- eval_metric: logloss
+- max_depth: 6
+- min_child_weight: 100
+- reg_lambda: 1.0
+- n_estimators: 310
+- learning_rate: 0.02
+- subsample: 0.8
+- colsample_bytree: 0.8
+- random_state: 42
+- n_jobs: 1
+- tree_method: hist
+- verbosity: 0
+
+No search, early stopping, evaluation-label feedback, warm start, class reweighting or round reselection.
+
+Use the exact saved folds:
+- oof_1: 8,217 training / 128 OOF.
+- oof_2: 8,345 training / 114 OOF.
+- oof_3: 8,459 training / 69 OOF.
+- oof_4: 8,528 training / 30 OOF.
+
+For each fold:
+- Compute debut priors from its training rows only.
+- Save priors with membership and boundary provenance.
+- Apply those priors to copies of training and OOF inputs.
+- Fit a fresh 310-round learner without an eval_set.
+- Generate exactly one raw fighter-1 probability per approved OOF identity.
+- Persist the fold learner for independent replay.
+
+Keep schedules unknown and retain legitimate NaNs. Do not invent imputation or change feature semantics.
+
+4. Fit and persist calibration
+
+Combine exactly the 341 approved OOF predictions. Validate uniqueness, coverage, fold provenance, original orientation, probability range and labels.
+
+Fit exactly one Platt estimator:
+- Input: clipped raw log odds.
+- Epsilon: 1e-8.
+- LogisticRegression C=1e10.
+- solver=lbfgs.
+- max_iter=1000.
+- Positive class: fighter 1 / label 1.
+
+Persist the estimator, coefficients, convergence information and exact calibration-input hash.
+
+Fail on invalid inputs or non-convergence. Do not change the recipe or silently fall back to raw probabilities.
+
+Optional preregistered diagnostics:
+- Raw OOF natural-log loss and Brier score.
+- Calibrated scores on those same rows, explicitly labeled “calibration-fit diagnostics.”
+
+Use explicit 1e-8 clipping for log loss and unmodified probabilities for Brier.
+
+These diagnostics are not prospective performance or certified historical replay: the features use retrospective reconstruction and mutable contemporary profiles. Do not use diagnostics to select models, change thresholds, recalibrate or claim superiority over the reference.
+
+5. Final refit and bundle
+
+Independently compute final priors from all 8,558 approved rows, then train a fresh final 310-round learner on all of them.
+
+Do not reuse a fold learner or reserve the old validation/test periods. Final priors must never contaminate the saved OOF calculations.
+
+Publish exclusively under:
+data/experiments/phase5b4_current_challenger/<unique-run-name>/
+
+Include:
+- Final learner and saved calibrator.
+- Final and four fold-specific priors.
+- Four saved OOF learners.
+- Full-precision OOF predictions and provenance.
+- Exact training/fold membership manifests.
+- Feature order and preprocessing/calibration contracts.
+- Accepted preparation/config/source hashes.
+- Package and code versions.
+- Actual fitting/freezing timestamps.
+- Authorization and run receipts.
+- Verification, diagnostics and preservation receipts.
+- Checksums.
+
+Use staged publication with an incomplete marker. Publish as completed only after verification; never overwrite a run.
+
+Metadata must retain:
+- April relationship UNRESOLVED.
+- Training-source coverage through August 29, not October 2.
+- Statistics last refreshed August 9.
+- Retrospective reconstruction and incomplete-history limitations.
+- No prospective superiority or production approval.
+
+6. Production-grade loading and verification
+
+Require externally supplied checksum/manifest pins. Validate component paths, complete inventory, hashes, provenance, packages and contracts before deserializing estimators.
+
+Check:
+- Exact feature names/order.
+- Binary class orientation.
+- Actual 310 boosted rounds.
+- Saved prior membership and normalization validity.
+- Calibrator settings and fitted parameters.
+- Exact OOF coverage and fold lineage.
+
+Loading/inference must never query a warehouse, fit components, call production writers or silently fall back.
+
+Distinguish training-reference provenance from the actual source provenance of future inference. Do not label new captures as the training snapshot or accept compatibility from column names alone.
+
+Independently reload saved fold models/priors and reproduce all 341 raw OOF predictions.
+
+Independently reload final components and verify prepared matrices plus raw/calibrated probabilities against the in-memory pipeline on the approved training rows.
+
+These probability calls are authorized solely for OOF/calibration and persistence verification—not for real upcoming or frozen holdout fights.
+
+Require exact save/load parity. Report discrepancies and stop publication rather than concealing them or retraining repeatedly.
+
+7. Safe verification and preservation
+
+Use explicit scoped tests covering:
+- Exact partition guards and exclusion propagation.
+- Training-only fold priors.
+- OOF completeness and chronology.
+- Fixed parameters/rounds and absence of early stopping.
+- Calibration orientation, clipping and convergence.
+- Independent final preprocessing/refit.
+- Saved-component parity.
+- Loader tampering/incompatibility refusal.
+- No load-time fitting, database/network access or production writes.
+- Overwrite refusal and incomplete-run rejection.
+- Existing artifact preservation.
+
+Synthetic test fits may be used where needed; distinguish them from the authorized real training run’s fit counts.
+
+No broad test discovery, mutating integration tests, live warehouse tests or unrelated repairs.
+
+Preserve the frozen reference, March control, all accepted preparations/holdouts, existing models/predictions/pointer and all 35 registry records.
+
+No source network requests or source refresh. Git transport is permitted for the required handoff.
+
+8. Report, commit and push
+
+Write:
+docs/implementation-reports/phase5b4-current-challenger-training-report.md
+
+Include:
+- Artifact readiness and exact paths/pins.
+- Actual training endpoint and source limitations.
+- Parameters, fit counts, memberships and partition provenance.
+- Raw OOF versus calibration-fit diagnostics, clearly distinguished.
+- Saved calibrator parameters and convergence.
+- Independent replay/save-load parity.
+- Tests, commands, deviations and preservation results.
+- Actual component-freeze times.
+- Remaining prospective metadata/capture blockers.
+- Confirmation of no forecasting, holdout evaluation or production changes.
+
+Challenger artifact readiness may become READY. Prospective forecasting remains BLOCKED pending complete metadata and a separately authorized later matched capture. Historical comparison remains STILL_BLOCKED. No automatic promotion.
+
+Follow docs/implementation-reports/next-phase-git-handoff.md. Commit all phase changes in logical commits and push normally to the verified upstream; never force-push.
+
+Final response: report path, readiness, artifact pins, tests, commit hashes, push outcome and worktree status.

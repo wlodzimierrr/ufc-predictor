@@ -1,0 +1,16 @@
+[
+  {
+    "path": "data/experiments/phase3b_xgb_pre_april_2026/20261001_phase3b_retrospective_v1",
+    "checksums_sha256": "41f8c8afb8fd091fa0b04823ad9175cedcfdbf85ccf3f62d77c71e0d9219279f",
+    "components_verified": 29,
+    "estimator_loads": 0,
+    "scope": "hash-only"
+  },
+  {
+    "path": "data/experiments/phase5b1_reference_and_history/20261002_phase5b1_frozen_reference_v3_identity_guarded",
+    "checksums_sha256": "12c17761fe76998e49fb5e79ea8a455861e22eaf57b37071f692bab17c1ba381",
+    "components_verified": 10,
+    "estimator_loads": 0,
+    "scope": "hash-only"
+  }
+]

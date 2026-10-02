@@ -1,0 +1,99 @@
+{
+  "authorization_sha256": "df392746391f5810fa608360649f06f15d87444007dc3fc8efb571394ab697e8",
+  "baseline_sha256": "b6fb275e3a20ca2a0619e6c4ca0e7d2558e5f0b6b70e611d871421b6b9c683d7",
+  "command": "python3 tools/train_phase5b4_current_challenger.py train --run-name 20261002T183215Z_phase5b4_current_challenger_v1_fixed --authorization /tmp/phase5b4-current-challenger/authorization.txt --baseline /tmp/phase5b4-current-challenger/preservation-baseline.json --test-receipt /tmp/phase5b4-current-challenger/tests-fifth.json --receipt /tmp/phase5b4-current-challenger/publication-receipt.json",
+  "component_freeze_times": {
+    "calibrator": "2026-10-02T18:32:44.619117+00:00",
+    "final": "2026-10-02T18:32:47.462997+00:00",
+    "oof_1": "2026-10-02T18:32:32.965565+00:00",
+    "oof_2": "2026-10-02T18:32:36.535143+00:00",
+    "oof_3": "2026-10-02T18:32:40.159909+00:00",
+    "oof_4": "2026-10-02T18:32:43.791456+00:00"
+  },
+  "contract_version": "phase5b4_current_challenger_v1",
+  "execution_started_at": "2026-10-02T18:32:20.368396+00:00",
+  "final_fitting_times": {
+    "fit_completed_at": "2026-10-02T18:32:47.459800+00:00",
+    "fit_started_at": "2026-10-02T18:32:46.965034+00:00"
+  },
+  "fit_arguments": [
+    "X",
+    "y"
+  ],
+  "fit_counts": {
+    "final_xgboost": 1,
+    "oof_xgboost": 4,
+    "partition_priors": 5,
+    "platt": 1
+  },
+  "fitting_and_component_freezing_completed_at": "2026-10-02T18:32:48.131406+00:00",
+  "fold_fitting_times": {
+    "oof_1": {
+      "fit_completed_at": "2026-10-02T18:32:32.961968+00:00",
+      "fit_started_at": "2026-10-02T18:32:32.264414+00:00"
+    },
+    "oof_2": {
+      "fit_completed_at": "2026-10-02T18:32:36.531456+00:00",
+      "fit_started_at": "2026-10-02T18:32:36.047618+00:00"
+    },
+    "oof_3": {
+      "fit_completed_at": "2026-10-02T18:32:40.156476+00:00",
+      "fit_started_at": "2026-10-02T18:32:39.671497+00:00"
+    },
+    "oof_4": {
+      "fit_completed_at": "2026-10-02T18:32:43.788026+00:00",
+      "fit_started_at": "2026-10-02T18:32:43.298855+00:00"
+    }
+  },
+  "forecast_calls": 0,
+  "holdout_scoring_calls": 0,
+  "in_memory_final_verification": {
+    "calibrated_probability_sha256": "e5379b9f109e00763a711558c6ce13ea8da12ea17310045f8171de151c18a6ba",
+    "prepared_matrix_sha256": "276f0826892403cb1280869d9ef6f033561463466bb56cfb7dfb906eb3b0902f",
+    "raw_probability_sha256": "0c8e68ae9a6af689900f98d4216fa1ce79af2202a27453f1bebb2bd58bcc7c3f"
+  },
+  "initial_verification": {
+    "accepted_input_sha256": "3a48ffa517e9cb4475212f507b91039c7e8d6fb08b68fee1bf90d010e4d5c33c",
+    "excluded_ids": 166,
+    "final_rows": 8558,
+    "guarded_loading": "VERIFIED",
+    "oof_rows": 341,
+    "partition_admissions_sha256": "a037cba82c22b0091f70ca6c2e16216648f188af6b9e9e4c95462d2e5a2424ca",
+    "role_admissions": "EXACT",
+    "source_orientation": "EXACT",
+    "verified_at": "2026-10-02T18:32:29.493293+00:00"
+  },
+  "parameters": {
+    "colsample_bytree": 0.8,
+    "eval_metric": "logloss",
+    "learning_rate": 0.02,
+    "max_depth": 6,
+    "min_child_weight": 100,
+    "n_estimators": 310,
+    "n_jobs": 1,
+    "objective": "binary:logistic",
+    "random_state": 42,
+    "reg_lambda": 1.0,
+    "subsample": 0.8,
+    "tree_method": "hist",
+    "verbosity": 0
+  },
+  "pre_registration_bytes_preserved": true,
+  "prepared_matrix_sha256": {
+    "final": "276f0826892403cb1280869d9ef6f033561463466bb56cfb7dfb906eb3b0902f",
+    "oof_1_oof": "305419d89046b78014af36954f8323a8849aada1a3c2e4b78a74114cbf7cee9a",
+    "oof_1_train": "3e237dce715ad6fe029703f5f2a5cb3305034d937cbb96b3865ef5e2d9ea9755",
+    "oof_2_oof": "c5a42f568dfca5968a97ecf9a930c8578d57127453b45ef4f553750e85b1049c",
+    "oof_2_train": "585d2daf3de25f45fad4ba9bbe4022e9962f5a6e5bea4af5bb5024853cdfeb8a",
+    "oof_3_oof": "717288dafa7e5ca8a779d8eefe8e421c82b5c97b854cece2cb8ea95eb8d96875",
+    "oof_3_train": "38504504062266357a5f9c9328b1461468f9b5e8a270cdab3c3291110e8ab06d",
+    "oof_4_oof": "4162376dffa14a5ddcddff1e1585517a50232415c8073c692978c9ed7bb10c05",
+    "oof_4_train": "8e7193a2af22fd34ed610871327cfe6e5072264a0702abedf4aa533762a45c2f"
+  },
+  "production_writes": 0,
+  "search_fits": 0,
+  "source_network_calls": 0,
+  "synthetic_test_fits_separate": true,
+  "trial_outcome_ingestion": 0,
+  "warehouse_connections": 0
+}

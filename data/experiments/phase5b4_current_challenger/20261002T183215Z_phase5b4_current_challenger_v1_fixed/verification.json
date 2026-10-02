@@ -1,0 +1,52 @@
+{
+  "actual_inference_source_sha256": {
+    "sources/events.json": "e36c7250b9965ec8294fe9bac196f45ec96ad51624ef704e5e188b83eb868a78",
+    "sources/fight_stats_aggregate.json": "ec19a9e5e0b13766744e187f1d099e92c65103940ac02fefe804b4421414bcb4",
+    "sources/fighters.json": "1cf4a351788b7de8496e1e05c8591f5cf462739a4843f44831fa7168d20a4caf",
+    "sources/fights.json": "27738c6ca29fafa1cdde121b377607ef9683c79cfb7eacca4b96b1f166118b17",
+    "sources/schemas.json": "d4d0a931dc86598b1b2f26e5bd52347060094fe5beb64031b07bd359e431ee8a"
+  },
+  "completed_at": "2026-10-02T18:32:55.345813+00:00",
+  "exact_parity": true,
+  "final": {
+    "calibrated_probability_sha256": "e5379b9f109e00763a711558c6ce13ea8da12ea17310045f8171de151c18a6ba",
+    "prepared_matrix_sha256": "276f0826892403cb1280869d9ef6f033561463466bb56cfb7dfb906eb3b0902f",
+    "raw_probability_sha256": "0c8e68ae9a6af689900f98d4216fa1ce79af2202a27453f1bebb2bd58bcc7c3f"
+  },
+  "final_verification_rows": 8558,
+  "fit_calls": 0,
+  "folds": {
+    "oof_1": {
+      "exact_parity": true,
+      "oof_matrix_sha256": "305419d89046b78014af36954f8323a8849aada1a3c2e4b78a74114cbf7cee9a",
+      "raw_probability_sha256": "9bbd7390accb61a9abd4727bdfc8fe0dd0434d4c6e16704ac4a7f0d9d10cee0d",
+      "rows": 128,
+      "train_matrix_sha256": "3e237dce715ad6fe029703f5f2a5cb3305034d937cbb96b3865ef5e2d9ea9755"
+    },
+    "oof_2": {
+      "exact_parity": true,
+      "oof_matrix_sha256": "c5a42f568dfca5968a97ecf9a930c8578d57127453b45ef4f553750e85b1049c",
+      "raw_probability_sha256": "8a4e123bdb6a4ce8cde330e9460b7d8f46b178245ea5c325acbeab7355898120",
+      "rows": 114,
+      "train_matrix_sha256": "585d2daf3de25f45fad4ba9bbe4022e9962f5a6e5bea4af5bb5024853cdfeb8a"
+    },
+    "oof_3": {
+      "exact_parity": true,
+      "oof_matrix_sha256": "717288dafa7e5ca8a779d8eefe8e421c82b5c97b854cece2cb8ea95eb8d96875",
+      "raw_probability_sha256": "1ea38a5dfe8340eec21944e60a13d212f8c2a7f1eee808c9ecdfdc9053537e16",
+      "rows": 69,
+      "train_matrix_sha256": "38504504062266357a5f9c9328b1461468f9b5e8a270cdab3c3291110e8ab06d"
+    },
+    "oof_4": {
+      "exact_parity": true,
+      "oof_matrix_sha256": "4162376dffa14a5ddcddff1e1585517a50232415c8073c692978c9ed7bb10c05",
+      "raw_probability_sha256": "03497f75c6d18d260ec343b3495a01540a38e069aaf4810631343389e6a9a344",
+      "rows": 30,
+      "train_matrix_sha256": "8e7193a2af22fd34ed610871327cfe6e5072264a0702abedf4aa533762a45c2f"
+    }
+  },
+  "oof_replay_rows": 341,
+  "scope": "OOF and persistence verification on approved training rows only",
+  "started_at": "2026-10-02T18:32:48.292442+00:00",
+  "status": "VERIFIED"
+}

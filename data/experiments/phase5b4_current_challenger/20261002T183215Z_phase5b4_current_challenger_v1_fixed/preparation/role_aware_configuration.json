@@ -1,0 +1,13 @@
+{
+  "contract_version": "phase5_role_aware_preparation_v2",
+  "policy": "docs/phase5-modeling-eligibility-policy-v2.md",
+  "preregistered_recipe": "configs/phase5_prospective_shadow_v1.json",
+  "preregistered_recipe_sha256": "6d63abe99fa6a401df2e779c68b1e3ab8aa81fd3a3d2253058c812a644732438",
+  "event_cutoff_exclusive": "2026-10-02",
+  "binary_results": ["win"],
+  "historical_results": ["win", "draw", "nc"],
+  "future_projection": "outcome_free_metadata_with_unchanged_registry_gates",
+  "identity_relationship": "April_UNRESOLVED_no_alias_or_cancellation",
+  "fitting_authorized": false,
+  "forecasting_authorized": false
+}

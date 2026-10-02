@@ -1,0 +1,109 @@
+{"component": "oof_1", "train_rows": 8217, "oof_rows": 128, "frozen_at": "2026-10-02T18:32:32.965565+00:00"}
+{"component": "oof_2", "train_rows": 8345, "oof_rows": 114, "frozen_at": "2026-10-02T18:32:36.535143+00:00"}
+{"component": "oof_3", "train_rows": 8459, "oof_rows": 69, "frozen_at": "2026-10-02T18:32:40.159909+00:00"}
+{"component": "oof_4", "train_rows": 8528, "oof_rows": 30, "frozen_at": "2026-10-02T18:32:43.791456+00:00"}
+{
+  "checksums_sha256": "59ffd4995946cc9ec7512f2f14caade09fd3144d2cfb3ee2d3b9b0951f5ca300",
+  "completed_at": "2026-10-02T18:32:56.401689+00:00",
+  "diagnostics": {
+    "brier_uses_unmodified_probabilities": true,
+    "calibration-fit diagnostics": {
+      "brier": 0.20998497246264813,
+      "natural_log_loss": 0.6046915301570098
+    },
+    "certified_historical_replay": false,
+    "diagnostics_used_for_selection": false,
+    "limitations": {
+      "april_relationship": "UNRESOLVED",
+      "automatic_promotion": false,
+      "certification": "retrospective_reconstruction_only_not_complete_history",
+      "historical_availability_unverified": true,
+      "historical_comparison": "STILL_BLOCKED",
+      "incomplete_histories": true,
+      "latest_binary_training_event": "2026-08-29",
+      "mutable_contemporary_profiles": true,
+      "production_approval": false,
+      "prospective_forecast_readiness": "BLOCKED",
+      "prospective_superiority": false,
+      "source_coverage_through": "2026-08-29",
+      "statistics_last_refreshed": "2026-08-09"
+    },
+    "log_loss_clip_epsilon": 1e-08,
+    "prospective_performance": false,
+    "raw_oof_diagnostics": {
+      "brier": 0.21654337662025586,
+      "natural_log_loss": 0.6203851061052678
+    },
+    "rows": 341
+  },
+  "fit_counts": {
+    "final_xgboost": 1,
+    "oof_xgboost": 4,
+    "partition_priors": 5,
+    "platt": 1
+  },
+  "independent_verification": {
+    "actual_inference_source_sha256": {
+      "sources/events.json": "e36c7250b9965ec8294fe9bac196f45ec96ad51624ef704e5e188b83eb868a78",
+      "sources/fight_stats_aggregate.json": "ec19a9e5e0b13766744e187f1d099e92c65103940ac02fefe804b4421414bcb4",
+      "sources/fighters.json": "1cf4a351788b7de8496e1e05c8591f5cf462739a4843f44831fa7168d20a4caf",
+      "sources/fights.json": "27738c6ca29fafa1cdde121b377607ef9683c79cfb7eacca4b96b1f166118b17",
+      "sources/schemas.json": "d4d0a931dc86598b1b2f26e5bd52347060094fe5beb64031b07bd359e431ee8a"
+    },
+    "completed_at": "2026-10-02T18:32:55.345813+00:00",
+    "exact_parity": true,
+    "final": {
+      "calibrated_probability_sha256": "e5379b9f109e00763a711558c6ce13ea8da12ea17310045f8171de151c18a6ba",
+      "prepared_matrix_sha256": "276f0826892403cb1280869d9ef6f033561463466bb56cfb7dfb906eb3b0902f",
+      "raw_probability_sha256": "0c8e68ae9a6af689900f98d4216fa1ce79af2202a27453f1bebb2bd58bcc7c3f"
+    },
+    "final_verification_rows": 8558,
+    "fit_calls": 0,
+    "folds": {
+      "oof_1": {
+        "exact_parity": true,
+        "oof_matrix_sha256": "305419d89046b78014af36954f8323a8849aada1a3c2e4b78a74114cbf7cee9a",
+        "raw_probability_sha256": "9bbd7390accb61a9abd4727bdfc8fe0dd0434d4c6e16704ac4a7f0d9d10cee0d",
+        "rows": 128,
+        "train_matrix_sha256": "3e237dce715ad6fe029703f5f2a5cb3305034d937cbb96b3865ef5e2d9ea9755"
+      },
+      "oof_2": {
+        "exact_parity": true,
+        "oof_matrix_sha256": "c5a42f568dfca5968a97ecf9a930c8578d57127453b45ef4f553750e85b1049c",
+        "raw_probability_sha256": "8a4e123bdb6a4ce8cde330e9460b7d8f46b178245ea5c325acbeab7355898120",
+        "rows": 114,
+        "train_matrix_sha256": "585d2daf3de25f45fad4ba9bbe4022e9962f5a6e5bea4af5bb5024853cdfeb8a"
+      },
+      "oof_3": {
+        "exact_parity": true,
+        "oof_matrix_sha256": "717288dafa7e5ca8a779d8eefe8e421c82b5c97b854cece2cb8ea95eb8d96875",
+        "raw_probability_sha256": "1ea38a5dfe8340eec21944e60a13d212f8c2a7f1eee808c9ecdfdc9053537e16",
+        "rows": 69,
+        "train_matrix_sha256": "38504504062266357a5f9c9328b1461468f9b5e8a270cdab3c3291110e8ab06d"
+      },
+      "oof_4": {
+        "exact_parity": true,
+        "oof_matrix_sha256": "4162376dffa14a5ddcddff1e1585517a50232415c8073c692978c9ed7bb10c05",
+        "raw_probability_sha256": "03497f75c6d18d260ec343b3495a01540a38e069aaf4810631343389e6a9a344",
+        "rows": 30,
+        "train_matrix_sha256": "8e7193a2af22fd34ed610871327cfe6e5072264a0702abedf4aa533762a45c2f"
+      }
+    },
+    "oof_replay_rows": 341,
+    "scope": "OOF and persistence verification on approved training rows only",
+    "started_at": "2026-10-02T18:32:48.292442+00:00",
+    "status": "VERIFIED"
+  },
+  "path": "/home/wlodzimierrr/ufc-data/data/experiments/phase5b4_current_challenger/20261002T183215Z_phase5b4_current_challenger_v1_fixed",
+  "preservation": {
+    "changed": [],
+    "checked_at": "2026-10-02T18:32:57.263150+00:00",
+    "files_checked": 15469,
+    "missing": [],
+    "new_protected_files": [],
+    "protected_outcomes": "hash-only; never parsed",
+    "status": "VERIFIED"
+  },
+  "status": "READY",
+  "training_manifest_sha256": "7330bbebd06a6f5c0233cf8892be5c1728edc8805add02b1511499bf198b0c73"
+}

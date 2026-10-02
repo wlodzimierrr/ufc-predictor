@@ -1,0 +1,23 @@
+{
+  "code_sha256": {
+    "features/debut_prior.py": "c38f733a7d60f840aea0ca954ed147174a08708a3832ad2ba8fbdac9d615af84",
+    "modeling/data.py": "f979d6d9c332e4c11d571b891c81bed91e17637e36167d86d2659d8dacb1e3d5",
+    "modeling/phase5b4_bundle_v1.py": "9d6dc5092471cc665bd3ef8b1d9a3f972cf01e0f24579966fbc6eec9565a9cc9",
+    "modeling/phase5b4_contract_v1.py": "cf87229e25f1f1fc161bb0a42ddb4b101063eeeaafc4666bdb767d6cf048b1ae",
+    "modeling/phase5b4_safety.py": "7b02667e2674bcfca29f54fbb2b6d8adf7cec10269c47fe0b4870823d7c1c7f3",
+    "modeling/phase5b4_trainer_v1.py": "fcd4032a3ddd1b4d1c38adae9e2058718d0af4b0d6ba5ff338fc535476df16ce",
+    "modeling/tests/test_phase5b4_current_challenger.py": "e09a797fa77196f9c894816bae4b18911c33c088fcc5d9dc30fac14a0bd0eb9f",
+    "tools/train_phase5b4_current_challenger.py": "d0fb84e42191ff1fac8f5b6803b17a61e6e995d4b2f97a05876f9976a6e939fd"
+  },
+  "command": "python3 tools/train_phase5b4_current_challenger.py test --receipt /tmp/phase5b4-current-challenger/tests-second.json",
+  "completed_at": "2026-10-02T18:23:41.284440+00:00",
+  "exit_code": 1,
+  "guards": "no network, warehouse, production writes, credentials or frozen outcome parsing",
+  "safe_test_list": [
+    "modeling/tests/test_phase5b4_current_challenger.py",
+    "features/tests/test_debut_prior.py"
+  ],
+  "started_at": "2026-10-02T18:23:30.929983+00:00",
+  "status": "FAILED",
+  "synthetic_fits": "test fixtures only, separate from six authorized real estimator fits"
+}
