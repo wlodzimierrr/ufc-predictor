@@ -1,0 +1,63 @@
+{
+  "bounded_attempt_complete": true,
+  "candidate_forecasts_scored": false,
+  "deterministic_rebuild": {
+    "byte_identical_files": 26,
+    "component_sha256": {
+      "INCOMPLETE.json": "b0b7513673f84e65690cc6572c26877e06b38a50e7f322a344194cf5b889038a",
+      "comparison-protocol.json": "6e6c127973c9ccc15fa4bfa933d8b65b6438db1ea7a16da725171a4ebdaa0f6b",
+      "compatibility.json": "cbb2cafc64729ea14493ab1e6520222d5a8ca28898e7e4ae50b0631f371b6c0c",
+      "local-metadata-evidence.json": "dd970d553fbee5ae6c9995d88c8affa3217e8349f9c6ee5c75cd72f92bc57733",
+      "raw-profile-history-references.json": "800ad6f96dbb41907ec3be18e8ecfd71aff646bed40c7b0fe5dd0f1a14439178",
+      "source-manifest.json": "6feab86a6c60892892b52664b1af4eb3a7afe108f92bb002e35e8487895a9dd9",
+      "source-selection.json": "18e36a59610cdee0af11cb3d4fd60aae6228bc31c06a29ad530e445baf1f9b9f",
+      "sources/raw/fight/1ce74697-5531-568f-b769-051f65fb459f-711d00b62334fc67a4f2f0b4293e5effa9b158783e85924c380aeba6b95d56b9.html": "711d00b62334fc67a4f2f0b4293e5effa9b158783e85924c380aeba6b95d56b9",
+      "sources/raw/fight/32d7a6c3-bb16-573d-acdd-562fb93af46b-f7492e3645910d89ef25a6a51c894c6b0c665127163756f6debcdc48990bd88d.html": "f7492e3645910d89ef25a6a51c894c6b0c665127163756f6debcdc48990bd88d",
+      "sources/raw/fight/384559ef-d5df-5af4-9c7f-a58c7c359359-62712ef40ce0ef2ae2533060b8300623f80f7e5b6ebcde10da712161c2dd018e.html": "62712ef40ce0ef2ae2533060b8300623f80f7e5b6ebcde10da712161c2dd018e",
+      "sources/raw/fight/3a247061-eef3-5698-aeb4-82d62b5164c1-e8cb633fae8847de5421d562d3e76b54cee305673019eb005f06720908cc08a7.html": "e8cb633fae8847de5421d562d3e76b54cee305673019eb005f06720908cc08a7",
+      "sources/raw/fight/58dbd5ff-f2df-5814-854c-a8c4fb45486f-a70b4686c2f1181e26987c643ca88390cbc17eeca9a5e580ca3c5df9585f539c.html": "a70b4686c2f1181e26987c643ca88390cbc17eeca9a5e580ca3c5df9585f539c",
+      "sources/raw/fight/8972e4f7-7df7-59cb-92be-bb0bf07dfd27-70861e1db95d286deeedb815890375f9f2d1b779ed8676f9d85fa9a0b119f111.html": "70861e1db95d286deeedb815890375f9f2d1b779ed8676f9d85fa9a0b119f111",
+      "sources/raw/fight/a8ba8843-7caa-56c1-8991-937bbfa4ac76-e5ebfa4bae2192373bde334abd3e18c4f5dd8a61f40567afe87db355c1ee2fa6.html": "e5ebfa4bae2192373bde334abd3e18c4f5dd8a61f40567afe87db355c1ee2fa6",
+      "sources/raw/fight/cc88d51e-6818-5219-89a8-adcca1eccf4d-7b8f17560eb4843e2a7a55ec5bee0157e034059b15feaaab66b4b33772250e5d.html": "7b8f17560eb4843e2a7a55ec5bee0157e034059b15feaaab66b4b33772250e5d",
+      "sources/raw/fight/e00625f4-ad7b-50e8-baac-7af1bc43157b-2a0b0cc24b22086e78120a79eb567da68c205c3fc6a4b67170edde2a8950a7ff.html": "2a0b0cc24b22086e78120a79eb567da68c205c3fc6a4b67170edde2a8950a7ff",
+      "sources/raw/fight/e1a1f140-7576-5843-955e-f3e4e044c8f2-c40a6ebce63bbd8de2854695b32ae80a2bffaf92dbad5e8be2df70323199c271.html": "c40a6ebce63bbd8de2854695b32ae80a2bffaf92dbad5e8be2df70323199c271",
+      "sources/raw/fight/e871e0b6-3a81-561d-bad4-bee64c4f87d4-aa482de7593d4b336bcab2a6e94762f0192b726263264e177d6cea8675a4176c.html": "aa482de7593d4b336bcab2a6e94762f0192b726263264e177d6cea8675a4176c",
+      "sources/raw/fight/f467a342-40c3-5abd-902c-cdda666a883c-6240dd93930fda25ee4fd1da2307390f80ad89d9e18c6dda73452b294669fdbe.html": "6240dd93930fda25ee4fd1da2307390f80ad89d9e18c6dda73452b294669fdbe",
+      "sources/raw/fight/fa2eb031-73c9-5807-9b6e-51c8f55cfba6-82d34b762b708bfedb21b73b1c47f76a11984e65c9e7ceb20b4074088df222c0.html": "82d34b762b708bfedb21b73b1c47f76a11984e65c9e7ceb20b4074088df222c0",
+      "sources/raw/fighter/41d605df-9392-5afd-8366-a8187b29444c-598ab9976ea983c1ac435a6bdb7df55e8aae8c347b9ea5301830a24832871510.html": "598ab9976ea983c1ac435a6bdb7df55e8aae8c347b9ea5301830a24832871510",
+      "sources/raw/fighter/7a343523-cc85-5054-b924-3c49120e4861-9580a632477d1c36092c6535485ce7144a3b4ac782e2ba58c04b06af998c10e9.html": "9580a632477d1c36092c6535485ce7144a3b4ac782e2ba58c04b06af998c10e9",
+      "sources/raw/fighter/8110cdb9-d1b1-5cb3-9f1c-8cf601304496-2420d88990ffeb48ab2145a178a87df4ff33e5ba053a047b411be5ff840dfb69.html": "2420d88990ffeb48ab2145a178a87df4ff33e5ba053a047b411be5ff840dfb69",
+      "sources/raw/fighter/816d5d3f-ef76-591b-9979-63735a26b250-16393d2870142b013ae34cd8a3eb3f2fb99fe40321458fc0b274a40b5b423447.html": "16393d2870142b013ae34cd8a3eb3f2fb99fe40321458fc0b274a40b5b423447",
+      "targets.csv": "386edd85e248be571bf97796db0b1ea7dd0d6aaca01587140dfd003ba60c152e",
+      "validation_results.json": "eeac82ca5515d1501626d2518975a2242995bcbd8d84033687f807174c5788c9"
+    },
+    "independent_builds": 2,
+    "passed": true,
+    "same_bounded_source_scope": true
+  },
+  "features_constructed": false,
+  "frozen_outcomes_parsed": false,
+  "gap_counts": {
+    "missing_target_profile": 1,
+    "unknown_target_title_status": 93,
+    "unresolved_experience_for_supplemented_profile": 4
+  },
+  "historical_fights_dropped": 0,
+  "historical_source_records_structurally_validated": true,
+  "model_fitted": false,
+  "new_affected_forecasts": 0,
+  "original_affected_forecasts": 98,
+  "outcome_metrics_calculated": false,
+  "phase4b_available": false,
+  "real_feature_rows_constructed": 0,
+  "remaining_affected_forecasts": 96,
+  "resolved_gap_counts": {
+    "missing_target_profile": 0,
+    "unknown_target_title_status": 2,
+    "unresolved_experience_for_supplemented_profile": 0
+  },
+  "resolved_original_forecasts": 2,
+  "status": "STILL_BLOCKED",
+  "target_rows": 108,
+  "warehouse_accessed": false
+}

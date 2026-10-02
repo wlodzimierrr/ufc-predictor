@@ -1,0 +1,986 @@
+[
+  {
+    "event_dates": [
+      "2026-10-03",
+      "2026-10-10",
+      "2026-10-17",
+      "2026-10-24",
+      "2026-10-31",
+      "2026-11-07"
+    ],
+    "exists": true,
+    "historical_availability_certified": false,
+    "metadata_columns": [
+      "fight_id",
+      "fighter_1_id",
+      "fighter_2_id",
+      "event_date",
+      "computed_at",
+      "is_title_fight"
+    ],
+    "mtime_used_as_availability": false,
+    "path": "models/upcoming/upcoming_features.csv",
+    "rows": 35,
+    "sha256": "3179a4966d1e6d439238f83579f280719329fa1484b248082d078abbf92e30a0",
+    "target_metadata": [],
+    "use": "metadata inspection only; no historical feature-vector reuse or default certification"
+  },
+  {
+    "event_dates": [
+      "2026-04-04"
+    ],
+    "exists": true,
+    "historical_availability_certified": false,
+    "metadata_columns": [
+      "fight_id",
+      "fighter_1_id",
+      "fighter_2_id",
+      "event_date",
+      "scored_at"
+    ],
+    "mtime_used_as_availability": false,
+    "path": "models/predictions/2026-04-04/predictions.csv",
+    "rows": 11,
+    "sha256": "e49af517d1198f8b4186a75cf02ae5893d0d25afd19df26155a66fd67d98347a",
+    "target_metadata": [
+      {
+        "event_date": "2026-04-04",
+        "fight_id": "b57fb8b9-0b8c-544b-ad86-4f1d72d83b25",
+        "fighter_1_id": "f303950a-f7e6-56fe-80a7-35694f04be76",
+        "fighter_2_id": "25f1d395-e071-5636-abc9-56ba8e08f9fc",
+        "scored_at": "2026-04-06T17:11:01.455546+00:00"
+      },
+      {
+        "event_date": "2026-04-04",
+        "fight_id": "a3240036-8369-54b6-baf8-ad2b84b489b4",
+        "fighter_1_id": "aceef432-1685-5311-91b2-015a5ab0458e",
+        "fighter_2_id": "2cdec672-3348-5df3-9bfc-f97089294919",
+        "scored_at": "2026-04-06T17:11:01.455546+00:00"
+      },
+      {
+        "event_date": "2026-04-04",
+        "fight_id": "c0633b26-b3d5-5cea-b6c4-0dd0e96b96ca",
+        "fighter_1_id": "3306464b-66b7-5268-b602-129a3637df03",
+        "fighter_2_id": "940fda6f-2077-54f6-9fd7-3a38c94ea2be",
+        "scored_at": "2026-04-06T17:11:01.455546+00:00"
+      },
+      {
+        "event_date": "2026-04-04",
+        "fight_id": "b9f51174-1bd7-5209-bc48-1064551bee80",
+        "fighter_1_id": "87e3b81e-fe88-5d3e-9818-f8cc19cf454e",
+        "fighter_2_id": "336c6337-728e-59f6-bcf2-d78ac0d98306",
+        "scored_at": "2026-04-06T17:11:01.455546+00:00"
+      },
+      {
+        "event_date": "2026-04-04",
+        "fight_id": "a8e8f046-9e7f-5305-90ed-2976f9a1fa97",
+        "fighter_1_id": "f68e11ce-7adf-5127-afc4-89b51ec75569",
+        "fighter_2_id": "a8a1ae2f-3de4-52d6-9291-051bafb4617a",
+        "scored_at": "2026-04-06T17:11:01.455546+00:00"
+      },
+      {
+        "event_date": "2026-04-04",
+        "fight_id": "43997c40-3946-5fd5-8d67-fdcce0c3abc0",
+        "fighter_1_id": "bab7f23c-79ba-59cd-822f-e146c377ec1c",
+        "fighter_2_id": "dbf86bd8-bfde-5c70-bdef-e4515b49fde7",
+        "scored_at": "2026-04-06T17:11:01.455546+00:00"
+      },
+      {
+        "event_date": "2026-04-04",
+        "fight_id": "bd2e1624-cd5b-5677-982b-2b59ae711ed8",
+        "fighter_1_id": "3e69aa8b-850c-513b-b346-339b08bf9d62",
+        "fighter_2_id": "ab06203d-b31c-564e-86d8-5ef523d2e58d",
+        "scored_at": "2026-04-06T17:11:01.455546+00:00"
+      },
+      {
+        "event_date": "2026-04-04",
+        "fight_id": "695be5dc-de86-596b-8919-6716a553abd7",
+        "fighter_1_id": "935309b0-86c6-54a3-abf0-ee4ada20b274",
+        "fighter_2_id": "8568b8f1-c860-58c9-8663-63fe682a6c99",
+        "scored_at": "2026-04-06T17:11:01.455546+00:00"
+      },
+      {
+        "event_date": "2026-04-04",
+        "fight_id": "d10ce9c1-aa97-56c8-9d71-d3f779c2fc6a",
+        "fighter_1_id": "91790c5b-3bc9-5224-bbc4-d738eb19168a",
+        "fighter_2_id": "ab7fcf35-6b00-5ea0-8afe-810d3ae1702a",
+        "scored_at": "2026-04-06T17:11:01.455546+00:00"
+      },
+      {
+        "event_date": "2026-04-04",
+        "fight_id": "f89bad5a-fa21-524f-8dd5-d053e3f1e571",
+        "fighter_1_id": "771f9425-0f8a-5c40-ac4a-355cad170088",
+        "fighter_2_id": "c0f958df-1e9f-52d6-a99f-1d4d78583283",
+        "scored_at": "2026-04-06T17:11:01.455546+00:00"
+      },
+      {
+        "event_date": "2026-04-04",
+        "fight_id": "7c38b661-8972-5347-9a20-42eb629767d6",
+        "fighter_1_id": "c548011c-5453-5d20-9a0e-f709c1223191",
+        "fighter_2_id": "7ddd2036-f89d-5d64-9526-81cebd7e5513",
+        "scored_at": "2026-04-06T17:11:01.455546+00:00"
+      }
+    ],
+    "use": "metadata inspection only; no historical feature-vector reuse or default certification"
+  },
+  {
+    "event_dates": [
+      "2026-04-11"
+    ],
+    "exists": true,
+    "historical_availability_certified": false,
+    "metadata_columns": [
+      "fight_id",
+      "fighter_1_id",
+      "fighter_2_id",
+      "event_date",
+      "scored_at"
+    ],
+    "mtime_used_as_availability": false,
+    "path": "models/predictions/2026-04-11/predictions.csv",
+    "rows": 1,
+    "sha256": "9b4af1ecc91a6db812bfd3574dd1abeb15db6372618aef82a01d386d782689bf",
+    "target_metadata": [],
+    "use": "metadata inspection only; no historical feature-vector reuse or default certification"
+  },
+  {
+    "event_dates": [
+      "2026-04-18"
+    ],
+    "exists": true,
+    "historical_availability_certified": false,
+    "metadata_columns": [
+      "fight_id",
+      "fighter_1_id",
+      "fighter_2_id",
+      "event_date",
+      "scored_at"
+    ],
+    "mtime_used_as_availability": false,
+    "path": "models/predictions/2026-04-18/predictions.csv",
+    "rows": 12,
+    "sha256": "6128467d2941e71ebf0b0be4e812935b738cbd6c5400e76544392e3ee5b7da1b",
+    "target_metadata": [
+      {
+        "event_date": "2026-04-18",
+        "fight_id": "6220ff97-1331-5548-941a-9c836df045b3",
+        "fighter_1_id": "d5bcc400-1657-5c30-867b-977a1f11a28d",
+        "fighter_2_id": "1b8d08d2-5e00-5263-b4bd-37b41ad773a7",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-04-18",
+        "fight_id": "ccd079d0-97e3-53a6-b649-8f6ac080acee",
+        "fighter_1_id": "05b52933-2ba0-5c13-b71f-62208fba3378",
+        "fighter_2_id": "b7bdb792-01fa-5bf9-a6bb-0a9a8545b86f",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-04-18",
+        "fight_id": "1c822267-6168-56a4-bf44-ae47c3ef96cc",
+        "fighter_1_id": "48418d48-8e51-5df2-93fc-21bd6027db85",
+        "fighter_2_id": "d25d2c4d-4656-570a-bd17-9c573d98b4d1",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-04-18",
+        "fight_id": "20fd242f-ae7f-5257-9297-2226aa15e447",
+        "fighter_1_id": "c668535b-98fb-5125-846f-28e4946ed837",
+        "fighter_2_id": "956a7351-0852-5a23-960e-cd70eb969bc5",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-04-18",
+        "fight_id": "00c4ae73-1fd4-5893-8f1c-1b17afbdea01",
+        "fighter_1_id": "77a23ddb-a261-5520-b7eb-bec78de3345c",
+        "fighter_2_id": "73a4d75b-f3cf-5e1e-9466-13327f5af75d",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-04-18",
+        "fight_id": "cbdc6048-0b50-516d-8ea5-1da687afee38",
+        "fighter_1_id": "30d41435-c403-53ea-a831-74733143cf48",
+        "fighter_2_id": "cc259f61-a974-5f0f-ad31-d33bd77867e0",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-04-18",
+        "fight_id": "fd71642d-7b31-53b9-b63a-e4709f13149f",
+        "fighter_1_id": "311c13af-ece2-561a-addd-3ba962c7f2ba",
+        "fighter_2_id": "b7524837-10c7-5128-a6b2-4738cc3b5a93",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      }
+    ],
+    "use": "metadata inspection only; no historical feature-vector reuse or default certification"
+  },
+  {
+    "event_dates": [
+      "2026-04-25"
+    ],
+    "exists": true,
+    "historical_availability_certified": false,
+    "metadata_columns": [
+      "fight_id",
+      "fighter_1_id",
+      "fighter_2_id",
+      "event_date",
+      "scored_at"
+    ],
+    "mtime_used_as_availability": false,
+    "path": "models/predictions/2026-04-25/predictions.csv",
+    "rows": 11,
+    "sha256": "5600ea8329ea109809dca0f92a07ffc0c5ef843ef3d62cac2977de3ba71bfdda",
+    "target_metadata": [
+      {
+        "event_date": "2026-04-25",
+        "fight_id": "effffdc9-0a40-56e7-a75d-ad5b7e3be83d",
+        "fighter_1_id": "5526f2c2-b2a1-5626-8f9d-b7221830cddb",
+        "fighter_2_id": "ecc9debb-d667-5bd4-af2f-a607ff52b6cd",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-04-25",
+        "fight_id": "fbe7b3a0-ef81-585d-be48-ddaa90ec4760",
+        "fighter_1_id": "13cb2251-408c-5763-a486-eac6062d5b4b",
+        "fighter_2_id": "c0dc37bf-e27a-5b9b-9ee6-2df7d20570f7",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-04-25",
+        "fight_id": "24f37b7e-2a83-5a55-9677-0454659927b1",
+        "fighter_1_id": "db789b37-6242-5382-aa50-e03deed8450a",
+        "fighter_2_id": "b76e3de2-a091-579d-9a00-25c2e56783c3",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-04-25",
+        "fight_id": "da017aa3-5f67-5de9-82bb-a65226174cc6",
+        "fighter_1_id": "f7aa7c5f-5cbf-5e88-a868-383272563b67",
+        "fighter_2_id": "fde53ea8-271c-5adc-b7e0-011ae07069ff",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-04-25",
+        "fight_id": "73dec48a-a3bb-5f33-a421-d14a2533d7e2",
+        "fighter_1_id": "c1a85f84-022d-55f0-9965-a4f9b9a5e310",
+        "fighter_2_id": "e0cd5d4f-e2bb-5098-bd10-2bbfa7489865",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-04-25",
+        "fight_id": "9de8cacf-6b35-5d1f-bb99-e2891a986de8",
+        "fighter_1_id": "c2786919-49e0-5cf1-8fdb-b6042b877a67",
+        "fighter_2_id": "2fbbc7a6-60ee-5833-916d-276a4d9ddeee",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-04-25",
+        "fight_id": "16ddf587-3df5-57a3-917e-1fa4d8e8e1a9",
+        "fighter_1_id": "cec138fc-95d9-590a-9bf1-949ce07102a3",
+        "fighter_2_id": "a2857ebc-ab7d-52fe-ac89-1c320c52e7bf",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-04-25",
+        "fight_id": "a84e6753-76e7-5763-962c-b9b3a7bfdad3",
+        "fighter_1_id": "12bda1be-ae13-5eb9-ae7e-26e1d0a42bd8",
+        "fighter_2_id": "0ea98974-4b83-5ec9-ac50-eca617b463e7",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      }
+    ],
+    "use": "metadata inspection only; no historical feature-vector reuse or default certification"
+  },
+  {
+    "event_dates": [
+      "2026-05-02"
+    ],
+    "exists": true,
+    "historical_availability_certified": false,
+    "metadata_columns": [
+      "fight_id",
+      "fighter_1_id",
+      "fighter_2_id",
+      "event_date",
+      "scored_at"
+    ],
+    "mtime_used_as_availability": false,
+    "path": "models/predictions/2026-05-02/predictions.csv",
+    "rows": 11,
+    "sha256": "41978da48c58ad5e154215385363bf8355a1f4a8b0525775c1a49b11c3533ada",
+    "target_metadata": [
+      {
+        "event_date": "2026-05-02",
+        "fight_id": "42ec9d98-f1c8-5a40-b696-6b36ef6cf342",
+        "fighter_1_id": "31a89045-c578-59cc-851d-d85601115981",
+        "fighter_2_id": "147640ec-5f56-5dde-a57a-1788591507a9",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-02",
+        "fight_id": "09d3d5ce-8a66-5aff-b228-a52f31a7909e",
+        "fighter_1_id": "b65fc188-e56e-5218-82a7-f19aade7dcec",
+        "fighter_2_id": "65570629-af24-54cd-a569-fefa66ad135a",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-02",
+        "fight_id": "7f557a91-c730-5125-ad7e-a50d138fe4fb",
+        "fighter_1_id": "948f973a-3a36-557b-95b0-92203af7f017",
+        "fighter_2_id": "bda229e2-f297-5a75-8aff-247eec83f9c9",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-02",
+        "fight_id": "c6e4fe50-736e-5a81-a7f7-0dda592e972d",
+        "fighter_1_id": "9c7f2e6e-c24b-5be1-9af2-6bb9c7ac2605",
+        "fighter_2_id": "46a3d6f3-12bb-5676-8ead-728fea9e9686",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-02",
+        "fight_id": "e8fbb614-8112-5f1c-a194-e07b36556ed4",
+        "fighter_1_id": "fe803c88-b604-587c-9811-a07552a4f45a",
+        "fighter_2_id": "ec0365a0-98e8-5a80-a3cf-646ed740a866",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-02",
+        "fight_id": "1cbc3025-e373-551b-b0e0-25d85fb65b9c",
+        "fighter_1_id": "a98761e4-b493-57e5-ac1b-c2786312df25",
+        "fighter_2_id": "5669be42-4cb6-52e8-ae09-3f429d87e970",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-02",
+        "fight_id": "5eac42aa-099e-548f-9af6-9b704567e835",
+        "fighter_1_id": "8dbd3137-274e-5bd5-82f5-5a0176286259",
+        "fighter_2_id": "efeddc63-3719-5a49-b970-793b8d2b5a56",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      }
+    ],
+    "use": "metadata inspection only; no historical feature-vector reuse or default certification"
+  },
+  {
+    "event_dates": [
+      "2026-05-09"
+    ],
+    "exists": true,
+    "historical_availability_certified": false,
+    "metadata_columns": [
+      "fight_id",
+      "fighter_1_id",
+      "fighter_2_id",
+      "event_date",
+      "scored_at"
+    ],
+    "mtime_used_as_availability": false,
+    "path": "models/predictions/2026-05-09/predictions.csv",
+    "rows": 11,
+    "sha256": "00f5248a66b68a273a8ecedbb2180df1585a621c7166b5550becf321b1aa1001",
+    "target_metadata": [
+      {
+        "event_date": "2026-05-09",
+        "fight_id": "d5832f98-f952-5d69-9131-2e724c0cbb44",
+        "fighter_1_id": "352f3cff-4cc9-5620-8daf-6ab31ada2270",
+        "fighter_2_id": "741b1f5e-2ce3-50f5-9fcc-8e24eb374ec1",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-09",
+        "fight_id": "d2307292-adf1-51e9-a374-f71cd9f9f872",
+        "fighter_1_id": "e2942548-1874-5c9c-a8c1-adfb929b8297",
+        "fighter_2_id": "8e029f95-dc44-50ce-918a-94c9c5924374",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-09",
+        "fight_id": "7462d79f-bb7e-5730-a4ef-04dcaeb673f4",
+        "fighter_1_id": "31c4500d-57d6-59cd-8dce-165c2eadd098",
+        "fighter_2_id": "8c7cebbc-c0d5-51ce-9b9e-81f0abcbe491",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-09",
+        "fight_id": "60e0676c-842c-581c-8104-2d7b43e3d4d4",
+        "fighter_1_id": "bf9eab44-5c58-5ef9-a0bd-c9153734005c",
+        "fighter_2_id": "73e07249-b1bd-5add-b856-4c34cf47feec",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-09",
+        "fight_id": "c2b431df-2a5e-5197-8590-32c4dec0b7fc",
+        "fighter_1_id": "bfa62ab8-5d12-57e2-8469-1bc2417e4ac6",
+        "fighter_2_id": "0b5c07a8-ab60-5218-aacf-fbb37163f327",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-09",
+        "fight_id": "7262386a-9f4e-5fd9-ae6d-7396a476a548",
+        "fighter_1_id": "26ad9944-0194-5ba9-8744-2471ff01e799",
+        "fighter_2_id": "f432eb2c-78c6-5dd2-a470-b5247c052171",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-09",
+        "fight_id": "651d22d8-3995-5ec8-973d-9a9225d9fd44",
+        "fighter_1_id": "82dd82c4-bd66-5f4a-b941-878e9a1f1ffe",
+        "fighter_2_id": "f6ce62bb-1b53-561c-9bdf-5cb8e014e053",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-09",
+        "fight_id": "3b1c7d16-8614-5b9c-9c56-57f4c015af80",
+        "fighter_1_id": "37d0f593-0c2f-525e-804b-72847f0fcf7c",
+        "fighter_2_id": "fc8ea4b1-2c11-5342-b76c-d76de11ff961",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-09",
+        "fight_id": "841f63f9-42e5-5dfd-87a0-52675f0ac91e",
+        "fighter_1_id": "90a9742b-68e2-5cd1-9f1d-28899ef4a1fa",
+        "fighter_2_id": "06298dd2-2cb7-51bc-97fd-0780060a5d0e",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      }
+    ],
+    "use": "metadata inspection only; no historical feature-vector reuse or default certification"
+  },
+  {
+    "event_dates": [
+      "2026-05-16"
+    ],
+    "exists": true,
+    "historical_availability_certified": false,
+    "metadata_columns": [
+      "fight_id",
+      "fighter_1_id",
+      "fighter_2_id",
+      "event_date",
+      "scored_at"
+    ],
+    "mtime_used_as_availability": false,
+    "path": "models/predictions/2026-05-16/predictions.csv",
+    "rows": 8,
+    "sha256": "d9b521bbda6008e36b252f17fc2dafc449ede3a3371d7db98acf7d779afa1fb5",
+    "target_metadata": [
+      {
+        "event_date": "2026-05-16",
+        "fight_id": "e3f80737-1178-557d-b4d3-1334a7e48684",
+        "fighter_1_id": "7136a5bf-ea97-5886-b85f-74589032229f",
+        "fighter_2_id": "f10cbcbd-1d53-5363-9bfc-b1606599ccc9",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-16",
+        "fight_id": "ed8667ab-279b-5715-8610-8d3c80c9f1c5",
+        "fighter_1_id": "65918409-f6ab-5c39-a8e7-fb89cbe7ce4a",
+        "fighter_2_id": "cd241225-73c0-5c28-85fc-48303ddd04d4",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-16",
+        "fight_id": "5c5458ea-4757-58b7-9483-af2dbdc93876",
+        "fighter_1_id": "358a4b38-077e-5158-a59d-ff34a12d1bae",
+        "fighter_2_id": "9241fbb1-b4fc-5596-b8ad-7f374311f788",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-16",
+        "fight_id": "c93d228a-a175-554c-a625-dd166dddf13f",
+        "fighter_1_id": "4b7beade-def7-50ff-9acd-e08a42863a71",
+        "fighter_2_id": "ca6e7616-e175-5ef9-bc89-7d2bcb448ccc",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-16",
+        "fight_id": "f8c8e7c0-7875-56af-a22a-80e92127a27d",
+        "fighter_1_id": "ab21f6d2-0fc5-5dcd-96cb-1a9b326988c4",
+        "fighter_2_id": "5908d8f5-55bf-5dcd-ac3c-30cb6609d6e8",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-16",
+        "fight_id": "8381318b-639a-525a-a723-fb85e62cbf01",
+        "fighter_1_id": "0d417949-a99d-5ab1-8c38-86eb9b2587f9",
+        "fighter_2_id": "2944c746-7ab7-50b6-a656-abad39141c33",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-16",
+        "fight_id": "80573503-ed65-5654-bf47-76c8a7b07d0e",
+        "fighter_1_id": "8fefaeec-28cf-5a1f-835f-8fa2e25f4770",
+        "fighter_2_id": "18ab3ad7-476e-5e7d-8e44-d7f7ed63d495",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      }
+    ],
+    "use": "metadata inspection only; no historical feature-vector reuse or default certification"
+  },
+  {
+    "event_dates": [
+      "2026-05-30"
+    ],
+    "exists": true,
+    "historical_availability_certified": false,
+    "metadata_columns": [
+      "fight_id",
+      "fighter_1_id",
+      "fighter_2_id",
+      "event_date",
+      "scored_at"
+    ],
+    "mtime_used_as_availability": false,
+    "path": "models/predictions/2026-05-30/predictions.csv",
+    "rows": 8,
+    "sha256": "2a72261781d960fa513c3ca93a4a65ec99a4f2dddfb50069045f33d6dfe71b01",
+    "target_metadata": [
+      {
+        "event_date": "2026-05-30",
+        "fight_id": "7d77781e-5086-5a43-af9a-82c85baa7c05",
+        "fighter_1_id": "1d8337b7-db23-5e06-9b8a-9990b721eeea",
+        "fighter_2_id": "595096d9-92ed-56d4-a1ba-d53358d61d85",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-30",
+        "fight_id": "43265d17-c045-5ab5-b252-32478d38bfe3",
+        "fighter_1_id": "f218094c-4e94-59e8-93cf-64974e407715",
+        "fighter_2_id": "051cf07c-02be-5d99-9569-f008c48ec86f",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-30",
+        "fight_id": "235734d2-19f3-53e0-84c3-4e677ed66f7b",
+        "fighter_1_id": "5c18467f-edf8-59c5-b71d-396f3bc8894f",
+        "fighter_2_id": "217e3f5d-dc9c-529e-981a-dbba88404d09",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-30",
+        "fight_id": "01aa9cb8-9e00-5824-a7db-8579192d9bcc",
+        "fighter_1_id": "73e94e1e-af70-573a-ab1c-ef66219f9e40",
+        "fighter_2_id": "6b7d6f17-9760-5d35-862e-0bf685596147",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-30",
+        "fight_id": "cd0c06ff-e092-5a03-a4fc-68545b15db02",
+        "fighter_1_id": "a7f92121-29e9-585b-b4e0-ae8c2921ca87",
+        "fighter_2_id": "295728e1-a666-5e94-89c7-279982d29536",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-05-30",
+        "fight_id": "569e168e-a789-5791-8cde-701c7db6a9cc",
+        "fighter_1_id": "305c8448-6937-5d80-9738-9d8ee339e5ce",
+        "fighter_2_id": "c36899df-df13-5107-94d2-17c3493451de",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      }
+    ],
+    "use": "metadata inspection only; no historical feature-vector reuse or default certification"
+  },
+  {
+    "event_dates": [
+      "2026-06-06"
+    ],
+    "exists": true,
+    "historical_availability_certified": false,
+    "metadata_columns": [
+      "fight_id",
+      "fighter_1_id",
+      "fighter_2_id",
+      "event_date",
+      "scored_at"
+    ],
+    "mtime_used_as_availability": false,
+    "path": "models/predictions/2026-06-06/predictions.csv",
+    "rows": 5,
+    "sha256": "8bba6dba1e60a34e137374930325efb9e27df0268e40a1f5bc79d00aa67575d5",
+    "target_metadata": [
+      {
+        "event_date": "2026-06-06",
+        "fight_id": "dfad314f-bc0f-5376-9b44-918db92b1eae",
+        "fighter_1_id": "7ca3e5fa-3a3e-52ea-ad9d-4b3326bb8923",
+        "fighter_2_id": "2c9a6d59-5d50-5e20-8a32-621e970b3df3",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-06-06",
+        "fight_id": "b2cf0da4-705e-5d82-addc-6f18e0fa8705",
+        "fighter_1_id": "243c64b6-7efe-50da-9bf8-0bb6f6fb34d7",
+        "fighter_2_id": "7da32b5e-f3b1-5ddb-a732-9ae379aba088",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-06-06",
+        "fight_id": "ca666c11-5735-5afe-9688-0b0882313588",
+        "fighter_1_id": "f1e8474a-8f13-514e-aa23-e816b449124e",
+        "fighter_2_id": "5677e09c-ed77-5104-8f51-960acfa189cb",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      }
+    ],
+    "use": "metadata inspection only; no historical feature-vector reuse or default certification"
+  },
+  {
+    "event_dates": [
+      "2026-06-14"
+    ],
+    "exists": true,
+    "historical_availability_certified": false,
+    "metadata_columns": [
+      "fight_id",
+      "fighter_1_id",
+      "fighter_2_id",
+      "event_date",
+      "scored_at"
+    ],
+    "mtime_used_as_availability": false,
+    "path": "models/predictions/2026-06-14/predictions.csv",
+    "rows": 6,
+    "sha256": "85b11b75669b34a00cf374c9e12251afd580cfec877c9157d897edc2474d1e98",
+    "target_metadata": [
+      {
+        "event_date": "2026-06-14",
+        "fight_id": "1bba5c25-05f2-52b8-ba49-a92fdb1bbcb7",
+        "fighter_1_id": "eddcfe9a-edde-5659-a83f-5f0241e3ab95",
+        "fighter_2_id": "d6749d39-4863-5d70-9593-d8749915fce5",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-06-14",
+        "fight_id": "8a8e4047-d6d1-525b-8768-c70a6559394e",
+        "fighter_1_id": "407e3b81-e0a5-551c-98cf-2bf98ad57969",
+        "fighter_2_id": "837c3440-99f8-51be-b164-d759796bf644",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-06-14",
+        "fight_id": "d6d37520-a029-5d4c-885d-9e28fed5f99c",
+        "fighter_1_id": "78d0388e-0a8e-5f08-92ec-0e6be31bab5b",
+        "fighter_2_id": "9f2a976c-4464-5ecd-8ddc-1f21e3670ecb",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-06-14",
+        "fight_id": "db6993e7-ed96-58fb-87d0-6775ddc1ca9a",
+        "fighter_1_id": "b4c849f7-4884-5fb4-a1d1-2de72e5a6a22",
+        "fighter_2_id": "0a712492-b3d4-537d-8822-f9df4a87cc35",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-06-14",
+        "fight_id": "6161d3e7-9392-515a-b766-d93e637bc6c9",
+        "fighter_1_id": "197390c7-1d00-5eee-a548-c04c8fc7157c",
+        "fighter_2_id": "22a3fdb3-056a-589c-bdd9-af40e09c4f78",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      },
+      {
+        "event_date": "2026-06-14",
+        "fight_id": "8e007133-02c8-53dc-a08f-b74218162735",
+        "fighter_1_id": "e6c65725-19ca-5b78-9014-34a188ffed76",
+        "fighter_2_id": "8917d128-ee39-5542-ae1f-bcf013776a6f",
+        "scored_at": "2026-05-31T20:14:28.201894+00:00"
+      }
+    ],
+    "use": "metadata inspection only; no historical feature-vector reuse or default certification"
+  },
+  {
+    "event_dates": [
+      "2026-07-11"
+    ],
+    "exists": true,
+    "historical_availability_certified": false,
+    "metadata_columns": [
+      "fight_id",
+      "fighter_1_id",
+      "fighter_2_id",
+      "event_date",
+      "scored_at"
+    ],
+    "mtime_used_as_availability": false,
+    "path": "models/predictions/2026-07-11/predictions.csv",
+    "rows": 11,
+    "sha256": "d1cf19e4b55855254248624b2aafa25d127d07117a6bebd30c01cf35d39cf5b8",
+    "target_metadata": [
+      {
+        "event_date": "2026-07-11",
+        "fight_id": "442b9d86-0667-5b20-8252-11142ef3f7ad",
+        "fighter_1_id": "60b37a9f-41e1-5078-a8d8-ae8f11d9b644",
+        "fighter_2_id": "3019935f-7428-5698-b88f-f062db349e0c",
+        "scored_at": "2026-07-01T10:06:40.765321+00:00"
+      },
+      {
+        "event_date": "2026-07-11",
+        "fight_id": "5932c3e6-b325-5aee-907a-da13719ec80f",
+        "fighter_1_id": "04b0f39e-febc-5235-bba4-778a6a0c9a7a",
+        "fighter_2_id": "21d2d73b-2a4f-5094-96dc-abe279ed5510",
+        "scored_at": "2026-07-01T10:06:40.765321+00:00"
+      },
+      {
+        "event_date": "2026-07-11",
+        "fight_id": "7071379e-dc1c-5ae7-a5aa-87a4c1e8d94a",
+        "fighter_1_id": "e84ae733-0e6b-594e-9064-ecbddca6d8b1",
+        "fighter_2_id": "e92d0659-c9b7-5720-a95d-244d3497bf76",
+        "scored_at": "2026-07-01T10:06:40.765321+00:00"
+      },
+      {
+        "event_date": "2026-07-11",
+        "fight_id": "5edb9b16-dc50-5cbd-8de0-acf34642892c",
+        "fighter_1_id": "2e29b4ae-a45f-5b6b-a351-f23d862f13b1",
+        "fighter_2_id": "ca53c43b-dac1-59df-86e5-eeccaef5648b",
+        "scored_at": "2026-07-01T10:06:40.765321+00:00"
+      },
+      {
+        "event_date": "2026-07-11",
+        "fight_id": "6ccd1d31-8d51-5f94-a9e9-253c8b97e8fc",
+        "fighter_1_id": "21ac9deb-4259-5204-b882-a73a831c84d1",
+        "fighter_2_id": "a1be629f-fcb0-5fe3-8d34-a45af64ba5e5",
+        "scored_at": "2026-07-01T10:06:40.765321+00:00"
+      },
+      {
+        "event_date": "2026-07-11",
+        "fight_id": "949f5ffc-911a-5802-8474-79be9265aa60",
+        "fighter_1_id": "6c80aabe-5671-5caf-a5e4-bd0f0dbf1448",
+        "fighter_2_id": "c07ef02b-713c-50c1-8b68-be772f2c67f4",
+        "scored_at": "2026-07-01T10:06:40.765321+00:00"
+      },
+      {
+        "event_date": "2026-07-11",
+        "fight_id": "32e6fca7-c9fe-55d8-ad76-9f279ceebb10",
+        "fighter_1_id": "09cd8b8a-61ba-5644-a413-8631dae4b3e5",
+        "fighter_2_id": "683b731a-a123-55c8-b634-73326fba6010",
+        "scored_at": "2026-07-01T10:06:40.765321+00:00"
+      },
+      {
+        "event_date": "2026-07-11",
+        "fight_id": "18811344-e080-54b1-b048-75a9dc30270f",
+        "fighter_1_id": "053561bb-c3e9-5bfe-9395-ba3afaac7e43",
+        "fighter_2_id": "9c3a90ef-5d56-5cf8-878a-e3469b9d2763",
+        "scored_at": "2026-07-01T10:06:40.765321+00:00"
+      },
+      {
+        "event_date": "2026-07-11",
+        "fight_id": "a870b1bb-7da1-5673-90ae-c1ae6973745e",
+        "fighter_1_id": "99376c9c-5a7a-5ce6-a66f-e64630100040",
+        "fighter_2_id": "b93414ee-85f2-5bdc-91e0-2d9e87c2fa48",
+        "scored_at": "2026-07-01T10:06:40.765321+00:00"
+      },
+      {
+        "event_date": "2026-07-11",
+        "fight_id": "224b4e77-d532-5698-bfb9-28bcc317e207",
+        "fighter_1_id": "27aade73-4b41-508e-b8cd-6ae9e8c0c370",
+        "fighter_2_id": "febded63-7cc3-5c8c-a402-afa23cc20333",
+        "scored_at": "2026-07-01T10:06:40.765321+00:00"
+      }
+    ],
+    "use": "metadata inspection only; no historical feature-vector reuse or default certification"
+  },
+  {
+    "event_dates": [
+      "2026-08-15"
+    ],
+    "exists": true,
+    "historical_availability_certified": false,
+    "metadata_columns": [
+      "fight_id",
+      "fighter_1_id",
+      "fighter_2_id",
+      "event_date",
+      "scored_at"
+    ],
+    "mtime_used_as_availability": false,
+    "path": "models/predictions/2026-08-15/predictions.csv",
+    "rows": 11,
+    "sha256": "71b969fe9a6effbd18a7468e1daa1fb75ce5768894dc64988efc3c37f757a663",
+    "target_metadata": [
+      {
+        "event_date": "2026-08-15",
+        "fight_id": "9dea30d6-3bd4-5300-abe3-a2a141e5dd38",
+        "fighter_1_id": "049cb528-be3f-5ec7-bc9c-968a95278cd7",
+        "fighter_2_id": "74a68e93-6e51-569a-a3b8-a4c058935760",
+        "scored_at": "2026-08-09T11:17:50.025384+00:00"
+      },
+      {
+        "event_date": "2026-08-15",
+        "fight_id": "a3fb6800-9485-5a30-9631-947107de6cc0",
+        "fighter_1_id": "d965808a-7e76-56e1-b147-6cbc20d3679d",
+        "fighter_2_id": "204fb441-9853-5b04-9e3a-1be83e88d8ac",
+        "scored_at": "2026-08-09T11:17:50.025384+00:00"
+      },
+      {
+        "event_date": "2026-08-15",
+        "fight_id": "ea4f813c-70c3-5b24-a8d6-5da7d5d85b51",
+        "fighter_1_id": "d5c3a97b-0f86-583e-bb64-1c9e43049c36",
+        "fighter_2_id": "25f1d395-e071-5636-abc9-56ba8e08f9fc",
+        "scored_at": "2026-08-09T11:17:50.025384+00:00"
+      },
+      {
+        "event_date": "2026-08-15",
+        "fight_id": "1a13461f-cb73-500f-af1a-69821186f4ef",
+        "fighter_1_id": "c02298b4-029f-5cd4-8049-4a4fb48e4bd9",
+        "fighter_2_id": "fde53ea8-271c-5adc-b7e0-011ae07069ff",
+        "scored_at": "2026-08-09T11:17:50.025384+00:00"
+      },
+      {
+        "event_date": "2026-08-15",
+        "fight_id": "d83d42a9-3a36-594f-961d-5799b915635a",
+        "fighter_1_id": "ab27a10d-cb4b-5700-88c8-dd28b2168719",
+        "fighter_2_id": "62d1b828-2d07-5629-a3bc-a588fe340b11",
+        "scored_at": "2026-08-09T11:17:50.025384+00:00"
+      },
+      {
+        "event_date": "2026-08-15",
+        "fight_id": "5a3642f8-6fc9-529e-84ec-7f1e26f6029c",
+        "fighter_1_id": "cc08d7e7-3dda-5a30-bb64-9f59e9136e5e",
+        "fighter_2_id": "53049461-2332-5cad-a2a2-c7b4a868b2db",
+        "scored_at": "2026-08-09T11:17:50.025384+00:00"
+      },
+      {
+        "event_date": "2026-08-15",
+        "fight_id": "d9a8f553-e490-5101-bfab-44a3ef3ef5b9",
+        "fighter_1_id": "20f3cfbb-e664-537c-a0bf-29341a395b7a",
+        "fighter_2_id": "7bcb343a-1747-5ca8-b23a-560706290c4a",
+        "scored_at": "2026-08-09T11:17:50.025384+00:00"
+      },
+      {
+        "event_date": "2026-08-15",
+        "fight_id": "c092c6df-3e03-5b63-a91c-9015fc1b28c5",
+        "fighter_1_id": "6864343b-26e5-5d4f-af7d-06c5b02f993b",
+        "fighter_2_id": "5668c209-69b2-519b-a48d-dd665796239d",
+        "scored_at": "2026-08-09T11:17:50.025384+00:00"
+      },
+      {
+        "event_date": "2026-08-15",
+        "fight_id": "6ce25780-ce0a-5d15-af12-449dd59dcef9",
+        "fighter_1_id": "78dd112a-0e6b-5883-9baa-56029f061c48",
+        "fighter_2_id": "4a80cd8d-8d59-5ddc-b947-0ac033395b5c",
+        "scored_at": "2026-08-09T11:17:50.025384+00:00"
+      },
+      {
+        "event_date": "2026-08-15",
+        "fight_id": "c5b04dfd-5162-5c48-b57f-feac1b4f3404",
+        "fighter_1_id": "caa9069c-29c1-5aa0-93b5-c24227eb2ac7",
+        "fighter_2_id": "61eef600-2211-557a-aaed-f64e93ad2543",
+        "scored_at": "2026-08-09T11:17:50.025384+00:00"
+      },
+      {
+        "event_date": "2026-08-15",
+        "fight_id": "b22727f6-fdd0-50cb-b23b-2b12c4a033eb",
+        "fighter_1_id": "c6a5c210-03cc-5aff-b654-4273eb86bb46",
+        "fighter_2_id": "7656d82f-69ae-5658-988b-3c3b4a4a097a",
+        "scored_at": "2026-08-09T11:17:50.025384+00:00"
+      }
+    ],
+    "use": "metadata inspection only; no historical feature-vector reuse or default certification"
+  },
+  {
+    "event_dates": [
+      "2026-08-22"
+    ],
+    "exists": true,
+    "historical_availability_certified": false,
+    "metadata_columns": [
+      "fight_id",
+      "fighter_1_id",
+      "fighter_2_id",
+      "event_date",
+      "scored_at"
+    ],
+    "mtime_used_as_availability": false,
+    "path": "models/predictions/2026-08-22/predictions.csv",
+    "rows": 14,
+    "sha256": "05dc46e86879f72d613e609668e7bafd778629e0c785f8b7c029d0c3b4d71bf3",
+    "target_metadata": [
+      {
+        "event_date": "2026-08-22",
+        "fight_id": "a8ba8843-7caa-56c1-8991-937bbfa4ac76",
+        "fighter_1_id": "eb085c07-4968-59bd-b127-4a08ea3b01f4",
+        "fighter_2_id": "db789b37-6242-5382-aa50-e03deed8450a",
+        "scored_at": "2026-08-16T20:25:39.927324+00:00"
+      },
+      {
+        "event_date": "2026-08-22",
+        "fight_id": "32d7a6c3-bb16-573d-acdd-562fb93af46b",
+        "fighter_1_id": "ff4dd3b0-ce2a-5d77-a5c0-0f8a92ba7646",
+        "fighter_2_id": "a4e4beff-909b-546f-96c4-0300e4997331",
+        "scored_at": "2026-08-16T20:25:39.927324+00:00"
+      },
+      {
+        "event_date": "2026-08-22",
+        "fight_id": "1ce74697-5531-568f-b769-051f65fb459f",
+        "fighter_1_id": "aa1ccfcd-2847-58e0-b1b2-878ab573b57a",
+        "fighter_2_id": "7ca3e5fa-3a3e-52ea-ad9d-4b3326bb8923",
+        "scored_at": "2026-08-16T20:25:39.927324+00:00"
+      },
+      {
+        "event_date": "2026-08-22",
+        "fight_id": "58dbd5ff-f2df-5814-854c-a8c4fb45486f",
+        "fighter_1_id": "ef928ca1-1687-5572-8e81-9d9eae66e85f",
+        "fighter_2_id": "c993afb4-3955-5edb-a748-2f30c637f7ce",
+        "scored_at": "2026-08-16T20:25:39.927324+00:00"
+      },
+      {
+        "event_date": "2026-08-22",
+        "fight_id": "e00625f4-ad7b-50e8-baac-7af1bc43157b",
+        "fighter_1_id": "ceffeffd-40ed-5ba8-9ba2-28c1f982e5f0",
+        "fighter_2_id": "92fa95cc-048b-5d21-89c6-044c92562649",
+        "scored_at": "2026-08-16T20:25:39.927324+00:00"
+      },
+      {
+        "event_date": "2026-08-22",
+        "fight_id": "f467a342-40c3-5abd-902c-cdda666a883c",
+        "fighter_1_id": "407912df-949c-53f4-a8fd-1b46d7bc5a73",
+        "fighter_2_id": "82cb2606-330f-554d-b0c7-ee2f024bc5d8",
+        "scored_at": "2026-08-16T20:25:39.927324+00:00"
+      },
+      {
+        "event_date": "2026-08-22",
+        "fight_id": "fa2eb031-73c9-5807-9b6e-51c8f55cfba6",
+        "fighter_1_id": "6337ccd2-4592-5b50-80b4-049e185bb5ab",
+        "fighter_2_id": "d9a90c79-4d36-5bc3-962b-c7ea1fe273fb",
+        "scored_at": "2026-08-16T20:25:39.927324+00:00"
+      },
+      {
+        "event_date": "2026-08-22",
+        "fight_id": "e1a1f140-7576-5843-955e-f3e4e044c8f2",
+        "fighter_1_id": "8110cdb9-d1b1-5cb3-9f1c-8cf601304496",
+        "fighter_2_id": "41d605df-9392-5afd-8366-a8187b29444c",
+        "scored_at": "2026-08-16T20:25:39.927324+00:00"
+      },
+      {
+        "event_date": "2026-08-22",
+        "fight_id": "3a247061-eef3-5698-aeb4-82d62b5164c1",
+        "fighter_1_id": "d25d2c4d-4656-570a-bd17-9c573d98b4d1",
+        "fighter_2_id": "816d5d3f-ef76-591b-9979-63735a26b250",
+        "scored_at": "2026-08-16T20:25:39.927324+00:00"
+      },
+      {
+        "event_date": "2026-08-22",
+        "fight_id": "e871e0b6-3a81-561d-bad4-bee64c4f87d4",
+        "fighter_1_id": "4beefb63-0564-5199-8b9c-d63415f1ec7c",
+        "fighter_2_id": "b69f524f-5575-5b30-8794-1d805f6b283a",
+        "scored_at": "2026-08-16T20:25:39.927324+00:00"
+      },
+      {
+        "event_date": "2026-08-22",
+        "fight_id": "cc88d51e-6818-5219-89a8-adcca1eccf4d",
+        "fighter_1_id": "c160c632-b49e-58f8-9671-94839631abb0",
+        "fighter_2_id": "7a343523-cc85-5054-b924-3c49120e4861",
+        "scored_at": "2026-08-16T20:25:39.927324+00:00"
+      },
+      {
+        "event_date": "2026-08-22",
+        "fight_id": "8972e4f7-7df7-59cb-92be-bb0bf07dfd27",
+        "fighter_1_id": "e9a17afe-ac82-57c4-9db7-32295a7223c5",
+        "fighter_2_id": "2e6f8234-5a9a-51a4-a156-eb60a0e037f5",
+        "scored_at": "2026-08-16T20:25:39.927324+00:00"
+      },
+      {
+        "event_date": "2026-08-22",
+        "fight_id": "384559ef-d5df-5af4-9c7f-a58c7c359359",
+        "fighter_1_id": "bab393ec-7db3-5ba0-9305-f27ae8bcc685",
+        "fighter_2_id": "5587cf9d-f4d8-5937-9788-8055a4d48e37",
+        "scored_at": "2026-08-16T20:25:39.927324+00:00"
+      }
+    ],
+    "use": "metadata inspection only; no historical feature-vector reuse or default certification"
+  }
+]

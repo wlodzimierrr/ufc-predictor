@@ -1,0 +1,9 @@
+{
+  "authorization": "Phase 4A.2 bounded archived-source recovery and reconciliation; commit and normal fast-forward upstream push",
+  "bounded_attempt_complete": true,
+  "finished_at": "2026-10-02T10:11:59.862248+00:00",
+  "receipt_time_meaning": "current computation, never historical availability",
+  "scoring_evaluation_fitting_promotion_authorized": false,
+  "started_at": "2026-10-02T10:11:34.140771+00:00",
+  "status": "STILL_BLOCKED"
+}

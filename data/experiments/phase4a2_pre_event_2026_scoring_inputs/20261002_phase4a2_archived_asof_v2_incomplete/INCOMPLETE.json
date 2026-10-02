@@ -1,0 +1,9 @@
+{
+  "gap_counts": {
+    "missing_target_profile": 1,
+    "unknown_target_title_status": 93,
+    "unresolved_experience_for_supplemented_profile": 4
+  },
+  "meaning": "recovery evidence only; no completed scoring inputs; do not score",
+  "status": "STILL_BLOCKED"
+}

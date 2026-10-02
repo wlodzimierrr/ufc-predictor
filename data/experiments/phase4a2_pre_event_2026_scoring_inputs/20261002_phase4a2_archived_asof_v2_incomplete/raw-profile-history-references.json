@@ -1,0 +1,79 @@
+[
+  {
+    "body_path": "sources/raw/fighter/41d605df-9392-5afd-8366-a8187b29444c-598ab9976ea983c1ac435a6bdb7df55e8aae8c347b9ea5301830a24832871510.html",
+    "complete_experience_certified": false,
+    "references": [
+      {
+        "event_ids": [
+          "c7f3aa1f-f4d4-5ec3-ad1c-d885a1a03f40"
+        ],
+        "explicit_event_date": "2026-08-22",
+        "fight_ids": [
+          "e1a1f140-7576-5843-955e-f3e4e044c8f2"
+        ]
+      },
+      {
+        "event_ids": [
+          "8f2f37f1-919c-5a8b-a22c-fb39b3177ce9"
+        ],
+        "explicit_event_date": "2026-08-11",
+        "fight_ids": [
+          "de2aa100-904d-5adb-ac7a-473880cd6060"
+        ]
+      }
+    ],
+    "results_or_statistics_used": false,
+    "sha256": "598ab9976ea983c1ac435a6bdb7df55e8aae8c347b9ea5301830a24832871510"
+  },
+  {
+    "body_path": "sources/raw/fighter/7a343523-cc85-5054-b924-3c49120e4861-9580a632477d1c36092c6535485ce7144a3b4ac782e2ba58c04b06af998c10e9.html",
+    "complete_experience_certified": false,
+    "references": [
+      {
+        "event_ids": [
+          "c7f3aa1f-f4d4-5ec3-ad1c-d885a1a03f40"
+        ],
+        "explicit_event_date": "2026-08-22",
+        "fight_ids": [
+          "cc88d51e-6818-5219-89a8-adcca1eccf4d"
+        ]
+      }
+    ],
+    "results_or_statistics_used": false,
+    "sha256": "9580a632477d1c36092c6535485ce7144a3b4ac782e2ba58c04b06af998c10e9"
+  },
+  {
+    "body_path": "sources/raw/fighter/8110cdb9-d1b1-5cb3-9f1c-8cf601304496-2420d88990ffeb48ab2145a178a87df4ff33e5ba053a047b411be5ff840dfb69.html",
+    "complete_experience_certified": false,
+    "references": [
+      {
+        "event_ids": [
+          "c7f3aa1f-f4d4-5ec3-ad1c-d885a1a03f40"
+        ],
+        "explicit_event_date": "2026-08-22",
+        "fight_ids": [
+          "e1a1f140-7576-5843-955e-f3e4e044c8f2"
+        ]
+      }
+    ],
+    "results_or_statistics_used": false,
+    "sha256": "2420d88990ffeb48ab2145a178a87df4ff33e5ba053a047b411be5ff840dfb69"
+  },
+  {
+    "body_path": "sources/raw/fighter/816d5d3f-ef76-591b-9979-63735a26b250-16393d2870142b013ae34cd8a3eb3f2fb99fe40321458fc0b274a40b5b423447.html",
+    "complete_experience_certified": false,
+    "references": [
+      {
+        "event_ids": [
+          "c7f3aa1f-f4d4-5ec3-ad1c-d885a1a03f40"
+        ],
+        "explicit_event_date": "2026-08-22",
+        "fight_ids": [
+          "3a247061-eef3-5698-aeb4-82d62b5164c1"
+        ]
+      }
+    ],
+    "results_or_statistics_used": false,
+    "sha256": "16393d2870142b013ae34cd8a3eb3f2fb99fe40321458fc0b274a40b5b423447"
+  }
+]
