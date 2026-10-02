@@ -11,6 +11,8 @@ Usage:
 
 from __future__ import annotations
 
+from itertools import groupby
+
 
 def compute_all_elos(
     fights: list[dict],
@@ -29,49 +31,33 @@ def compute_all_elos(
         dict mapping fight_id -> {fighter_id: pre_fight_elo} for both fighters.
         Every fight has exactly two entries.
     """
-    # Sort by event_date (stable: preserves card order for same-day fights)
-    sorted_fights = sorted(fights, key=lambda f: f["event_date"])
+    # Event dates have no within-day ordering evidence. Freeze all pre-fight
+    # ratings for a date, then apply that date's updates together. This also
+    # handles early tournaments where one fighter fought several times a day.
+    sorted_fights = sorted(fights, key=lambda f: (f["event_date"], f["fight_id"]))
 
     ratings: dict[str, float] = {}          # fighter_id -> current elo
     result: dict[str, dict[str, float]] = {}  # fight_id -> {fid: pre_fight_elo}
 
-    for fight in sorted_fights:
-        f1 = fight["fighter_1_id"]
-        f2 = fight["fighter_2_id"]
-        fight_id = fight["fight_id"]
-
-        r_a = ratings.get(f1, initial)
-        r_b = ratings.get(f2, initial)
-
-        # Store pre-fight Elo
-        result[fight_id] = {f1: r_a, f2: r_b}
-
-        # Skip no-contests — no rating change
-        if fight["result_type"] == "nc":
-            continue
-
-        # Expected scores
-        e_a = 1.0 / (1.0 + 10.0 ** ((r_b - r_a) / 400.0))
-        e_b = 1.0 - e_a
-
-        # Actual scores
-        winner = fight.get("winner_fighter_id")
-        if fight["result_type"] == "draw":
-            s_a = 0.5
-            s_b = 0.5
-        elif winner == f1:
-            s_a = 1.0
-            s_b = 0.0
-        elif winner == f2:
-            s_a = 0.0
-            s_b = 1.0
-        else:
-            # Unknown winner but result_type is 'win' — should not happen
-            continue
-
-        # Update ratings
-        ratings[f1] = r_a + k * (s_a - e_a)
-        ratings[f2] = r_b + k * (s_b - e_b)
+    for _, day_fights in groupby(sorted_fights, key=lambda f: f["event_date"]):
+        changes: dict[str, float] = {}
+        for fight in day_fights:
+            f1, f2 = fight["fighter_1_id"], fight["fighter_2_id"]
+            r_a, r_b = ratings.get(f1, initial), ratings.get(f2, initial)
+            result[fight["fight_id"]] = {f1: r_a, f2: r_b}
+            winner = fight.get("winner_fighter_id")
+            if fight["result_type"] == "draw":
+                s_a = 0.5
+            elif fight["result_type"] == "win" and winner in (f1, f2):
+                s_a = float(winner == f1)
+            else:
+                continue
+            e_a = 1.0 / (1.0 + 10.0 ** ((r_b - r_a) / 400.0))
+            delta = k * (s_a - e_a)
+            changes[f1] = changes.get(f1, 0.0) + delta
+            changes[f2] = changes.get(f2, 0.0) - delta
+        for fighter_id, delta in changes.items():
+            ratings[fighter_id] = ratings.get(fighter_id, initial) + delta
 
     return result
 

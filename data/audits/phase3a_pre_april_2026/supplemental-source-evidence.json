@@ -1,0 +1,54 @@
+{
+  "archived_round_statistics": {
+    "rows": 40320,
+    "scraped_at_max": "2026-03-13 16:31:24 UTC",
+    "scraped_at_min": "2026-02-22 11:41:43 UTC",
+    "sha256": "32cb55009547983cfc77f8ea4fb2390a37f815563f8cab52b1076ca1cc674e2d"
+  },
+  "capture_time": "2026-10-01 16:09:42.695816+00:00",
+  "elapsed_duration_missing_bouts": 0,
+  "initial_commit_source": {
+    "commit": "0a13162ea60e0a2ede49d8d8d10b30a81683b717",
+    "files": {
+      "events": {
+        "blob": "d4f61a6b65ddb357a9d7dbe4c518ba1891547b6a",
+        "git_path": "data/events.csv",
+        "rows": 761,
+        "sha256": "f5303ec97c9b79e1a488d386aacb3a8e7b0d2546790699ec9f089e0ca12061da"
+      },
+      "fight_stats": {
+        "blob": "cb5b73663b24ae32185e731d43370dde5d5c90c3",
+        "git_path": "data/fight_stats.csv",
+        "rows": 16662,
+        "sha256": "93b1603c3d2a57077c6db6ba199bdc9a20320fcc16efd561b15dc8359ed2b343"
+      },
+      "fighters": {
+        "blob": "815eed9097c0625baa8924ab8621e9f6c7eacd06",
+        "git_path": "data/fighters.csv",
+        "rows": 4452,
+        "sha256": "ecce91a1aa2fb024d0f9c8eb489e9d9b5ddb0663f2f745ce089c8bad5461ce12"
+      },
+      "fights": {
+        "blob": "d496dbcbe55049b17806b20f08f62ca41e57aa68",
+        "git_path": "data/fights.csv",
+        "rows": 8511,
+        "sha256": "0a919f09d03aa3fe5845c425403f11be1605d703b0349721af6320c854237c27"
+      }
+    },
+    "observation": "2026-03-12T16:48:33+00:00"
+  },
+  "parser_sha256": {
+    "scraper/UFC-Web-Scraping-main/ufc_scraper/ufc_scraper/parsers/base_parser.py": "12ca8aa57c5f0893b500729393e2d9706f7086ce27ae2480c04b350a899868f6",
+    "scraper/UFC-Web-Scraping-main/ufc_scraper/ufc_scraper/parsers/fight_info_parser.py": "b37d9a2a7a42db07636dfa08092be75b959024111258540dc0bcb1dd2bc9b96e"
+  },
+  "pre_cutoff_stored_label_mismatches": {
+    "captured_at": "2026-10-01 16:16:50.972424+00:00",
+    "count": 0,
+    "read_only": "on"
+  },
+  "scheduled_rounds_defect": {
+    "action": "num_rounds never consumed as schedule; unknown schedule/five-round experience kept NaN",
+    "num_rounds_equals_finish_round_rows": 8550,
+    "status": "unavailable_in_archive"
+  }
+}

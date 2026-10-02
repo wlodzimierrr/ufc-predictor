@@ -57,6 +57,9 @@ class FightHistory:
     fighter_stats: Row | None
     opponent_stats: Row | None
     opponent_id: str
+    # Optional observed duration for completed archival bouts. This is outcome
+    # information and is consumed only through strictly prior histories.
+    elapsed_duration_seconds: int | None = None
 
 
 def build_fighter_index(data: WarehouseData) -> dict[str, list[FightHistory]]:
@@ -112,6 +115,7 @@ def build_fighter_index(data: WarehouseData) -> dict[str, list[FightHistory]]:
                 fighter_stats=my_stats,
                 opponent_stats=opp_stats,
                 opponent_id=opponent_id,
+                elapsed_duration_seconds=fight.get("elapsed_duration_seconds"),
             )
             index.setdefault(fighter_id, []).append(entry)
 

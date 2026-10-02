@@ -79,7 +79,8 @@ def compute_physical_features(
 
     # ── Experience ────────────────────────────────────────────────────────────
     ufc_fight_count = len(history)
-    five_round_experience = sum(1 for h in history if h.scheduled_rounds == 5)
+    five_round_experience = (None if any(h.scheduled_rounds is None for h in history)
+                             else sum(1 for h in history if h.scheduled_rounds == 5))
     title_fight_experience = sum(1 for h in history if h.is_title_fight)
 
     # ── Missingness flags ─────────────────────────────────────────────────────

@@ -94,6 +94,10 @@ FEATURE_COLS_V2: list[str] = FEATURE_COLS + [
 def load_bout_data(
     conn: "PGConnection",
     feature_cols: list[str] | None = None,
+    *,
+    event_cutoff: date | str | None = None,
+    excluded_fight_ids: frozenset[str] | None = None,
+    include_metadata: bool = False,
 ) -> pd.DataFrame:
     """Load bout_features from the warehouse into a model-ready DataFrame.
 
@@ -105,6 +109,10 @@ def load_bout_data(
     Args:
         conn: Database connection.
         feature_cols: Which feature columns to load. Defaults to FEATURE_COLS (v1).
+        event_cutoff: Optional exclusive event date, applied in SQL.
+        excluded_fight_ids: Optional IDs excluded in SQL before loading labels.
+        include_metadata: Include version/computation time and retain raw labels
+            for strict validation. Computation time is not availability time.
 
     Returns a DataFrame with columns: fight_id, fighter_1_id, fighter_2_id,
     event_date, weight_class, label, both_debuting, + all feature columns.
@@ -115,20 +123,36 @@ def load_bout_data(
     # Debut prior columns are computed in Python (features.debut_prior),
     # not stored in the DB — exclude them from the SQL query.
     _PYTHON_ONLY_COLS = {"debut_prior_win_prob_f1", "debut_height_adv", "debut_reach_adv"}
+    if set(feature_cols) - set(FEATURE_COLS_V2) - _PYTHON_ONLY_COLS:
+        raise ValueError("Unrecognized feature columns")
     db_feature_cols = [c for c in feature_cols if c not in _PYTHON_ONLY_COLS]
 
     cols = (
         "fight_id, fighter_1_id, fighter_2_id, event_date, weight_class, "
         "label, " + ", ".join(db_feature_cols)
     )
+    # Optional restrictions run in SQL, before any labels reach Python.
+    predicates = ["label IS NOT NULL"]
+    params = []
+    if event_cutoff is not None:
+        predicates.append("event_date < %s")
+        params.append(date.fromisoformat(str(event_cutoff)))
+    if excluded_fight_ids is not None:
+        predicates.append("NOT (fight_id::text = ANY(%s))")
+        params.append(sorted(excluded_fight_ids))
+    if include_metadata:
+        cols += ", feature_version, computed_at"
     query = f"""
         SELECT {cols}
         FROM bout_features
-        WHERE label IS NOT NULL
+        WHERE {' AND '.join(predicates)}
         ORDER BY event_date ASC
     """
     with conn.cursor() as cur:
-        cur.execute(query)
+        if params:
+            cur.execute(query, tuple(params))
+        else:
+            cur.execute(query)
         rows = cur.fetchall()
         col_names = [desc[0] for desc in cur.description]
 
@@ -138,7 +162,7 @@ def load_bout_data(
     # columns to float so arithmetic (abs, diff, etc.) works without errors.
     for col in feature_cols:
         if col in df.columns:
-            df[col] = pd.to_numeric(df[col], errors="coerce")
+            df[col] = pd.to_numeric(df[col], errors="raise" if include_metadata else "coerce")
 
     # Cast boolean columns to int so all features are numeric
     bool_cols = [
@@ -147,9 +171,12 @@ def load_bout_data(
     ]
     for col in bool_cols:
         if col in df.columns:
-            df[col] = df[col].astype(int)
+            df[col] = df[col].astype(float if include_metadata else int)
 
-    df["label"] = df["label"].astype(int)
+    # Metadata mode is for audited preparation: retain invalid values so the
+    # preflight can reject them, rather than truncating e.g. 0.5 to zero.
+    if not include_metadata:
+        df["label"] = df["label"].astype(int)
     df["event_date"] = pd.to_datetime(df["event_date"])
 
     return df

@@ -1,0 +1,6 @@
+{
+  "status": "REJECTED_PRELIMINARY_PREPARATION",
+  "reason": "Source num_rounds is the post-event finish round, not scheduled rounds. This preliminary snapshot predates that discovery and must not be fit or scored.",
+  "replacement": "data/experiments/phase3a_pre_april_2026_git_1f477d3_metadata_safe",
+  "guard": "Current preflight rejects this snapshot's obsolete feature_algorithm_version."
+}

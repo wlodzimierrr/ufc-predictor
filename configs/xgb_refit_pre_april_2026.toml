@@ -1,0 +1,92 @@
+schema_version = 1
+status = "draft_preparation_only"
+phase3b_mode_approval_required = true
+event_cutoff_exclusive = "2026-03-31"
+knowledge_cutoff = "2026-03-31T12:09:04.077607+00:00"
+source_mode = "retrospective_git_pre_cutoff"
+source_ref = "1f477d3ddc87b123d0099025b669e728e7881a34"
+snapshot = "data/experiments/phase3a_pre_april_2026_git_1f477d3_metadata_safe"
+feature_version = 2
+feature_algorithm_version = "v2_date_frozen_elo_schedule_unknown_v1"
+feature_order_source = "models/xgb/20260328T221117Z/metadata.json"
+holdout_exclusions = "data/holdouts/historical_2026_apr_aug/identity-exclusions.json"
+holdout_exclusion_count = 166
+decision_policy_version = "probability_band_v1"
+candidate_output_root = "data/experiments/phase3b_xgb_pre_april_2026"
+
+[development]
+selection_end_exclusive = "2025-03-31"
+validation_windows = [
+  ["2022-03-31", "2023-03-31"],
+  ["2023-03-31", "2024-03-31"],
+  ["2024-03-31", "2025-03-31"],
+]
+train_rule = "all eligible event_date < validation window start"
+selection_metric = "row_weighted_development_log_loss"
+tie_break = "lexicographic (max_depth, min_child_weight, reg_lambda)"
+maximum_boosting_rounds = 500
+early_stopping_rounds = 50
+selected_rounds_rule = "floor(median(best_iteration + 1 for winning config development folds) + 0.5)"
+prior_fit_rule = "fold training rows only"
+
+[base_parameters]
+objective = "binary:logistic"
+eval_metric = "logloss"
+learning_rate = 0.02
+subsample = 0.8
+colsample_bytree = 0.8
+random_state = 42
+n_jobs = 1
+tree_method = "hist"
+verbosity = 0
+
+[hyperparameter_grid]
+max_depth = [3, 4, 6]
+min_child_weight = [20, 50, 100]
+reg_lambda = [0.1, 1.0, 5.0]
+
+[oof]
+start_inclusive = "2025-03-31"
+end_exclusive = "2026-03-31"
+prediction_windows = [
+  ["2025-03-31", "2025-06-30"],
+  ["2025-06-30", "2025-09-30"],
+  ["2025-09-30", "2025-12-31"],
+  ["2025-12-31", "2026-03-31"],
+]
+hyperparameters = "fixed from development"
+boosting_rounds = "fixed from development"
+early_stopping = false
+prior_fit_rule = "each expanding-window training partition only"
+coverage_rule = "exactly once for every eligible row in the OOF interval"
+
+[calibration]
+method = "platt_log_odds"
+input = "complete frozen uncalibrated OOF probabilities and labels"
+clip_epsilon = 1e-8
+logistic_C = 1e10
+solver = "lbfgs"
+max_iter = 1000
+require_both_label_classes = true
+metric_classification = "calibration_fit_diagnostics; not independent validation"
+artifact = "calibrator.joblib"
+
+[final_refit]
+training_rule = "every eligible snapshot row with event_date < 2026-03-31"
+holdout_guard = "assert_no_holdout_fights before fitting, tuning, early stopping and calibration"
+boosting_rounds = "fixed selected development count"
+early_stopping = false
+retain_legacy_validation_test_reservation = false
+prior_fit_rule = "all final eligible training rows; save independently of fold priors"
+
+[inference_bundle]
+required = [
+  "base_learner.json", "calibrator.joblib", "final_debut_priors.json",
+  "metadata.json", "training_manifest.json", "source_manifest.json",
+  "selection.json", "folds.json", "oof.csv", "oof_manifest.json",
+  "package_versions.json", "checksums.json",
+]
+load_frozen_calibrator = true
+load_final_debut_priors = true
+live_warehouse_preprocessing_refit = false
+promote_automatically = false

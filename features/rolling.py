@@ -26,6 +26,8 @@ _DEFAULT_WINDOWS = (1, 3, 5)
 
 def _fight_duration_seconds(h: FightHistory) -> int | None:
     """Elapsed fight time in seconds."""
+    if h.elapsed_duration_seconds is not None:
+        return h.elapsed_duration_seconds
     if h.finish_method in _DECISION:
         if h.scheduled_rounds is None:
             return None

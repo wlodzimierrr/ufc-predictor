@@ -25,6 +25,8 @@ _DECISION = {"decision"}
 
 
 def _fight_duration_seconds(h: FightHistory) -> int | None:
+    if h.elapsed_duration_seconds is not None:
+        return h.elapsed_duration_seconds
     if h.finish_method in _DECISION:
         return h.scheduled_rounds * 300 if h.scheduled_rounds is not None else None
     if h.finish_round is not None and h.finish_time_seconds is not None:

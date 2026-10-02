@@ -1,0 +1,32 @@
+{
+  "all_preserved": true,
+  "changed_protected_files": [],
+  "final_protected_files_rechecked": 176,
+  "historical_validator": "VALID",
+  "no_candidate_scoring": true,
+  "no_live_mutation": true,
+  "no_model_calibrator_fitting": true,
+  "pre_event_validator": "VALID",
+  "production_pointer_sha256": "ff5272e0d2f11f9f6cbc6597f91a2cf9961ae317f8dd47f90bfb1f6e44dd5caa",
+  "protected_file_count": 176,
+  "rejected_preliminary_guard_verified": true,
+  "report_sha256": "9e1b94aa56a34341fe49aa11e82294dbd621c9cfd4d4c48396287e377ec6b82e",
+  "tests": {
+    "focused": {
+      "failed": 0,
+      "passed": 306,
+      "skipped": 0
+    },
+    "legacy_snapshot_bout": {
+      "failed": 19,
+      "passed": 15,
+      "same_failures_with_original_HEAD_elo": true
+    },
+    "live_read_only_leakage": {
+      "failed": 1,
+      "passed": 10,
+      "pre_cutoff_stored_label_mismatches": 0,
+      "stored_label_mismatches": 34
+    }
+  }
+}

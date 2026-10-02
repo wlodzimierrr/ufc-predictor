@@ -27,6 +27,8 @@ def _fight_duration_seconds(h: FightHistory) -> int | None:
     For decisions: scheduled_rounds * 300
     Returns None if the necessary fields are missing.
     """
+    if h.elapsed_duration_seconds is not None:
+        return h.elapsed_duration_seconds
     if h.finish_method in _DECISION:
         if h.scheduled_rounds is None:
             return None
