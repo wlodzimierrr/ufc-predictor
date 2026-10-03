@@ -52,13 +52,14 @@ DOWNLOAD_TIMEOUT = 30
 # ---------------------------------------------------------------------------
 # Downloader middlewares
 # ---------------------------------------------------------------------------
-# RawCaptureMiddleware must run at a lower priority number than RetryMiddleware
+# ImmutableRawCaptureMiddlewareV2 runs below RetryMiddleware
 # (550) so that, on process_response (called in decreasing priority order),
 # the retry middleware executes first.  Only the final response — after
-# retries succeed or are exhausted — reaches RawCaptureMiddleware at 200.
+# retries succeed or are exhausted — reaches capture at 200. V2 writes only
+# data/raw/ufcstats_v2; legacy paths and fetch_manifest.csv are historical.
 DOWNLOADER_MIDDLEWARES = {
     "ufc_scraper.middlewares.BrowserSessionHeaderMiddleware": 100,
-    "ufc_scraper.middlewares.RawCaptureMiddleware": 200,
+    "ufc_scraper.raw_capture_v2.ImmutableRawCaptureMiddlewareV2": 200,
 }
 
 # ---------------------------------------------------------------------------
