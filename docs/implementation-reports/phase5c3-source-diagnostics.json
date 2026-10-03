@@ -1,0 +1,232 @@
+{
+  "accepted_pins": {
+    "activation/checksums.json": "21672682c5a7096fdc94ac8344a90755186c4cfadd92f9cb91ee2d5e4d98adfd",
+    "capture_attempt/observation/capture_receipt.json": "c09d3adf1065edda3582eabd9df6126d842bfa19e84ef7e222bddc384c246a18",
+    "journal/runs/real_intake_v1/checksums.json": "33d8e983476c408ee7a67f785c27856d58b3a0c9a0a3ea3fc2373a5bbe61d81c"
+  },
+  "captured": {
+    "aggregate_last_event_date": "2026-05-30",
+    "aggregate_scraped_at_range": [
+      "2026-08-08T23:39:44+00:00",
+      "2026-08-09T03:09:44+00:00"
+    ],
+    "expired_announcements": 128,
+    "expired_by_date": {
+      "2026-03-30": 1,
+      "2026-04-11": 1,
+      "2026-04-18": 3,
+      "2026-04-25": 1,
+      "2026-05-02": 1,
+      "2026-05-09": 1,
+      "2026-05-16": 1,
+      "2026-05-30": 3,
+      "2026-06-06": 4,
+      "2026-06-20": 2,
+      "2026-06-27": 2,
+      "2026-07-11": 1,
+      "2026-07-18": 21,
+      "2026-08-01": 24,
+      "2026-08-22": 13,
+      "2026-08-29": 1,
+      "2026-09-05": 11,
+      "2026-09-12": 13,
+      "2026-09-19": 13,
+      "2026-09-26": 11
+    },
+    "expired_by_url_scheme": {
+      "http": 107,
+      "https": 1,
+      "manual": 20
+    },
+    "last_event_date_by_result": {
+      "draw": "2026-04-18",
+      "nc": "2026-09-12",
+      "win": "2026-08-29"
+    },
+    "rows": {
+      "events": 798,
+      "fight_stats_aggregate": 17386,
+      "fighters": 4522,
+      "fights": 8992,
+      "schemas": 65
+    }
+  },
+  "example_source_bodies": [
+    {
+      "bodies": [
+        {
+          "distinct_fight_detail_links": 0,
+          "last_matching_fetch": "2026-09-12T16:39:03Z",
+          "path": "data/raw/ufcstats/fights/6fe1d59a-6ae9-5436-bc78-767da12a4707.html",
+          "sha256": "4d321d27f06d122ccb908aa99ad0a6cc98dc926d49c77bc664ee5378fc261ee5"
+        },
+        {
+          "distinct_fight_detail_links": 20,
+          "last_matching_fetch": "2026-08-08T19:15:13Z",
+          "path": "data/raw/ufcstats/fighters/5d26bddf-51d3-5417-aeab-7329263c2e27.html",
+          "sha256": "3976206b69a035f498eec584f2770854548e88882b1c3f01beef6046f8afc9b6"
+        },
+        {
+          "distinct_fight_detail_links": 10,
+          "last_matching_fetch": "2026-08-08T19:17:38Z",
+          "path": "data/raw/ufcstats/fighters/364ad7d6-2d46-5e3c-a5f9-5696d76b73a9.html",
+          "sha256": "be1c5c3f2871dd1d00284fca42839fe6718298213cb0645266132408f0fabd35"
+        }
+      ],
+      "fight_id": "6fe1d59a-6ae9-5436-bc78-767da12a4707"
+    },
+    {
+      "bodies": [
+        {
+          "distinct_fight_detail_links": 0,
+          "last_matching_fetch": "2026-09-12T16:39:01Z",
+          "path": "data/raw/ufcstats/fights/129b49aa-9be9-5739-a710-4e63b5254405.html",
+          "sha256": "aa879b811017e655e550d131f58180233e253e39ef39ce6710d105134fc26d03"
+        },
+        {
+          "distinct_fight_detail_links": 1,
+          "last_matching_fetch": "2026-08-08T19:51:22Z",
+          "path": "data/raw/ufcstats/fighters/20a76047-61dd-5f54-80fd-f93d6f9ce05b.html",
+          "sha256": "bc4ceeaf215cbe95c006db7b8189404efd27f1c17341d3bf5e15129956e49db4"
+        },
+        {
+          "distinct_fight_detail_links": 6,
+          "last_matching_fetch": "2026-08-08T19:16:25Z",
+          "path": "data/raw/ufcstats/fighters/3e0efe95-eea8-5cca-aa45-76ea494437ed.html",
+          "sha256": "ab9eca32d39c5bedd246e55f602a13c928996528f6111e58e95a96052b5323be"
+        }
+      ],
+      "fight_id": "129b49aa-9be9-5739-a710-4e63b5254405"
+    }
+  ],
+  "fetch_manifest": {
+    "failures_since_september": [
+      {
+        "count": 4,
+        "date": "2026-09-12",
+        "entity_type": "event_listing",
+        "error": "browser challenge page",
+        "http_status": "200"
+      },
+      {
+        "count": 4,
+        "date": "2026-09-18",
+        "entity_type": "event_listing",
+        "error": "browser challenge page",
+        "http_status": "200"
+      },
+      {
+        "count": 4,
+        "date": "2026-09-30",
+        "entity_type": "event_listing",
+        "error": "browser challenge page",
+        "http_status": "200"
+      },
+      {
+        "count": 42,
+        "date": "2026-09-30",
+        "entity_type": "fight",
+        "error": "browser challenge page",
+        "http_status": "200"
+      }
+    ],
+    "rows": 108259,
+    "successful_reference_body_states": {
+      "hash_differs": 100335,
+      "hash_matches": 7766
+    }
+  },
+  "input_sha256": {
+    "data/events.csv": "269ae15eb2b90224f892b5dd0f330a9aa103887e8c57380c11a938abfc993679",
+    "data/experiments/phase5c1_shadow_workflow/20261003T052316Z_phase5c2_real_intake_v1/activation/checksums.json": "21672682c5a7096fdc94ac8344a90755186c4cfadd92f9cb91ee2d5e4d98adfd",
+    "data/experiments/phase5c1_shadow_workflow/20261003T052316Z_phase5c2_real_intake_v1/capture_attempt/observation/capture_receipt.json": "c09d3adf1065edda3582eabd9df6126d842bfa19e84ef7e222bddc384c246a18",
+    "data/experiments/phase5c1_shadow_workflow/20261003T052316Z_phase5c2_real_intake_v1/capture_attempt/observation/checksums.json": "e2791af3b24ea6785e816d3c19e2ccf34020ac25acad84692874050bbcefa6a8",
+    "data/experiments/phase5c1_shadow_workflow/20261003T052316Z_phase5c2_real_intake_v1/capture_attempt/observation/sources/events.json": "e36c7250b9965ec8294fe9bac196f45ec96ad51624ef704e5e188b83eb868a78",
+    "data/experiments/phase5c1_shadow_workflow/20261003T052316Z_phase5c2_real_intake_v1/capture_attempt/observation/sources/fight_stats_aggregate.json": "ec19a9e5e0b13766744e187f1d099e92c65103940ac02fefe804b4421414bcb4",
+    "data/experiments/phase5c1_shadow_workflow/20261003T052316Z_phase5c2_real_intake_v1/capture_attempt/observation/sources/fighters.json": "1cf4a351788b7de8496e1e05c8591f5cf462739a4843f44831fa7168d20a4caf",
+    "data/experiments/phase5c1_shadow_workflow/20261003T052316Z_phase5c2_real_intake_v1/capture_attempt/observation/sources/fights.json": "27738c6ca29fafa1cdde121b377607ef9683c79cfb7eacca4b96b1f166118b17",
+    "data/experiments/phase5c1_shadow_workflow/20261003T052316Z_phase5c2_real_intake_v1/capture_attempt/observation/sources/schemas.json": "874d09625e812c118cbd01108de2f808d8c96dc3fd0d422538d0c79bd7abe606",
+    "data/experiments/phase5c1_shadow_workflow/20261003T052316Z_phase5c2_real_intake_v1/journal/runs/real_intake_v1/checksums.json": "33d8e983476c408ee7a67f785c27856d58b3a0c9a0a3ea3fc2373a5bbe61d81c",
+    "data/fight_stats.csv": "e4eabd760f3713d23135fbb0ac8e09c407b8b456316bb2ae7f2bfd4699a03129",
+    "data/fight_stats_by_round.csv": "fd50110bccafbb1825e89f36f8b98c3bd0be36635467174098a12cb460b49689",
+    "data/fights.csv": "616f7be79c7c61ddec2aaddc4aa7d36ec0a2478106e6d10697df078406012b8c",
+    "data/manifests/events_manifest.csv": "397e6d2bec2fa5bda5c981e1be94056a03dd4d45d5ccc2e5cdb29eb4e2297975",
+    "data/manifests/fetch_manifest.csv": "40587f0b8b3c736fec99a7fc4459c9ddc24577a49399b8ce969d4d6b7c5b36e3",
+    "data/manifests/fight_stats_queue.csv": "b5da7fa06b417baae1e1f855f94729e5606b1ac3d38648da95dadd929db2a450",
+    "data/raw/ufcstats/fighters/20a76047-61dd-5f54-80fd-f93d6f9ce05b.html": "bc4ceeaf215cbe95c006db7b8189404efd27f1c17341d3bf5e15129956e49db4",
+    "data/raw/ufcstats/fighters/364ad7d6-2d46-5e3c-a5f9-5696d76b73a9.html": "be1c5c3f2871dd1d00284fca42839fe6718298213cb0645266132408f0fabd35",
+    "data/raw/ufcstats/fighters/3e0efe95-eea8-5cca-aa45-76ea494437ed.html": "ab9eca32d39c5bedd246e55f602a13c928996528f6111e58e95a96052b5323be",
+    "data/raw/ufcstats/fighters/5d26bddf-51d3-5417-aeab-7329263c2e27.html": "3976206b69a035f498eec584f2770854548e88882b1c3f01beef6046f8afc9b6",
+    "data/raw/ufcstats/fights/129b49aa-9be9-5739-a710-4e63b5254405.html": "aa879b811017e655e550d131f58180233e253e39ef39ce6710d105134fc26d03",
+    "data/raw/ufcstats/fights/6fe1d59a-6ae9-5436-bc78-767da12a4707.html": "4d321d27f06d122ccb908aa99ad0a6cc98dc926d49c77bc664ee5378fc261ee5",
+    "data/reports/stats_coverage.csv": "84cea08c8a1c70a81512819780a7d1f0c53fd4489b82d578bd8fb59d9864120f",
+    "warehouse/transform.py": "616ad63cf8402718ed8f912e7a3d75ba778109bac26745304256ef08eaef5a44"
+  },
+  "local": {
+    "aggregate_requests_after_current_incremental_filter": 4,
+    "aggregate_rows": 17386,
+    "aggregate_unique_fights": 8693,
+    "aggregate_unknown_fight_rows": 0,
+    "aggregate_whole_transformed_rows_matching_capture": 17386,
+    "cancelled_empty_outcomes_with_captured_disposition": [
+      {
+        "captured_result_type": "nc",
+        "event_date": "2026-09-12",
+        "fight_id": "3c34cdee-2aa5-5cef-b467-3f5ed89b0b0f",
+        "local_scraped_at": "2026-08-16 19:52:20 UTC",
+        "whole_transformed_row_matches_capture": true
+      },
+      {
+        "captured_result_type": "nc",
+        "event_date": "2026-09-12",
+        "fight_id": "0ed0563e-a80c-5aa5-a2c4-8c0e818a7273",
+        "local_scraped_at": "2026-08-16 19:52:28 UTC",
+        "whole_transformed_row_matches_capture": true
+      }
+    ],
+    "captured_fight_ids_absent_from_local_csv": 46,
+    "csv_ids_with_both_upcoming_and_completed": 32,
+    "event_csv_rows": 816,
+    "event_manifest_rows": 797,
+    "fight_csv_rows": 9118,
+    "fight_unknown_event_rows": 0,
+    "fight_unknown_participant_rows": 0,
+    "missing_aggregate_skipped_by_manifest": 188,
+    "queue_last_event_date": "2026-09-05",
+    "queue_rows": 8885,
+    "queue_unknown_captured_fight_ids": [
+      "2798d7bc-edc0-5655-9345-1ee5265f195b",
+      "4c269b0f-9933-5da5-a730-75a7bafe4897",
+      "76fb68af-1dc2-596e-89d7-94fde86e080c",
+      "fa6566c8-65a0-5593-9b23-a577f7c263e4"
+    ],
+    "queue_without_aggregate": 192,
+    "queue_without_round": 72,
+    "round_last_event_date": "2026-08-15",
+    "round_only_by_date": {
+      "2026-06-06": 12,
+      "2026-06-14": 7,
+      "2026-06-20": 12,
+      "2026-06-27": 13,
+      "2026-07-11": 14,
+      "2026-07-18": 12,
+      "2026-07-25": 12,
+      "2026-08-01": 14,
+      "2026-08-08": 12,
+      "2026-08-15": 12
+    },
+    "round_only_fights": 120,
+    "round_requests_after_current_incremental_filter": 72,
+    "round_rows": 41514,
+    "round_unique_fights": 8813,
+    "round_unknown_fight_rows": 0,
+    "stats_coverage_report_rows": 149
+  },
+  "observation_cutoff": "2026-10-03T05:23:34.369563+00:00",
+  "purpose": "OFFLINE_DIAGNOSIS_ONLY_NOT_TRUSTED_EVIDENCE",
+  "verified_inventory_file_counts": {
+    "activation": 9,
+    "capture_attempt/observation": 8,
+    "journal/runs/real_intake_v1": 15
+  }
+}
