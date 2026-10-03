@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from warehouse.csv_utils import iter_data_rows
 from warehouse.db import get_connection, upsert
-from warehouse.transform import transform_fight
+from warehouse.strict_fight_outcomes_v2 import transform_fight
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 FIGHTS_CSV = REPO_ROOT / "data" / "fights.csv"
