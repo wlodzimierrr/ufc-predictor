@@ -1,0 +1,12 @@
+{
+  "files": {
+    "capture_api_receipt.json": "fbc623fcfbb2cd5e02d2b1ed8ed80909612bea3e8bee18d069433c245a0bdc30",
+    "capture_receipt.json": "c09d3adf1065edda3582eabd9df6126d842bfa19e84ef7e222bddc384c246a18",
+    "evidence_package.json": "1cb5a460ca25769d038990fe66c6acd5ceee27cfb6f7e14f9848cb552dc0b57f",
+    "sources/events.json": "e36c7250b9965ec8294fe9bac196f45ec96ad51624ef704e5e188b83eb868a78",
+    "sources/fight_stats_aggregate.json": "ec19a9e5e0b13766744e187f1d099e92c65103940ac02fefe804b4421414bcb4",
+    "sources/fighters.json": "1cf4a351788b7de8496e1e05c8591f5cf462739a4843f44831fa7168d20a4caf",
+    "sources/fights.json": "27738c6ca29fafa1cdde121b377607ef9683c79cfb7eacca4b96b1f166118b17",
+    "sources/schemas.json": "874d09625e812c118cbd01108de2f808d8c96dc3fd0d422538d0c79bd7abe606"
+  }
+}

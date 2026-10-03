@@ -1,0 +1,10 @@
+{
+  "body": "query_bodies/02.json",
+  "bytes": 46,
+  "observed_at": "2026-10-03T05:23:33.386594+00:00",
+  "requested_at": "2026-10-03T05:23:33.376954+00:00",
+  "rows": 1,
+  "sha256": "82208903bc4a8f445a9d3b060c0815181a03a4f0bac81a3b9e5933a821e422ed",
+  "sql": "SHOW transaction_isolation",
+  "status": "COMPLETE"
+}

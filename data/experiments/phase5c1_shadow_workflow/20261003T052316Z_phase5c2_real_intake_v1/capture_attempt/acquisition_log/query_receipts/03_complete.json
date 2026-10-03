@@ -1,0 +1,10 @@
+{
+  "body": "query_bodies/03.json",
+  "bytes": 118,
+  "observed_at": "2026-10-03T05:23:33.402594+00:00",
+  "requested_at": "2026-10-03T05:23:33.390160+00:00",
+  "rows": 1,
+  "sha256": "38446dbd7394a4fcc221e5b728a4d4a8d73c1011492809d70b9ad67d8a3f7903",
+  "sql": "SELECT transaction_timestamp() AS transaction_started_at, current_setting('TimeZone') AS database_timezone, pg_current_snapshot()::text AS snapshot",
+  "status": "COMPLETE"
+}

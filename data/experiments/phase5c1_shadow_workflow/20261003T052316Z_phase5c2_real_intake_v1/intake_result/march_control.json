@@ -1,0 +1,5 @@
+{
+  "absence_when_blocked": "NO_ELIGIBLE_BOUT_NO_CONTROL_PREDICTION",
+  "included_if_ready": true,
+  "predeclared": true
+}

@@ -1,0 +1,39 @@
+{
+  "capture_id": "7e6ad499-8449-46ec-8f38-1a5d0929e421",
+  "capture_receipt_sha256": "c09d3adf1065edda3582eabd9df6126d842bfa19e84ef7e222bddc384c246a18",
+  "clock_kind": "actual_utc",
+  "common_observation_cutoff": "2026-10-03T05:23:34.369563+00:00",
+  "completed_at": "2026-10-03T05:26:57.323009+00:00",
+  "components": {
+    "challenger": {
+      "checksums": "59ffd4995946cc9ec7512f2f14caade09fd3144d2cfb3ee2d3b9b0951f5ca300",
+      "manifest": "7330bbebd06a6f5c0233cf8892be5c1728edc8805add02b1511499bf198b0c73",
+      "manifest_name": "training_manifest.json",
+      "path": "data/experiments/phase5b4_current_challenger/20261002T183215Z_phase5b4_current_challenger_v1_fixed"
+    },
+    "march": {
+      "checksums": "41f8c8afb8fd091fa0b04823ad9175cedcfdbf85ccf3f62d77c71e0d9219279f",
+      "path": "data/experiments/phase3b_xgb_pre_april_2026/20261001_phase3b_retrospective_v1"
+    },
+    "reference": {
+      "checksums": "12c17761fe76998e49fb5e79ea8a455861e22eaf57b37071f692bab17c1ba381",
+      "manifest": "20a9695de6cd77d74ff67f5cb0b62da2f127fbcdc181fa9d9fc2b3f8f62ad48a",
+      "manifest_name": "manifest.json",
+      "path": "data/experiments/phase5b1_reference_and_history/20261002_phase5b1_frozen_reference_v3_identity_guarded"
+    }
+  },
+  "fits": 0,
+  "outcomes_loaded": false,
+  "prediction_calls": 0,
+  "primary_pair": [
+    "challenger",
+    "reference"
+  ],
+  "real_source_access": false,
+  "registered_checksums_sha256": "81e45df93dca5930500f3a87cd38b436de721a904ab20827604533cebcbfd909",
+  "started_at": "2026-10-03T05:24:03.606232+00:00",
+  "status": "BLOCKED",
+  "synthetic": false,
+  "version": "phase5c1_prospective_shadow_v1",
+  "wall_started_at": "2026-10-03T05:26:57.322994+00:00"
+}

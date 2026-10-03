@@ -1,0 +1,6 @@
+{
+  "started_at": "2026-10-03T05:20:24.223911+00:00",
+  "completed_at": "2026-10-03T05:20:51.856928+00:00",
+  "exit_code": 0,
+  "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m pytest -q -p no:cacheprovider modeling/tests/test_phase5c2_activation.py modeling/tests/test_phase5c1_shadow.py"
+}

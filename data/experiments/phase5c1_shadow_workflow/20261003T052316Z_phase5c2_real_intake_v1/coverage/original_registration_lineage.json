@@ -1,0 +1,317 @@
+[
+  {
+    "contemporary_source_row_id": "warehouse:0a2d3ada-1c34-5fd6-b7a4-c4151be392c9",
+    "fight_id": "0a2d3ada-1c34-5fd6-b7a4-c4151be392c9",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000001.json",
+    "sha256": "56220006b3b0a0a0d6772a00f9fde75c902603dd502f46a0c71fe09e3a130817"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:129b49aa-9be9-5739-a710-4e63b5254405",
+    "fight_id": "129b49aa-9be9-5739-a710-4e63b5254405",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000002.json",
+    "sha256": "a2f35e65995d57dde4f7bf6174339d29c2912aa0ab6036c60d4d14b08dcaa7b4"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:142b43e4-12ae-574b-a291-81a81180425c",
+    "fight_id": "142b43e4-12ae-574b-a291-81a81180425c",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000003.json",
+    "sha256": "13b5b3ff6c9ea270b023ec11c94993cfed6ad17926fce6c0c59dfbe596747309"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:1a20b2d9-e495-57f5-97be-d825e4923d3a",
+    "fight_id": "1a20b2d9-e495-57f5-97be-d825e4923d3a",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000004.json",
+    "sha256": "fb39785a4689cd01e91309f50837ee430a3169fa29798f8de3f93eba8aad043b"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:2285491c-14ce-54b9-9584-3c70abf40263",
+    "fight_id": "2285491c-14ce-54b9-9584-3c70abf40263",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000005.json",
+    "sha256": "845a8c390442a793d06146f89be7ec8f770628ef59f0026bdce6792a031d0a13"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:4511da39-38b6-50cd-9f1b-653a3a6e03c5",
+    "fight_id": "4511da39-38b6-50cd-9f1b-653a3a6e03c5",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000006.json",
+    "sha256": "f6bea7ee6f38cea6f360b4c7bba0fa71f82e7b3a73761c8331f983e73b825892"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:52e6221f-141d-5f35-a45e-788d5d547556",
+    "fight_id": "52e6221f-141d-5f35-a45e-788d5d547556",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000007.json",
+    "sha256": "b635c789e9619e80a9ede3064d1b5a3449bfe3e99fd99f3ca35df1a2afcc068b"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:548f2d75-f656-5b62-b42d-21ec31424bf0",
+    "fight_id": "548f2d75-f656-5b62-b42d-21ec31424bf0",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000008.json",
+    "sha256": "9abb9bfda183efb602cf89b73683c387295478e97ca6ead84df50727c2bce5c8"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:54e53d0e-1fd1-531c-b16a-0327f8a8894d",
+    "fight_id": "54e53d0e-1fd1-531c-b16a-0327f8a8894d",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000009.json",
+    "sha256": "0513c65f08e0036806b2e42f81caf8380140a7145699ec96899badc5397bff7e"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:5c415656-53c0-5ced-be99-0c3174f30428",
+    "fight_id": "5c415656-53c0-5ced-be99-0c3174f30428",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000010.json",
+    "sha256": "fa1ed3f9124cb040254c91fb5dd2de7fce1315243e6ea0b2f45e8fbf590e5a0d"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:6298e7bf-13d9-53c6-a98d-25c230184deb",
+    "fight_id": "6298e7bf-13d9-53c6-a98d-25c230184deb",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000011.json",
+    "sha256": "701aa2e2f174a65da3aaffde978191ddf15824feabf04a05012a60d69360bf0f"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:69566aab-ee67-538b-8e36-1879b0db79a9",
+    "fight_id": "69566aab-ee67-538b-8e36-1879b0db79a9",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000012.json",
+    "sha256": "569eb5690cd11115d01af9a08ca78914f8c054c35376a72c932aeedfcc010a24"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:6b62ff0e-40af-52ea-adc5-320cc1e55c4d",
+    "fight_id": "6b62ff0e-40af-52ea-adc5-320cc1e55c4d",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000013.json",
+    "sha256": "4d8e32459217c733259cee170653320fcfbfd055891a4c846f7e145a0fb109f9"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:6fe1d59a-6ae9-5436-bc78-767da12a4707",
+    "fight_id": "6fe1d59a-6ae9-5436-bc78-767da12a4707",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000014.json",
+    "sha256": "17ddf5f0ad655b682b2b1f75fc2fbcc3a2ce87fc5f5590eafe555444014be9ab"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:78127a7a-d501-5bae-8c45-db220bc0206d",
+    "fight_id": "78127a7a-d501-5bae-8c45-db220bc0206d",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000015.json",
+    "sha256": "ffa88bf894896763c52f2e09afa370cd139940f14830bea3dec6565dff907292"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:7d682248-030b-5922-b44b-86d2ec5c1636",
+    "fight_id": "7d682248-030b-5922-b44b-86d2ec5c1636",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000016.json",
+    "sha256": "d7292f43767f1027819518acd2a984a8f295481bcfb5389a429acc939dd68942"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:83978961-8298-5ec3-9201-adf2dcdfca70",
+    "fight_id": "83978961-8298-5ec3-9201-adf2dcdfca70",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000017.json",
+    "sha256": "3972b6a91560f0c91792cd06c3d50487785ef63f53b4cd0203a8ca93a528ca99"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:87499a34-2739-59f3-9b91-3106fb69ecdc",
+    "fight_id": "87499a34-2739-59f3-9b91-3106fb69ecdc",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000018.json",
+    "sha256": "1d021ea5c63a91498856394a0af58f8f677c816444f463d424681ec05a709d6b"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:8d6e5c38-9149-5131-8f80-8d9b883111bd",
+    "fight_id": "8d6e5c38-9149-5131-8f80-8d9b883111bd",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000019.json",
+    "sha256": "fd7c9dc303deee137d86a17529a11182be1c265e8d72e4c8ca11ba02aea9dee3"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:94a68a73-94e4-5889-8965-efa45c4544c8",
+    "fight_id": "94a68a73-94e4-5889-8965-efa45c4544c8",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000020.json",
+    "sha256": "772e41ae885280797345dabbd1c09571aa3aee37ca873d2be36d62359826dc78"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:94ba7a17-ad0c-5c58-b3a9-3719537c9589",
+    "fight_id": "94ba7a17-ad0c-5c58-b3a9-3719537c9589",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000021.json",
+    "sha256": "ebd32885188bfc32c244aef9be0363afa41ffeb0f0b70205e54e2b7fe351eb4f"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:98009768-20cc-531b-940d-e75927dde7c7",
+    "fight_id": "98009768-20cc-531b-940d-e75927dde7c7",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000022.json",
+    "sha256": "c9fde81676443cc9762e89c7e3c46608fd428be9ae10af0a2bb908c55a271cee"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:9a7c6c84-1f6b-5ff2-aea1-abd5d3766771",
+    "fight_id": "9a7c6c84-1f6b-5ff2-aea1-abd5d3766771",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000023.json",
+    "sha256": "50ef93d7b34c8f3df15d6a8ecd56728c6a2f86b6b5f84ffd735470773acc72c8"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:9c1577d1-6233-547f-a938-a9165014bfa5",
+    "fight_id": "9c1577d1-6233-547f-a938-a9165014bfa5",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000024.json",
+    "sha256": "339d677a76051beefe268277e514a2592e1d6e465acb4597e98fa4b954e90c9e"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:af2f4613-5141-5eb7-8834-e7472d389806",
+    "fight_id": "af2f4613-5141-5eb7-8834-e7472d389806",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000025.json",
+    "sha256": "301668fdd910aaa98ed327b86d5658219300a98dbb51670c6e43e8a5abaeda5f"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:b0114180-efe2-5931-8cac-48055b64c162",
+    "fight_id": "b0114180-efe2-5931-8cac-48055b64c162",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000026.json",
+    "sha256": "99706edf543db81e04d5d3641d99c40ecd67417163c37f7bdcc92c3ef07e70ef"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:b3ac2da0-bfc9-56b9-a033-619f7ca100bf",
+    "fight_id": "b3ac2da0-bfc9-56b9-a033-619f7ca100bf",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000027.json",
+    "sha256": "0043af5da15a31f1526c2ad451d828a19423c4a13373b9e673a4fe13f9e44157"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:c55c2b7b-5373-537a-acaa-106fe1dc9003",
+    "fight_id": "c55c2b7b-5373-537a-acaa-106fe1dc9003",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000028.json",
+    "sha256": "3d247b79e3fce0ad12ffe4c3d6653a438259e6f0f731eee23739bd87b4435735"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:c888bed7-46b6-5e8a-b967-c3a76f2abbd9",
+    "fight_id": "c888bed7-46b6-5e8a-b967-c3a76f2abbd9",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000029.json",
+    "sha256": "c39bed5db15f61e59ad0483418b0ffdd50303f15c5be594df6e5e03d722a0d37"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:d015b2b0-db52-51fe-b0e8-d0dd8169f8d0",
+    "fight_id": "d015b2b0-db52-51fe-b0e8-d0dd8169f8d0",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000030.json",
+    "sha256": "f7c484a60d60c4ae5d6d877323cf8d63e4fa540080247faa2a3b4b4e2fc25993"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:df4d8d52-7d3e-5bab-a462-e68dfb4824ea",
+    "fight_id": "df4d8d52-7d3e-5bab-a462-e68dfb4824ea",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000031.json",
+    "sha256": "1889c63952d7829951c380d705d20d499edcddcb1897687c2644f928b727f82d"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:e5a97d90-f2f8-5eab-9d17-f8a8d904626f",
+    "fight_id": "e5a97d90-f2f8-5eab-9d17-f8a8d904626f",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000032.json",
+    "sha256": "4fc3908c9ecfea028d553c28949903b869f49fe81d2722c66ae1b3ad41a608b6"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:f2740e77-7251-5467-a4af-a0c879e86194",
+    "fight_id": "f2740e77-7251-5467-a4af-a0c879e86194",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000033.json",
+    "sha256": "2308b415bcb0a90e7759096333d0dc4c3e1d450bc5bf588e59be3b6cc7971180"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:f39b18a2-2f7f-591e-a1e5-9d8afdfa2a2c",
+    "fight_id": "f39b18a2-2f7f-591e-a1e5-9d8afdfa2a2c",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000034.json",
+    "sha256": "2463c50446c477a02474a314ed7173730cae61a66b063aeb039a77c56a675103"
+  },
+  {
+    "contemporary_source_row_id": "warehouse:f990b2fc-c164-5c8d-a102-df3e570840b3",
+    "fight_id": "f990b2fc-c164-5c8d-a102-df3e570840b3",
+    "new_cancellation_or_replacement_asserted": false,
+    "observed_unchanged_identity_date_orientation": true,
+    "original_record_preserved": true,
+    "record": "registry/records/00000035.json",
+    "sha256": "5619f4afb6f260436e965c536fa4a75da670b8e66ab07624bbea95f140f9689e"
+  }
+]

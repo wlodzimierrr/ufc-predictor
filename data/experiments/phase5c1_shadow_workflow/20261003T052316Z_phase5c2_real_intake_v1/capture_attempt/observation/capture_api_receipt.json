@@ -1,0 +1,311 @@
+{
+  "closed": true,
+  "completed_at": "2026-10-03T05:23:34.369563+00:00",
+  "queries": [
+    {
+      "columns": [
+        "transaction_read_only"
+      ],
+      "finished_at": "2026-10-03T05:23:33.376894+00:00",
+      "rows": 1,
+      "sql": "SHOW transaction_read_only",
+      "started_at": "2026-10-03T05:23:33.174448+00:00"
+    },
+    {
+      "columns": [
+        "transaction_isolation"
+      ],
+      "finished_at": "2026-10-03T05:23:33.390133+00:00",
+      "rows": 1,
+      "sql": "SHOW transaction_isolation",
+      "started_at": "2026-10-03T05:23:33.376935+00:00"
+    },
+    {
+      "columns": [
+        "transaction_started_at",
+        "database_timezone",
+        "snapshot"
+      ],
+      "finished_at": "2026-10-03T05:23:33.406296+00:00",
+      "rows": 1,
+      "sql": "SELECT transaction_timestamp() AS transaction_started_at, current_setting('TimeZone') AS database_timezone, pg_current_snapshot()::text AS snapshot",
+      "started_at": "2026-10-03T05:23:33.390148+00:00"
+    },
+    {
+      "columns": [
+        "table_schema",
+        "table_name",
+        "column_name",
+        "ordinal_position",
+        "data_type",
+        "udt_name",
+        "is_nullable",
+        "column_default"
+      ],
+      "finished_at": "2026-10-03T05:23:33.462373+00:00",
+      "rows": 65,
+      "sql": "SELECT table_schema, table_name, column_name, ordinal_position,\ndata_type, udt_name, is_nullable, column_default\nFROM information_schema.columns WHERE table_schema = 'public'\nAND table_name IN ('events','fighters','fights','fight_stats_aggregate') ORDER BY table_name, ordinal_position",
+      "started_at": "2026-10-03T05:23:33.406320+00:00"
+    },
+    {
+      "columns": [
+        "event_id",
+        "event_name",
+        "event_date",
+        "city",
+        "state",
+        "country",
+        "event_status",
+        "source_url",
+        "scraped_at"
+      ],
+      "finished_at": "2026-10-03T05:23:33.498232+00:00",
+      "rows": 798,
+      "sql": "SELECT * FROM public.\"events\" ORDER BY \"event_id\"",
+      "started_at": "2026-10-03T05:23:33.462661+00:00"
+    },
+    {
+      "columns": [
+        "fighter_id",
+        "full_name",
+        "first_name",
+        "last_name",
+        "nickname",
+        "height_cm",
+        "weight_lbs",
+        "reach_cm",
+        "stance",
+        "dob",
+        "source_url",
+        "scraped_at"
+      ],
+      "finished_at": "2026-10-03T05:23:33.600129+00:00",
+      "rows": 4522,
+      "sql": "SELECT * FROM public.\"fighters\" ORDER BY \"fighter_id\"",
+      "started_at": "2026-10-03T05:23:33.501623+00:00"
+    },
+    {
+      "columns": [
+        "fight_id",
+        "event_id",
+        "fighter_1_id",
+        "fighter_2_id",
+        "winner_fighter_id",
+        "result_type",
+        "weight_class",
+        "is_title_fight",
+        "is_interim_title",
+        "scheduled_rounds",
+        "finish_method",
+        "finish_detail",
+        "finish_round",
+        "finish_time_seconds",
+        "referee",
+        "source_url",
+        "scraped_at"
+      ],
+      "finished_at": "2026-10-03T05:23:33.804107+00:00",
+      "rows": 8992,
+      "sql": "SELECT * FROM public.\"fights\" ORDER BY \"fight_id\"",
+      "started_at": "2026-10-03T05:23:33.625537+00:00"
+    },
+    {
+      "columns": [
+        "fight_stat_id",
+        "fight_id",
+        "fighter_id",
+        "knockdowns",
+        "total_strikes_landed",
+        "total_strikes_attempted",
+        "sig_strikes_landed",
+        "sig_strikes_attempted",
+        "sig_strikes_head_landed",
+        "sig_strikes_head_attempted",
+        "sig_strikes_body_landed",
+        "sig_strikes_body_attempted",
+        "sig_strikes_leg_landed",
+        "sig_strikes_leg_attempted",
+        "sig_strikes_distance_landed",
+        "sig_strikes_distance_attempted",
+        "sig_strikes_clinch_landed",
+        "sig_strikes_clinch_attempted",
+        "sig_strikes_ground_landed",
+        "sig_strikes_ground_attempted",
+        "takedowns_landed",
+        "takedowns_attempted",
+        "control_time_seconds",
+        "submissions_attempted",
+        "reversals",
+        "source_url",
+        "scraped_at"
+      ],
+      "finished_at": "2026-10-03T05:23:34.196809+00:00",
+      "rows": 17386,
+      "sql": "SELECT * FROM public.\"fight_stats_aggregate\" ORDER BY \"fight_stat_id\"",
+      "started_at": "2026-10-03T05:23:33.860302+00:00"
+    }
+  ],
+  "rolled_back": true,
+  "source_sha256": {
+    "events": "e36c7250b9965ec8294fe9bac196f45ec96ad51624ef704e5e188b83eb868a78",
+    "fight_stats_aggregate": "ec19a9e5e0b13766744e187f1d099e92c65103940ac02fefe804b4421414bcb4",
+    "fighters": "1cf4a351788b7de8496e1e05c8591f5cf462739a4843f44831fa7168d20a4caf",
+    "fights": "27738c6ca29fafa1cdde121b377607ef9683c79cfb7eacca4b96b1f166118b17",
+    "schemas": "874d09625e812c118cbd01108de2f808d8c96dc3fd0d422538d0c79bd7abe606"
+  },
+  "started_at": "2026-10-03T05:23:33.133992+00:00",
+  "synthetic": false,
+  "transaction": {
+    "closed": true,
+    "database_timezone": "UTC",
+    "isolation": "repeatable read",
+    "queries": [
+      {
+        "columns": [
+          "transaction_read_only"
+        ],
+        "finished_at": "2026-10-03T05:23:33.376894+00:00",
+        "rows": 1,
+        "sql": "SHOW transaction_read_only",
+        "started_at": "2026-10-03T05:23:33.174448+00:00"
+      },
+      {
+        "columns": [
+          "transaction_isolation"
+        ],
+        "finished_at": "2026-10-03T05:23:33.390133+00:00",
+        "rows": 1,
+        "sql": "SHOW transaction_isolation",
+        "started_at": "2026-10-03T05:23:33.376935+00:00"
+      },
+      {
+        "columns": [
+          "transaction_started_at",
+          "database_timezone",
+          "snapshot"
+        ],
+        "finished_at": "2026-10-03T05:23:33.406296+00:00",
+        "rows": 1,
+        "sql": "SELECT transaction_timestamp() AS transaction_started_at, current_setting('TimeZone') AS database_timezone, pg_current_snapshot()::text AS snapshot",
+        "started_at": "2026-10-03T05:23:33.390148+00:00"
+      },
+      {
+        "columns": [
+          "table_schema",
+          "table_name",
+          "column_name",
+          "ordinal_position",
+          "data_type",
+          "udt_name",
+          "is_nullable",
+          "column_default"
+        ],
+        "finished_at": "2026-10-03T05:23:33.462373+00:00",
+        "rows": 65,
+        "sql": "SELECT table_schema, table_name, column_name, ordinal_position,\ndata_type, udt_name, is_nullable, column_default\nFROM information_schema.columns WHERE table_schema = 'public'\nAND table_name IN ('events','fighters','fights','fight_stats_aggregate') ORDER BY table_name, ordinal_position",
+        "started_at": "2026-10-03T05:23:33.406320+00:00"
+      },
+      {
+        "columns": [
+          "event_id",
+          "event_name",
+          "event_date",
+          "city",
+          "state",
+          "country",
+          "event_status",
+          "source_url",
+          "scraped_at"
+        ],
+        "finished_at": "2026-10-03T05:23:33.498232+00:00",
+        "rows": 798,
+        "sql": "SELECT * FROM public.\"events\" ORDER BY \"event_id\"",
+        "started_at": "2026-10-03T05:23:33.462661+00:00"
+      },
+      {
+        "columns": [
+          "fighter_id",
+          "full_name",
+          "first_name",
+          "last_name",
+          "nickname",
+          "height_cm",
+          "weight_lbs",
+          "reach_cm",
+          "stance",
+          "dob",
+          "source_url",
+          "scraped_at"
+        ],
+        "finished_at": "2026-10-03T05:23:33.600129+00:00",
+        "rows": 4522,
+        "sql": "SELECT * FROM public.\"fighters\" ORDER BY \"fighter_id\"",
+        "started_at": "2026-10-03T05:23:33.501623+00:00"
+      },
+      {
+        "columns": [
+          "fight_id",
+          "event_id",
+          "fighter_1_id",
+          "fighter_2_id",
+          "winner_fighter_id",
+          "result_type",
+          "weight_class",
+          "is_title_fight",
+          "is_interim_title",
+          "scheduled_rounds",
+          "finish_method",
+          "finish_detail",
+          "finish_round",
+          "finish_time_seconds",
+          "referee",
+          "source_url",
+          "scraped_at"
+        ],
+        "finished_at": "2026-10-03T05:23:33.804107+00:00",
+        "rows": 8992,
+        "sql": "SELECT * FROM public.\"fights\" ORDER BY \"fight_id\"",
+        "started_at": "2026-10-03T05:23:33.625537+00:00"
+      },
+      {
+        "columns": [
+          "fight_stat_id",
+          "fight_id",
+          "fighter_id",
+          "knockdowns",
+          "total_strikes_landed",
+          "total_strikes_attempted",
+          "sig_strikes_landed",
+          "sig_strikes_attempted",
+          "sig_strikes_head_landed",
+          "sig_strikes_head_attempted",
+          "sig_strikes_body_landed",
+          "sig_strikes_body_attempted",
+          "sig_strikes_leg_landed",
+          "sig_strikes_leg_attempted",
+          "sig_strikes_distance_landed",
+          "sig_strikes_distance_attempted",
+          "sig_strikes_clinch_landed",
+          "sig_strikes_clinch_attempted",
+          "sig_strikes_ground_landed",
+          "sig_strikes_ground_attempted",
+          "takedowns_landed",
+          "takedowns_attempted",
+          "control_time_seconds",
+          "submissions_attempted",
+          "reversals",
+          "source_url",
+          "scraped_at"
+        ],
+        "finished_at": "2026-10-03T05:23:34.196809+00:00",
+        "rows": 17386,
+        "sql": "SELECT * FROM public.\"fight_stats_aggregate\" ORDER BY \"fight_stat_id\"",
+        "started_at": "2026-10-03T05:23:33.860302+00:00"
+      }
+    ],
+    "read_only": "on",
+    "rolled_back": true,
+    "snapshot": "207329:207329:",
+    "transaction_started_at": "2026-10-03T05:23:33.309378+00:00"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "compilation": "PASSED: three new Python files; bytecode only under /tmp",
+  "completed_at": "2026-10-03T05:33:27.501643+00:00",
+  "feature_matrices_built": 0,
+  "inventory_count": 174,
+  "projection_readiness_determinism": "TWO_IDENTICAL_INDEPENDENT_RECONSTRUCTIONS",
+  "real_feature_determinism": "NOT_APPLICABLE_NO_ELIGIBLE_BOUT",
+  "real_output_decision_consistency": "NOT_APPLICABLE_ZERO_FORECASTS",
+  "real_probability_replays": 0,
+  "reconstructions": [
+    {
+      "activation_checksums_sha256": "21672682c5a7096fdc94ac8344a90755186c4cfadd92f9cb91ee2d5e4d98adfd",
+      "checksums_sha256": "33d8e983476c408ee7a67f785c27856d58b3a0c9a0a3ea3fc2373a5bbe61d81c",
+      "registry_entries": 164,
+      "registry_tail_checksums_sha256": "c709ff47381acece50141cbfd88fbe5ed31a94b9c161fc69e2002bd271faec1e",
+      "replayed": false,
+      "run_status": "BLOCKED",
+      "status": "READY",
+      "synthetic": false,
+      "verification": "VERIFIED",
+      "verified_at": "2026-10-03T05:27:54.642954+00:00"
+    },
+    {
+      "activation_checksums_sha256": "21672682c5a7096fdc94ac8344a90755186c4cfadd92f9cb91ee2d5e4d98adfd",
+      "checksums_sha256": "33d8e983476c408ee7a67f785c27856d58b3a0c9a0a3ea3fc2373a5bbe61d81c",
+      "registry_entries": 164,
+      "registry_tail_checksums_sha256": "c709ff47381acece50141cbfd88fbe5ed31a94b9c161fc69e2002bd271faec1e",
+      "replayed": false,
+      "run_status": "BLOCKED",
+      "status": "READY",
+      "synthetic": false,
+      "verification": "VERIFIED",
+      "verified_at": "2026-10-03T05:28:06.367775+00:00"
+    }
+  ],
+  "status": "VERIFIED",
+  "test_result": "87 passed in 27.44s before activation freeze"
+}

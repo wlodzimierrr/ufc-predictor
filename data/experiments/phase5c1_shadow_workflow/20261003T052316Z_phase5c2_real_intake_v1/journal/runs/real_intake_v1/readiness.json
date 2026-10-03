@@ -1,0 +1,1961 @@
+{
+  "bouts": [
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "0304128f-1ed2-59dd-8d48-2249aca821f2",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:0304128f-1ed2-59dd-8d48-2249aca821f2",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "03bec0e0-8efe-55db-9971-bd36132b3c1e",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:03bec0e0-8efe-55db-9971-bd36132b3c1e",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "08a9fc7a-f972-59b2-a3d1-8be1c154bdcc",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:08a9fc7a-f972-59b2-a3d1-8be1c154bdcc",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "0a078174-ba92-5058-be64-d62257966f3d",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:0a078174-ba92-5058-be64-d62257966f3d",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "0a2d3ada-1c34-5fd6-b7a4-c4151be392c9",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:0a2d3ada-1c34-5fd6-b7a4-c4151be392c9",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "108f5aca-513a-5fd9-af6f-c7c8f78e0e03",
+      "reasons": [
+        "alias_represented_by_canonical_bout",
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:108f5aca-513a-5fd9-af6f-c7c8f78e0e03",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "129b49aa-9be9-5739-a710-4e63b5254405",
+      "reasons": [
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:129b49aa-9be9-5739-a710-4e63b5254405",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "142b43e4-12ae-574b-a291-81a81180425c",
+      "reasons": [
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:142b43e4-12ae-574b-a291-81a81180425c",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "173f9691-7ba9-51c8-b0ab-e8ddbbc2ed17",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:173f9691-7ba9-51c8-b0ab-e8ddbbc2ed17",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "18531c3c-3434-5a17-bee4-a98a5b0070b2",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:18531c3c-3434-5a17-bee4-a98a5b0070b2",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "1a20b2d9-e495-57f5-97be-d825e4923d3a",
+      "reasons": [
+        "outside_14_day_window",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:1a20b2d9-e495-57f5-97be-d825e4923d3a",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "1ce74697-5531-568f-b769-051f65fb459f",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:1ce74697-5531-568f-b769-051f65fb459f",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "1f4c562f-5fa7-5a69-a12c-4a4cd7cf16f0",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:1f4c562f-5fa7-5a69-a12c-4a4cd7cf16f0",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "214db7e8-b47b-596f-92e4-d322dffe191f",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:214db7e8-b47b-596f-92e4-d322dffe191f",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "2285491c-14ce-54b9-9584-3c70abf40263",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:2285491c-14ce-54b9-9584-3c70abf40263",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "23d22d57-1621-5383-b677-b34a3fcccada",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:23d22d57-1621-5383-b677-b34a3fcccada",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "28621f0f-fe19-531b-9a4b-07615c60824a",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:28621f0f-fe19-531b-9a4b-07615c60824a",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "2ac9d36f-4e24-5907-b56e-5c75a60928ab",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:2ac9d36f-4e24-5907-b56e-5c75a60928ab",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "2f17110e-a377-5ca9-b251-976567e85b79",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:2f17110e-a377-5ca9-b251-976567e85b79",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "3052080e-a58b-5aca-a06a-fc89c6537959",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:3052080e-a58b-5aca-a06a-fc89c6537959",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "3119317d-2397-5e20-838f-d4508e3eea42",
+      "reasons": [
+        "alias_represented_by_canonical_bout",
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:3119317d-2397-5e20-838f-d4508e3eea42",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "313cb79e-d6de-5f81-b87e-8223c17afe7d",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:313cb79e-d6de-5f81-b87e-8223c17afe7d",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "32d7a6c3-bb16-573d-acdd-562fb93af46b",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:32d7a6c3-bb16-573d-acdd-562fb93af46b",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "340f45e0-0cdb-5eeb-92c5-86b4b7ca07af",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:340f45e0-0cdb-5eeb-92c5-86b4b7ca07af",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "36c6e7dd-6acd-5f34-9f91-66afd004ffd5",
+      "reasons": [
+        "alias_represented_by_canonical_bout",
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:36c6e7dd-6acd-5f34-9f91-66afd004ffd5",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "37015e6b-0070-5ffb-a692-eb3b72bf463a",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:37015e6b-0070-5ffb-a692-eb3b72bf463a",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "37559279-4d40-512a-bfd3-912e36f1b092",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:37559279-4d40-512a-bfd3-912e36f1b092",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "379c5040-0de7-5b7d-a09a-5701dcb749c4",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:379c5040-0de7-5b7d-a09a-5701dcb749c4",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "384559ef-d5df-5af4-9c7f-a58c7c359359",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:384559ef-d5df-5af4-9c7f-a58c7c359359",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "395511ce-200b-53d1-bd8b-956e6b71e14e",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:395511ce-200b-53d1-bd8b-956e6b71e14e",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "3a247061-eef3-5698-aeb4-82d62b5164c1",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:3a247061-eef3-5698-aeb4-82d62b5164c1",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "3a8bcd8d-f048-57ed-9a79-12f5745643f6",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:3a8bcd8d-f048-57ed-9a79-12f5745643f6",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "3d6dcd1b-20ea-5a03-8d28-b73cd4c5d9be",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:3d6dcd1b-20ea-5a03-8d28-b73cd4c5d9be",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "3e4c6e55-3d03-5b17-aa22-aacc7f559f6f",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:3e4c6e55-3d03-5b17-aa22-aacc7f559f6f",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "3ea09870-977d-53fc-a70e-d49be991ebbd",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:3ea09870-977d-53fc-a70e-d49be991ebbd",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "3ec09c22-2924-500e-98a9-b7200584f1fa",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:3ec09c22-2924-500e-98a9-b7200584f1fa",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "425d4ef7-f6dc-53ff-a2a7-fe18a7851933",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:425d4ef7-f6dc-53ff-a2a7-fe18a7851933",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "439f3889-a36d-5815-b5bc-d041fb63b5ea",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:439f3889-a36d-5815-b5bc-d041fb63b5ea",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "4511da39-38b6-50cd-9f1b-653a3a6e03c5",
+      "reasons": [
+        "outside_14_day_window",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:4511da39-38b6-50cd-9f1b-653a3a6e03c5",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "4530828e-194b-5998-937c-99973d047309",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:4530828e-194b-5998-937c-99973d047309",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "4b08f65d-db68-5091-9568-4748c4cf7318",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:4b08f65d-db68-5091-9568-4748c4cf7318",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "4b189b71-1a28-5f32-a3e9-e7b7ec780fc3",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:4b189b71-1a28-5f32-a3e9-e7b7ec780fc3",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "4e4eed91-2b39-5797-83a7-81cce50c17d2",
+      "reasons": [
+        "alias_represented_by_canonical_bout",
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:4e4eed91-2b39-5797-83a7-81cce50c17d2",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "4eb3dbd1-98d8-59e9-8e28-52dbb98cbd34",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:4eb3dbd1-98d8-59e9-8e28-52dbb98cbd34",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "5077ad8f-9ef1-5fc3-a595-f3a79dcf2915",
+      "reasons": [
+        "alias_represented_by_canonical_bout",
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:5077ad8f-9ef1-5fc3-a595-f3a79dcf2915",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "52e6221f-141d-5f35-a45e-788d5d547556",
+      "reasons": [
+        "outside_14_day_window",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:52e6221f-141d-5f35-a45e-788d5d547556",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "534791de-cebe-53cc-8da8-00afdde28596",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:534791de-cebe-53cc-8da8-00afdde28596",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "53b9cada-68ba-5c11-8da4-28833cd6b5fe",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:53b9cada-68ba-5c11-8da4-28833cd6b5fe",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "54146b1b-1331-5fec-a156-383198ff9cb0",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:54146b1b-1331-5fec-a156-383198ff9cb0",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "548f2d75-f656-5b62-b42d-21ec31424bf0",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:548f2d75-f656-5b62-b42d-21ec31424bf0",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "54e53d0e-1fd1-531c-b16a-0327f8a8894d",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:54e53d0e-1fd1-531c-b16a-0327f8a8894d",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "55a021c5-0dae-5181-980e-c718636e6ae6",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:55a021c5-0dae-5181-980e-c718636e6ae6",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "579ae3cc-e72b-5532-a02e-045093bc9b16",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:579ae3cc-e72b-5532-a02e-045093bc9b16",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "58dbd5ff-f2df-5814-854c-a8c4fb45486f",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:58dbd5ff-f2df-5814-854c-a8c4fb45486f",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "59b12bcb-e859-54fc-a77a-265813e7173c",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:59b12bcb-e859-54fc-a77a-265813e7173c",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "5c415656-53c0-5ced-be99-0c3174f30428",
+      "reasons": [
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:5c415656-53c0-5ced-be99-0c3174f30428",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "60d69790-1aff-58ef-ab6c-3b98572dc436",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:60d69790-1aff-58ef-ab6c-3b98572dc436",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "6168dff5-3df1-5ddd-8a5f-17bff9a3b0df",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:6168dff5-3df1-5ddd-8a5f-17bff9a3b0df",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "61d17aa4-61e0-5774-a46f-ca17a12b1680",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:61d17aa4-61e0-5774-a46f-ca17a12b1680",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "6298e7bf-13d9-53c6-a98d-25c230184deb",
+      "reasons": [
+        "outside_14_day_window",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:6298e7bf-13d9-53c6-a98d-25c230184deb",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "674430ed-71e8-5b14-9698-28bb57512ec9",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:674430ed-71e8-5b14-9698-28bb57512ec9",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "68fb21a4-2a40-5b71-bae4-ac1bf29fbbcc",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:68fb21a4-2a40-5b71-bae4-ac1bf29fbbcc",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "69566aab-ee67-538b-8e36-1879b0db79a9",
+      "reasons": [
+        "outside_14_day_window",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:69566aab-ee67-538b-8e36-1879b0db79a9",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "6b62ff0e-40af-52ea-adc5-320cc1e55c4d",
+      "reasons": [
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:6b62ff0e-40af-52ea-adc5-320cc1e55c4d",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "6ede7ecf-41c0-50de-b18d-44e1ba6edc3a",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:6ede7ecf-41c0-50de-b18d-44e1ba6edc3a",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "6fd8bb3e-4000-5283-8e18-8df9a081fbac",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:6fd8bb3e-4000-5283-8e18-8df9a081fbac",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "6fe1d59a-6ae9-5436-bc78-767da12a4707",
+      "reasons": [
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:6fe1d59a-6ae9-5436-bc78-767da12a4707",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "70355fcf-fc1c-525b-958c-67a01cd54b87",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:70355fcf-fc1c-525b-958c-67a01cd54b87",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "7189f7d3-d325-5abd-8e57-da16f3032017",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:7189f7d3-d325-5abd-8e57-da16f3032017",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "7684f614-543d-53ab-b738-d9c77916713a",
+      "reasons": [
+        "alias_represented_by_canonical_bout",
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:7684f614-543d-53ab-b738-d9c77916713a",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "76e979fe-4b60-5d8a-ba49-811cf53505c3",
+      "reasons": [
+        "alias_represented_by_canonical_bout",
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:76e979fe-4b60-5d8a-ba49-811cf53505c3",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "77bb9a3d-afe4-5df5-98ab-e7d6f480833b",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:77bb9a3d-afe4-5df5-98ab-e7d6f480833b",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "78127a7a-d501-5bae-8c45-db220bc0206d",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:78127a7a-d501-5bae-8c45-db220bc0206d",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "7ae9189e-11fb-5bb8-93f6-ccf755ce7435",
+      "reasons": [
+        "alias_represented_by_canonical_bout",
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:7ae9189e-11fb-5bb8-93f6-ccf755ce7435",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "7cff70f1-a3fe-5a92-8e39-cb1846da2372",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:7cff70f1-a3fe-5a92-8e39-cb1846da2372",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "7d682248-030b-5922-b44b-86d2ec5c1636",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:7d682248-030b-5922-b44b-86d2ec5c1636",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "815c5c7c-efc2-517c-9de0-e347484cb013",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:815c5c7c-efc2-517c-9de0-e347484cb013",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "8167b140-2879-58b7-b8b7-f95a7f6981e1",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:8167b140-2879-58b7-b8b7-f95a7f6981e1",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "81a625a4-672a-5644-8bf9-26053f0a823f",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:81a625a4-672a-5644-8bf9-26053f0a823f",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "836f9df5-93b7-591f-a917-74dd2256482b",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:836f9df5-93b7-591f-a917-74dd2256482b",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "83978961-8298-5ec3-9201-adf2dcdfca70",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:83978961-8298-5ec3-9201-adf2dcdfca70",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "849af637-a2cc-54b7-a8d0-68bfe47aee33",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:849af637-a2cc-54b7-a8d0-68bfe47aee33",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "87499a34-2739-59f3-9b91-3106fb69ecdc",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:87499a34-2739-59f3-9b91-3106fb69ecdc",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "87653e42-f4b1-5fda-92ab-809bfee50ffb",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:87653e42-f4b1-5fda-92ab-809bfee50ffb",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "8972e4f7-7df7-59cb-92be-bb0bf07dfd27",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:8972e4f7-7df7-59cb-92be-bb0bf07dfd27",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "89be14b9-3037-55de-8fb8-d9c514388569",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:89be14b9-3037-55de-8fb8-d9c514388569",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "8a15a395-5273-58d7-9a38-27df4099a556",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:8a15a395-5273-58d7-9a38-27df4099a556",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "8b83157a-7266-5358-a485-5f1b2eb83f90",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:8b83157a-7266-5358-a485-5f1b2eb83f90",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "8c8c90ff-c510-5c57-b758-8b756bd683dd",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:8c8c90ff-c510-5c57-b758-8b756bd683dd",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "8d6e5c38-9149-5131-8f80-8d9b883111bd",
+      "reasons": [
+        "outside_14_day_window",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:8d6e5c38-9149-5131-8f80-8d9b883111bd",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "8e173dce-4c9a-519e-862b-79ce67acdf8d",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:8e173dce-4c9a-519e-862b-79ce67acdf8d",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "8f7e24e2-a787-53ea-88f9-a95cdc6f5cfb",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:8f7e24e2-a787-53ea-88f9-a95cdc6f5cfb",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "94a68a73-94e4-5889-8965-efa45c4544c8",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:94a68a73-94e4-5889-8965-efa45c4544c8",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "94ba7a17-ad0c-5c58-b3a9-3719537c9589",
+      "reasons": [
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:94ba7a17-ad0c-5c58-b3a9-3719537c9589",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "98009768-20cc-531b-940d-e75927dde7c7",
+      "reasons": [
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:98009768-20cc-531b-940d-e75927dde7c7",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "990c8a2f-f577-54cf-a5e0-e58d4d517357",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:990c8a2f-f577-54cf-a5e0-e58d4d517357",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "9a7c6c84-1f6b-5ff2-aea1-abd5d3766771",
+      "reasons": [
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:9a7c6c84-1f6b-5ff2-aea1-abd5d3766771",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "9c1577d1-6233-547f-a938-a9165014bfa5",
+      "reasons": [
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:9c1577d1-6233-547f-a938-a9165014bfa5",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "9d2083b0-2853-5ca6-b289-e65e4e4fa47c",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:9d2083b0-2853-5ca6-b289-e65e4e4fa47c",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "a01b704f-c26b-54b0-bc6c-68af89c315eb",
+      "reasons": [
+        "alias_represented_by_canonical_bout",
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:a01b704f-c26b-54b0-bc6c-68af89c315eb",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "a1fd5039-7530-5081-985d-66c689aa4311",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:a1fd5039-7530-5081-985d-66c689aa4311",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "a259627a-3a95-52ec-ba76-fb1d5e5aceae",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:a259627a-3a95-52ec-ba76-fb1d5e5aceae",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "a2c24d99-0499-5efe-bfb3-c0d6bdf4abf3",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:a2c24d99-0499-5efe-bfb3-c0d6bdf4abf3",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "a6dab28a-d944-5496-b13d-a76f3621e0f4",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:a6dab28a-d944-5496-b13d-a76f3621e0f4",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "a8ba8843-7caa-56c1-8991-937bbfa4ac76",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:a8ba8843-7caa-56c1-8991-937bbfa4ac76",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "ad8d2846-75b9-5a2b-a4e4-b4b593e386e4",
+      "reasons": [
+        "alias_represented_by_canonical_bout",
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:ad8d2846-75b9-5a2b-a4e4-b4b593e386e4",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "af2f4613-5141-5eb7-8834-e7472d389806",
+      "reasons": [
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:af2f4613-5141-5eb7-8834-e7472d389806",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "b0114180-efe2-5931-8cac-48055b64c162",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:b0114180-efe2-5931-8cac-48055b64c162",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "b0e51f1b-1047-5332-80cf-d7bca1614a57",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:b0e51f1b-1047-5332-80cf-d7bca1614a57",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "b0ee0f84-eccc-56d7-b8a2-bacb4ca63c1f",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:b0ee0f84-eccc-56d7-b8a2-bacb4ca63c1f",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "b3707b19-f5db-5498-af6e-d5942fbff04b",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:b3707b19-f5db-5498-af6e-d5942fbff04b",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "b3ac2da0-bfc9-56b9-a033-619f7ca100bf",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:b3ac2da0-bfc9-56b9-a033-619f7ca100bf",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "b45d0b12-0a7c-5cf1-93d8-92928cbdb3d5",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:b45d0b12-0a7c-5cf1-93d8-92928cbdb3d5",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "b802f05f-fffe-4ab6-a344-cec9afbbecb8",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:b802f05f-fffe-4ab6-a344-cec9afbbecb8",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "bafc9895-d371-58b5-b294-a53219377532",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:bafc9895-d371-58b5-b294-a53219377532",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "bc12d452-d2e8-5cd3-81b9-cb0ca740422e",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:bc12d452-d2e8-5cd3-81b9-cb0ca740422e",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "bdcfbc15-41b5-5b6a-bafb-628d713baefe",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:bdcfbc15-41b5-5b6a-bafb-628d713baefe",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "c0640044-5ea1-5ad9-82ce-5dbbc690afec",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:c0640044-5ea1-5ad9-82ce-5dbbc690afec",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "c51bc854-f7b8-59cf-80e5-3c332126916f",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:c51bc854-f7b8-59cf-80e5-3c332126916f",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "c55c2b7b-5373-537a-acaa-106fe1dc9003",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:c55c2b7b-5373-537a-acaa-106fe1dc9003",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "c888bed7-46b6-5e8a-b967-c3a76f2abbd9",
+      "reasons": [
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:c888bed7-46b6-5e8a-b967-c3a76f2abbd9",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "c9d171a6-7016-52cb-9b91-8d9a571f407e",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:c9d171a6-7016-52cb-9b91-8d9a571f407e",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "cb068038-173a-5bfe-9b36-6cf6f2e56cda",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:cb068038-173a-5bfe-9b36-6cf6f2e56cda",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "cc88d51e-6818-5219-89a8-adcca1eccf4d",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:cc88d51e-6818-5219-89a8-adcca1eccf4d",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "cca87786-535d-5b05-b00a-76e990ed95cc",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:cca87786-535d-5b05-b00a-76e990ed95cc",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "ce8015a7-1253-5de4-89fd-9e445ec35c02",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:ce8015a7-1253-5de4-89fd-9e445ec35c02",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "d015b2b0-db52-51fe-b0e8-d0dd8169f8d0",
+      "reasons": [
+        "outside_14_day_window",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:d015b2b0-db52-51fe-b0e8-d0dd8169f8d0",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "d16ce11f-f1eb-5eee-aefa-304e9ce176d3",
+      "reasons": [
+        "alias_represented_by_canonical_bout",
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:d16ce11f-f1eb-5eee-aefa-304e9ce176d3",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "d2315b90-4f6f-54f4-86d1-bf30ff0c37c8",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:d2315b90-4f6f-54f4-86d1-bf30ff0c37c8",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "d2efac10-b2a9-50ac-9944-d6422d4b2048",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:d2efac10-b2a9-50ac-9944-d6422d4b2048",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "d45f02fa-7f42-573d-9da8-0e0af095f5ce",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:d45f02fa-7f42-573d-9da8-0e0af095f5ce",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "d5940e52-62e0-57d0-bcc4-d331181ed4c4",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:d5940e52-62e0-57d0-bcc4-d331181ed4c4",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "d7d7481d-4092-5aec-a683-0a55f52291e6",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:d7d7481d-4092-5aec-a683-0a55f52291e6",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "d893673f-0888-5bfc-a58d-9fcae6706b48",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:d893673f-0888-5bfc-a58d-9fcae6706b48",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "dc3dbfcd-1cd2-5c01-ba42-5826aa1a49a6",
+      "reasons": [
+        "alias_represented_by_canonical_bout",
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:dc3dbfcd-1cd2-5c01-ba42-5826aa1a49a6",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "dcc07282-f17a-5432-a05c-468cdadcd0e2",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:dcc07282-f17a-5432-a05c-468cdadcd0e2",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "df4d8d52-7d3e-5bab-a462-e68dfb4824ea",
+      "reasons": [
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:df4d8d52-7d3e-5bab-a462-e68dfb4824ea",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "df9e4021-0d72-56ad-9519-6ee54d9bfd67",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:df9e4021-0d72-56ad-9519-6ee54d9bfd67",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "e00625f4-ad7b-50e8-baac-7af1bc43157b",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:e00625f4-ad7b-50e8-baac-7af1bc43157b",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "e439fb69-cd79-5705-842a-4f98ddbf492a",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:e439fb69-cd79-5705-842a-4f98ddbf492a",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "e45165aa-fe35-5bd6-a03a-906b5757d5c6",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:e45165aa-fe35-5bd6-a03a-906b5757d5c6",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "e50bde08-61d7-5718-9a69-39e673ffa10a",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:e50bde08-61d7-5718-9a69-39e673ffa10a",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "e5a97d90-f2f8-5eab-9d17-f8a8d904626f",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:e5a97d90-f2f8-5eab-9d17-f8a8d904626f",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "e5b0ebf7-a224-53a5-a451-0953ea57f96d",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:e5b0ebf7-a224-53a5-a451-0953ea57f96d",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "e871e0b6-3a81-561d-bad4-bee64c4f87d4",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:e871e0b6-3a81-561d-bad4-bee64c4f87d4",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "ebcf9bf1-da8e-59eb-8ba0-476d4b50432a",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:ebcf9bf1-da8e-59eb-8ba0-476d4b50432a",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "eeab38f6-78d1-5d04-b171-3d365412cc36",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:eeab38f6-78d1-5d04-b171-3d365412cc36",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "ef2d6f88-48f2-5ade-b725-e9a3197f3a7a",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:ef2d6f88-48f2-5ade-b725-e9a3197f3a7a",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "f0d8d2d8-a070-564d-8f9a-a30f34b53101",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:f0d8d2d8-a070-564d-8f9a-a30f34b53101",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "f2740e77-7251-5467-a4af-a0c879e86194",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:f2740e77-7251-5467-a4af-a0c879e86194",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "f2783f53-9556-5653-9815-c15e8614412c",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:f2783f53-9556-5653-9815-c15e8614412c",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "f39b18a2-2f7f-591e-a1e5-9d8afdfa2a2c",
+      "reasons": [
+        "outside_14_day_window",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:f39b18a2-2f7f-591e-a1e5-9d8afdfa2a2c",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "f467a342-40c3-5abd-902c-cdda666a883c",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:f467a342-40c3-5abd-902c-cdda666a883c",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "f4a4a051-0eac-5db3-9f8d-f67a5dbc1c75",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:f4a4a051-0eac-5db3-9f8d-f67a5dbc1c75",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "f78ba6f7-05b1-5f19-a20c-721df9a9da88",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:f78ba6f7-05b1-5f19-a20c-721df9a9da88",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "f7ea20a5-40fe-5def-a14b-e5c0dccd90af",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:f7ea20a5-40fe-5def-a14b-e5c0dccd90af",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "f990b2fc-c164-5c8d-a102-df3e570840b3",
+      "reasons": [
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:f990b2fc-c164-5c8d-a102-df3e570840b3",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "f9c5ed5b-7d24-5feb-bcca-a31261f8adec",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:f9c5ed5b-7d24-5feb-bcca-a31261f8adec",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "fa2eb031-73c9-5807-9b6e-51c8f55cfba6",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:fa2eb031-73c9-5807-9b6e-51c8f55cfba6",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "fe58b793-497d-5a50-b75d-9299ced8bc86",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:fe58b793-497d-5a50-b75d-9299ced8bc86",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "fece261a-3217-5d28-bdfe-b7aee132dbdc",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:fece261a-3217-5d28-bdfe-b7aee132dbdc",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "ff2f8419-ef0c-51d0-92a5-e2ec152290b3",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:ff2f8419-ef0c-51d0-92a5-e2ec152290b3",
+      "status": "BLOCKED"
+    },
+    {
+      "disposition": "data_blocked_not_scored",
+      "fight_id": "ff6ebdd1-10be-5860-b350-185f3beec00b",
+      "reasons": [
+        "less_than_24_hours_before_utc_event_boundary",
+        "unknown_title_status",
+        "unverified_fighter_1_experience",
+        "unverified_fighter_2_experience"
+      ],
+      "source_row_id": "warehouse:ff6ebdd1-10be-5860-b350-185f3beec00b",
+      "status": "BLOCKED"
+    }
+  ],
+  "considered_count": 163,
+  "status": "BLOCKED"
+}

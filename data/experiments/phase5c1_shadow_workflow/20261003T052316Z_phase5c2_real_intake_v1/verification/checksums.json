@@ -1,0 +1,9 @@
+{
+  "files": {
+    "content_review.json": "49d853aa7de4d755b98e9fec6928565c31d83a6bd4d26311f1de791e6467613e",
+    "preservation_check.json": "888c2817b49b38f2c1b32bf86e6b53d5d122354678ba8aea19fe996636fe92e0",
+    "publication_inventories.json": "7a2a069a6e31e19ec26ceeef04839536259ed07fa8d66d3a518d256aaabf42a5",
+    "verification_receipt.json": "36c3c2dadb1a1e36a86f95252042d3e7c2a3ef820ec7cc9152e170b22af8f8da",
+    "verify_publication.py": "3b38d088fd49a88737b402e3531808b38d5378bdad74ff7b2cddb24fe93e1fa9"
+  }
+}

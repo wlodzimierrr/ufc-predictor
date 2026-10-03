@@ -1,0 +1,10 @@
+{
+  "body": "query_bodies/06.json",
+  "bytes": 1588338,
+  "observed_at": "2026-10-03T05:23:33.595690+00:00",
+  "requested_at": "2026-10-03T05:23:33.501638+00:00",
+  "rows": 4522,
+  "sha256": "1cf4a351788b7de8496e1e05c8591f5cf462739a4843f44831fa7168d20a4caf",
+  "sql": "SELECT * FROM public.\"fighters\" ORDER BY \"fighter_id\"",
+  "status": "COMPLETE"
+}

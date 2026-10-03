@@ -1,0 +1,10 @@
+{
+  "body": "query_bodies/07.json",
+  "bytes": 5655627,
+  "observed_at": "2026-10-03T05:23:33.798015+00:00",
+  "requested_at": "2026-10-03T05:23:33.625563+00:00",
+  "rows": 8992,
+  "sha256": "27738c6ca29fafa1cdde121b377607ef9683c79cfb7eacca4b96b1f166118b17",
+  "sql": "SELECT * FROM public.\"fights\" ORDER BY \"fight_id\"",
+  "status": "COMPLETE"
+}

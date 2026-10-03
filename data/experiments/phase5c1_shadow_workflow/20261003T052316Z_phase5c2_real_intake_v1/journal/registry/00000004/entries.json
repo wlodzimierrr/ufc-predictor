@@ -1,0 +1,138 @@
+[
+  {
+    "action": "register",
+    "bout": {
+      "event_date": "2026-09-12",
+      "event_id": "01509142-4b12-58ee-a34c-8e5284ace0bf",
+      "fight_id": "0304128f-1ed2-59dd-8d48-2249aca821f2",
+      "fighter_1_id": "7f5c1015-2e58-599d-928d-ffe29dbcc75a",
+      "fighter_2_id": "cd320a8b-729d-5932-a8c4-ceefb3beb0fb",
+      "source_row_id": "warehouse:0304128f-1ed2-59dd-8d48-2249aca821f2",
+      "source_url": "http://www.ufcstats.com/fight-details/51caa91f68873cf5"
+    },
+    "capture_receipt_sha256": "c09d3adf1065edda3582eabd9df6126d842bfa19e84ef7e222bddc384c246a18",
+    "components": {
+      "challenger": {
+        "checksums": "59ffd4995946cc9ec7512f2f14caade09fd3144d2cfb3ee2d3b9b0951f5ca300",
+        "manifest": "7330bbebd06a6f5c0233cf8892be5c1728edc8805add02b1511499bf198b0c73",
+        "manifest_name": "training_manifest.json",
+        "path": "data/experiments/phase5b4_current_challenger/20261002T183215Z_phase5b4_current_challenger_v1_fixed"
+      },
+      "march": {
+        "checksums": "41f8c8afb8fd091fa0b04823ad9175cedcfdbf85ccf3f62d77c71e0d9219279f",
+        "path": "data/experiments/phase3b_xgb_pre_april_2026/20261001_phase3b_retrospective_v1"
+      },
+      "reference": {
+        "checksums": "12c17761fe76998e49fb5e79ea8a455861e22eaf57b37071f692bab17c1ba381",
+        "manifest": "20a9695de6cd77d74ff67f5cb0b62da2f127fbcdc181fa9d9fc2b3f8f62ad48a",
+        "manifest_name": "manifest.json",
+        "path": "data/experiments/phase5b1_reference_and_history/20261002_phase5b1_frozen_reference_v3_identity_guarded"
+      }
+    },
+    "contract": "phase5c1_prospective_shadow_v1",
+    "recorded_at": "2026-10-03T05:24:03.606232+00:00",
+    "replaces": null
+  },
+  {
+    "action": "register",
+    "bout": {
+      "event_date": "2026-07-18",
+      "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+      "fight_id": "03bec0e0-8efe-55db-9971-bd36132b3c1e",
+      "fighter_1_id": "d7b08d42-543a-5319-ac37-8ffdf0c9521b",
+      "fighter_2_id": "ae00efba-5d34-5055-a671-088736818950",
+      "source_row_id": "warehouse:03bec0e0-8efe-55db-9971-bd36132b3c1e",
+      "source_url": "http://www.ufcstats.com/fight-details/46d800ce45fdd3e6"
+    },
+    "capture_receipt_sha256": "c09d3adf1065edda3582eabd9df6126d842bfa19e84ef7e222bddc384c246a18",
+    "components": {
+      "challenger": {
+        "checksums": "59ffd4995946cc9ec7512f2f14caade09fd3144d2cfb3ee2d3b9b0951f5ca300",
+        "manifest": "7330bbebd06a6f5c0233cf8892be5c1728edc8805add02b1511499bf198b0c73",
+        "manifest_name": "training_manifest.json",
+        "path": "data/experiments/phase5b4_current_challenger/20261002T183215Z_phase5b4_current_challenger_v1_fixed"
+      },
+      "march": {
+        "checksums": "41f8c8afb8fd091fa0b04823ad9175cedcfdbf85ccf3f62d77c71e0d9219279f",
+        "path": "data/experiments/phase3b_xgb_pre_april_2026/20261001_phase3b_retrospective_v1"
+      },
+      "reference": {
+        "checksums": "12c17761fe76998e49fb5e79ea8a455861e22eaf57b37071f692bab17c1ba381",
+        "manifest": "20a9695de6cd77d74ff67f5cb0b62da2f127fbcdc181fa9d9fc2b3f8f62ad48a",
+        "manifest_name": "manifest.json",
+        "path": "data/experiments/phase5b1_reference_and_history/20261002_phase5b1_frozen_reference_v3_identity_guarded"
+      }
+    },
+    "contract": "phase5c1_prospective_shadow_v1",
+    "recorded_at": "2026-10-03T05:24:03.606232+00:00",
+    "replaces": null
+  },
+  {
+    "action": "register",
+    "bout": {
+      "event_date": "2026-09-12",
+      "event_id": "01509142-4b12-58ee-a34c-8e5284ace0bf",
+      "fight_id": "08a9fc7a-f972-59b2-a3d1-8be1c154bdcc",
+      "fighter_1_id": "73c4ad29-2d07-5741-9f96-4679c0ec582c",
+      "fighter_2_id": "88d3ab80-4e7e-50d5-8c2e-abb4327ef93f",
+      "source_row_id": "warehouse:08a9fc7a-f972-59b2-a3d1-8be1c154bdcc",
+      "source_url": "http://www.ufcstats.com/fight-details/0aa849ca85e4355a"
+    },
+    "capture_receipt_sha256": "c09d3adf1065edda3582eabd9df6126d842bfa19e84ef7e222bddc384c246a18",
+    "components": {
+      "challenger": {
+        "checksums": "59ffd4995946cc9ec7512f2f14caade09fd3144d2cfb3ee2d3b9b0951f5ca300",
+        "manifest": "7330bbebd06a6f5c0233cf8892be5c1728edc8805add02b1511499bf198b0c73",
+        "manifest_name": "training_manifest.json",
+        "path": "data/experiments/phase5b4_current_challenger/20261002T183215Z_phase5b4_current_challenger_v1_fixed"
+      },
+      "march": {
+        "checksums": "41f8c8afb8fd091fa0b04823ad9175cedcfdbf85ccf3f62d77c71e0d9219279f",
+        "path": "data/experiments/phase3b_xgb_pre_april_2026/20261001_phase3b_retrospective_v1"
+      },
+      "reference": {
+        "checksums": "12c17761fe76998e49fb5e79ea8a455861e22eaf57b37071f692bab17c1ba381",
+        "manifest": "20a9695de6cd77d74ff67f5cb0b62da2f127fbcdc181fa9d9fc2b3f8f62ad48a",
+        "manifest_name": "manifest.json",
+        "path": "data/experiments/phase5b1_reference_and_history/20261002_phase5b1_frozen_reference_v3_identity_guarded"
+      }
+    },
+    "contract": "phase5c1_prospective_shadow_v1",
+    "recorded_at": "2026-10-03T05:24:03.606232+00:00",
+    "replaces": null
+  },
+  {
+    "action": "register",
+    "bout": {
+      "event_date": "2026-08-01",
+      "event_id": "6952ee17-a74d-5432-832f-b9c6d22f8e65",
+      "fight_id": "0a078174-ba92-5058-be64-d62257966f3d",
+      "fighter_1_id": "af151ba8-797a-5a37-8125-89e8705bc01f",
+      "fighter_2_id": "29e2be84-e6f9-564a-91ac-67038549c6ab",
+      "source_row_id": "warehouse:0a078174-ba92-5058-be64-d62257966f3d",
+      "source_url": "http://www.ufcstats.com/fight-details/5425c577ed4f50b3"
+    },
+    "capture_receipt_sha256": "c09d3adf1065edda3582eabd9df6126d842bfa19e84ef7e222bddc384c246a18",
+    "components": {
+      "challenger": {
+        "checksums": "59ffd4995946cc9ec7512f2f14caade09fd3144d2cfb3ee2d3b9b0951f5ca300",
+        "manifest": "7330bbebd06a6f5c0233cf8892be5c1728edc8805add02b1511499bf198b0c73",
+        "manifest_name": "training_manifest.json",
+        "path": "data/experiments/phase5b4_current_challenger/20261002T183215Z_phase5b4_current_challenger_v1_fixed"
+      },
+      "march": {
+        "checksums": "41f8c8afb8fd091fa0b04823ad9175cedcfdbf85ccf3f62d77c71e0d9219279f",
+        "path": "data/experiments/phase3b_xgb_pre_april_2026/20261001_phase3b_retrospective_v1"
+      },
+      "reference": {
+        "checksums": "12c17761fe76998e49fb5e79ea8a455861e22eaf57b37071f692bab17c1ba381",
+        "manifest": "20a9695de6cd77d74ff67f5cb0b62da2f127fbcdc181fa9d9fc2b3f8f62ad48a",
+        "manifest_name": "manifest.json",
+        "path": "data/experiments/phase5b1_reference_and_history/20261002_phase5b1_frozen_reference_v3_identity_guarded"
+      }
+    },
+    "contract": "phase5c1_prospective_shadow_v1",
+    "recorded_at": "2026-10-03T05:24:03.606232+00:00",
+    "replaces": null
+  }
+]

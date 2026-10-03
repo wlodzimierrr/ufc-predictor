@@ -1,0 +1,128 @@
+{
+  "capture_receipt_sha256": "c09d3adf1065edda3582eabd9df6126d842bfa19e84ef7e222bddc384c246a18",
+  "captured_upcoming_canonical_rows": 151,
+  "considered_source_rows": 163,
+  "considered_unique_raw_fight_ids": 163,
+  "data_blocked": 163,
+  "eligible_attempt_reservations": 0,
+  "expired_announcements": 128,
+  "failed_or_partial_forecast_attempts": 0,
+  "feature_matrices": 0,
+  "future_on_or_after_observation_date": 35,
+  "future_timing_blocked": 22,
+  "historical_comparison": "STILL_BLOCKED",
+  "missing_bout_fighter_experience_assertions": 326,
+  "missing_title_assertions": 163,
+  "original_registrations": 35,
+  "overlapping_reason_counts": {
+    "alias_represented_by_canonical_bout": 12,
+    "less_than_24_hours_before_utc_event_boundary": 142,
+    "outside_14_day_window": 8,
+    "unknown_title_status": 163,
+    "unverified_fighter_1_experience": 163,
+    "unverified_fighter_2_experience": 163
+  },
+  "paired_scored": 0,
+  "prediction_calls": 0,
+  "prepared_at": "2026-10-03T05:30:29.906135+00:00",
+  "production_unchanged": true,
+  "ready": 0,
+  "run_checksums_sha256": "33d8e983476c408ee7a67f785c27856d58b3a0c9a0a3ea3fc2373a5bbe61d81c",
+  "status": "BLOCKED",
+  "timing_blocked": 150,
+  "timing_eligible_bouts": [
+    {
+      "event_date": "2026-10-10",
+      "fight_id": "6fe1d59a-6ae9-5436-bc78-767da12a4707",
+      "fighter_1": "Brendan Allen",
+      "fighter_2": "Christian Leroy Duncan",
+      "source_row_id": "warehouse:6fe1d59a-6ae9-5436-bc78-767da12a4707"
+    },
+    {
+      "event_date": "2026-10-17",
+      "fight_id": "129b49aa-9be9-5739-a710-4e63b5254405",
+      "fighter_1": "Cody Chovancek",
+      "fighter_2": "SuYoung You",
+      "source_row_id": "warehouse:129b49aa-9be9-5739-a710-4e63b5254405"
+    },
+    {
+      "event_date": "2026-10-17",
+      "fight_id": "142b43e4-12ae-574b-a291-81a81180425c",
+      "fighter_1": "Tanner Boser",
+      "fighter_2": "Jhonata Diniz",
+      "source_row_id": "warehouse:142b43e4-12ae-574b-a291-81a81180425c"
+    },
+    {
+      "event_date": "2026-10-17",
+      "fight_id": "5c415656-53c0-5ced-be99-0c3174f30428",
+      "fighter_1": "Louis Jourdain",
+      "fighter_2": "Timmy Cuamba",
+      "source_row_id": "warehouse:5c415656-53c0-5ced-be99-0c3174f30428"
+    },
+    {
+      "event_date": "2026-10-17",
+      "fight_id": "6b62ff0e-40af-52ea-adc5-320cc1e55c4d",
+      "fighter_1": "Melissa Croden",
+      "fighter_2": "Chelsea Chandler",
+      "source_row_id": "warehouse:6b62ff0e-40af-52ea-adc5-320cc1e55c4d"
+    },
+    {
+      "event_date": "2026-10-17",
+      "fight_id": "94ba7a17-ad0c-5c58-b3a9-3719537c9589",
+      "fighter_1": "Julien Leblanc",
+      "fighter_2": "Gilbert Urbina",
+      "source_row_id": "warehouse:94ba7a17-ad0c-5c58-b3a9-3719537c9589"
+    },
+    {
+      "event_date": "2026-10-17",
+      "fight_id": "98009768-20cc-531b-940d-e75927dde7c7",
+      "fighter_1": "Javad Mahjoub",
+      "fighter_2": "Louie Sutherland",
+      "source_row_id": "warehouse:98009768-20cc-531b-940d-e75927dde7c7"
+    },
+    {
+      "event_date": "2026-10-17",
+      "fight_id": "9a7c6c84-1f6b-5ff2-aea1-abd5d3766771",
+      "fighter_1": "Joaquin Buckley",
+      "fighter_2": "Mike Malott",
+      "source_row_id": "warehouse:9a7c6c84-1f6b-5ff2-aea1-abd5d3766771"
+    },
+    {
+      "event_date": "2026-10-17",
+      "fight_id": "9c1577d1-6233-547f-a938-a9165014bfa5",
+      "fighter_1": "Jamey-Lyn Horth",
+      "fighter_2": "Katlyn Cerminara",
+      "source_row_id": "warehouse:9c1577d1-6233-547f-a938-a9165014bfa5"
+    },
+    {
+      "event_date": "2026-10-17",
+      "fight_id": "af2f4613-5141-5eb7-8834-e7472d389806",
+      "fighter_1": "Chad Anheliger",
+      "fighter_2": "Steven Koslow",
+      "source_row_id": "warehouse:af2f4613-5141-5eb7-8834-e7472d389806"
+    },
+    {
+      "event_date": "2026-10-17",
+      "fight_id": "c888bed7-46b6-5e8a-b967-c3a76f2abbd9",
+      "fighter_1": "Mandel Nallo",
+      "fighter_2": "Nate Landwehr",
+      "source_row_id": "warehouse:c888bed7-46b6-5e8a-b967-c3a76f2abbd9"
+    },
+    {
+      "event_date": "2026-10-17",
+      "fight_id": "df4d8d52-7d3e-5bab-a462-e68dfb4824ea",
+      "fighter_1": "Marc-Andre Barriault",
+      "fighter_2": "Kyle Daukaus",
+      "source_row_id": "warehouse:df4d8d52-7d3e-5bab-a462-e68dfb4824ea"
+    },
+    {
+      "event_date": "2026-10-17",
+      "fight_id": "f990b2fc-c164-5c8d-a102-df3e570840b3",
+      "fighter_1": "Erin Blanchfield",
+      "fighter_2": "Jasmine Jasudavicius",
+      "source_row_id": "warehouse:f990b2fc-c164-5c8d-a102-df3e570840b3"
+    }
+  ],
+  "timing_in_window": 13,
+  "unique_affected_fighters": 277
+}

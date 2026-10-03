@@ -1,0 +1,17 @@
+{
+  "version": "phase5c2_bounded_activation_v1",
+  "workflow_directory": "data/experiments/phase5c1_shadow_workflow/20261002T201821Z_shadow_contract_v1",
+  "workflow_checksums_sha256": "83cf581f3f90b7c0f85fcc8063d87330843bec657b03da7f5135ddde450d7514",
+  "capture_scope": "separately_authorized_phase5c2_readonly_capture",
+  "forecast_scope": "separately_authorized_phase5c2_forecast",
+  "source_identity": "operator-managed UFC warehouse; accepted public source tables",
+  "source_url_prefix": "warehouse://operator-managed-ufc/public.",
+  "capture_attempt_budget": 1,
+  "tables": ["events", "fighters", "fights", "fight_stats_aggregate"],
+  "consideration_scope": "Every captured upcoming announcement, including expired and timing-blocked rows; no inferred cancellation or replacement",
+  "supplemental_evidence": "NONE_SUPPLIED",
+  "include_march": true,
+  "outcome_evaluation": false,
+  "fitting": false,
+  "production_changes": false
+}

@@ -1,0 +1,5 @@
+{
+  "requested_at": "2026-10-03T05:23:33.390160+00:00",
+  "sql": "SELECT transaction_timestamp() AS transaction_started_at, current_setting('TimeZone') AS database_timezone, pg_current_snapshot()::text AS snapshot",
+  "status": "STARTED"
+}

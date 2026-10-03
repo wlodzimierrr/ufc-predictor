@@ -1,0 +1,16 @@
+{
+  "acquisition_log_checksums_sha256": "99ef42a3342aa3dbfd104a8b82fec85b419146193ca9ff389c28f43defc9c51e",
+  "activation_checksums_sha256": "21672682c5a7096fdc94ac8344a90755186c4cfadd92f9cb91ee2d5e4d98adfd",
+  "capture_attempts": 1,
+  "capture_receipt_sha256": "c09d3adf1065edda3582eabd9df6126d842bfa19e84ef7e222bddc384c246a18",
+  "closed": true,
+  "completed_at": "2026-10-03T05:23:34.508337+00:00",
+  "connected": true,
+  "considered_count": 163,
+  "observation_checksums_sha256": "e2791af3b24ea6785e816d3c19e2ccf34020ac25acad84692874050bbcefa6a8",
+  "observation_cutoff": "2026-10-03T05:23:34.369563+00:00",
+  "reservation_checksums_sha256": "cb59dedabca2bae21a6f3399f3939e92ab6c209307c5110354f20eb2eed6185f",
+  "rolled_back": true,
+  "started_at": "2026-10-03T05:23:33.133992+00:00",
+  "status": "READY"
+}

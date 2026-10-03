@@ -1,0 +1,82 @@
+[
+  {
+    "body": "query_bodies/01.json",
+    "bytes": 33,
+    "observed_at": "2026-10-03T05:23:33.373640+00:00",
+    "requested_at": "2026-10-03T05:23:33.356864+00:00",
+    "rows": 1,
+    "sha256": "78e9248e627b00b4421971853214e80c0328644d939e4d3a3aefadba355b7e35",
+    "sql": "SHOW transaction_read_only",
+    "status": "COMPLETE"
+  },
+  {
+    "body": "query_bodies/02.json",
+    "bytes": 46,
+    "observed_at": "2026-10-03T05:23:33.386594+00:00",
+    "requested_at": "2026-10-03T05:23:33.376954+00:00",
+    "rows": 1,
+    "sha256": "82208903bc4a8f445a9d3b060c0815181a03a4f0bac81a3b9e5933a821e422ed",
+    "sql": "SHOW transaction_isolation",
+    "status": "COMPLETE"
+  },
+  {
+    "body": "query_bodies/03.json",
+    "bytes": 118,
+    "observed_at": "2026-10-03T05:23:33.402594+00:00",
+    "requested_at": "2026-10-03T05:23:33.390160+00:00",
+    "rows": 1,
+    "sha256": "38446dbd7394a4fcc221e5b728a4d4a8d73c1011492809d70b9ad67d8a3f7903",
+    "sql": "SELECT transaction_timestamp() AS transaction_started_at, current_setting('TimeZone') AS database_timezone, pg_current_snapshot()::text AS snapshot",
+    "status": "COMPLETE"
+  },
+  {
+    "body": "query_bodies/04.json",
+    "bytes": 12285,
+    "observed_at": "2026-10-03T05:23:33.458681+00:00",
+    "requested_at": "2026-10-03T05:23:33.406330+00:00",
+    "rows": 65,
+    "sha256": "874d09625e812c118cbd01108de2f808d8c96dc3fd0d422538d0c79bd7abe606",
+    "sql": "SELECT table_schema, table_name, column_name, ordinal_position,\ndata_type, udt_name, is_nullable, column_default\nFROM information_schema.columns WHERE table_schema = 'public'\nAND table_name IN ('events','fighters','fights','fight_stats_aggregate') ORDER BY table_name, ordinal_position",
+    "status": "COMPLETE"
+  },
+  {
+    "body": "query_bodies/05.json",
+    "bytes": 254222,
+    "observed_at": "2026-10-03T05:23:33.494824+00:00",
+    "requested_at": "2026-10-03T05:23:33.462679+00:00",
+    "rows": 798,
+    "sha256": "e36c7250b9965ec8294fe9bac196f45ec96ad51624ef704e5e188b83eb868a78",
+    "sql": "SELECT * FROM public.\"events\" ORDER BY \"event_id\"",
+    "status": "COMPLETE"
+  },
+  {
+    "body": "query_bodies/06.json",
+    "bytes": 1588338,
+    "observed_at": "2026-10-03T05:23:33.595690+00:00",
+    "requested_at": "2026-10-03T05:23:33.501638+00:00",
+    "rows": 4522,
+    "sha256": "1cf4a351788b7de8496e1e05c8591f5cf462739a4843f44831fa7168d20a4caf",
+    "sql": "SELECT * FROM public.\"fighters\" ORDER BY \"fighter_id\"",
+    "status": "COMPLETE"
+  },
+  {
+    "body": "query_bodies/07.json",
+    "bytes": 5655627,
+    "observed_at": "2026-10-03T05:23:33.798015+00:00",
+    "requested_at": "2026-10-03T05:23:33.625563+00:00",
+    "rows": 8992,
+    "sha256": "27738c6ca29fafa1cdde121b377607ef9683c79cfb7eacca4b96b1f166118b17",
+    "sql": "SELECT * FROM public.\"fights\" ORDER BY \"fight_id\"",
+    "status": "COMPLETE"
+  },
+  {
+    "body": "query_bodies/08.json",
+    "bytes": 15164378,
+    "observed_at": "2026-10-03T05:23:34.186184+00:00",
+    "requested_at": "2026-10-03T05:23:33.860338+00:00",
+    "rows": 17386,
+    "sha256": "ec19a9e5e0b13766744e187f1d099e92c65103940ac02fefe804b4421414bcb4",
+    "sql": "SELECT * FROM public.\"fight_stats_aggregate\" ORDER BY \"fight_stat_id\"",
+    "status": "COMPLETE"
+  }
+]

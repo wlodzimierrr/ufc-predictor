@@ -1,0 +1,45 @@
+{
+  "previous_sha256": "fa1ed3f9124cb040254c91fb5dd2de7fce1315243e6ea0b2f45e8fbf590e5a0d",
+  "record": {
+    "bout": {
+      "announced_event_date": "2026-10-24",
+      "event_id": "3aa2bad1-e07c-5c96-8bec-407e73f4106e",
+      "fight_id": "6298e7bf-13d9-53c6-a98d-25c230184deb",
+      "fighter_1_experience_evidence": null,
+      "fighter_1_experience_status": "unverified",
+      "fighter_1_id": "bfa62ab8-5d12-57e2-8469-1bc2417e4ac6",
+      "fighter_1_profile_present": true,
+      "fighter_2_experience_evidence": null,
+      "fighter_2_experience_status": "unverified",
+      "fighter_2_id": "bbdef6b6-d6fa-59b2-9c62-19c6a7ccd2da",
+      "fighter_2_profile_present": true,
+      "is_title_fight": null,
+      "source_scraped_at": "2026-09-12T16:39:00+00:00",
+      "source_url": "http://www.ufcstats.com/fight-details/8788a6dda6e64aff",
+      "title_evidence": null,
+      "warehouse_stored_title_flag": false,
+      "weight_class": "heavyweight"
+    },
+    "eligibility_reasons": [
+      "outside_14_day_window",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ],
+    "experiment_id": "prospective_shadow_v1",
+    "kind": "registration",
+    "observation_cutoff": "2026-10-02T13:28:09.905938+00:00",
+    "real_predictions_recorded": false,
+    "recipes": {
+      "current_challenger": "phase5_current_candidate_v1",
+      "frozen_reference": "production_derived_reference_v1",
+      "march_research_control": "phase3b_retrospective_v1"
+    },
+    "registered_at": "2026-10-02T13:28:09.905938+00:00",
+    "registry_key": "6298e7bf-13d9-53c6-a98d-25c230184deb",
+    "schema_version": 1,
+    "source_sha256": "27738c6ca29fafa1cdde121b377607ef9683c79cfb7eacca4b96b1f166118b17",
+    "status": "data_blocked_not_scored"
+  },
+  "sequence": 11
+}

@@ -1,0 +1,10 @@
+{
+  "body": "query_bodies/04.json",
+  "bytes": 12285,
+  "observed_at": "2026-10-03T05:23:33.458681+00:00",
+  "requested_at": "2026-10-03T05:23:33.406330+00:00",
+  "rows": 65,
+  "sha256": "874d09625e812c118cbd01108de2f808d8c96dc3fd0d422538d0c79bd7abe606",
+  "sql": "SELECT table_schema, table_name, column_name, ordinal_position,\ndata_type, udt_name, is_nullable, column_default\nFROM information_schema.columns WHERE table_schema = 'public'\nAND table_name IN ('events','fighters','fights','fight_stats_aggregate') ORDER BY table_name, ordinal_position",
+  "status": "COMPLETE"
+}

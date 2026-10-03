@@ -1,0 +1,45 @@
+{
+  "previous_sha256": "0043af5da15a31f1526c2ad451d828a19423c4a13373b9e673a4fe13f9e44157",
+  "record": {
+    "bout": {
+      "announced_event_date": "2026-10-03",
+      "event_id": "9c1fb27a-e891-5f38-a55c-144001c48b09",
+      "fight_id": "c55c2b7b-5373-537a-acaa-106fe1dc9003",
+      "fighter_1_experience_evidence": null,
+      "fighter_1_experience_status": "unverified",
+      "fighter_1_id": "6b9eab40-37ab-5d89-9a51-dcce3fa41358",
+      "fighter_1_profile_present": true,
+      "fighter_2_experience_evidence": null,
+      "fighter_2_experience_status": "unverified",
+      "fighter_2_id": "a0fdb396-efcd-5ec8-92dc-32422e81bc23",
+      "fighter_2_profile_present": true,
+      "is_title_fight": null,
+      "source_scraped_at": "2026-09-30T18:46:41+00:00",
+      "source_url": "manual://fight/9c1fb27a-e891-5f38-a55c-144001c48b09/jacobe-smith-vs-bruce-whitehead",
+      "title_evidence": null,
+      "warehouse_stored_title_flag": false,
+      "weight_class": "welterweight"
+    },
+    "eligibility_reasons": [
+      "less_than_24_hours_before_utc_event_boundary",
+      "unknown_title_status",
+      "unresolved_fighter_1_experience",
+      "unresolved_fighter_2_experience"
+    ],
+    "experiment_id": "prospective_shadow_v1",
+    "kind": "registration",
+    "observation_cutoff": "2026-10-02T13:28:09.905938+00:00",
+    "real_predictions_recorded": false,
+    "recipes": {
+      "current_challenger": "phase5_current_candidate_v1",
+      "frozen_reference": "production_derived_reference_v1",
+      "march_research_control": "phase3b_retrospective_v1"
+    },
+    "registered_at": "2026-10-02T13:28:09.905938+00:00",
+    "registry_key": "c55c2b7b-5373-537a-acaa-106fe1dc9003",
+    "schema_version": 1,
+    "source_sha256": "27738c6ca29fafa1cdde121b377607ef9683c79cfb7eacca4b96b1f166118b17",
+    "status": "data_blocked_not_scored"
+  },
+  "sequence": 28
+}

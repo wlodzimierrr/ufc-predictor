@@ -1,0 +1,11 @@
+{
+  "files": {
+    "blockers_by_fighter.json": "bff2ae9c92445cbd1fde418e029fadbcf7d9427f1a74ac1529de8b0638ad5a16",
+    "blockers_by_source_bout_fighter.json": "5331126b506c9915baeb51775526437cd77976c77fc759a72354ceacbffe3650",
+    "build_coverage.py": "e0cebe33f1f299be2e1790e916a083e21b132ff40903fa04ab47ea422623e3b5",
+    "coverage.csv": "93d6555c21d05ae738a1b2558fc0a739aaec99210fea18bdfbe8f4bb8d693969",
+    "coverage_summary.json": "34dfb956bee497b3c732b07869f260dd1e5b7a69a7f8d0652f2142bbe1af416f",
+    "original_registration_lineage.json": "bbee2ebd25d9d9f543781b5b09774b135d1024d0dc516a974f171db4c7a36662",
+    "source_freshness.json": "26161fe055c87f3b1aecbf772a7943c37988862b8f6c43ca4a4070adfe900e6e"
+  }
+}

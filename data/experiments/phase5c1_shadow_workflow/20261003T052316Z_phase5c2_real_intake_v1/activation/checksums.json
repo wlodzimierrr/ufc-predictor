@@ -1,0 +1,13 @@
+{
+  "files": {
+    "activation_manifest.json": "2be9f7f286c832572e3cebc2d7bf41c465f15fbc0d0e2aad20b3525325e5ddab",
+    "authorization.txt": "4d949673e7ee5d161534ccf5bb2c9e476ae3f387de35708d0ee2af57ebc1b174",
+    "code/configs/phase5c2_activation_v1.json": "d2685f796c430ae75b5fd9d04ef8cb0a0276a17503cf6941248266d1b9084b79",
+    "code/modeling/phase5c2_activation.py": "222eecb70d090a1281d7af9422861f4a638f8c0c1b29a178377a250889635b89",
+    "code/modeling/tests/test_phase5c2_activation.py": "4754eac53658439841dd5c62d33ea0d1d5b6c9f341ab3d53f626a5200bb29b3e",
+    "code/tools/run_phase5c2_activation.py": "f7f1372c7c1b2dae8cde46f21f42712b06d40edecbad7fd75aa07dd83e6ffed0",
+    "code/warehouse/db.py": "30ef8180e2b3c7fe2fa64b6009760a3c9dcd3a81db202044c7f994dce7bced75",
+    "configuration.json": "d2685f796c430ae75b5fd9d04ef8cb0a0276a17503cf6941248266d1b9084b79",
+    "freeze_receipt.json": "60393827befa10f25ad761bce3934942725e28aa833db6e87a764c54360f0558"
+  }
+}

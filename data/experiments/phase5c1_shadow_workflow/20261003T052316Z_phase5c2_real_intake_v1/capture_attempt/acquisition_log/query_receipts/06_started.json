@@ -1,0 +1,5 @@
+{
+  "requested_at": "2026-10-03T05:23:33.501638+00:00",
+  "sql": "SELECT * FROM public.\"fighters\" ORDER BY \"fighter_id\"",
+  "status": "STARTED"
+}

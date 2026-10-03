@@ -1,0 +1,52 @@
+{
+  "authorization_text_sha256": "4d949673e7ee5d161534ccf5bb2c9e476ae3f387de35708d0ee2af57ebc1b174",
+  "code_sha256": {
+    "configs/phase5c2_activation_v1.json": "d2685f796c430ae75b5fd9d04ef8cb0a0276a17503cf6941248266d1b9084b79",
+    "modeling/phase5c2_activation.py": "222eecb70d090a1281d7af9422861f4a638f8c0c1b29a178377a250889635b89",
+    "modeling/tests/test_phase5c2_activation.py": "4754eac53658439841dd5c62d33ea0d1d5b6c9f341ab3d53f626a5200bb29b3e",
+    "tools/run_phase5c2_activation.py": "f7f1372c7c1b2dae8cde46f21f42712b06d40edecbad7fd75aa07dd83e6ffed0",
+    "warehouse/db.py": "30ef8180e2b3c7fe2fa64b6009760a3c9dcd3a81db202044c7f994dce7bced75"
+  },
+  "component_freezes": [
+    "2026-10-02T18:32:44.619117+00:00",
+    "2026-10-02T18:32:47.462997+00:00",
+    "2026-10-02T18:32:32.965565+00:00",
+    "2026-10-02T18:32:36.535143+00:00",
+    "2026-10-02T18:32:40.159909+00:00",
+    "2026-10-02T18:32:43.791456+00:00",
+    "2026-10-02T14:42:15.887155+00:00",
+    "2026-10-02T14:24:32.549708+00:00",
+    "2026-10-02T14:42:15.887537+00:00",
+    "2026-10-02T14:24:32.818738+00:00",
+    "2026-10-02T14:24:32.563287+00:00",
+    "2026-10-01T20:43:31.249475+00:00",
+    "2026-10-01T20:44:52.122233+00:00"
+  ],
+  "config": {
+    "capture_attempt_budget": 1,
+    "capture_scope": "separately_authorized_phase5c2_readonly_capture",
+    "consideration_scope": "Every captured upcoming announcement, including expired and timing-blocked rows; no inferred cancellation or replacement",
+    "fitting": false,
+    "forecast_scope": "separately_authorized_phase5c2_forecast",
+    "include_march": true,
+    "outcome_evaluation": false,
+    "production_changes": false,
+    "source_identity": "operator-managed UFC warehouse; accepted public source tables",
+    "source_url_prefix": "warehouse://operator-managed-ufc/public.",
+    "supplemental_evidence": "NONE_SUPPLIED",
+    "tables": [
+      "events",
+      "fighters",
+      "fights",
+      "fight_stats_aggregate"
+    ],
+    "version": "phase5c2_bounded_activation_v1",
+    "workflow_checksums_sha256": "83cf581f3f90b7c0f85fcc8063d87330843bec657b03da7f5135ddde450d7514",
+    "workflow_directory": "data/experiments/phase5c1_shadow_workflow/20261002T201821Z_shadow_contract_v1"
+  },
+  "config_sha256": "d2685f796c430ae75b5fd9d04ef8cb0a0276a17503cf6941248266d1b9084b79",
+  "frozen_at": "2026-10-03T05:23:17.060437+00:00",
+  "version": "phase5c2_bounded_activation_v1",
+  "workflow_contract_sha256": "1481f4ac0a2986a182d0a3c07ba286d4eb407ac438a15ef9c7f343ebc10b80c8",
+  "workflow_frozen_at": "2026-10-02T20:18:22.116259+00:00"
+}

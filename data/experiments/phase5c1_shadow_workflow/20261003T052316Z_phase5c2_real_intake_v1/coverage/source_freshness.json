@@ -1,0 +1,112 @@
+{
+  "april": [
+    {
+      "event_id": "f9fdb60d-f963-535d-a85d-6d782b6e17f4",
+      "fight_id": "498de4bd-d781-52af-a383-802158196d2d",
+      "fighter_1_id": "6d0eb73f-ebaa-58c0-afd5-39c22957a36f",
+      "fighter_2_id": "7f39e479-ed06-5ae8-ba13-9fac7ba21d6d",
+      "result_type": "draw"
+    },
+    {
+      "event_id": "f9fdb60d-f963-535d-a85d-6d782b6e17f4",
+      "fight_id": "4b08f65d-db68-5091-9568-4748c4cf7318",
+      "fighter_1_id": "6d0eb73f-ebaa-58c0-afd5-39c22957a36f",
+      "fighter_2_id": "7f39e479-ed06-5ae8-ba13-9fac7ba21d6d",
+      "result_type": "upcoming"
+    }
+  ],
+  "considered_event_dates": {
+    "2026-03-30": 1,
+    "2026-04-11": 1,
+    "2026-04-18": 3,
+    "2026-04-25": 1,
+    "2026-05-02": 1,
+    "2026-05-09": 1,
+    "2026-05-16": 1,
+    "2026-05-30": 3,
+    "2026-06-06": 4,
+    "2026-06-20": 2,
+    "2026-06-27": 2,
+    "2026-07-11": 1,
+    "2026-07-18": 21,
+    "2026-08-01": 24,
+    "2026-08-22": 13,
+    "2026-08-29": 1,
+    "2026-09-05": 11,
+    "2026-09-12": 13,
+    "2026-09-19": 13,
+    "2026-09-26": 11,
+    "2026-10-03": 14,
+    "2026-10-10": 1,
+    "2026-10-17": 12,
+    "2026-10-24": 6,
+    "2026-10-31": 1,
+    "2026-11-07": 1
+  },
+  "expired_announcements": 128,
+  "latest_event_date_by_result_type": {
+    "draw": "2026-04-18",
+    "nc": "2026-09-12",
+    "win": "2026-08-29"
+  },
+  "latest_resolved_event_date": "2026-09-12",
+  "latest_statistics_event_date": "2026-05-30",
+  "on_or_after_observation_date": 35,
+  "read_at": "2026-10-03T05:24:35.369781+00:00",
+  "result_type_counts": {
+    "draw": 65,
+    "nc": 97,
+    "upcoming": 163,
+    "win": 8667
+  },
+  "row_refresh_ranges": {
+    "events": {
+      "first": "2026-06-01T00:03:05+00:00",
+      "last": "2026-09-30T18:46:41+00:00"
+    },
+    "fight_stats_aggregate": {
+      "first": "2026-08-08T23:39:44+00:00",
+      "last": "2026-08-09T03:09:44+00:00"
+    },
+    "fighters": {
+      "first": "2026-08-08T18:00:30+00:00",
+      "last": "2026-09-30T18:46:41+00:00"
+    },
+    "fights": {
+      "first": "2026-03-30T10:24:47.177619+00:00",
+      "last": "2026-09-30T18:46:41+00:00"
+    }
+  },
+  "rows": {
+    "events": 798,
+    "fight_stats_aggregate": 17386,
+    "fighters": 4522,
+    "fights": 8992
+  },
+  "source_byte_comparison": {
+    "events": {
+      "accepted_training_capture": "e36c7250b9965ec8294fe9bac196f45ec96ad51624ef704e5e188b83eb868a78",
+      "bytes": 254222,
+      "contemporary": "e36c7250b9965ec8294fe9bac196f45ec96ad51624ef704e5e188b83eb868a78",
+      "identical_bytes": true
+    },
+    "fight_stats_aggregate": {
+      "accepted_training_capture": "ec19a9e5e0b13766744e187f1d099e92c65103940ac02fefe804b4421414bcb4",
+      "bytes": 15164378,
+      "contemporary": "ec19a9e5e0b13766744e187f1d099e92c65103940ac02fefe804b4421414bcb4",
+      "identical_bytes": true
+    },
+    "fighters": {
+      "accepted_training_capture": "1cf4a351788b7de8496e1e05c8591f5cf462739a4843f44831fa7168d20a4caf",
+      "bytes": 1588338,
+      "contemporary": "1cf4a351788b7de8496e1e05c8591f5cf462739a4843f44831fa7168d20a4caf",
+      "identical_bytes": true
+    },
+    "fights": {
+      "accepted_training_capture": "27738c6ca29fafa1cdde121b377607ef9683c79cfb7eacca4b96b1f166118b17",
+      "bytes": 5655627,
+      "contemporary": "27738c6ca29fafa1cdde121b377607ef9683c79cfb7eacca4b96b1f166118b17",
+      "identical_bytes": true
+    }
+  }
+}

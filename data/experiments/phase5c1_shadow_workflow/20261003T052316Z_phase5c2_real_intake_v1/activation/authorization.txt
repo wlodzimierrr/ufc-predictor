@@ -1,0 +1,140 @@
+Work in `/home/wlodzimierrr/ufc-data`.
+
+Complete Phase 5C.2: bounded real-source intake and conditional prospective shadow activation. Produce a detailed handoff report, then commit and push the phase changes.
+
+This session authorizes:
+- Exactly one contemporary read-only warehouse capture using the existing authorized capture API.
+- Intake of already supplied, explicitly trusted local evidence.
+- Real feature construction and paired shadow forecasting ONLY for bouts that pass the unchanged evidence, identity, registration and timing gates.
+- New isolated artifacts, a minimal activation entrypoint if needed, scoped tests, documentation, commits and a normal push.
+
+It does NOT authorize source refreshes, scraping, blocked-site retries, warehouse repairs, fitting, recalibration, threshold changes, outcome evaluation or production changes.
+
+1. Read and verify the accepted handoff
+
+Read completely:
+- docs/implementation-reports/phase5c1-shadow-runner-and-evidence-intake-report.md
+- docs/phase5c1-shadow-evidence-contract-v1.md
+- docs/phase5-prospective-shadow-protocol-v1.md
+- docs/phase5-modeling-eligibility-policy-v2.md
+- docs/implementation-reports/next-phase-git-handoff.md
+- Any applicable AGENTS.md.
+
+Inspect the branch, upstream, remote and worktree. Preserve unrelated work.
+
+Verify these checksum-manifest pins before substantive work:
+- Challenger: 59ffd4995946cc9ec7512f2f14caade09fd3144d2cfb3ee2d3b9b0951f5ca300
+- Reference: 12c17761fe76998e49fb5e79ea8a455861e22eaf57b37071f692bab17c1ba381
+- March control: 41f8c8afb8fd091fa0b04823ad9175cedcfdbf85ccf3f62d77c71e0d9219279f
+- Phase 5C.1 workflow: 83cf581f3f90b7c0f85fcc8063d87330843bec657b03da7f5135ddde450d7514
+
+The accepted workflow is:
+data/experiments/phase5c1_shadow_workflow/20261002T201821Z_shadow_contract_v1/
+
+Establish a preservation baseline covering existing artifacts, holdouts, registry records, production files and unrelated changes.
+
+2. Prepare the activation boundary before observing real data
+
+Reuse the existing capture, validation, journal, feature-building and forecasting APIs. Do not weaken the synthetic-only CLI or modify frozen implementations merely to expose real activation.
+
+If a minimal separate activation entrypoint is necessary:
+- Test it with mocks first.
+- Bind its exact code, configuration and this authorization text in an immutable activation manifest.
+- Record its actual UTC freeze time.
+- Require capture start after that freeze and every existing component/workflow freeze.
+- Preserve the accepted Phase 5C.1 contract unchanged.
+
+Use actual UTC clocks throughout. Never backdate, replace observation times with copy times, or manipulate bytes to manufacture a distinct capture.
+
+If activation requires a substantive source-policy, identity-policy or inference-contract change, stop and report the required separately scoped change.
+
+3. Perform exactly one bounded capture
+
+Use `authorized_readonly_capture` with the explicit scope:
+`separately_authorized_phase5c2_readonly_capture`.
+
+Capture only the accepted schemas and four source tables:
+events, fighters, fights, fight_stats_aggregate.
+
+Use one verified read-only repeatable-read transaction. Preserve exact source bytes, query receipts, transaction snapshot, timezone, observed times and hashes. Roll back and close the connection.
+
+Do not read bout_features, query frozen holdout outcomes, invoke a scraper, refresh sources or repair records. Do not expose credentials or connection secrets in logs, artifacts or Git.
+
+After capture, all preparation and verification must use those exact frozen bytes offline. Do not perform a second capture to improve coverage or recover from a blocker. Preserve any failed capture evidence and stop acquisition.
+
+Record source freshness honestly: capture recency does not prove result/statistic/profile completeness.
+
+4. Build an honest evidence and coverage package
+
+Use only eligible evidence whose source authority has been explicitly established. A hash verifies integrity, not authenticity.
+
+Do not manufacture title assertions, complete-history assertions, signed reviews or debut evidence from warehouse defaults, generated text, an empty history query or your own unsupported interpretation.
+
+If no trusted supplemental evidence was supplied, publish an evidence package with empty sources/assertions and retain the resulting blockers. Do not select a new provider or initiate network acquisition.
+
+Preserve every considered future announcement, including unresolved and timing-blocked rows. Retain all 35 original registrations and their immutable lineage. Do not invent cancellation or replacement labels for expired or missing announcements.
+
+Validate contemporary identities before indexing. April identity remains unresolved unless qualifying new evidence explicitly resolves it. Changed duplicate observations must not inherit old reconciliation decisions blindly.
+
+Report essential blockers by source row, bout and fighter, with the specific evidence needed to resolve each.
+
+5. Conditionally activate shadow forecasting
+
+Apply the unchanged readiness gates using the common observation cutoff and actual forecast times.
+
+If no bout passes:
+- Publish a clearly BLOCKED, checksummed intake/readiness run.
+- Make zero prediction calls.
+- Do not build real forecast matrices for blocked bouts.
+- Do not substitute synthetic data or score a reduced historical population.
+
+If bouts pass:
+- Register them before any probabilities are computed.
+- Score every eligible bout, without confidence-based filtering.
+- Use the existing real forecasting API with scope:
+  `separately_authorized_phase5c2_forecast`.
+- Bind the authorization-text hash, exact capture-receipt hash and contract hash.
+- Use only the saved challenger and reference preprocessing, learners and calibrators.
+- Include the frozen March model as the predeclared secondary control where supported; its absence must remain explicit.
+- Preserve full-precision raw/calibrated probabilities, orientation, matrices, lineage, bindings, decisions and actual execution times.
+- Keep inclusive 0.40–0.60 NO PICK separate from data-blocked status.
+
+Reserve the first eligible attempt before prediction. Preserve crashes, failed attempts and partial outputs. Do not automatically retry or choose another capture.
+
+Do not open outcomes, calculate predictive metrics, tune anything, promote a model or modify production pointers.
+
+6. Verify and publish
+
+Run focused safe tests covering authorization boundaries, read-only capture, missing evidence, blocked zero-call execution, timing, first-attempt selection, preservation and publication integrity.
+
+Do not run the known mutating live integration test or broad unrelated suites.
+
+Verify published checksums, frozen-input reconstruction, feature determinism and saved-output/decision consistency. Do not enable real probability replay through a synthetic-only replay interface or create an unauthorized second forecasting attempt.
+
+Use new exclusive directories under the existing supported isolated Phase 5C output root. Never overwrite accepted artifacts or previous runs.
+
+Inspect Git contents for secrets and unintended large/runtime files before committing.
+
+7. Write the handoff report and commit/push
+
+Create:
+docs/implementation-reports/phase5c2-real-intake-and-shadow-activation-report.md
+
+Include:
+- Actual scope and authorization.
+- Activation, component and observation freeze clocks.
+- Capture queries, source freshness and completeness limitations.
+- Evidence authority and unresolved requirements.
+- Considered, timing-blocked, data-blocked, ready and paired-scored counts.
+- Prediction-call counts and any failed/partial attempts.
+- Artifact paths and checksum pins.
+- Tests, deterministic verification and preservation results.
+- Exact remaining blockers and the smallest useful next step.
+
+Distinguish implementation readiness, intake readiness and actual forecasting completion. Historical comparison remains STILL_BLOCKED. Production remains unchanged.
+
+Follow docs/implementation-reports/next-phase-git-handoff.md. Commit all phase changes in logical commits and push normally to the verified upstream; never force-push or rewrite history.
+
+In the final response, provide the report path, actual readiness/scoring status, test results, artifact pins, commit hashes, push result and final worktree status.
+
+A properly preserved BLOCKED observation with zero forecasts is a valid phase result. Do not relax evidence requirements to claim activation.

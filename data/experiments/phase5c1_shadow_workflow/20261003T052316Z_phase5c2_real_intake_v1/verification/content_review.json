@@ -1,0 +1,24 @@
+{
+  "artifact_bytes_before_verification_bundle": 172445742,
+  "checked_at": "2026-10-03T05:33:27.350864+00:00",
+  "credential_signature_findings": [
+    {
+      "matches": 1,
+      "path": "modeling/tests/test_phase5c2_activation.py",
+      "pattern": "database_url",
+      "synthetic_test_literal_only": true
+    },
+    {
+      "matches": 1,
+      "path": "data/experiments/phase5c1_shadow_workflow/20261003T052316Z_phase5c2_real_intake_v1/activation/code/modeling/tests/test_phase5c2_activation.py",
+      "pattern": "database_url",
+      "synthetic_test_literal_only": true
+    }
+  ],
+  "files_inspected": 6329,
+  "implementation_whitespace": [],
+  "largest_artifact_bytes": 36679116,
+  "largest_artifacts_are_intended_frozen_source_package_and_projection": true,
+  "real_credential_findings": 0,
+  "runtime_or_copied_components": []
+}
