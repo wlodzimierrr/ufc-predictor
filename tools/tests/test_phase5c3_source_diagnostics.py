@@ -1,4 +1,7 @@
-"""Offline reproductions of existing acquisition behavior; no repairs applied.
+"""Offline source diagnostics and regressions for subsequent scoped repairs.
+
+Phase 5C.5 updates only the two aggregate-selection expectations. The saved
+Phase 5C.3 report/JSON and other diagnostic defect reproductions are preserved.
 
 Run with the already installed scraper environment:
   PYTHONDONTWRITEBYTECODE=1 scraper/UFC-Web-Scraping-main/.venv/bin/python \
@@ -56,10 +59,10 @@ class SourceDiagnosisTests(unittest.TestCase):
         with patch.object(cls, "_resolve_manifest_path", return_value=self.manifest):
             return cls(incremental=incremental, existing_csv=str(parsed))
 
-    def test_metadata_capture_skips_missing_aggregate_but_round_still_requests(self):
+    def test_metadata_capture_cannot_skip_missing_aggregate_or_round(self):
         aggregate = self.spider(CrawlFightStats, [], ["fight_id"])
         rounds = self.spider(CrawlFightStatsByRound, [], ["fight_id"])
-        self.assertEqual(aggregate.get_unknown_urls([self.url]), [])
+        self.assertEqual(aggregate.get_unknown_urls([self.url]), [self.url])
         self.assertEqual(rounds.get_unknown_urls([self.url]), [self.url])
 
     def test_failed_only_manifest_does_not_skip_aggregate(self):
@@ -67,9 +70,9 @@ class SourceDiagnosisTests(unittest.TestCase):
         spider = self.spider(CrawlFightStats, [], ["fight_id"])
         self.assertEqual(spider.get_unknown_urls([self.url]), [self.url])
 
-    def test_one_parsed_participant_already_skips_whole_aggregate_page(self):
+    def test_one_parsed_participant_cannot_skip_whole_aggregate_page(self):
         spider = self.spider(CrawlFightStats, [{"fight_id": self.fid, "fighter_id": "one-side-only"}])
-        self.assertEqual(spider.get_unknown_urls([self.url]), [])
+        self.assertEqual(spider.get_unknown_urls([self.url]), [self.url])
 
     def test_known_upcoming_fight_can_be_refetched(self):
         spider = self.spider(CrawlFights, [{"fight_id": self.fid, "url": self.url, "event_status": "upcoming"}])
