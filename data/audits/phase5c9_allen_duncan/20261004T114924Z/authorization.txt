@@ -1,0 +1,157 @@
+’ll make the next-session prompt authorize that one evidence pilot. It will collect and preserve source material, with no contract activation, warehouse changes or forecasting.
+
+• The pilot will use fresh observations, preserve any redirect chain, and stop at the first access challenge or rate limit. It will also disclose unresolved title, history and July-occurrence questions rather than treating fetched pages as qualified evidence.
+
+• Use this for Phase 5C.9: one bounded Allen–Duncan evidence pilot. Your approval authorizes collection, not v2 activation or forecasting.
+
+  Work in `/home/wlodzimierrr/ufc-data`.
+
+  Complete Phase 5C.9: collect and preserve one bounded Allen–Duncan evidence packet through ordinary permitted public source reads.
+
+  The operator explicitly approved this evidence-only pilot. V1 remains enforced; the v2 proposal remains PROPOSED_NOT_APPROVED.
+
+  No warehouse changes, contract activation, fitting, model execution, forecasting or outcome evaluation are authorized.
+
+  1. Read and verify the handoff
+
+  Read completely:
+  - docs/implementation-reports/phase5c8-local-source-qualification-report.md
+  - docs/phase5-source-evidence-contract-v2-proposal.md
+  - docs/implementation-reports/phase5c8-local-source-index.json
+  - docs/implementation-reports/phase5c6-immutable-raw-capture-report.md
+  - docs/implementation-reports/phase5c7-v2-observation-inventory-report.md
+  - docs/phase5c1-shadow-evidence-contract-v1.md
+  - docs/implementation-reports/next-phase-git-handoff.md
+  - Any applicable AGENTS.md.
+
+  Inspect Git state, accepted pins and preservation boundaries.
+
+  Target:
+  - Allen–Duncan, announced October 10, 2026.
+  - Fight ID: 6fe1d59a-6ae9-5436-bc78-767da12a4707.
+  - Event ID: e213540d-2ca7-54ee-96af-4159bd741028.
+  - Ordered fighter IDs:
+    5d26bddf-51d3-5417-aeab-7329263c2e27
+    364ad7d6-2d46-5e3c-a5f9-5696d76b73a9
+
+  Derive exact source URLs from the accepted index. Do not invent URLs or silently merge HTTP/HTTPS identities.
+
+  Check actual UTC time before acquisition. The original prospective window closes October 9 at 00:00 UTC. If it has closed, report the timing blocker; do not backdate or substitute another target.
+
+  2. Prepare one auditable acquisition attempt
+
+  Use the accepted immutable capture writer and resolver. Preserve their truthful capture-boundary semantics.
+
+  If a minimal pilot collector is needed, test it with mocks first. Do not build a general acquisition framework or modify frozen implementations.
+
+  Before any source request, freeze:
+  - Exact collector code/settings and hashes.
+  - This authorization text.
+  - Initial URLs and deterministic follow-link rules.
+  - Request order, budget and stopping conditions.
+  - Actual UTC preparation/freeze time.
+
+  Reserve one exclusive pilot destination. A failed or interrupted attempt consumes this session’s acquisition authorization. Do not retry through a new destination.
+
+  Use genuine non-cached observations. Do not turn existing files or cached responses into fresh captures.
+
+  3. Enforce strict acquisition limits
+
+  Candidate source: public UFCStats pages on ufcstats.com / www.ufcstats.com.
+
+  Limits:
+  - Maximum 64 HTTP attempts, counting redirects and supporting requests.
+  - Maximum 10 minutes of acquisition.
+  - Request timeout no greater than 15 seconds.
+  - At least two seconds between source requests.
+  - No automatic retries.
+  - Respect source access and robots restrictions.
+
+  STOP immediately on:
+  - An access challenge, CAPTCHA, access denial or rate limit.
+  - Network failure or an essential-page HTTP error.
+  - Unsafe/unapproved redirect.
+  - Budget exhaustion.
+  - A changed target date/roster that invalidates the original pilot.
+  - Any need for credentials, bypassing or additional authority.
+
+  Do not use browser-session cookies, copied authorization headers, proxy rotation, browser impersonation or other access-control workarounds. Disable such existing middleware for this pilot only; do not change global settings.
+
+  Any permitted redirect must be bounded, remain within the approved source hosts, count against the budget and retain its exact chain. Do not collapse identities because a redirect occurred.
+
+  Account for every attempted request, including any request that never reaches the accepted capture boundary. Do not invent a receipt for an unobserved response.
+
+  4. Collect only evidence relevant to this pilot
+
+  Prioritize:
+  - Current target event and fight detail.
+  - Both current participant profiles and their occurrence listings.
+  - Duncan’s July 18 discrepancy:
+    source detail 4eff5a845db17572,
+    computational fight ID 53b9cada-68ba-5c11-8da4-28833cd6b5fe,
+    linked source event f354c50b8d63d9b3.
+  - Relevant event/card/detail links and enumeration/completion information.
+
+  Follow only links necessary for this pilot, under the predeclared rules and budget. Do not start a full-history or unrelated roster crawl.
+
+  Preserve all observed profile rows, including DWCS/Road to UFC entries. Do not classify or discard them to manufacture a matching UFC set.
+
+  Historical bodies may be referenced through existing pins. Their old observation clocks remain old. Missing provenance or contemporary revision coverage remains a limitation.
+
+  5. Assess support without applying new semantics
+
+  Report what the fresh packet directly states about:
+  - Date, roster and displayed orientation.
+  - Title designation.
+  - Participant-linked occurrences and enumeration limits.
+  - Duncan’s July result/event relationship.
+  - Source-domain boundaries and unresolved discrepancies.
+
+  Ordinary bout wording remains UNKNOWN under v1. A fetched profile table is not automatically complete history. Empty admitted history is not verified debut.
+
+  Do not generate authoritative=true, complete=true, signed-review or verified-debut assertions without qualifying support.
+
+  Separate:
+  - Preserved provider statements.
+  - Computational bindings.
+  - Operator decisions still required.
+  - Missing source capabilities or evidence.
+
+  No source-policy approval follows automatically from a successful fetch. This packet is evidence research, not a scoring-ready observation package.
+
+  Keep all 163 considered rows and 35 original registrations unchanged. The pilot is not a reduced trial cohort.
+
+  6. Preserve and verify the result
+
+  Preserve exact public response bytes, receipts, failures and request ledger in a new isolated evidence bundle. Use actual UTC clocks; never retrofit the packet to Phase 5C.2’s cutoff.
+
+  Verify hashes and resolver bindings offline after acquisition. Do not make further requests during verification.
+
+  Do not expose cookies, credentials, sensitive headers or raw exception strings. Review evidence before Git publication. Do not force-add ignored runtime files.
+
+  Keep the collector and artifacts compact. Do not duplicate the existing corpus or learned models.
+
+  7. Report, commit and push
+
+  Create:
+  docs/implementation-reports/phase5c9-allen-duncan-evidence-pilot-report.md
+
+  Include:
+  - Authorization, freeze and actual acquisition clocks.
+  - Exact request sequence, redirects, count and stopping reason.
+  - Artifact paths and hashes.
+  - Directly supported statements.
+  - Enumeration, authenticity and freshness limitations.
+  - Duncan discrepancy findings without silently correcting anything.
+  - Remaining operator decisions and one concrete next step.
+  - Tests and preservation checks.
+
+  If the first request is blocked, preserve that evidence, stop immediately and report the need for a contemporary manual capture/export. Do not disguise an access-blocked attempt as qualification success.
+
+  V2 remains PROPOSED_NOT_APPROVED. Prospective forecasting remains BLOCKED; historical comparison remains STILL_BLOCKED. Production is unchanged.
+
+  Follow docs/implementation-reports/next-phase-git-handoff.md. Commit all phase changes in logical commits and push normally to the verified upstream; never force-push or rewrite history.
+
+  Final response: report path, acquisition result, requests made, evidence obtained, unresolved decisions, checks/preservation results, commit hashes, push result and worktree status.
+
+  Worked for 5m 7s • 12:24 PM
