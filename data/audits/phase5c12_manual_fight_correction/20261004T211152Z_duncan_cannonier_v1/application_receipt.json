@@ -1,0 +1,62 @@
+{
+  "authorization_member": "user_authorization.json",
+  "correction_knowledge_clocks": "Current local operational clocks only; not original source observation nor historical availability certification.",
+  "csv_changed_fields": [
+    "event_status",
+    "fighter_1_outcome",
+    "fighter_2_outcome",
+    "finish_method",
+    "finish_round",
+    "finish_time_minute",
+    "finish_time_second",
+    "primary_finish_method",
+    "secondary_finish_method"
+  ],
+  "csv_corrected_records": 1,
+  "csv_sha256": "76e6a94443a6fa3e2e6035f27a53fcdd0c41d2a082716fd3621d0b49530722d9",
+  "implementation_commit": "b804684abaeee7ea16bb9ed7263088b3ff967dfd",
+  "original_scraped_at": "2026-08-08 23:38:48 UTC",
+  "original_scraped_at_semantics": "Unchanged lineage, NOT timestamp of corrected claims.",
+  "proposal_index_sha256": "e65b01dddfae1b4af42a63a1a2d4fe541b5b683bbc8e8cea6e6411819b9b40b2",
+  "provenance": {
+    "affirmative_non_title_evidence": "UNKNOWN",
+    "availability_certificate": "NOT_A_SOURCE_AVAILABILITY_CERTIFICATE",
+    "cross_store_atomicity": "CSV and database are separate stores; operator compensation requires exact current-state checks.",
+    "debut": "UNESTABLISHED",
+    "historical_comparison": "STILL_BLOCKED",
+    "history_completeness": "UNESTABLISHED",
+    "production_models": "UNCHANGED",
+    "prospective_forecasting": "BLOCKED",
+    "provider_authenticity_verified": false,
+    "scraped_at_semantics": "Retained base lineage only; does not timestamp this correction or source availability.",
+    "source_admission": "CASE_SCOPED_CURRENT_DATA_ONLY",
+    "source_capture_utc": null,
+    "training_scoring_admission": "NOT_ADMISSIBLE",
+    "v1": "ENFORCED",
+    "v2": "PROPOSED_NOT_APPROVED"
+  },
+  "recorded_utc": "2026-10-04T21:36:55.415473Z",
+  "recovery_execution": "NOT_NEEDED_NOT_EXECUTED",
+  "remaining_blockers": [
+    "Unqualified prospective title/history/debut/source-frontier evidence",
+    "Broader v2 source contract remains proposed, not approved",
+    "Historical108/146 comparison remains blocked",
+    "Other unresolved identities/dispositions and incomplete aggregate source coverage outside this case remain untouched"
+  ],
+  "source_admission": "CASE_SCOPED_CURRENT_DATA_ONLY",
+  "status": "APPROVED_CASE_CORRECTION_APPLIED_AND_INDEPENDENTLY_VERIFIED",
+  "warehouse_after_snapshot_sha256": "f022a2d8ff2e55aa8d078a62a177e82dc788e0a26502477305bd5951575f8728",
+  "warehouse_application_status": "VERIFIED_CORRECTION_COMMITTED",
+  "warehouse_changed_columns": [
+    "finish_detail",
+    "finish_method",
+    "finish_round",
+    "finish_time_seconds",
+    "result_type",
+    "winner_fighter_id"
+  ],
+  "warehouse_commit_attempt_audit_utc": "2026-10-04T21:31:42.047730Z",
+  "warehouse_commit_attempts": 1,
+  "warehouse_commit_confirmed_audit_utc": "2026-10-04T21:31:42.162637Z",
+  "warehouse_updated_records": 1
+}

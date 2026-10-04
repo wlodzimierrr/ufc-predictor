@@ -1,0 +1,119 @@
+{
+  "checksum_scope": "All 21 audit component files; this index is externally pinned separately.",
+  "frozen_utc": "2026-10-04T21:39:32.999703Z",
+  "historical_availability": "NOT_CERTIFIED",
+  "members": {
+    "application_receipt.json": {
+      "bytes": 2849,
+      "sha256": "dd1f3142dcf48aab42097ca5dc8cf2e5365442237c4dad86ee4ecc11db40c9c8"
+    },
+    "csv_after_record.bin": {
+      "bytes": 325,
+      "sha256": "f8aebb40a56c10cf7fcffb47121a2e4812286cf7df1e4f162609c827fa1b3af0"
+    },
+    "csv_application_receipt.json": {
+      "bytes": 1492,
+      "sha256": "a990627e2459bcbc7f2ae2d2f3cd5397e614dd306bb8f0f7de78ceb8c9e7ee09"
+    },
+    "csv_before_record.bin": {
+      "bytes": 282,
+      "sha256": "50b6c55627203191e069fafce079320bcfdd333f805b8d7e7dd8f73f0efb5804"
+    },
+    "csv_plan.json": {
+      "bytes": 3651,
+      "sha256": "42f603298a596375a598e01e8890b5a4ac0f57adc3616cb3973695b37c8ef733"
+    },
+    "db_after_snapshot.json": {
+      "bytes": 18912,
+      "sha256": "f022a2d8ff2e55aa8d078a62a177e82dc788e0a26502477305bd5951575f8728"
+    },
+    "db_application_result.json": {
+      "bytes": 22010,
+      "sha256": "b03b45dd507106f75e14f01f4360593b57ef9c5794de17914d7848c053413ae0"
+    },
+    "db_before_snapshot.json": {
+      "bytes": 18874,
+      "sha256": "1af57ba0c272a65c89e360052eb49d36dc8693bac3367628d611240b9b8217be"
+    },
+    "db_expected_after_snapshot.json": {
+      "bytes": 18912,
+      "sha256": "f022a2d8ff2e55aa8d078a62a177e82dc788e0a26502477305bd5951575f8728"
+    },
+    "db_preflight_receipt.json": {
+      "bytes": 1294,
+      "sha256": "3a1073af0c85211f57c0b306eae03a437c8466c54dbf77bca1585a2d4e8cfb4b"
+    },
+    "db_state_00.json": {
+      "bytes": 173,
+      "sha256": "a3630ce168c9429c83144157794a90333f0ec106d876490f6869f359ea083592"
+    },
+    "db_state_01.json": {
+      "bytes": 265,
+      "sha256": "3b4377e4eb14df30f55322d2003e03e92e794caabcb82eade44e42fecd7a31d4"
+    },
+    "db_state_02.json": {
+      "bytes": 78,
+      "sha256": "9036d7a9dfb7af40ef9c55a0a5dcf9bbb1612ee76d67e7c290f5a89e69a25862"
+    },
+    "db_state_03.json": {
+      "bytes": 251,
+      "sha256": "ade6a997623605bec224c4be59f10e6b409fa42c528465fdb334e9df2c88f33d"
+    },
+    "execution_contract.json": {
+      "bytes": 2898,
+      "sha256": "e310e8078eece1c3fbacbc05c7a54a19588bb29bfb0a7e724a573ff0bcef65d8"
+    },
+    "format_preflight.json": {
+      "bytes": 722,
+      "sha256": "9bf0a5e5d96d82b1defe1ab9010e848f54cf3aa187763f3a0526d92ae737d536"
+    },
+    "preservation_check.json": {
+      "bytes": 1437,
+      "sha256": "44c274ed1ee09b4e75994e06326350676161cd4aa6e0dff732d85115eb4996d2"
+    },
+    "recovery_plan.json": {
+      "bytes": 2401,
+      "sha256": "eb962748c382ff06885d459fdf4452ecfa0e7985fb8a4cb86d02ff31541e653b"
+    },
+    "root_after_verification.json": {
+      "bytes": 1750,
+      "sha256": "01a7389c5fe3e8f7eaa32431c314af944d4ad9033a2f90a574f41afecad90570"
+    },
+    "user_authorization.json": {
+      "bytes": 2214,
+      "sha256": "b7335dad32f4e657df374f33ee7f38c08877cffabafaa846574f7e502de04f1a"
+    },
+    "verification_results.json": {
+      "bytes": 1848,
+      "sha256": "86c5b5151f120d077820d9249ab6b583ef80717a3dc3893fb72521b575bb653d"
+    }
+  },
+  "membership": [
+    "application_receipt.json",
+    "checksums.json",
+    "csv_after_record.bin",
+    "csv_application_receipt.json",
+    "csv_before_record.bin",
+    "csv_plan.json",
+    "db_after_snapshot.json",
+    "db_application_result.json",
+    "db_before_snapshot.json",
+    "db_expected_after_snapshot.json",
+    "db_preflight_receipt.json",
+    "db_state_00.json",
+    "db_state_01.json",
+    "db_state_02.json",
+    "db_state_03.json",
+    "execution_contract.json",
+    "format_preflight.json",
+    "preservation_check.json",
+    "recovery_plan.json",
+    "root_after_verification.json",
+    "user_authorization.json",
+    "verification_results.json"
+  ],
+  "schema_version": "phase5c12_manual_fight_correction_v1",
+  "source_admission": "CASE_SCOPED_CURRENT_DATA_ONLY",
+  "source_capture_utc": null,
+  "status": "APPROVED_CASE_CORRECTION_APPLIED_AND_INDEPENDENTLY_VERIFIED"
+}

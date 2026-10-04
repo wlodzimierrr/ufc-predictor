@@ -1,0 +1,596 @@
+{
+  "affirmative_non_title_evidence": "UNKNOWN",
+  "availability_certificate": "NOT_A_SOURCE_AVAILABILITY_CERTIFICATE",
+  "changed_columns": [
+    "finish_detail",
+    "finish_method",
+    "finish_round",
+    "finish_time_seconds",
+    "result_type",
+    "winner_fighter_id"
+  ],
+  "commit_attempts": 1,
+  "cross_store_atomicity": "CSV and database are separate stores; operator compensation requires exact current-state checks.",
+  "csv_sha256": "76e6a94443a6fa3e2e6035f27a53fcdd0c41d2a082716fd3621d0b49530722d9",
+  "debut": "UNESTABLISHED",
+  "events": [
+    {
+      "audit_utc": "2026-10-04T21:31:41.855688Z",
+      "csv_sha256": "76e6a94443a6fa3e2e6035f27a53fcdd0c41d2a082716fd3621d0b49530722d9",
+      "state": "GUARDED_TRANSACTION_START"
+    },
+    {
+      "audit_utc": "2026-10-04T21:31:42.044100Z",
+      "changed_columns": [
+        "finish_detail",
+        "finish_method",
+        "finish_round",
+        "finish_time_seconds",
+        "result_type",
+        "winner_fighter_id"
+      ],
+      "state": "DB_SIX_COLUMN_UPDATE_VERIFIED_UNCOMMITTED"
+    },
+    {
+      "audit_utc": "2026-10-04T21:31:42.047730Z",
+      "state": "COMMIT_ATTEMPT"
+    },
+    {
+      "audit_utc": "2026-10-04T21:31:42.162637Z",
+      "close_error_type": null,
+      "commit_error_type": null,
+      "independent_snapshot_sha256": "f022a2d8ff2e55aa8d078a62a177e82dc788e0a26502477305bd5951575f8728",
+      "state": "VERIFIED_CORRECTION_COMMITTED"
+    }
+  ],
+  "historical_comparison": "STILL_BLOCKED",
+  "history_completeness": "UNESTABLISHED",
+  "independent_after": {
+    "database_identity_sha256": "ec2ac2cee597bed4597da8874d22d3eefa276aba3ec0bb24ed30829475e46403",
+    "events": [
+      {
+        "city": "Oklahoma City",
+        "country": "USA",
+        "event_date": "2026-07-18",
+        "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+        "event_name": "UFC Fight Night: Du Plessis vs. Usman",
+        "event_status": "completed",
+        "scraped_at": "2026-08-08T18:44:47+00:00",
+        "source_url": "http://www.ufcstats.com/event-details/f354c50b8d63d9b3",
+        "state": "Oklahoma"
+      }
+    ],
+    "fighters": [
+      {
+        "dob": "1995-07-24",
+        "fighter_id": "364ad7d6-2d46-5e3c-a5f9-5696d76b73a9",
+        "first_name": "Christian",
+        "full_name": "Christian Leroy Duncan",
+        "height_cm": 187.96,
+        "last_name": "Leroy Duncan",
+        "nickname": "CLD",
+        "reach_cm": 200.0,
+        "scraped_at": "2026-08-08T19:17:38+00:00",
+        "source_url": "http://ufcstats.com/fighter-details/a93f94c923c3a9cb",
+        "stance": "Switch",
+        "weight_lbs": 185.0
+      },
+      {
+        "dob": "1984-03-16",
+        "fighter_id": "c00bb616-ac26-58fe-af2e-8d953a63322d",
+        "first_name": "Jared",
+        "full_name": "Jared Cannonier",
+        "height_cm": 180.34,
+        "last_name": "Cannonier",
+        "nickname": "The Killa Gorilla",
+        "reach_cm": 195.0,
+        "scraped_at": "2026-08-08T19:01:28+00:00",
+        "source_url": "http://ufcstats.com/fighter-details/13a0275fa13c4d26",
+        "stance": "Switch",
+        "weight_lbs": 185.0
+      }
+    ],
+    "fights": [
+      {
+        "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+        "fight_id": "53b9cada-68ba-5c11-8da4-28833cd6b5fe",
+        "fighter_1_id": "c00bb616-ac26-58fe-af2e-8d953a63322d",
+        "fighter_2_id": "364ad7d6-2d46-5e3c-a5f9-5696d76b73a9",
+        "finish_detail": "unanimous",
+        "finish_method": "decision",
+        "finish_round": 3,
+        "finish_time_seconds": 300,
+        "is_interim_title": false,
+        "is_title_fight": false,
+        "referee": null,
+        "result_type": "win",
+        "scheduled_rounds": 3,
+        "scraped_at": "2026-08-08T23:38:48+00:00",
+        "source_url": "http://www.ufcstats.com/fight-details/4eff5a845db17572",
+        "weight_class": "middleweight",
+        "winner_fighter_id": "364ad7d6-2d46-5e3c-a5f9-5696d76b73a9"
+      }
+    ],
+    "rules": [],
+    "schema": [
+      {
+        "default": null,
+        "generated": "NEVER",
+        "name": "fight_id",
+        "nullable": "NO",
+        "type": "uuid"
+      },
+      {
+        "default": null,
+        "generated": "NEVER",
+        "name": "event_id",
+        "nullable": "NO",
+        "type": "uuid"
+      },
+      {
+        "default": null,
+        "generated": "NEVER",
+        "name": "fighter_1_id",
+        "nullable": "NO",
+        "type": "uuid"
+      },
+      {
+        "default": null,
+        "generated": "NEVER",
+        "name": "fighter_2_id",
+        "nullable": "NO",
+        "type": "uuid"
+      },
+      {
+        "default": null,
+        "generated": "NEVER",
+        "name": "winner_fighter_id",
+        "nullable": "YES",
+        "type": "uuid"
+      },
+      {
+        "default": null,
+        "generated": "NEVER",
+        "name": "result_type",
+        "nullable": "NO",
+        "type": "text"
+      },
+      {
+        "default": null,
+        "generated": "NEVER",
+        "name": "weight_class",
+        "nullable": "YES",
+        "type": "text"
+      },
+      {
+        "default": "false",
+        "generated": "NEVER",
+        "name": "is_title_fight",
+        "nullable": "NO",
+        "type": "boolean"
+      },
+      {
+        "default": "false",
+        "generated": "NEVER",
+        "name": "is_interim_title",
+        "nullable": "NO",
+        "type": "boolean"
+      },
+      {
+        "default": null,
+        "generated": "NEVER",
+        "name": "scheduled_rounds",
+        "nullable": "YES",
+        "type": "smallint"
+      },
+      {
+        "default": null,
+        "generated": "NEVER",
+        "name": "finish_method",
+        "nullable": "YES",
+        "type": "text"
+      },
+      {
+        "default": null,
+        "generated": "NEVER",
+        "name": "finish_detail",
+        "nullable": "YES",
+        "type": "text"
+      },
+      {
+        "default": null,
+        "generated": "NEVER",
+        "name": "finish_round",
+        "nullable": "YES",
+        "type": "smallint"
+      },
+      {
+        "default": null,
+        "generated": "NEVER",
+        "name": "finish_time_seconds",
+        "nullable": "YES",
+        "type": "smallint"
+      },
+      {
+        "default": null,
+        "generated": "NEVER",
+        "name": "referee",
+        "nullable": "YES",
+        "type": "text"
+      },
+      {
+        "default": null,
+        "generated": "NEVER",
+        "name": "source_url",
+        "nullable": "NO",
+        "type": "text"
+      },
+      {
+        "default": null,
+        "generated": "NEVER",
+        "name": "scraped_at",
+        "nullable": "YES",
+        "type": "timestamp with time zone"
+      }
+    ],
+    "statistics_aggregate": [],
+    "statistics_by_round": [
+      {
+        "control_time_seconds": 69,
+        "fight_id": "53b9cada-68ba-5c11-8da4-28833cd6b5fe",
+        "fight_stat_by_round_id": "1eb23de2-b11a-588d-9ae7-80cad495ceff",
+        "fighter_id": "364ad7d6-2d46-5e3c-a5f9-5696d76b73a9",
+        "knockdowns": 0,
+        "reversals": 0,
+        "round": 1,
+        "scraped_at": "2026-08-09T11:49:41+00:00",
+        "sig_strikes_attempted": 42,
+        "sig_strikes_body_attempted": 10,
+        "sig_strikes_body_landed": 10,
+        "sig_strikes_clinch_attempted": 18,
+        "sig_strikes_clinch_landed": 13,
+        "sig_strikes_distance_attempted": 24,
+        "sig_strikes_distance_landed": 14,
+        "sig_strikes_ground_attempted": 0,
+        "sig_strikes_ground_landed": 0,
+        "sig_strikes_head_attempted": 28,
+        "sig_strikes_head_landed": 13,
+        "sig_strikes_landed": 27,
+        "sig_strikes_leg_attempted": 4,
+        "sig_strikes_leg_landed": 4,
+        "source_url": null,
+        "submissions_attempted": 0,
+        "takedowns_attempted": 1,
+        "takedowns_landed": 1,
+        "total_strikes_attempted": 56,
+        "total_strikes_landed": 37
+      },
+      {
+        "control_time_seconds": 122,
+        "fight_id": "53b9cada-68ba-5c11-8da4-28833cd6b5fe",
+        "fight_stat_by_round_id": "40a76b33-30f3-55a3-ab02-45a69b6d875d",
+        "fighter_id": "c00bb616-ac26-58fe-af2e-8d953a63322d",
+        "knockdowns": 0,
+        "reversals": 0,
+        "round": 1,
+        "scraped_at": "2026-08-09T11:49:41+00:00",
+        "sig_strikes_attempted": 8,
+        "sig_strikes_body_attempted": 2,
+        "sig_strikes_body_landed": 2,
+        "sig_strikes_clinch_attempted": 0,
+        "sig_strikes_clinch_landed": 0,
+        "sig_strikes_distance_attempted": 8,
+        "sig_strikes_distance_landed": 2,
+        "sig_strikes_ground_attempted": 0,
+        "sig_strikes_ground_landed": 0,
+        "sig_strikes_head_attempted": 6,
+        "sig_strikes_head_landed": 0,
+        "sig_strikes_landed": 2,
+        "sig_strikes_leg_attempted": 0,
+        "sig_strikes_leg_landed": 0,
+        "source_url": null,
+        "submissions_attempted": 0,
+        "takedowns_attempted": 3,
+        "takedowns_landed": 1,
+        "total_strikes_attempted": 12,
+        "total_strikes_landed": 5
+      },
+      {
+        "control_time_seconds": 44,
+        "fight_id": "53b9cada-68ba-5c11-8da4-28833cd6b5fe",
+        "fight_stat_by_round_id": "50e69de6-557d-57b8-bf8b-a5549bd3f5f9",
+        "fighter_id": "364ad7d6-2d46-5e3c-a5f9-5696d76b73a9",
+        "knockdowns": 0,
+        "reversals": 1,
+        "round": 2,
+        "scraped_at": "2026-08-09T11:49:41+00:00",
+        "sig_strikes_attempted": 31,
+        "sig_strikes_body_attempted": 4,
+        "sig_strikes_body_landed": 3,
+        "sig_strikes_clinch_attempted": 7,
+        "sig_strikes_clinch_landed": 6,
+        "sig_strikes_distance_attempted": 23,
+        "sig_strikes_distance_landed": 10,
+        "sig_strikes_ground_attempted": 1,
+        "sig_strikes_ground_landed": 0,
+        "sig_strikes_head_attempted": 25,
+        "sig_strikes_head_landed": 11,
+        "sig_strikes_landed": 16,
+        "sig_strikes_leg_attempted": 2,
+        "sig_strikes_leg_landed": 2,
+        "source_url": null,
+        "submissions_attempted": 0,
+        "takedowns_attempted": 1,
+        "takedowns_landed": 0,
+        "total_strikes_attempted": 42,
+        "total_strikes_landed": 26
+      },
+      {
+        "control_time_seconds": 139,
+        "fight_id": "53b9cada-68ba-5c11-8da4-28833cd6b5fe",
+        "fight_stat_by_round_id": "6d9ecd50-114a-5040-8e11-178f71a00f13",
+        "fighter_id": "c00bb616-ac26-58fe-af2e-8d953a63322d",
+        "knockdowns": 0,
+        "reversals": 0,
+        "round": 2,
+        "scraped_at": "2026-08-09T11:49:41+00:00",
+        "sig_strikes_attempted": 25,
+        "sig_strikes_body_attempted": 4,
+        "sig_strikes_body_landed": 2,
+        "sig_strikes_clinch_attempted": 10,
+        "sig_strikes_clinch_landed": 6,
+        "sig_strikes_distance_attempted": 14,
+        "sig_strikes_distance_landed": 3,
+        "sig_strikes_ground_attempted": 1,
+        "sig_strikes_ground_landed": 1,
+        "sig_strikes_head_attempted": 20,
+        "sig_strikes_head_landed": 7,
+        "sig_strikes_landed": 10,
+        "sig_strikes_leg_attempted": 1,
+        "sig_strikes_leg_landed": 1,
+        "source_url": null,
+        "submissions_attempted": 0,
+        "takedowns_attempted": 2,
+        "takedowns_landed": 1,
+        "total_strikes_attempted": 30,
+        "total_strikes_landed": 15
+      },
+      {
+        "control_time_seconds": 111,
+        "fight_id": "53b9cada-68ba-5c11-8da4-28833cd6b5fe",
+        "fight_stat_by_round_id": "74ef8631-f5d6-5c85-bd29-df7aae19370f",
+        "fighter_id": "c00bb616-ac26-58fe-af2e-8d953a63322d",
+        "knockdowns": 0,
+        "reversals": 0,
+        "round": 3,
+        "scraped_at": "2026-08-09T11:49:41+00:00",
+        "sig_strikes_attempted": 13,
+        "sig_strikes_body_attempted": 2,
+        "sig_strikes_body_landed": 2,
+        "sig_strikes_clinch_attempted": 2,
+        "sig_strikes_clinch_landed": 2,
+        "sig_strikes_distance_attempted": 11,
+        "sig_strikes_distance_landed": 1,
+        "sig_strikes_ground_attempted": 0,
+        "sig_strikes_ground_landed": 0,
+        "sig_strikes_head_attempted": 10,
+        "sig_strikes_head_landed": 0,
+        "sig_strikes_landed": 3,
+        "sig_strikes_leg_attempted": 1,
+        "sig_strikes_leg_landed": 1,
+        "source_url": null,
+        "submissions_attempted": 0,
+        "takedowns_attempted": 3,
+        "takedowns_landed": 3,
+        "total_strikes_attempted": 27,
+        "total_strikes_landed": 16
+      },
+      {
+        "control_time_seconds": 23,
+        "fight_id": "53b9cada-68ba-5c11-8da4-28833cd6b5fe",
+        "fight_stat_by_round_id": "892e7050-780f-5def-a202-3f33d5d121b1",
+        "fighter_id": "364ad7d6-2d46-5e3c-a5f9-5696d76b73a9",
+        "knockdowns": 0,
+        "reversals": 0,
+        "round": 3,
+        "scraped_at": "2026-08-09T11:49:41+00:00",
+        "sig_strikes_attempted": 44,
+        "sig_strikes_body_attempted": 4,
+        "sig_strikes_body_landed": 4,
+        "sig_strikes_clinch_attempted": 9,
+        "sig_strikes_clinch_landed": 6,
+        "sig_strikes_distance_attempted": 35,
+        "sig_strikes_distance_landed": 19,
+        "sig_strikes_ground_attempted": 0,
+        "sig_strikes_ground_landed": 0,
+        "sig_strikes_head_attempted": 32,
+        "sig_strikes_head_landed": 13,
+        "sig_strikes_landed": 25,
+        "sig_strikes_leg_attempted": 8,
+        "sig_strikes_leg_landed": 8,
+        "source_url": null,
+        "submissions_attempted": 0,
+        "takedowns_attempted": 1,
+        "takedowns_landed": 0,
+        "total_strikes_attempted": 50,
+        "total_strikes_landed": 31
+      }
+    ],
+    "tables": [
+      {
+        "force_rls": false,
+        "kind": "r",
+        "name": "events",
+        "rls": false
+      },
+      {
+        "force_rls": false,
+        "kind": "r",
+        "name": "fight_stats_aggregate",
+        "rls": false
+      },
+      {
+        "force_rls": false,
+        "kind": "r",
+        "name": "fight_stats_by_round",
+        "rls": false
+      },
+      {
+        "force_rls": false,
+        "kind": "r",
+        "name": "fighters",
+        "rls": false
+      },
+      {
+        "force_rls": false,
+        "kind": "r",
+        "name": "fights",
+        "rls": false
+      }
+    ],
+    "triggers": [
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_16568\" AFTER DELETE ON public.fights FROM fight_stats_aggregate NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_del\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_a_16568"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_16569\" AFTER UPDATE ON public.fights FROM fight_stats_aggregate NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_upd\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_a_16569"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_16607\" AFTER DELETE ON public.fights FROM fight_stats_by_round NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_del\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_a_16607"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_16608\" AFTER UPDATE ON public.fights FROM fight_stats_by_round NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_upd\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_a_16608"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_24707\" AFTER DELETE ON public.fights FROM fighter_snapshots NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_del\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_a_24707"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_24708\" AFTER UPDATE ON public.fights FROM fighter_snapshots NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_upd\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_a_24708"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_24726\" AFTER DELETE ON public.fights FROM bout_features NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_del\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_a_24726"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_24727\" AFTER UPDATE ON public.fights FROM bout_features NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_upd\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_a_24727"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_32852\" AFTER DELETE ON public.fights FROM predictions NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_del\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_a_32852"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_32853\" AFTER UPDATE ON public.fights FROM predictions NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_upd\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_a_32853"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_37194\" AFTER DELETE ON public.fights FROM fight_odds NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_del\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_a_37194"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_37195\" AFTER UPDATE ON public.fights FROM fight_odds NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_upd\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_a_37195"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_37214\" AFTER DELETE ON public.fights FROM fight_odds NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_del\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_a_37214"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_a_37215\" AFTER UPDATE ON public.fights FROM fight_odds NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_noaction_upd\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_a_37215"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_16529\" AFTER INSERT ON public.fights FROM events NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_ins\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_c_16529"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_16530\" AFTER UPDATE ON public.fights FROM events NOT DEFERRABLE INITIALLY IMMEDIATE FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_upd\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_c_16530"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_16629\" AFTER INSERT ON public.fights FROM fighters DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_ins\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_c_16629"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_16630\" AFTER UPDATE ON public.fights FROM fighters DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_upd\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_c_16630"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_24649\" AFTER INSERT ON public.fights FROM fighters DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_ins\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_c_24649"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_24650\" AFTER UPDATE ON public.fights FROM fighters DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_upd\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_c_24650"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_24654\" AFTER INSERT ON public.fights FROM fighters DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_ins\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_c_24654"
+      },
+      {
+        "definition": "CREATE CONSTRAINT TRIGGER \"RI_ConstraintTrigger_c_24655\" AFTER UPDATE ON public.fights FROM fighters DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION \"RI_FKey_check_upd\"()",
+        "enabled": "O",
+        "internal": true,
+        "name": "RI_ConstraintTrigger_c_24655"
+      }
+    ]
+  },
+  "production_models": "UNCHANGED",
+  "prospective_forecasting": "BLOCKED",
+  "provider_authenticity_verified": false,
+  "scraped_at_semantics": "Retained base lineage only; does not timestamp this correction or source availability.",
+  "source_admission": "CASE_SCOPED_CURRENT_DATA_ONLY",
+  "source_capture_utc": null,
+  "status": "VERIFIED_CORRECTION_COMMITTED",
+  "training_scoring_admission": "NOT_ADMISSIBLE",
+  "v1": "ENFORCED",
+  "v2": "PROPOSED_NOT_APPROVED"
+}

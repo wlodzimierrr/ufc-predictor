@@ -1,0 +1,51 @@
+{
+  "authorization_question": "One decision is needed: approve these manual pages—with unknown capture metadata—for this fight’s correction in the current CSV and warehouse? Models and frozen datasets would remain untouched.",
+  "user_response": "approved, lets continue",
+  "original_authorization_issuance_utc": null,
+  "root_authorization_recording_utc": "2026-10-04T21:11:52Z",
+  "clock_scope": "Root recording clock only; not the original message issuance time or any source capture time.",
+  "manual_source_admission": "APPROVED_FOR_THIS_ONE_CURRENT_DATA_CORRECTION_ONLY",
+  "fight_id": "53b9cada-68ba-5c11-8da4-28833cd6b5fe",
+  "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+  "frozen_proposal_checksums_sha256": "e65b01dddfae1b4af42a63a1a2d4fe541b5b683bbc8e8cea6e6411819b9b40b2",
+  "allowed_csv_values": {
+    "fighter_1_outcome": "L",
+    "fighter_2_outcome": "W",
+    "event_status": "completed",
+    "finish_method": "Decision - Unanimous",
+    "primary_finish_method": "decision",
+    "secondary_finish_method": "unanimous",
+    "finish_round": "3",
+    "finish_time_minute": "5",
+    "finish_time_second": "0"
+  },
+  "allowed_warehouse_values": {
+    "winner_fighter_id": "364ad7d6-2d46-5e3c-a5f9-5696d76b73a9",
+    "result_type": "win",
+    "finish_method": "decision",
+    "finish_detail": "unanimous",
+    "finish_round": 3,
+    "finish_time_seconds": 300
+  },
+  "source_capture_utc": null,
+  "source_http_status": null,
+  "source_final_browser_urls": null,
+  "provider_authenticity": "NOT_INDEPENDENTLY_VERIFIED",
+  "historical_availability": "NOT_CERTIFIED",
+  "original_scraped_at_role": "Unchanged base lineage only; never timestamps newly corrected facts.",
+  "excluded_actions": [
+    "parent_event_updates",
+    "identity_or_participant_order_changes",
+    "title_or_debut_or_complete_history_certification",
+    "statistics_or_profile_updates",
+    "source_acquisition",
+    "blanket_v2_contract_approval",
+    "model_training_or_forecasting_or_evaluation",
+    "production_model_or_pointer_changes",
+    "frozen_artifact_modification"
+  ],
+  "v1": "ENFORCED",
+  "v2": "PROPOSED_NOT_APPROVED",
+  "prospective_forecasting": "BLOCKED",
+  "historical_comparison": "STILL_BLOCKED"
+}

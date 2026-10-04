@@ -1,0 +1,25 @@
+{
+  "checked_utc": "2026-10-04T21:38:48.660526Z",
+  "csv_after_sha256": "76e6a94443a6fa3e2e6035f27a53fcdd0c41d2a082716fd3621d0b49530722d9",
+  "csv_all_non_target_bytes_unchanged": true,
+  "csv_before_sha256": "616f7be79c7c61ddec2aaddc4aa7d36ec0a2478106e6d10697df078406012b8c",
+  "generated_caches_excluded": true,
+  "groups_overlap_do_not_sum": true,
+  "only_changed_preexisting_file": "data/fights.csv",
+  "original_c11_index_sha256": "e65b01dddfae1b4af42a63a1a2d4fe541b5b683bbc8e8cea6e6411819b9b40b2",
+  "preexisting_raw_audits_excluding_this_namespace": {
+    "aggregate_sha256": "50384d1331c3977302fae3d5d963f5ad6ce17f13369d850d6ac1503c21af8d9c",
+    "paths": 14320
+  },
+  "production_pointer_sha256": "ff5272e0d2f11f9f6cbc6597f91a2cf9961ae317f8dd47f90bfb1f6e44dd5caa",
+  "protected_models_holdouts_experiments": {
+    "aggregate_sha256": "34dfbea459fe3b8e48d7bc99e8001ce0dc3984a673ab24c61732cca8cc13c43e",
+    "paths": 7612
+  },
+  "starting_commit": "4fc0795c2389c967766c801fc1ff23b4b0e9b0e2",
+  "starting_tracked_paths": 7988,
+  "status": "PRESERVATION_PASSED_EXCEPT_ONE_AUTHORIZED_CSV_RECORD",
+  "unchanged_starting_tracked_paths": 7987,
+  "unchanged_tracked_excluding_csv_aggregate_sha256": "659e05d6c21643f74562d93124ef741ce7cd01fe7ead51ef0c7728416d4f9e3b",
+  "warehouse_scope": "Exactly one row/six columns; parent/profiles/statistics full-case unchanged, no batch loaders, schema/custom-trigger writes or model operations."
+}

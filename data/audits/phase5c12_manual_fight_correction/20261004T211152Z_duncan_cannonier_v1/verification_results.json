@@ -1,0 +1,31 @@
+{
+  "combined_safe_tests": 416,
+  "independent_actual_case_checks": [
+    "approved proposal/checksum/tool/authority pins",
+    "exact9CSV and6DB field projections",
+    "original17-column database CAS and rowcount1/fullRETURNING",
+    "unchanged parent/profiles/6roundstatisticrows",
+    "independent database reread equals exact expected-after snapshot",
+    "all unrelated CSV bytes and mixed line endings preserved",
+    "production pointer hash unchanged"
+  ],
+  "new_synthetic_tests": 39,
+  "no_broad_live_integration_tests": true,
+  "no_failed_focused_tests": true,
+  "no_model_execution_or_holdout_evaluation": true,
+  "no_source_network_acquisition": true,
+  "operational_precheck_corrections": [
+    "An initial all-CRLF assertion failed before CSV writes; inspected and preserved four existing LF-only tail rows.",
+    "A pre-format assertion expected either all-LF or fully restored output; intermediate apply_patch output matched neither assumption. The mechanical restoration subsequently produced the exact approved full-file hash. No warehouse operation used the intermediate file."
+  ],
+  "preserved_diagnostic_subtests": 3,
+  "preserved_diagnostic_tests": 10,
+  "python_files_compile": true,
+  "recorded_utc": "2026-10-04T21:36:55.412050Z",
+  "status": "SAFE_VERIFICATION_PASSED",
+  "test_commands": [
+    "PYTHONDONTWRITEBYTECODE=1 python3 -B -m pytest -q -p no:cacheprovider tools/tests/test_phase5c12_manual_fight_correction.py tools/tests/test_phase5c11_manual_fight_correction.py warehouse/tests/test_strict_fight_outcomes_v2.py warehouse/tests/test_load_fights_strict_outcomes_v2.py warehouse/tests/test_transform.py",
+    "PYTHONDONTWRITEBYTECODE=1 scraper/UFC-Web-Scraping-main/.venv/bin/python -B -m pytest -q -p no:cacheprovider tools/tests/test_phase5c3_source_diagnostics.py"
+  ],
+  "unique_pytest_cases_total": 426
+}

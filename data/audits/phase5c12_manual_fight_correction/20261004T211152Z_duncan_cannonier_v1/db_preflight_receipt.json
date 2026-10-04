@@ -1,0 +1,27 @@
+{
+  "captured_finished_utc": "2026-10-04T21:22:54.078471Z",
+  "captured_started_utc": "2026-10-04T21:22:53.930050Z",
+  "closed": true,
+  "expected_after_sha256": "f022a2d8ff2e55aa8d078a62a177e82dc788e0a26502477305bd5951575f8728",
+  "provenance": {
+    "affirmative_non_title_evidence": "UNKNOWN",
+    "availability_certificate": "NOT_A_SOURCE_AVAILABILITY_CERTIFICATE",
+    "cross_store_atomicity": "CSV and database are separate stores; operator compensation requires exact current-state checks.",
+    "debut": "UNESTABLISHED",
+    "historical_comparison": "STILL_BLOCKED",
+    "history_completeness": "UNESTABLISHED",
+    "production_models": "UNCHANGED",
+    "prospective_forecasting": "BLOCKED",
+    "provider_authenticity_verified": false,
+    "scraped_at_semantics": "Retained base lineage only; does not timestamp this correction or source availability.",
+    "source_admission": "CASE_SCOPED_CURRENT_DATA_ONLY",
+    "source_capture_utc": null,
+    "training_scoring_admission": "NOT_ADMISSIBLE",
+    "v1": "ENFORCED",
+    "v2": "PROPOSED_NOT_APPROVED"
+  },
+  "rolled_back": true,
+  "root_original_preflight_same_identity_and_disposition": true,
+  "snapshot_sha256": "1af57ba0c272a65c89e360052eb49d36dc8693bac3367628d611240b9b8217be",
+  "transaction_mode": "REPEATABLE READ READ ONLY"
+}

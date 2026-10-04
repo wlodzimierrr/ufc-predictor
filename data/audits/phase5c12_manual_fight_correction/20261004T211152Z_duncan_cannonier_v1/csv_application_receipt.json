@@ -1,0 +1,40 @@
+{
+  "CRLF_lines": 9115,
+  "CSV_changed_fields": [
+    "event_status",
+    "fighter_1_outcome",
+    "fighter_2_outcome",
+    "finish_method",
+    "finish_round",
+    "finish_time_minute",
+    "finish_time_second",
+    "primary_finish_method",
+    "secondary_finish_method"
+  ],
+  "LF_only_tail_lines": 4,
+  "all_unrelated_bytes_preserved": true,
+  "csv_bytes": 3233344,
+  "csv_sha256": "76e6a94443a6fa3e2e6035f27a53fcdd0c41d2a082716fd3621d0b49530722d9",
+  "parents_unchanged": true,
+  "physical_lines": 9119,
+  "provenance": {
+    "affirmative_non_title_evidence": "UNKNOWN",
+    "availability_certificate": "NOT_A_SOURCE_AVAILABILITY_CERTIFICATE",
+    "cross_store_atomicity": "CSV and database are separate stores; operator compensation requires exact current-state checks.",
+    "debut": "UNESTABLISHED",
+    "historical_comparison": "STILL_BLOCKED",
+    "history_completeness": "UNESTABLISHED",
+    "production_models": "UNCHANGED",
+    "prospective_forecasting": "BLOCKED",
+    "provider_authenticity_verified": false,
+    "scraped_at_semantics": "Retained base lineage only; does not timestamp this correction or source availability.",
+    "source_admission": "CASE_SCOPED_CURRENT_DATA_ONLY",
+    "source_capture_utc": null,
+    "training_scoring_admission": "NOT_ADMISSIBLE",
+    "v1": "ENFORCED",
+    "v2": "PROPOSED_NOT_APPROVED"
+  },
+  "source_capture_utc": null,
+  "status": "CSV_PATCH_APPLIED_VERIFIED_DURABLE_DB_NOT_YET_UPDATED",
+  "verified_utc": "2026-10-04T21:30:01.062628Z"
+}

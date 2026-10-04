@@ -1,0 +1,39 @@
+{
+  "CSV_all_other_bytes_unchanged": true,
+  "aggregate_statistics_remain_absent": true,
+  "all_other_fight_columns_unchanged": true,
+  "csv_sha256": "76e6a94443a6fa3e2e6035f27a53fcdd0c41d2a082716fd3621d0b49530722d9",
+  "database_snapshot_sha256": "f022a2d8ff2e55aa8d078a62a177e82dc788e0a26502477305bd5951575f8728",
+  "existing_csv_parent_status": "upcoming",
+  "existing_warehouse_parent_status": "completed",
+  "parent_event_profiles_and_existing_round_statistics_unchanged": true,
+  "production_pointer_unchanged": true,
+  "provenance": {
+    "affirmative_non_title_evidence": "UNKNOWN",
+    "availability_certificate": "NOT_A_SOURCE_AVAILABILITY_CERTIFICATE",
+    "cross_store_atomicity": "CSV and database are separate stores; operator compensation requires exact current-state checks.",
+    "debut": "UNESTABLISHED",
+    "historical_comparison": "STILL_BLOCKED",
+    "history_completeness": "UNESTABLISHED",
+    "production_models": "UNCHANGED",
+    "prospective_forecasting": "BLOCKED",
+    "provider_authenticity_verified": false,
+    "scraped_at_semantics": "Retained base lineage only; does not timestamp this correction or source availability.",
+    "source_admission": "CASE_SCOPED_CURRENT_DATA_ONLY",
+    "source_capture_utc": null,
+    "training_scoring_admission": "NOT_ADMISSIBLE",
+    "v1": "ENFORCED",
+    "v2": "PROPOSED_NOT_APPROVED"
+  },
+  "raw_source_capture_utc": null,
+  "status": "INDEPENDENT_ROOT_AFTER_VERIFICATION_PASSED",
+  "verified_utc": "2026-10-04T21:33:53.681904Z",
+  "warehouse_changed_values": {
+    "finish_detail": "unanimous",
+    "finish_method": "decision",
+    "finish_round": 3,
+    "finish_time_seconds": 300,
+    "result_type": "win",
+    "winner_fighter_id": "364ad7d6-2d46-5e3c-a5f9-5696d76b73a9"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "audit_utc": "2026-10-04T21:31:42.044100Z",
+  "changed_columns": [
+    "finish_detail",
+    "finish_method",
+    "finish_round",
+    "finish_time_seconds",
+    "result_type",
+    "winner_fighter_id"
+  ],
+  "state": "DB_SIX_COLUMN_UPDATE_VERIFIED_UNCOMMITTED"
+}
