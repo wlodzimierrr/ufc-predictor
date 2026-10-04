@@ -1,0 +1,54 @@
+{
+  "checksum_scope": "Every member except this checksum index; its schema and exact membership are validated separately.",
+  "members": {
+    "base_snapshot.json": {
+      "bytes": 3270,
+      "sha256": "b18d5b358a794e0baa5639d56dc5abc2ec971df2aa86e158d40f2a5005ef9c9f"
+    },
+    "code_pins.json": {
+      "bytes": 1036,
+      "sha256": "bbeb5d32921253e652f0bde128a9865a79dd14e08f60a28a1ae98d4c7a066db6"
+    },
+    "proposal.json": {
+      "bytes": 23965,
+      "sha256": "19caad189884e04cb7480d39940bc33b7ca6be63324d095cdc3176b0c3ae452b"
+    },
+    "publication.json": {
+      "bytes": 376,
+      "sha256": "1b4a745a6e1bf45de3ed51e715e44bb0dd380f202c140fcacb813937e04d90b2"
+    },
+    "review_tool.py": {
+      "bytes": 32969,
+      "sha256": "8c489087a4f2c7db326ea248da82eed26071f3065934a61890fea5a22abf9af4"
+    },
+    "sources/card.html": {
+      "bytes": 43781,
+      "sha256": "bdfcaf45105fa1a028b06e588198c9146a662f2642472f277e2d742c0d719395"
+    },
+    "sources/detail.html": {
+      "bytes": 44995,
+      "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+    },
+    "sources/listing.html": {
+      "bytes": 29854,
+      "sha256": "89bf7782105d187da970026e10d5f596306753095372403ade54730333f043df"
+    },
+    "validation_receipt.json": {
+      "bytes": 1483,
+      "sha256": "a53d89ab3f95cb00bcb37f0ac8c910308b1d40fb788bb9f5d872f10b3f2a9446"
+    }
+  },
+  "membership": [
+    "base_snapshot.json",
+    "checksums.json",
+    "code_pins.json",
+    "proposal.json",
+    "publication.json",
+    "review_tool.py",
+    "sources/card.html",
+    "sources/detail.html",
+    "sources/listing.html",
+    "validation_receipt.json"
+  ],
+  "schema_version": "phase5c11_manual_fight_correction_v1"
+}

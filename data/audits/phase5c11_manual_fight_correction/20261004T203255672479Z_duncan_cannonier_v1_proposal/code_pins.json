@@ -1,0 +1,14 @@
+{
+  "reference_file_sha256": {
+    "docs/implementation-reports/20261004-manual-source-corroboration-and-identity-correction-report.md": "9808809e2ade72738f6a63a5a0b87b2beb77f49e8b6c4d36c415a0cc78cc570c",
+    "docs/normalization-rules.md": "951818263e5840e1f9d0e785f7beb769a0e9a413a4eda3556a1a03d7b27f640f",
+    "scraper/UFC-Web-Scraping-main/ufc_scraper/ufc_scraper/parsers/fight_info_parser.py": "b37d9a2a7a42db07636dfa08092be75b959024111258540dc0bcb1dd2bc9b96e",
+    "warehouse/strict_fight_outcomes_v2.py": "aec01516c479b3b7366f1b65f3980b1f1d9d34940826cdf00101c780be8eb019",
+    "warehouse/transform.py": "616ad63cf8402718ed8f912e7a3d75ba778109bac26745304256ef08eaef5a44"
+  },
+  "reference_role": "Semantics and prior-scope lineage pins only; no imports or runtime production calls.",
+  "starting_repo_head": "31a144d34e405162fb3cc35ad24123836efe5f09",
+  "tool_member": "review_tool.py",
+  "tool_sha256": "8c489087a4f2c7db326ea248da82eed26071f3065934a61890fea5a22abf9af4",
+  "tool_version": "phase5c11_manual_fight_correction_v1"
+}

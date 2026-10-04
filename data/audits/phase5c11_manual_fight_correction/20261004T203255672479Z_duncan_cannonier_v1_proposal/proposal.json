@@ -1,0 +1,683 @@
+{
+  "allowed_changed_fields": [
+    "event_status",
+    "fighter_1_outcome",
+    "fighter_2_outcome",
+    "finish_method",
+    "finish_round",
+    "finish_time_minute",
+    "finish_time_second",
+    "primary_finish_method",
+    "secondary_finish_method"
+  ],
+  "authorization": {
+    "original_issuance_utc": null,
+    "question": "Do you approve using these manually supplied pages—keeping their unknown capture metadata explicit—to prepare an isolated offline correction proposal for this fight? No live warehouse writes or changes to frozen datasets.",
+    "response": "yes, lest continue phases",
+    "scope": "Offline proposal for this existing fight only; no correction application or source-policy acceptance."
+  },
+  "availability_certificate": "NOT_A_SOURCE_AVAILABILITY_CERTIFICATE",
+  "clock_semantics": {
+    "manual_claim_capture_utc": null,
+    "proposal_computation_publication_utc": "Recorded only in operational publication.json; not source capture clocks.",
+    "retained_scraped_at": "Unchanged base-row lineage only; NEVER timestamps these new manual claims or historical availability."
+  },
+  "event_roster_diagnostics": {
+    "base_event_status": "upcoming",
+    "card_urls_absent_from_parent_roster": [
+      "http://ufcstats.com/fight-details/3bd159c1bed14700"
+    ],
+    "disposition": "LATER_REVIEW_REQUIRED_NO_EVENT_STATUS_ALIAS_REMATCH_OR_CANCELLATION_RESOLUTION",
+    "parent_event_status_preserved": true,
+    "parent_roster": [
+      {
+        "fight_id": "d2315b90-4f6f-54f4-86d1-bf30ff0c37c8",
+        "url": "http://ufcstats.com/fight-details/307ea95ad7ebe466"
+      },
+      {
+        "fight_id": "ce8015a7-1253-5de4-89fd-9e445ec35c02",
+        "url": "http://ufcstats.com/fight-details/e05155c1b5c2dc74"
+      },
+      {
+        "fight_id": "3ea09870-977d-53fc-a70e-d49be991ebbd",
+        "url": "http://ufcstats.com/fight-details/410e6b9e01660b35"
+      },
+      {
+        "fight_id": "ff2f8419-ef0c-51d0-92a5-e2ec152290b3",
+        "url": "http://ufcstats.com/fight-details/9e525f939fba3e73"
+      },
+      {
+        "fight_id": "03bec0e0-8efe-55db-9971-bd36132b3c1e",
+        "url": "http://ufcstats.com/fight-details/46d800ce45fdd3e6"
+      },
+      {
+        "fight_id": "6168dff5-3df1-5ddd-8a5f-17bff9a3b0df",
+        "url": "http://ufcstats.com/fight-details/f2eb569176e46edf"
+      },
+      {
+        "fight_id": "f2783f53-9556-5653-9815-c15e8614412c",
+        "url": "http://ufcstats.com/fight-details/c64c6ba6eb1e1d06"
+      },
+      {
+        "fight_id": "7189f7d3-d325-5abd-8e57-da16f3032017",
+        "url": "http://ufcstats.com/fight-details/52ddf20a10890b41"
+      },
+      {
+        "fight_id": "a259627a-3a95-52ec-ba76-fb1d5e5aceae",
+        "url": "http://ufcstats.com/fight-details/f2abca7379982d4f"
+      },
+      {
+        "fight_id": "53b9cada-68ba-5c11-8da4-28833cd6b5fe",
+        "url": "http://ufcstats.com/fight-details/4eff5a845db17572"
+      },
+      {
+        "fight_id": "e439fb69-cd79-5705-842a-4f98ddbf492a",
+        "url": "http://ufcstats.com/fight-details/701c97405da76603"
+      },
+      {
+        "fight_id": "f78ba6f7-05b1-5f19-a20c-721df9a9da88",
+        "url": "manual://fight/68a758a6-bd6a-5ec7-933e-72251614d52f/austin-bashi-vs-jose-miguel-delgado"
+      }
+    ],
+    "parent_roster_count": 12,
+    "parent_urls_absent_from_card_roster": [
+      "manual://fight/68a758a6-bd6a-5ec7-933e-72251614d52f/austin-bashi-vs-jose-miguel-delgado"
+    ],
+    "supplied_card_roster_count": 12,
+    "supplied_card_roster_urls": [
+      "http://ufcstats.com/fight-details/701c97405da76603",
+      "http://ufcstats.com/fight-details/4eff5a845db17572",
+      "http://ufcstats.com/fight-details/f2abca7379982d4f",
+      "http://ufcstats.com/fight-details/52ddf20a10890b41",
+      "http://ufcstats.com/fight-details/c64c6ba6eb1e1d06",
+      "http://ufcstats.com/fight-details/3bd159c1bed14700",
+      "http://ufcstats.com/fight-details/f2eb569176e46edf",
+      "http://ufcstats.com/fight-details/46d800ce45fdd3e6",
+      "http://ufcstats.com/fight-details/9e525f939fba3e73",
+      "http://ufcstats.com/fight-details/410e6b9e01660b35",
+      "http://ufcstats.com/fight-details/e05155c1b5c2dc74",
+      "http://ufcstats.com/fight-details/307ea95ad7ebe466"
+    ]
+  },
+  "excluded_updates": [
+    "IDs",
+    "URLs",
+    "participant_order",
+    "scraped_at",
+    "bout_type",
+    "weight_class",
+    "num_rounds",
+    "referee",
+    "judges",
+    "aggregate_statistics",
+    "round_statistics",
+    "parent_event_status"
+  ],
+  "extracted_facts": {
+    "bout_type_literal_only": {
+      "derivation": "Literal corroboration only; affirmative non-title status remains UNKNOWN under v1.",
+      "literal": "Middleweight Bout",
+      "normalized": "Middleweight Bout",
+      "references": [
+        {
+          "line_end": 109,
+          "line_start": 106,
+          "locator": "bout title",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        }
+      ]
+    },
+    "event_date": {
+      "derivation": "Parse supplied July 18, 2026 calendar date; not a capture clock.",
+      "literal": "July 18, 2026",
+      "normalized": "2026-07-18",
+      "references": [
+        {
+          "line_end": 329,
+          "line_start": 327,
+          "locator": "event date",
+          "member": "sources/listing.html",
+          "sha256": "89bf7782105d187da970026e10d5f596306753095372403ade54730333f043df"
+        },
+        {
+          "line_end": 86,
+          "line_start": 81,
+          "locator": "Date label",
+          "member": "sources/card.html",
+          "sha256": "bdfcaf45105fa1a028b06e588198c9146a662f2642472f277e2d742c0d719395"
+        }
+      ]
+    },
+    "event_location": {
+      "derivation": "Whitespace collapse only.",
+      "literal": "Oklahoma City, Oklahoma, USA",
+      "normalized": "Oklahoma City, Oklahoma, USA",
+      "references": [
+        {
+          "line_end": 334,
+          "line_start": 332,
+          "locator": "location cell",
+          "member": "sources/listing.html",
+          "sha256": "89bf7782105d187da970026e10d5f596306753095372403ade54730333f043df"
+        },
+        {
+          "line_end": 93,
+          "line_start": 87,
+          "locator": "Location label",
+          "member": "sources/card.html",
+          "sha256": "bdfcaf45105fa1a028b06e588198c9146a662f2642472f277e2d742c0d719395"
+        }
+      ]
+    },
+    "event_name": {
+      "derivation": "Whitespace collapse only.",
+      "literal": "UFC Fight Night: Du Plessis vs. Usman",
+      "normalized": "UFC Fight Night: Du Plessis vs. Usman",
+      "references": [
+        {
+          "line_end": 326,
+          "line_start": 324,
+          "locator": "event href",
+          "member": "sources/listing.html",
+          "sha256": "89bf7782105d187da970026e10d5f596306753095372403ade54730333f043df"
+        },
+        {
+          "line_end": 75,
+          "line_start": 73,
+          "locator": "title",
+          "member": "sources/card.html",
+          "sha256": "bdfcaf45105fa1a028b06e588198c9146a662f2642472f277e2d742c0d719395"
+        },
+        {
+          "line_end": 71,
+          "line_start": 67,
+          "locator": "event backlink",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        }
+      ]
+    },
+    "event_status": {
+      "derivation": "Completed paired L/W for this fight row only; no parent event-status inference.",
+      "literal": [
+        "L",
+        "W"
+      ],
+      "normalized": "completed",
+      "references": [
+        {
+          "line_end": 88,
+          "line_start": 76,
+          "locator": "person/profile href and explicit status",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        },
+        {
+          "line_end": 102,
+          "line_start": 90,
+          "locator": "person/profile href and explicit status",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        }
+      ]
+    },
+    "fighter_1_outcome": {
+      "derivation": "Whitespace collapse only.",
+      "literal": "L",
+      "normalized": "L",
+      "references": [
+        {
+          "line_end": 88,
+          "line_start": 76,
+          "locator": "person/profile href and explicit status",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        }
+      ]
+    },
+    "fighter_2_outcome": {
+      "derivation": "Whitespace collapse only.",
+      "literal": "W",
+      "normalized": "W",
+      "references": [
+        {
+          "line_end": 102,
+          "line_start": 90,
+          "locator": "person/profile href and explicit status",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        },
+        {
+          "line_end": 405,
+          "line_start": 281,
+          "locator": "win flag attached to first profile Duncan",
+          "member": "sources/card.html",
+          "sha256": "bdfcaf45105fa1a028b06e588198c9146a662f2642472f277e2d742c0d719395"
+        }
+      ]
+    },
+    "finish_method": {
+      "derivation": "Whitespace collapse; U-DEC corroborates Decision - Unanimous.",
+      "literal": "Decision - Unanimous",
+      "normalized": "Decision - Unanimous",
+      "references": [
+        {
+          "line_end": 120,
+          "line_start": 113,
+          "locator": "Method label",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        },
+        {
+          "line_end": 393,
+          "line_start": 381,
+          "locator": "U-DEC",
+          "member": "sources/card.html",
+          "sha256": "bdfcaf45105fa1a028b06e588198c9146a662f2642472f277e2d742c0d719395"
+        }
+      ]
+    },
+    "finish_round": {
+      "derivation": "Whitespace collapse only.",
+      "literal": "3",
+      "normalized": "3",
+      "references": [
+        {
+          "line_end": 126,
+          "line_start": 121,
+          "locator": "Round label",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        },
+        {
+          "line_end": 399,
+          "line_start": 394,
+          "locator": "round cell",
+          "member": "sources/card.html",
+          "sha256": "bdfcaf45105fa1a028b06e588198c9146a662f2642472f277e2d742c0d719395"
+        }
+      ]
+    },
+    "finish_time_minute": {
+      "derivation": "Split explicit 5:00 at colon, normalize integer minute to CSV string.",
+      "literal": "5:00",
+      "normalized": "5",
+      "references": [
+        {
+          "line_end": 133,
+          "line_start": 127,
+          "locator": "Time label",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        },
+        {
+          "line_end": 404,
+          "line_start": 400,
+          "locator": "time cell",
+          "member": "sources/card.html",
+          "sha256": "bdfcaf45105fa1a028b06e588198c9146a662f2642472f277e2d742c0d719395"
+        }
+      ]
+    },
+    "finish_time_second": {
+      "derivation": "Split explicit 5:00 at colon, normalize integer second to CSV string.",
+      "literal": "5:00",
+      "normalized": "0",
+      "references": [
+        {
+          "line_end": 133,
+          "line_start": 127,
+          "locator": "Time label",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        },
+        {
+          "line_end": 404,
+          "line_start": 400,
+          "locator": "time cell",
+          "member": "sources/card.html",
+          "sha256": "bdfcaf45105fa1a028b06e588198c9146a662f2642472f277e2d742c0d719395"
+        }
+      ]
+    },
+    "primary_finish_method": {
+      "derivation": "Existing CSV parser: split literal on ' - ', lowercase first token; not the DB finish_method column.",
+      "literal": "Decision - Unanimous",
+      "normalized": "decision",
+      "references": [
+        {
+          "line_end": 120,
+          "line_start": 113,
+          "locator": "Method label",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        }
+      ]
+    },
+    "secondary_finish_method": {
+      "derivation": "Existing CSV parser: split literal on ' - ', lowercase second token.",
+      "literal": "Decision - Unanimous",
+      "normalized": "unanimous",
+      "references": [
+        {
+          "line_end": 120,
+          "line_start": 113,
+          "locator": "Method label",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        }
+      ]
+    },
+    "time_format_literal_only": {
+      "derivation": "Corroboration only; scheduled rounds are preserved, not proposed.",
+      "literal": "3 Rnd (5-5-5)",
+      "normalized": "3 Rnd (5-5-5)",
+      "references": [
+        {
+          "line_end": 139,
+          "line_start": 134,
+          "locator": "Time format label",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        }
+      ]
+    }
+  },
+  "field_diff": [
+    {
+      "after": "L",
+      "before": "",
+      "derivation": "Whitespace collapse only.",
+      "evidence_fact": "fighter_1_outcome",
+      "field": "fighter_1_outcome",
+      "references": [
+        {
+          "line_end": 88,
+          "line_start": 76,
+          "locator": "person/profile href and explicit status",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        }
+      ]
+    },
+    {
+      "after": "W",
+      "before": "",
+      "derivation": "Whitespace collapse only.",
+      "evidence_fact": "fighter_2_outcome",
+      "field": "fighter_2_outcome",
+      "references": [
+        {
+          "line_end": 102,
+          "line_start": 90,
+          "locator": "person/profile href and explicit status",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        },
+        {
+          "line_end": 405,
+          "line_start": 281,
+          "locator": "win flag attached to first profile Duncan",
+          "member": "sources/card.html",
+          "sha256": "bdfcaf45105fa1a028b06e588198c9146a662f2642472f277e2d742c0d719395"
+        }
+      ]
+    },
+    {
+      "after": "completed",
+      "before": "upcoming",
+      "derivation": "Completed paired L/W for this fight row only; no parent event-status inference.",
+      "evidence_fact": "event_status",
+      "field": "event_status",
+      "references": [
+        {
+          "line_end": 88,
+          "line_start": 76,
+          "locator": "person/profile href and explicit status",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        },
+        {
+          "line_end": 102,
+          "line_start": 90,
+          "locator": "person/profile href and explicit status",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        }
+      ]
+    },
+    {
+      "after": "Decision - Unanimous",
+      "before": "",
+      "derivation": "Whitespace collapse; U-DEC corroborates Decision - Unanimous.",
+      "evidence_fact": "finish_method",
+      "field": "finish_method",
+      "references": [
+        {
+          "line_end": 120,
+          "line_start": 113,
+          "locator": "Method label",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        },
+        {
+          "line_end": 393,
+          "line_start": 381,
+          "locator": "U-DEC",
+          "member": "sources/card.html",
+          "sha256": "bdfcaf45105fa1a028b06e588198c9146a662f2642472f277e2d742c0d719395"
+        }
+      ]
+    },
+    {
+      "after": "decision",
+      "before": "",
+      "derivation": "Existing CSV parser: split literal on ' - ', lowercase first token; not the DB finish_method column.",
+      "evidence_fact": "primary_finish_method",
+      "field": "primary_finish_method",
+      "references": [
+        {
+          "line_end": 120,
+          "line_start": 113,
+          "locator": "Method label",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        }
+      ]
+    },
+    {
+      "after": "unanimous",
+      "before": "",
+      "derivation": "Existing CSV parser: split literal on ' - ', lowercase second token.",
+      "evidence_fact": "secondary_finish_method",
+      "field": "secondary_finish_method",
+      "references": [
+        {
+          "line_end": 120,
+          "line_start": 113,
+          "locator": "Method label",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        }
+      ]
+    },
+    {
+      "after": "3",
+      "before": "",
+      "derivation": "Whitespace collapse only.",
+      "evidence_fact": "finish_round",
+      "field": "finish_round",
+      "references": [
+        {
+          "line_end": 126,
+          "line_start": 121,
+          "locator": "Round label",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        },
+        {
+          "line_end": 399,
+          "line_start": 394,
+          "locator": "round cell",
+          "member": "sources/card.html",
+          "sha256": "bdfcaf45105fa1a028b06e588198c9146a662f2642472f277e2d742c0d719395"
+        }
+      ]
+    },
+    {
+      "after": "5",
+      "before": "",
+      "derivation": "Split explicit 5:00 at colon, normalize integer minute to CSV string.",
+      "evidence_fact": "finish_time_minute",
+      "field": "finish_time_minute",
+      "references": [
+        {
+          "line_end": 133,
+          "line_start": 127,
+          "locator": "Time label",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        },
+        {
+          "line_end": 404,
+          "line_start": 400,
+          "locator": "time cell",
+          "member": "sources/card.html",
+          "sha256": "bdfcaf45105fa1a028b06e588198c9146a662f2642472f277e2d742c0d719395"
+        }
+      ]
+    },
+    {
+      "after": "0",
+      "before": "",
+      "derivation": "Split explicit 5:00 at colon, normalize integer second to CSV string.",
+      "evidence_fact": "finish_time_second",
+      "field": "finish_time_second",
+      "references": [
+        {
+          "line_end": 133,
+          "line_start": 127,
+          "locator": "Time label",
+          "member": "sources/detail.html",
+          "sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29"
+        },
+        {
+          "line_end": 404,
+          "line_start": 400,
+          "locator": "time cell",
+          "member": "sources/card.html",
+          "sha256": "bdfcaf45105fa1a028b06e588198c9146a662f2642472f277e2d742c0d719395"
+        }
+      ]
+    }
+  ],
+  "historical_comparison": "STILL_BLOCKED",
+  "identity_orientation": {
+    "card_profile_urls": [
+      "http://ufcstats.com/fighter-details/a93f94c923c3a9cb",
+      "http://ufcstats.com/fighter-details/13a0275fa13c4d26"
+    ],
+    "card_to_stored_permutation": [
+      2,
+      1
+    ],
+    "detail_assignment": "Manual text chain corroborated by card fight link, profiles, paired result, finish and event backlink; final browser URL unknown.",
+    "detail_event_date": null,
+    "detail_fighter_ids": [
+      "c00bb616-ac26-58fe-af2e-8d953a63322d",
+      "364ad7d6-2d46-5e3c-a5f9-5696d76b73a9"
+    ],
+    "detail_profile_urls": [
+      "http://ufcstats.com/fighter-details/13a0275fa13c4d26",
+      "http://ufcstats.com/fighter-details/a93f94c923c3a9cb"
+    ],
+    "detail_self_fight_url": null,
+    "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+    "fight_id": "53b9cada-68ba-5c11-8da4-28833cd6b5fe",
+    "join_key": "Exact profile href after only optional www removal; never display order."
+  },
+  "production": "UNCHANGED",
+  "proposal_disposition": "PROPOSAL_ONLY_NOT_APPLIED",
+  "proposed_fight_row": {
+    "bout_type": "Middleweight Bout",
+    "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+    "event_status": "completed",
+    "fight_id": "53b9cada-68ba-5c11-8da4-28833cd6b5fe",
+    "fighter_1_id": "c00bb616-ac26-58fe-af2e-8d953a63322d",
+    "fighter_1_outcome": "L",
+    "fighter_2_id": "364ad7d6-2d46-5e3c-a5f9-5696d76b73a9",
+    "fighter_2_outcome": "W",
+    "finish_method": "Decision - Unanimous",
+    "finish_round": "3",
+    "finish_time_minute": "5",
+    "finish_time_second": "0",
+    "judge_1": "",
+    "judge_2": "",
+    "judge_3": "",
+    "num_rounds": "3",
+    "primary_finish_method": "decision",
+    "referee": "",
+    "scraped_at": "2026-08-08 23:38:48 UTC",
+    "secondary_finish_method": "unanimous",
+    "url": "http://www.ufcstats.com/fight-details/4eff5a845db17572",
+    "weight_class": "middleweight"
+  },
+  "proposed_parent_event_changes": [],
+  "prospective_forecasting": "BLOCKED",
+  "remaining_requirements": [
+    "Manual provider authenticity and missing capture/transport provenance qualification.",
+    "Separate authority to accept source evidence and apply any correction.",
+    "Parent event status and native/manual roster consistency review.",
+    "Historical revision/availability, exhaustive history and affirmative non-title evidence remain unestablished."
+  ],
+  "schema_version": "phase5c11_manual_fight_correction_v1",
+  "source_admission": "SOURCE_ADMISSION_UNAPPROVED",
+  "source_provenance": {
+    "card": {
+      "authenticity": "MANUALLY_SUPPLIED_TEXT_NOT_PROVIDER_AUTHENTICATED",
+      "capture_utc": null,
+      "final_browser_url": null,
+      "http_status": null,
+      "member": "sources/card.html",
+      "original_http_wire_bytes_verified": false,
+      "received_text_bytes": 43781,
+      "received_text_sha256": "bdfcaf45105fa1a028b06e588198c9146a662f2642472f277e2d742c0d719395",
+      "request_cache_provenance": null
+    },
+    "detail": {
+      "authenticity": "MANUALLY_SUPPLIED_TEXT_NOT_PROVIDER_AUTHENTICATED",
+      "capture_utc": null,
+      "final_browser_url": null,
+      "http_status": null,
+      "member": "sources/detail.html",
+      "original_http_wire_bytes_verified": false,
+      "received_text_bytes": 44995,
+      "received_text_sha256": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29",
+      "request_cache_provenance": null
+    },
+    "listing": {
+      "authenticity": "MANUALLY_SUPPLIED_TEXT_NOT_PROVIDER_AUTHENTICATED",
+      "capture_utc": null,
+      "final_browser_url": null,
+      "http_status": null,
+      "member": "sources/listing.html",
+      "original_http_wire_bytes_verified": false,
+      "received_text_bytes": 29854,
+      "received_text_sha256": "89bf7782105d187da970026e10d5f596306753095372403ade54730333f043df",
+      "request_cache_provenance": null
+    }
+  },
+  "statistics_note": "Card Str 68/15 corroborated previously as significant landed, not total landed 94/36. No statistics are extracted into candidate updates, normalized features, or model inputs.",
+  "training_scoring_admission": "NOT_ADMISSIBLE",
+  "v1": "ENFORCED",
+  "v2": "PROPOSED_NOT_APPROVED",
+  "validation": {
+    "admission_effect": "NONE_REVIEW_CONSISTENCY_ONLY",
+    "disposition_result_type": "win",
+    "disposition_winner_fighter_id": "364ad7d6-2d46-5e3c-a5f9-5696d76b73a9",
+    "fight_row_status": "completed",
+    "finish_time_seconds": 300,
+    "paired_outcomes": "L/W"
+  }
+}

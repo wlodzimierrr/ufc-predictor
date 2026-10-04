@@ -1,0 +1,60 @@
+{
+  "events": {
+    "data_record": 788,
+    "input_csv_lineage": {
+      "bytes": 1035226,
+      "coverage": "Full input hash reference only; only selected row archived, not a standalone full CSV archive.",
+      "path": "/home/wlodzimierrr/ufc-data/data/events.csv",
+      "sha256": "269ae15eb2b90224f892b5dd0f330a9aa103887e8c57380c11a938abfc993679"
+    },
+    "physical_end_line": 789,
+    "row": {
+      "city": "Oklahoma City",
+      "country": "USA",
+      "date": "July 18, 2026",
+      "date_formatted": "2026-07-18",
+      "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+      "event_status": "upcoming",
+      "fight_urls": "http://www.ufcstats.com/fight-details/307ea95ad7ebe466, http://www.ufcstats.com/fight-details/e05155c1b5c2dc74, http://www.ufcstats.com/fight-details/410e6b9e01660b35, http://www.ufcstats.com/fight-details/9e525f939fba3e73, http://www.ufcstats.com/fight-details/46d800ce45fdd3e6, http://www.ufcstats.com/fight-details/f2eb569176e46edf, http://www.ufcstats.com/fight-details/c64c6ba6eb1e1d06, http://www.ufcstats.com/fight-details/52ddf20a10890b41, http://www.ufcstats.com/fight-details/f2abca7379982d4f, http://www.ufcstats.com/fight-details/4eff5a845db17572, http://www.ufcstats.com/fight-details/701c97405da76603, manual://fight/68a758a6-bd6a-5ec7-933e-72251614d52f/austin-bashi-vs-jose-miguel-delgado",
+      "fights": "d2315b90-4f6f-54f4-86d1-bf30ff0c37c8, ce8015a7-1253-5de4-89fd-9e445ec35c02, 3ea09870-977d-53fc-a70e-d49be991ebbd, ff2f8419-ef0c-51d0-92a5-e2ec152290b3, 03bec0e0-8efe-55db-9971-bd36132b3c1e, 6168dff5-3df1-5ddd-8a5f-17bff9a3b0df, f2783f53-9556-5653-9815-c15e8614412c, 7189f7d3-d325-5abd-8e57-da16f3032017, a259627a-3a95-52ec-ba76-fb1d5e5aceae, 53b9cada-68ba-5c11-8da4-28833cd6b5fe, e439fb69-cd79-5705-842a-4f98ddbf492a, f78ba6f7-05b1-5f19-a20c-721df9a9da88",
+      "name": "UFC Fight Night: Du Plessis vs. Usman",
+      "scraped_at": "2026-08-08 18:44:47 UTC",
+      "state": "Oklahoma",
+      "url": "http://www.ufcstats.com/event-details/f354c50b8d63d9b3"
+    }
+  },
+  "fights": {
+    "data_record": 8834,
+    "input_csv_lineage": {
+      "bytes": 3233301,
+      "coverage": "Full input hash reference only; only selected row archived, not a standalone full CSV archive.",
+      "path": "/home/wlodzimierrr/ufc-data/data/fights.csv",
+      "sha256": "616f7be79c7c61ddec2aaddc4aa7d36ec0a2478106e6d10697df078406012b8c"
+    },
+    "physical_end_line": 8835,
+    "row": {
+      "bout_type": "Middleweight Bout",
+      "event_id": "68a758a6-bd6a-5ec7-933e-72251614d52f",
+      "event_status": "upcoming",
+      "fight_id": "53b9cada-68ba-5c11-8da4-28833cd6b5fe",
+      "fighter_1_id": "c00bb616-ac26-58fe-af2e-8d953a63322d",
+      "fighter_1_outcome": "",
+      "fighter_2_id": "364ad7d6-2d46-5e3c-a5f9-5696d76b73a9",
+      "fighter_2_outcome": "",
+      "finish_method": "",
+      "finish_round": "",
+      "finish_time_minute": "",
+      "finish_time_second": "",
+      "judge_1": "",
+      "judge_2": "",
+      "judge_3": "",
+      "num_rounds": "3",
+      "primary_finish_method": "",
+      "referee": "",
+      "scraped_at": "2026-08-08 23:38:48 UTC",
+      "secondary_finish_method": "",
+      "url": "http://www.ufcstats.com/fight-details/4eff5a845db17572",
+      "weight_class": "middleweight"
+    }
+  }
+}

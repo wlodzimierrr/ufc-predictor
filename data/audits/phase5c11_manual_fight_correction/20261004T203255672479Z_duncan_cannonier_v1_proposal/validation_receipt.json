@@ -1,0 +1,25 @@
+{
+  "availability_certificate": "NOT_A_SOURCE_AVAILABILITY_CERTIFICATE",
+  "deterministic_payload_builds": 2,
+  "historical_comparison": "STILL_BLOCKED",
+  "payload_member_sha256": {
+    "base_snapshot.json": "b18d5b358a794e0baa5639d56dc5abc2ec971df2aa86e158d40f2a5005ef9c9f",
+    "code_pins.json": "bbeb5d32921253e652f0bde128a9865a79dd14e08f60a28a1ae98d4c7a066db6",
+    "proposal.json": "19caad189884e04cb7480d39940bc33b7ca6be63324d095cdc3176b0c3ae452b",
+    "review_tool.py": "8c489087a4f2c7db326ea248da82eed26071f3065934a61890fea5a22abf9af4",
+    "sources/card.html": "bdfcaf45105fa1a028b06e588198c9146a662f2642472f277e2d742c0d719395",
+    "sources/detail.html": "05da35470b65c2bbd35d04b0904eea98c19ea482845f0619753a576d7aa95f29",
+    "sources/listing.html": "89bf7782105d187da970026e10d5f596306753095372403ade54730333f043df"
+  },
+  "production": "UNCHANGED",
+  "proposal_disposition": "PROPOSAL_ONLY_NOT_APPLIED",
+  "prospective_forecasting": "BLOCKED",
+  "runtime_dependencies": "Python standard library only; no network/DB/model calls or source acquisition.",
+  "schema_version": "phase5c11_manual_fight_correction_v1",
+  "source_admission": "SOURCE_ADMISSION_UNAPPROVED",
+  "training_scoring_admission": "NOT_ADMISSIBLE",
+  "v1": "ENFORCED",
+  "v2": "PROPOSED_NOT_APPROVED",
+  "validation_scope": "Rebuild from frozen received-text bytes and exact captured base rows; CSV full hashes remain lineage references.",
+  "validation_status": "OFFLINE_PROPOSAL_CONSISTENCY_PASSED"
+}
