@@ -77,7 +77,7 @@ Relevant existing pieces:
 #### T9.1.2 Add Docker image for `ufc-data`
 - **Description:** Add a production-oriented Dockerfile that can run the dashboard
   refresh pipeline in an ephemeral container.
-- **Status:** IMPLEMENTED — IMAGE_BUILT; RUNTIME_SMOKE_PENDING (CI build/imports passed)
+- **Status:** IMPLEMENTED — SYNTHETIC_RUNTIME_VALIDATED; REAL_BUNDLE_APPROVAL_PENDING
 - **Acceptance Criteria:**
   - Docker image installs Python dependencies and system tools needed by the current
     refresh pipeline.
@@ -138,7 +138,7 @@ Relevant existing pieces:
 #### T9.2.3 Configure secrets, config, and network policies
 - **Description:** Provide the Kubernetes runtime configuration required for the job
   to reach Postgres and external scrape sources safely.
-- **Status:** IMPLEMENTED — RUNTIME_SECRET_CONFIGURATION_PENDING
+- **Status:** IMPLEMENTED — ENCRYPTED_DEV_SECRET_PREPARED; RUNTIME_DELIVERY_PENDING
 - **Acceptance Criteria:**
   - SOPS-managed secret includes `DATABASE_URL` and any required scraper credentials,
     cookies, or headers.

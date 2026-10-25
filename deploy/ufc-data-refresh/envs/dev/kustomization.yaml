@@ -5,7 +5,7 @@ resources:
   - ../../base
 images:
   - name: ghcr.io/wlodzimierrr/ufc-data
-    newTag: sha-REPLACE_WITH_PUBLISHED_COMMIT
+    digest: sha256:6e164d546fbdc000c13c62eeccfa6eef57708157f8c0d87b66b7b89613c47346
 patches:
   - path: patch-cronjob.yaml
 # After encrypting the real runtime secret, enable generators as documented.

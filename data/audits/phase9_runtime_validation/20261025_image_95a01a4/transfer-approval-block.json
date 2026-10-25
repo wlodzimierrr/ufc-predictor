@@ -1,0 +1,13 @@
+{
+  "action": "transfer hash-pinned candidate bundle to temporary cluster validation pod",
+  "destination_namespace": "ufc-data-validation-94f4b025",
+  "manifest_sha256": "edaab9f452709b1d4eb0e664ed8930a7ecbf840f3b309b11c55df7e3ad972f37",
+  "model_deserialization_executed": false,
+  "payload_bytes": 68122942,
+  "payload_files": 9,
+  "payload_transfer_executed": false,
+  "reason": "The user has not explicitly authorized this sensitive data/model payload to that destination.",
+  "required_user_action": "Explicitly approve this bundle transfer for isolated preflight and model deserialization only.",
+  "status": "blocked_by_automatic_approval_review",
+  "temporary_namespace_removed": true
+}

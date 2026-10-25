@@ -22,6 +22,18 @@ Replace the overlay's `images[].newTag` with a published full `sha-<commit>` tag
 The base contains the image name once; environment overlays select the version.
 Image publishing does not choose or deploy that version for the cluster.
 
+The dev source now pins the validated immutable digest for source revision
+`95a01a44c299350d8c8ac4d8ec570805fde3a053`. Anonymous manifest access was verified,
+so dev removes the unused registry-pull-secret reference. Prod remains a template.
+The active dashboard reports `APP_ENV=dev`; this draft follows that environment
+and uses its own refresh namespace. No workload has been applied.
+
+`gitops/project.yaml` and `gitops/application-dev.yaml` are separate registration
+templates. The project permits only the new dev namespace; the Application uses
+manual sync. They are deliberately absent from the workload kustomizations and
+existing homelab bootstrap. The dashboard's existing AppProject cannot be reused
+because it only permits the dashboard namespace.
+
 ## Runtime configuration
 
 1. Provision/seed `ufc-data-refresh-inputs` with reviewed `data/` and `models/`
@@ -30,6 +42,9 @@ Image publishing does not choose or deploy that version for the cluster.
    cluster's appropriate storage class; the templates use its default. Ensure
    the pod's UID/GID 10001 can read the inputs and write the audit PVC. The
    `ReadWriteOnce` input claim requires the seeding pod to finish before the job.
+   Build an allowlisted candidate with `python3 scripts/automation/build_input_bundle.py
+   --output /absolute/new/candidate-directory` in ufc-data first. Its manifest pins
+   hashes/bytes and marks inputs `not_reviewed`; copying is not source approval.
 2. Apply required warehouse migrations using the separate operator migration
    procedure. In particular the run-audit table must exist before any refresh.
    The job deliberately performs no DDL or migration.

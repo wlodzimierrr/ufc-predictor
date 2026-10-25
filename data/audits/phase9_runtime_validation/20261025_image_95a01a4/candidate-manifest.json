@@ -1,0 +1,79 @@
+{
+  "files": [
+    {
+      "mode": 420,
+      "path": "data/events.csv",
+      "sha256": "69f823508af33243628db915ca7f81a3e0396da704481c7c02f1e78ed102b982",
+      "size_bytes": 1040447,
+      "source_sha256": "69f823508af33243628db915ca7f81a3e0396da704481c7c02f1e78ed102b982"
+    },
+    {
+      "mode": 420,
+      "path": "data/fighters.csv",
+      "sha256": "831211b907ac5517e140c3dac3ddf42a928949a3d2e6ee826a4e3f40f45beea5",
+      "size_bytes": 1862659,
+      "source_sha256": "831211b907ac5517e140c3dac3ddf42a928949a3d2e6ee826a4e3f40f45beea5"
+    },
+    {
+      "mode": 420,
+      "path": "data/fights.csv",
+      "sha256": "35a2c0922166250d03f9d2a9f22873cf129b100200fabae8413484fa581ce454",
+      "size_bytes": 3247746,
+      "source_sha256": "35a2c0922166250d03f9d2a9f22873cf129b100200fabae8413484fa581ce454"
+    },
+    {
+      "mode": 420,
+      "path": "data/manifests/events_manifest.csv",
+      "sha256": "7661a54f670aa2d0ee333297e2306eb41145ed0e28c525ff4693fa40d32a0c48",
+      "size_bytes": 654974,
+      "source_sha256": "7661a54f670aa2d0ee333297e2306eb41145ed0e28c525ff4693fa40d32a0c48"
+    },
+    {
+      "mode": 420,
+      "path": "data/odds/fight_odds.csv",
+      "sha256": "22a02c97b2caef8b75d069cda0a44ceb2d9434c46df6d908aabf4e59676bfb67",
+      "size_bytes": 60978654,
+      "source_sha256": "22a02c97b2caef8b75d069cda0a44ceb2d9434c46df6d908aabf4e59676bfb67"
+    },
+    {
+      "mode": 420,
+      "path": "models/production_model.json",
+      "sha256": "ff5272e0d2f11f9f6cbc6597f91a2cf9961ae317f8dd47f90bfb1f6e44dd5caa",
+      "size_bytes": 473,
+      "source_sha256": "ff5272e0d2f11f9f6cbc6597f91a2cf9961ae317f8dd47f90bfb1f6e44dd5caa"
+    },
+    {
+      "mode": 420,
+      "path": "models/xgb/20260328T221117Z/metadata.json",
+      "sha256": "d10a0e6fd17996edac5d6aa90b4436ade1a5d2424b7dbe2f9ed379c469c4e02a",
+      "size_bytes": 4762,
+      "source_sha256": "d10a0e6fd17996edac5d6aa90b4436ade1a5d2424b7dbe2f9ed379c469c4e02a"
+    },
+    {
+      "mode": 420,
+      "path": "models/xgb/20260328T221117Z/metrics.json",
+      "sha256": "14c7b3539c2fc21156b2e85de858cacf89e83ac57d27662010fde4a7b99663c6",
+      "size_bytes": 829,
+      "source_sha256": "14c7b3539c2fc21156b2e85de858cacf89e83ac57d27662010fde4a7b99663c6"
+    },
+    {
+      "mode": 420,
+      "path": "models/xgb/20260328T221117Z/model.joblib",
+      "sha256": "0585077675968c2a3537ffd3fddb87a9eb610c98d36200b64dd5fe148599389a",
+      "size_bytes": 332398,
+      "source_sha256": "0585077675968c2a3537ffd3fddb87a9eb610c98d36200b64dd5fe148599389a"
+    }
+  ],
+  "hash_algorithm": "sha256",
+  "input_rows": {
+    "data/events.csv": 818,
+    "data/fighters.csv": 4517,
+    "data/fights.csv": 9165,
+    "data/manifests/events_manifest.csv": 797,
+    "data/odds/fight_odds.csv": 159424
+  },
+  "review_status": "not_reviewed",
+  "schema_version": 1,
+  "selected_artifact": "models/xgb/20260328T221117Z",
+  "status": "candidate"
+}

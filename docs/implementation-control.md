@@ -24,9 +24,13 @@ logical commits and normal pushes; do not equate publication with deployment.
 ## Next Phase 9 tickets
 
 These follow-up tickets close measured delivery gaps rather than treating them as
-success. T9.5.1 is IN_PROGRESS: CI build/imports and GHCR publication passed, while
-the exact-image runtime/input preflight remains pending. T9.5.2–T9.5.4 remain TODO.
-Keep the CronJob suspended until the activation ticket.
+success. T9.5.1 is IN_PROGRESS: exact-digest synthetic container validation passed;
+real-bundle transfer awaits explicit approval after automatic review rejected it.
+T9.5.2 is IN_PROGRESS: the minimal candidate and encrypted dev Secret are prepared,
+but inputs remain unreviewed and no runtime setup or migration was applied.
+T9.5.3–T9.5.4 remain TODO. Keep the CronJob suspended until the activation ticket.
+See the [runtime validation report](implementation-reports/phase9-runtime-validation-report.md)
+for the validated image, retained evidence and precise transfer approval boundary.
 
 | Ticket | Dependency | Acceptance |
 |---|---|---|

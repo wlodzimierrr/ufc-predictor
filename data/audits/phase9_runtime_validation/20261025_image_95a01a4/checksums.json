@@ -1,0 +1,34 @@
+{
+  "anonymous-image-access.json": {
+    "sha256": "78829e2ff57947bb4ddaf969380932032f907e77b070e0f918674883faf69c9f",
+    "size_bytes": 127
+  },
+  "candidate-manifest.json": {
+    "sha256": "edaab9f452709b1d4eb0e664ed8930a7ecbf840f3b309b11c55df7e3ad972f37",
+    "size_bytes": 2903
+  },
+  "cluster-seed-helper.py": {
+    "sha256": "d3ab6cd3293c3ff42b3c26815e514c1907acc26d45322fef2f13fd583ba4fba9",
+    "size_bytes": 2833
+  },
+  "cluster-validation-plan.json": {
+    "sha256": "23487b77415ab13adb3b0a3c7e957e3668f2c6339987a174c580929953afda53",
+    "size_bytes": 12096
+  },
+  "image-smoke.json": {
+    "sha256": "929e1204266393d004905155ffcdaf00a5824f70f291d7f96cf398b5630c4222",
+    "size_bytes": 1376
+  },
+  "runtime-secret-preparation.json": {
+    "sha256": "aa21fe0ee00da0371203988a41ec092a9292e0db14b98df3e6568b8dec5ddc90",
+    "size_bytes": 422
+  },
+  "transfer-approval-block.json": {
+    "sha256": "4e57c046a406ee9cb3120d4f5941c1812ccfd1a4b0b0d5032d35822d47f6181d",
+    "size_bytes": 696
+  },
+  "warehouse-read-only-inspection.json": {
+    "sha256": "2ce4d8437bce2d3351a4e776b51bf01de59265520a9eb219f21bfacb5bdcfe38",
+    "size_bytes": 858
+  }
+}

@@ -4,3 +4,9 @@ metadata:
   name: ufc-data-refresh
 spec:
   suspend: true
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          # Anonymous manifest access was verified for the public package.
+          imagePullSecrets: null

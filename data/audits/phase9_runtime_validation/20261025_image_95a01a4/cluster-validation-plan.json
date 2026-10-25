@@ -1,0 +1,191 @@
+{
+  "apiVersion": "v1",
+  "kind": "List",
+  "items": [
+    {
+      "apiVersion": "v1",
+      "kind": "Namespace",
+      "metadata": {
+        "name": "ufc-data-validation-94f4b025",
+        "labels": {
+          "app.kubernetes.io/managed-by": "phase9-image-validation"
+        }
+      }
+    },
+    {
+      "apiVersion": "networking.k8s.io/v1",
+      "kind": "NetworkPolicy",
+      "metadata": {
+        "name": "deny-all",
+        "namespace": "ufc-data-validation-94f4b025"
+      },
+      "spec": {
+        "podSelector": {},
+        "policyTypes": [
+          "Ingress",
+          "Egress"
+        ]
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "image-preflight",
+        "namespace": "ufc-data-validation-94f4b025",
+        "labels": {
+          "app.kubernetes.io/name": "ufc-data-image-preflight"
+        }
+      },
+      "spec": {
+        "restartPolicy": "Never",
+        "activeDeadlineSeconds": 1200,
+        "automountServiceAccountToken": false,
+        "securityContext": {
+          "runAsUser": 10001,
+          "runAsGroup": 10001,
+          "runAsNonRoot": true,
+          "fsGroup": 10001,
+          "seccompProfile": {
+            "type": "RuntimeDefault"
+          }
+        },
+        "initContainers": [
+          {
+            "name": "seed",
+            "image": "ghcr.io/wlodzimierrr/ufc-data@sha256:6e164d546fbdc000c13c62eeccfa6eef57708157f8c0d87b66b7b89613c47346",
+            "imagePullPolicy": "IfNotPresent",
+            "command": [
+              "python3",
+              "-c",
+              "from pathlib import Path; import time; deadline=time.monotonic()+540\nwhile not Path('/seed/.seed-complete').is_file():\n if time.monotonic()>deadline: raise SystemExit(1)\n time.sleep(1)"
+            ],
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "readOnlyRootFilesystem": true,
+              "capabilities": {
+                "drop": [
+                  "ALL"
+                ]
+              }
+            },
+            "resources": {
+              "requests": {
+                "cpu": "100m",
+                "memory": "512Mi"
+              },
+              "limits": {
+                "cpu": "2",
+                "memory": "4Gi"
+              }
+            },
+            "volumeMounts": [
+              {
+                "name": "inputs",
+                "mountPath": "/seed"
+              },
+              {
+                "name": "tmp",
+                "mountPath": "/tmp"
+              }
+            ]
+          }
+        ],
+        "containers": [
+          {
+            "name": "preflight",
+            "image": "ghcr.io/wlodzimierrr/ufc-data@sha256:6e164d546fbdc000c13c62eeccfa6eef57708157f8c0d87b66b7b89613c47346",
+            "imagePullPolicy": "IfNotPresent",
+            "command": [
+              "python3",
+              "-c",
+              "import json,hashlib,pathlib,joblib,os\nmanifest_path=pathlib.Path('/runtime-inputs/manifest.json')\nassert hashlib.sha256(manifest_path.read_bytes()).hexdigest()==os.environ['SMOKE_BUNDLE_MANIFEST_SHA256']\n\nmanifest=json.loads(manifest_path.read_text())\nassert manifest['status']=='candidate' and manifest['review_status']=='not_reviewed'\nroot=pathlib.Path('/runtime-inputs')\nexpected=set()\nfor entry in manifest['files']:\n    relative=pathlib.PurePosixPath(entry['path'])\n    assert not relative.is_absolute() and '..' not in relative.parts and relative.parts[0] in ('data','models')\n    assert relative.as_posix() not in expected\n    expected.add(relative.as_posix())\n    source=root/relative\n    assert source.is_file() and not source.is_symlink()\n    assert source.stat().st_size==entry['size_bytes']\n    h=hashlib.sha256()\n    with source.open('rb') as stream:\n        for chunk in iter(lambda:stream.read(1024*1024),b''): h.update(chunk)\n    assert h.hexdigest()==entry['sha256']\nactual={p.relative_to(root).as_posix() for name in ('data','models') for p in (root/name).rglob('*') if p.is_file()}\nassert actual==expected\nassert not any(p.is_symlink() for name in ('data','models') for p in (root/name).rglob('*'))\n\noriginal_model_loader=joblib.load\n\nimport importlib, json, os\nif os.getuid() != 10001 or os.getgid() != 10001:\n    raise RuntimeError(\"unexpected_runtime_user\")\nif os.environ.get(\"IMAGE_REVISION\") != os.environ[\"SMOKE_EXPECTED_REVISION\"]:\n    raise RuntimeError(\"unexpected_runtime_revision\")\nif not os.statvfs(\"/\").f_flag & os.ST_RDONLY:\n    raise RuntimeError(\"writable_root\")\ndef forbidden(*args, **kwargs):\n    raise RuntimeError(\"database_or_model_loading_forbidden\")\nimport psycopg2, joblib\npsycopg2.connect = forbidden\njoblib.load = forbidden\nmodules = json.loads(os.environ[\"SMOKE_MODULES\"])\nfor name in modules:\n    importlib.import_module(name)\nprint(\"UFC_IMAGE_SMOKE=\" + json.dumps({\"check\": \"imports\", \"uid\": os.getuid(),\n    \"gid\": os.getgid(), \"revision\": os.environ[\"IMAGE_REVISION\"], \"modules\": modules}))\n\n\nimport hashlib, json, os, pathlib, subprocess\nif os.getuid() != 10001 or os.getgid() != 10001:\n    raise RuntimeError(\"unexpected_runtime_user\")\nif os.environ.get(\"IMAGE_REVISION\") != os.environ[\"SMOKE_EXPECTED_REVISION\"]:\n    raise RuntimeError(\"unexpected_runtime_revision\")\nfor directory in (\"/\", \"/runtime-inputs/data\", \"/runtime-inputs/models\"):\n    if not os.statvfs(directory).f_flag & os.ST_RDONLY:\n        raise RuntimeError(\"writable_immutable_mount\")\ndef tree(root):\n    result = {}\n    for path in (root, *sorted(root.rglob(\"*\"))):\n        if path.is_symlink() or not (path.is_dir() or path.is_file()):\n            raise RuntimeError(\"unsupported_input_file_type\")\n        info = path.stat()\n        digest = None\n        if path.is_file():\n            h = hashlib.sha256()\n            with path.open(\"rb\") as stream:\n                for chunk in iter(lambda: stream.read(1024 * 1024), b\"\"):\n                    h.update(chunk)\n            digest = h.hexdigest()\n        result[path.relative_to(root).as_posix()] = (digest, info.st_mode, info.st_mtime_ns)\n    return result\nsources = [pathlib.Path(\"/runtime-inputs/data\"), pathlib.Path(\"/runtime-inputs/models\")]\nbefore = [tree(path) for path in sources]\ncompleted = subprocess.run([\"/app/scripts/automation/refresh.sh\", \"--preflight-only\"],\n                           capture_output=True, text=True, timeout=240)\nif completed.returncode != 0 or \"automation preflight=succeeded input_rows=\" not in completed.stdout:\n    raise RuntimeError(\"wrapper_preflight_failed\")\nif \"automation end=\" not in completed.stdout or \"status=succeeded exit_code=0\" not in completed.stdout:\n    raise RuntimeError(\"wrapper_status_missing\")\nif [tree(path) for path in sources] != before:\n    raise RuntimeError(\"source_changed\")\ncopied_counts = []\nfor source, destination in zip(sources, [pathlib.Path(\"/app/data\"), pathlib.Path(\"/app/models\")]):\n    original, copied = tree(source), tree(destination)\n    if set(copied) != set(original) | {\".automation-runtime-copy.json\"}:\n        raise RuntimeError(\"copy_file_set_mismatch\")\n    for name, measurement in original.items():\n        if source.name == \"models\" and name == \"production_model.json\":\n            continue\n        if copied[name][0] != measurement[0]:\n            raise RuntimeError(\"copy_content_mismatch\")\n    ownership = json.loads((destination / \".automation-runtime-copy.json\").read_text())\n    if ownership != {\"contract\": \"private-refresh-copy-v1\", \"destination\": str(destination)}:\n        raise RuntimeError(\"copy_ownership_missing\")\n    probe = destination / \".image-smoke-write-probe\"\n    probe.write_text(\"disposable output only\\n\")\n    probe.unlink()\n    copied_counts.append(sum(value[0] is not None for value in original.values()))\noriginal_pointer = json.loads((sources[1] / \"production_model.json\").read_text())\ncopied_pointer = json.loads(pathlib.Path(\"/app/models/production_model.json\").read_text())\nparts = pathlib.Path(original_pointer[\"artifact_path\"]).parts\nsuffix = pathlib.Path(*parts[parts.index(\"models\") + 1:])\nexpected_pointer = dict(original_pointer, artifact_path=str(pathlib.Path(\"/app/models\") / suffix))\nif copied_pointer != expected_pointer:\n    raise RuntimeError(\"pointer_translation_mismatch\")\nprint(\"UFC_IMAGE_SMOKE=\" + json.dumps({\"check\": \"preflight\", \"uid\": os.getuid(),\n    \"gid\": os.getgid(), \"revision\": os.environ[\"IMAGE_REVISION\"], \"source_immutable\": True,\n    \"copies_match_source\": True, \"pointer_remapped\": True, \"writable_copies\": True,\n    \"read_only_root\": True, \"copied_data_files\": copied_counts[0],\n    \"copied_model_files\": copied_counts[1]}))\n\npointer=json.loads(pathlib.Path('/app/models/production_model.json').read_text())\nartifact=pathlib.Path(pointer['artifact_path'])\nmodel=original_model_loader(artifact/'model.joblib')\nmetadata=json.loads((artifact/'metadata.json').read_text())\nfeatures=len(metadata['feature_cols'])\nassert int(model.n_features_in_)==features\nprint('UFC_REAL_BUNDLE_SMOKE='+json.dumps({'status':'succeeded','input_review_verified':False,'model_deserialization_verified':True,'model_scoring_executed':False,'refresh_executed':False,'database_access_verified':False,'feature_count':features,'model_class':type(model).__module__+'.'+type(model).__name__,'bundle_manifest_sha256':os.environ['SMOKE_BUNDLE_MANIFEST_SHA256']}))\n"
+            ],
+            "securityContext": {
+              "allowPrivilegeEscalation": false,
+              "readOnlyRootFilesystem": true,
+              "capabilities": {
+                "drop": [
+                  "ALL"
+                ]
+              }
+            },
+            "resources": {
+              "requests": {
+                "cpu": "100m",
+                "memory": "512Mi"
+              },
+              "limits": {
+                "cpu": "2",
+                "memory": "4Gi"
+              }
+            },
+            "env": [
+              {
+                "name": "SMOKE_EXPECTED_REVISION",
+                "value": "95a01a44c299350d8c8ac4d8ec570805fde3a053"
+              },
+              {
+                "name": "SMOKE_MODULES",
+                "value": "[\"warehouse.load_events\", \"warehouse.load_fights\", \"warehouse.load_upcoming_fights\", \"warehouse.load_fight_odds\", \"modeling.build_pre_event_prediction_log\", \"features.build_upcoming\", \"modeling.score_upcoming\", \"predict\", \"betting.backtest\", \"betting.recommend\", \"warehouse.load_betting_reports\", \"scripts.automation.run_refresh\"]"
+              },
+              {
+                "name": "SMOKE_BUNDLE_MANIFEST_SHA256",
+                "value": "edaab9f452709b1d4eb0e664ed8930a7ecbf840f3b309b11c55df7e3ad972f37"
+              },
+              {
+                "name": "PYTHONDONTWRITEBYTECODE",
+                "value": "1"
+              },
+              {
+                "name": "OMP_NUM_THREADS",
+                "value": "1"
+              },
+              {
+                "name": "OPENBLAS_NUM_THREADS",
+                "value": "1"
+              }
+            ],
+            "volumeMounts": [
+              {
+                "name": "inputs",
+                "mountPath": "/runtime-inputs",
+                "readOnly": true
+              },
+              {
+                "name": "data",
+                "mountPath": "/app/data"
+              },
+              {
+                "name": "models",
+                "mountPath": "/app/models"
+              },
+              {
+                "name": "tmp",
+                "mountPath": "/tmp"
+              }
+            ]
+          }
+        ],
+        "volumes": [
+          {
+            "name": "inputs",
+            "emptyDir": {}
+          },
+          {
+            "name": "data",
+            "emptyDir": {}
+          },
+          {
+            "name": "models",
+            "emptyDir": {}
+          },
+          {
+            "name": "tmp",
+            "emptyDir": {}
+          }
+        ]
+      }
+    }
+  ]
+}

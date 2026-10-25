@@ -1,0 +1,32 @@
+{
+  "applied_relevant_migrations": [
+    "019_prediction_decisions.sql",
+    "020_current_predictions_active_fights.sql"
+  ],
+  "precheck": {
+    "read_only": true,
+    "status": "passed",
+    "table_counts": {
+      "betting_report_fights": 19038,
+      "betting_report_summaries": 836,
+      "events": 798,
+      "fight_odds": 159518,
+      "fights": 9027
+    }
+  },
+  "read_only": true,
+  "relations": {
+    "automation_refresh_runs": false,
+    "betting_report_fights": true,
+    "betting_report_summaries": true,
+    "bout_features": true,
+    "current_event_predictions": true,
+    "events": true,
+    "fight_stats": false,
+    "fight_stats_aggregate": true,
+    "fighters": true,
+    "fights": true,
+    "pre_event_prediction_fight_decisions": true
+  },
+  "target_identity_sha256": "6c96dc90a092d5d1f6b1f46372befd6e2a403546602b9bfb8dc8fbb8a22fdd9f"
+}

@@ -1,0 +1,46 @@
+{
+  "checks": {
+    "host_source_immutability": {
+      "status": "passed"
+    },
+    "identity": {
+      "configured_user": "10001:10001",
+      "image_config_digest": "sha256:51d84cce3ca6083c55b51f8e42b951ce31a1520d64c52fcfcf8dee167b156a6f",
+      "status": "passed"
+    },
+    "imports": {
+      "gid": 10001,
+      "module_count": 12,
+      "status": "passed",
+      "uid": 10001
+    },
+    "preflight": {
+      "copied_data_files": 5,
+      "copied_model_files": 3,
+      "copies_match_source": true,
+      "gid": 10001,
+      "pointer_remapped": true,
+      "read_only_root": true,
+      "source_immutable": true,
+      "status": "passed",
+      "uid": 10001,
+      "writable_copies": true
+    },
+    "pull": {
+      "status": "passed"
+    }
+  },
+  "database_access_verified": false,
+  "error": null,
+  "expected_revision": "95a01a44c299350d8c8ac4d8ec570805fde3a053",
+  "finished_at": "2026-10-25T21:34:14.054917+00:00",
+  "image_ref": "ghcr.io/wlodzimierrr/ufc-data@sha256:6e164d546fbdc000c13c62eeccfa6eef57708157f8c0d87b66b7b89613c47346",
+  "input_mode": "synthetic_fixture",
+  "input_review_verified": false,
+  "model_serialization_verified": false,
+  "refresh_executed": false,
+  "schema": "ufc-data-image-smoke-v1",
+  "scope": "no-network command imports and input-copy preflight only",
+  "started_at": "2026-10-25T21:33:42.691647+00:00",
+  "status": "succeeded"
+}

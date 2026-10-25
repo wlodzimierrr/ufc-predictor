@@ -4,6 +4,12 @@ Started 2026-10-25 under the user's instruction to follow the documented plan
 and report after every ticket. The Phase 9 ticket graph is the control record.
 The Phase 5C evidence-policy gates remain separate and blocked.
 
+Continuation: [runtime validation and setup draft](phase9-runtime-validation-report.md)
+records successful exact-digest synthetic CI checks, the corrected aggregate-stats
+precheck, prepared candidate/secret and the automatic approval block on transferring
+the actual bundle. It supersedes the corresponding pending-image evidence below;
+no live refresh or schedule activation has occurred.
+
 ## Preservation and execution scope
 
 Starting HEAD: `0ed362a`, branch `main`, upstream `origin/main`, remote

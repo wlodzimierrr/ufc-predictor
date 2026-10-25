@@ -1,0 +1,16 @@
+# Source template only. Register through the homelab bootstrap review.
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: ufc-data-refresh
+  namespace: argocd
+spec:
+  description: UFC refresh resources in the isolated dev namespace
+  sourceRepos:
+    - https://github.com/wlodzimierrr/homelab-workloads.git
+  destinations:
+    - namespace: ufc-data-refresh-dev
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace

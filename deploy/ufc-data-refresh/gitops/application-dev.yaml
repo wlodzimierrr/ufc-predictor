@@ -1,0 +1,18 @@
+# Manual sync only; registering this Application does not activate a schedule.
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ufc-data-refresh-dev
+  namespace: argocd
+spec:
+  project: ufc-data-refresh
+  source:
+    repoURL: https://github.com/wlodzimierrr/homelab-workloads.git
+    targetRevision: main
+    path: apps/ufc-data-refresh/envs/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ufc-data-refresh-dev
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
