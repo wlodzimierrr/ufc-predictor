@@ -77,7 +77,7 @@ Relevant existing pieces:
 #### T9.1.2 Add Docker image for `ufc-data`
 - **Description:** Add a production-oriented Dockerfile that can run the dashboard
   refresh pipeline in an ephemeral container.
-- **Status:** IMPLEMENTED — IMAGE_VALIDATION_PENDING (Docker unavailable locally)
+- **Status:** IMPLEMENTED — IMAGE_BUILT; RUNTIME_SMOKE_PENDING (CI build/imports passed)
 - **Acceptance Criteria:**
   - Docker image installs Python dependencies and system tools needed by the current
     refresh pipeline.
@@ -108,7 +108,7 @@ Relevant existing pieces:
 #### T9.2.1 Add GitHub Actions GHCR publish workflow
 - **Description:** Add a GitHub Actions workflow that builds and publishes the
   `ufc-data` Docker image to GHCR, following the existing `ufc-dashboard` pattern.
-- **Status:** IMPLEMENTED — PUBLICATION_VALIDATION_PENDING
+- **Status:** DONE (2026-10-25; GHCR publication verified, run 40223878127)
 - **Acceptance Criteria:**
   - Workflow builds on push to the main branch and supports manual dispatch.
   - Image is published as `ghcr.io/wlodzimierrr/ufc-data`.

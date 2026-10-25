@@ -23,8 +23,8 @@ resolved by a container or a schedule.
 |---|---|---|
 | T9.1.1 | Defined `docs/automation-refresh-contract.md` against Makefile and source readers; reviewed required runtime bundles, database variables, counts, failure and partial-commit behavior. | Contract complete; no live job run. |
 | T9.1.3 | Strict shell entrypoint, serial make command and original failure exit codes; wrapper/runtime synthetic tests. | No actual refresh invoked. |
-| T9.1.2 | Python 3.11 nonroot image, explicit build-context allowlist, runtime dependency pins and read-only source bundle/private-copy interface; image tests guard secret/artifact exclusion. Build includes command-import smoke check. | Local Docker build/run unavailable; serialization compatibility still requires reviewed image/bundle validation. |
-| T9.2.1 | Main/manual GHCR publishing and pull-request build, full SHA tags; follows the dashboard build/login/metadata pattern. No deployment or refresh in CI. | Publication outcome belongs to the final Git handoff/next image validation ticket. |
+| T9.1.2 | Python 3.11 nonroot image, explicit build-context allowlist, runtime dependency pins and read-only source bundle/private-copy interface; image tests guard secret/artifact exclusion. CI build and command-import smoke passed. | Local Docker run unavailable; exact-image runtime/input and serialization compatibility remain pending. |
+| T9.2.1 | Main/manual GHCR publishing and pull-request build, full SHA tags; follows the dashboard build/login/metadata pattern. No deployment or refresh in CI. | Successful build/push independently verified in run 40223878127; publication complete. |
 | T9.2.2 | Base/dev/prod manifests render; Sunday 12:00 Europe/London, suspended, Forbid, no automatic retries, separate namespaces, readonly inputs and persistent audit storage. Copied source into `homelab/workloads/apps/ufc-data-refresh` with approved filesystem escalation; source parity verified. | No Argo registration, cluster apply, image tag selection or schedule activation. |
 | T9.2.3 | `DATABASE_URL` support preserves split variables; two fake-connection tests. ConfigMap, default deny/DNS/database policies, optional excluded HTTPS policy and SOPS/KSOPS encryption helper. | Real runtime/pull credentials remain unconfigured; generators disabled until the actual encrypted secret exists. |
 | T9.3.1 | New migration 021 and durable run audit; fresh reports/current-card checks, sanitized failure receipts, explicit unknown affected-row counts. 32 runtime tests cover success, failure and preservation. | Migration not applied; local Postgres server binaries unavailable for disposable SQL parsing. Signals/node loss can leave an interrupted `running` record. |
@@ -54,6 +54,28 @@ It was excluded rather than retried against the configured warehouse. Raw errors
 were not saved as phase evidence. Later checks use explicit live-connection guards.
 No live refresh, acquisition, scoring or migration was executed.
 
+## CI publication evidence
+
+After pushing the implementation, a concurrent workflow added the separate
+Phase 5C.13 policy-proposal documents in commit
+`8b1cba1a08586e4a065aebb0ffb0644857209dbf`. That commit includes the Phase 9
+implementation and was already present on main; it was preserved, not authored
+by this task. Both local main and verified remote main contained it at handoff.
+
+[GitHub Actions run 40223878127](https://github.com/wlodzimierrr/ufc-predictor/actions/runs/40223878127)
+completed successfully. The job/step response and build log confirm checkout of
+that exact revision, successful Docker build (including command imports) and
+GHCR push:
+
+- Image: `ghcr.io/wlodzimierrr/ufc-data:sha-8b1cba1a08586e4a065aebb0ffb0644857209dbf`
+- OCI index digest: `sha256:c6a5471562ec3f612a7afb138b99583ef4c5842eb28c8ab39661e5f7efc5fc52`
+
+This resolves T9.2.1 publication validation and the image-build part of T9.1.2.
+It does not validate executing the image with the real reviewed bundle, model
+serialization compatibility, source access or warehouse writes. T9.5.1 remains
+in progress on that runtime evidence. No image tag was selected in the suspended
+homelab overlays.
+
 ## Next tickets and handoff
 
 [`implementation-control.md`](../implementation-control.md) defines T9.5.1–T9.5.4
@@ -61,8 +83,8 @@ for exact-image validation, real runtime setup, reviewed activation, and acquisi
 qualification. Later phase candidates cover event-week odds/nonstandard schedules,
 warehouse snapshot history and explicitly authorized failure notifications.
 
-Phase 9 is **implemented for offline review, operationally incomplete**. Docker,
-runtime secrets, migration/input feed and actual cluster validation remain open.
+Phase 9 is **implemented and image-published, operationally incomplete**. Exact-image
+runtime validation, real secrets, migration/input feed and cluster validation remain open.
 The homelab copy remains uncommitted source files, alongside pre-existing unrelated
 README/worktree changes. This task does not publish or register that separate
 GitOps repository. Final commit hashes, push outcome and preservation verification

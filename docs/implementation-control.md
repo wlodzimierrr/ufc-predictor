@@ -24,7 +24,9 @@ logical commits and normal pushes; do not equate publication with deployment.
 ## Next Phase 9 tickets
 
 These follow-up tickets close measured delivery gaps rather than treating them as
-success. All start TODO. Keep the CronJob suspended until the activation ticket.
+success. T9.5.1 is IN_PROGRESS: CI build/imports and GHCR publication passed, while
+the exact-image runtime/input preflight remains pending. T9.5.2–T9.5.4 remain TODO.
+Keep the CronJob suspended until the activation ticket.
 
 | Ticket | Dependency | Acceptance |
 |---|---|---|
