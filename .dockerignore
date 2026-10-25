@@ -1,0 +1,15 @@
+# Default deny: even ignored/untracked local artifacts never reach the builder.
+# Exceptions name files only; Docker traverses their excluded parent directories.
+**
+!Dockerfile
+!.dockerignore
+!requirements-automation.txt
+!Makefile
+!predict.py
+!betting/*.py
+!features/*.py
+!modeling/*.py
+!warehouse/*.py
+!configs/betting_conservative_candidate.toml
+!scripts/automation/*.py
+!scripts/automation/*.sh
