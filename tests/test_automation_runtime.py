@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import shutil
 import subprocess
+import re
 
 import pytest
 
@@ -12,6 +13,11 @@ from scripts.automation.prepare_runtime import DATA_FILES, InputError, prepare_r
 from scripts.automation.run_refresh import COMMAND, run_command, run_refresh
 
 ROOT = Path(__file__).resolve().parents[1]
+WAREHOUSE_TABLES = set(re.findall(
+    r"CREATE\s+TABLE\s+(?:IF\s+NOT\s+EXISTS\s+)?(\w+)",
+    "\n".join(path.read_text() for path in (ROOT / "warehouse/sql").glob("*.sql")),
+    flags=re.IGNORECASE,
+))
 
 
 def bundle(tmp_path):
@@ -155,6 +161,7 @@ class FakeCursor:
             self.rows = [(3,)]
         elif sql.startswith("SELECT count(*) FROM "):
             table = sql.split()[-1]
+            assert table in WAREHOUSE_TABLES, "Precheck must query a declared warehouse table"
             self.rows = [(0 if table == db.empty_table else (11 if db.finished else 10),)]
         elif "LIMIT 0" in sql:
             self.rows = []

@@ -75,7 +75,7 @@ def table_counts(conn) -> dict[str, int]:
 def precheck(conn) -> dict[str, int]:
     counts = table_counts(conn)
     with conn.cursor() as cur:
-        for table in ("fighters", "fight_stats", "bout_features"):
+        for table in ("fighters", "fight_stats_aggregate", "bout_features"):
             cur.execute(f"SELECT count(*) FROM {table}")
             if cur.fetchone()[0] == 0:
                 raise RefreshFailure("warehouse_prerequisites_empty")
