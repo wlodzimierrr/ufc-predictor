@@ -1,0 +1,82 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: ufc-data-refresh
+  labels:
+    app.kubernetes.io/name: ufc-data-refresh
+spec:
+  schedule: "0 12 * * 0"
+  timeZone: Europe/London
+  suspend: true
+  concurrencyPolicy: Forbid
+  startingDeadlineSeconds: 1800
+  successfulJobsHistoryLimit: 2
+  failedJobsHistoryLimit: 5
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      activeDeadlineSeconds: 3600
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/name: ufc-data-refresh
+        spec:
+          restartPolicy: Never
+          automountServiceAccountToken: false
+          terminationGracePeriodSeconds: 30
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            runAsGroup: 10001
+            fsGroup: 10001
+            seccompProfile:
+              type: RuntimeDefault
+          imagePullSecrets:
+            - name: ghcr-read-token
+          containers:
+            - name: refresh
+              image: ghcr.io/wlodzimierrr/ufc-data:unconfigured
+              imagePullPolicy: IfNotPresent
+              envFrom:
+                - configMapRef:
+                    name: ufc-data-refresh
+                - secretRef:
+                    name: ufc-data-refresh-runtime
+              resources:
+                requests:
+                  cpu: 250m
+                  memory: 1Gi
+                limits:
+                  cpu: "2"
+                  memory: 4Gi
+              securityContext:
+                allowPrivilegeEscalation: false
+                readOnlyRootFilesystem: true
+                capabilities:
+                  drop: [ALL]
+              volumeMounts:
+                - name: inputs
+                  mountPath: /runtime-inputs
+                  readOnly: true
+                - name: data
+                  mountPath: /app/data
+                - name: models
+                  mountPath: /app/models
+                - name: tmp
+                  mountPath: /tmp
+                - name: audit
+                  mountPath: /audit
+          volumes:
+            - name: inputs
+              persistentVolumeClaim:
+                claimName: ufc-data-refresh-inputs
+                readOnly: true
+            - name: data
+              emptyDir: {}
+            - name: models
+              emptyDir: {}
+            - name: tmp
+              emptyDir: {}
+            - name: audit
+              persistentVolumeClaim:
+                claimName: ufc-data-refresh-audit

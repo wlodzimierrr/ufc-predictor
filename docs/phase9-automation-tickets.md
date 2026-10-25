@@ -12,8 +12,10 @@ The target operating model is:
 - Sunday 12:00 UK handles post-event settlement, with a later event-week odds refresh
   job for fresher betting cards.
 
-This document is an implementation ticket plan. Do not start code implementation until
-this file has been reviewed and approved.
+This document is the Phase 9 implementation control plan. The user authorized
+following it on 2026-10-25. Report after each ticket, follow the dependency graph,
+and retain any unverified operational criteria as pending. Implementation does
+not by itself enable the production schedule or approve Phase 5C evidence policy.
 
 ---
 
@@ -60,7 +62,7 @@ Relevant existing pieces:
 - **Description:** Define the exact command contract for the scheduled refresh job:
   what it runs, what inputs it requires, what outputs it updates, and what counts as
   success or failure.
-- **Status:** TODO
+- **Status:** DONE (2026-10-25; see `automation-refresh-contract.md`)
 - **Acceptance Criteria:**
   - Document the v1 scheduled command as `make update_dashboard_data`.
   - Identify any optional future scraper commands separately from the v1 refresh.
@@ -75,7 +77,7 @@ Relevant existing pieces:
 #### T9.1.2 Add Docker image for `ufc-data`
 - **Description:** Add a production-oriented Dockerfile that can run the dashboard
   refresh pipeline in an ephemeral container.
-- **Status:** TODO
+- **Status:** IMPLEMENTED — IMAGE_VALIDATION_PENDING (Docker unavailable locally)
 - **Acceptance Criteria:**
   - Docker image installs Python dependencies and system tools needed by the current
     refresh pipeline.
@@ -91,7 +93,7 @@ Relevant existing pieces:
 #### T9.1.3 Add refresh entrypoint script
 - **Description:** Add a small wrapper script for automation runs so Kubernetes does
   not need to know internal command sequencing.
-- **Status:** TODO
+- **Status:** DONE (2026-10-25; offline success/failure verification)
 - **Acceptance Criteria:**
   - Script lives under `scripts/automation/`.
   - Script runs with strict shell settings.
@@ -106,7 +108,7 @@ Relevant existing pieces:
 #### T9.2.1 Add GitHub Actions GHCR publish workflow
 - **Description:** Add a GitHub Actions workflow that builds and publishes the
   `ufc-data` Docker image to GHCR, following the existing `ufc-dashboard` pattern.
-- **Status:** TODO
+- **Status:** IMPLEMENTED — PUBLICATION_VALIDATION_PENDING
 - **Acceptance Criteria:**
   - Workflow builds on push to the main branch and supports manual dispatch.
   - Image is published as `ghcr.io/wlodzimierrr/ufc-data`.
@@ -121,7 +123,7 @@ Relevant existing pieces:
 #### T9.2.2 Add homelab CronJob manifests
 - **Description:** Add GitOps manifests for a k3s CronJob that runs the refresh image
   every Sunday at 12:00 UK.
-- **Status:** TODO
+- **Status:** DONE — SOURCE_ONLY (2026-10-25; both overlays render; suspended)
 - **Acceptance Criteria:**
   - New homelab workload exists, for example `apps/ufc-data-refresh`.
   - CronJob uses `schedule: "0 12 * * 0"` and `timeZone: "Europe/London"`.
@@ -136,7 +138,7 @@ Relevant existing pieces:
 #### T9.2.3 Configure secrets, config, and network policies
 - **Description:** Provide the Kubernetes runtime configuration required for the job
   to reach Postgres and external scrape sources safely.
-- **Status:** TODO
+- **Status:** IMPLEMENTED — RUNTIME_SECRET_CONFIGURATION_PENDING
 - **Acceptance Criteria:**
   - SOPS-managed secret includes `DATABASE_URL` and any required scraper credentials,
     cookies, or headers.
@@ -151,7 +153,7 @@ Relevant existing pieces:
 #### T9.3.1 Add automation run audit
 - **Description:** Add a minimal audit trail so the dashboard/user can tell when the
   last automated refresh ran and whether it succeeded.
-- **Status:** TODO
+- **Status:** DONE — IMPLEMENTATION_ONLY (2026-10-25; migration unapplied)
 - **Acceptance Criteria:**
   - Each run records run ID, started time, finished time, status, image/git SHA, and
     command version.
@@ -166,7 +168,7 @@ Relevant existing pieces:
 #### T9.3.2 Validate scraper readiness for headless cluster runs
 - **Description:** Determine which scrapers can safely run inside the cluster and what
   extra browser/cookie/user-agent handling they require.
-- **Status:** TODO
+- **Status:** DEFERRED — IMAGE_AND_SOURCE_VALIDATION_PENDING (scrapers disabled)
 - **Acceptance Criteria:**
   - Results scraper is tested from the Docker image.
   - BestFightOdds capture path is tested from the Docker image.
@@ -181,7 +183,7 @@ Relevant existing pieces:
 #### T9.4.1 Add runbook and operational checks
 - **Description:** Document how to run, inspect, retry, and troubleshoot the automated
   refresh process.
-- **Status:** TODO
+- **Status:** DONE (2026-10-25; includes deferred-acquisition and activation limits)
 - **Acceptance Criteria:**
   - `docs/runbook.md` includes the Sunday automation flow.
   - Commands are documented for checking last CronJob run, viewing logs, and creating
@@ -241,6 +243,11 @@ Phase 9 is successful when:
 ---
 
 ## Follow-Up Phase Candidates
+
+The current execution record and next concrete tickets are in
+[`implementation-control.md`](implementation-control.md). The Phase 9 runtime
+activation gates must pass before scheduling follow-up automation. Source-only
+delivery is not completion of the live Phase 9 success criteria above.
 
 - Add a daily/event-week odds refresh CronJob for current betting cards.
 - Move odds snapshots and generated report history fully into warehouse tables.

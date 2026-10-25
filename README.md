@@ -2,6 +2,9 @@
 
 End-to-end data engineering and machine learning project for predicting UFC fight outcomes.
 
+See [implementation control](docs/implementation-control.md) for the current ticket
+sequence, Phase 9 delivery status and the gates before runtime activation.
+
 This repository contains the backend of the system: data collection, warehouse loading,
 feature engineering, model training, calibrated prediction generation, and post-event
 accuracy tracking. The public dashboard is maintained separately in

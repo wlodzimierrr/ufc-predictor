@@ -1,0 +1,45 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: ufc-data-refresh-default-deny
+spec:
+  podSelector: {}
+  policyTypes: [Ingress, Egress]
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: ufc-data-refresh-dns
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: ufc-data-refresh
+  policyTypes: [Egress]
+  egress:
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: kube-system
+      ports:
+        - {protocol: UDP, port: 53}
+        - {protocol: TCP, port: 53}
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: ufc-data-refresh-database
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: ufc-data-refresh
+  policyTypes: [Egress]
+  egress:
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: homelab-database
+          podSelector:
+            matchLabels:
+              app.kubernetes.io/name: homelab-database
+      ports:
+        - {protocol: TCP, port: 5432}

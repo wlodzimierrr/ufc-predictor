@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: ufc-data-refresh-prod
+resources:
+  - ../../base
+images:
+  - name: ghcr.io/wlodzimierrr/ufc-data
+    newTag: sha-REPLACE_WITH_PUBLISHED_COMMIT
+patches:
+  - path: patch-cronjob.yaml
+# After encrypting the real runtime secret, enable generators as documented.
+# generators:
+#   - runtime-secret-generator.yaml

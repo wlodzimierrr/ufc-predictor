@@ -1,4 +1,96 @@
-# Phase 1 Acquisition Runbook
+# Acquisition and automation runbook
+
+## Phase 9 Sunday automation
+
+The implementation plan is [phase9-automation-tickets.md](phase9-automation-tickets.md);
+the command and input contract is [automation-refresh-contract.md](automation-refresh-contract.md).
+The initial CronJob is suspended. Implementation does not resolve the separate
+Phase 5C source-policy gate or validate a production refresh. Follow the workload's
+[`deploy/ufc-data-refresh/README.md`](../deploy/ufc-data-refresh/README.md) for image
+tags, PVC input seeding, database migrations and encrypted credentials before
+activation. Both dev/prod overlays were prepared for the homelab workload layout.
+
+GitHub Actions builds/publishes `ghcr.io/wlodzimierrr/ufc-data` with full SHA tags.
+k3s owns Sunday `0 12 * * 0` in `Europe/London`. Running a refresh does not commit
+CSVs to Git. A read-only mounted bundle provides reviewed inputs; generated files
+live in disposable writable copies, and Postgres serves the dashboard. The current
+job reloads its bundle; it cannot acquire new event results or odds. See the
+[scraper readiness decision](automation-scraper-readiness.md) for deferred work.
+
+From the ufc-data repository root, build and check inputs without DB/network access:
+
+```bash
+docker build --build-arg IMAGE_REVISION="$(git rev-parse HEAD)" -t ufc-data:local .
+docker run --rm --network none \
+  --mount type=bind,src=/absolute/reviewed/data,dst=/runtime-inputs/data,readonly \
+  --mount type=bind,src=/absolute/reviewed/models,dst=/runtime-inputs/models,readonly \
+  ufc-data:local --preflight-only
+```
+
+Docker build and container execution were unavailable on the implementation host.
+The preflight command copies/validates bundles, without importing the warehouse
+connection helper, loading model binaries or invoking make. A full run additionally
+requires the migrated warehouse, runtime credentials and a persistent `/audit`
+mount. Running the wrapper directly in a developer checkout will reject existing
+nonempty data/model destinations. Use the disposable container workspace.
+
+After the operator's reviewed activation, inspect the job in the chosen environment:
+
+```bash
+kubectl -n ufc-data-refresh-prod get cronjob ufc-data-refresh
+kubectl -n ufc-data-refresh-prod get jobs --sort-by=.metadata.creationTimestamp
+kubectl -n ufc-data-refresh-prod describe cronjob ufc-data-refresh
+kubectl -n ufc-data-refresh-prod logs job/REPLACE_JOB_NAME --all-containers=true
+kubectl -n ufc-data-refresh-prod describe job REPLACE_JOB_NAME
+```
+
+Inspect a failed Job and audit before retrying. The pipeline commits independent
+loaders; a failure does not undo earlier steps. No automatic Job retry is configured.
+`Forbid` prevents scheduled overlap but does not prevent manually created Jobs.
+Confirm that no refresh/input-seeding Job is active and no other environment is
+writing the same database before a reviewed one-off run:
+
+```bash
+kubectl -n ufc-data-refresh-prod get jobs
+kubectl -n ufc-data-refresh-prod create job \
+  --from=cronjob/ufc-data-refresh ufc-data-refresh-manual-REPLACE_UNIQUE_SUFFIX
+```
+
+Creating this Job scores predictions and writes warehouse rows even if the
+CronJob is suspended. It is an activation/operations action, never an offline test.
+If retries would use outdated inputs, update and review the input bundle first.
+Friday, overseas or postponed cards may require a later manual run. Browser/session
+failures stay on the manual acquisition path; do not enable unqualified scraping
+to recover a refresh. Run the existing bounded acquisition commands in this
+runbook, review outputs, reseed inputs, then use the reviewed one-off job.
+
+Read the audit from the warehouse connection already configured for the dashboard:
+
+```sql
+SELECT run_id, started_at, finished_at, status, image_revision,
+       git_revision, command_version, exit_code, counts, errors
+FROM automation_refresh_runs ORDER BY started_at DESC LIMIT 20;
+
+SELECT finished_at, image_revision
+FROM automation_refresh_runs WHERE status = 'succeeded'
+ORDER BY finished_at DESC LIMIT 1;
+```
+
+Zero bets can be successful; missing current-card coverage cannot. Audit counters
+distinguish input rows, table counts and newly imported report rows. Exact changed
+fight/odds counts remain null because existing loaders do not report them. A pod
+terminated by SIGTERM/SIGKILL, node loss or a database outage can leave a `running`
+record without finish time; treat it as interrupted/unconfirmed and inspect Job
+status and the last successful run. Never label a stale running row as success.
+
+Local JSON receipts on the audit PVC provide sanitized failure evidence if the
+database is down. The default local directory `/tmp/automation-audit` is ephemeral;
+production sets `AUTOMATION_AUDIT_DIR=/audit`. Retain failed Jobs/logs as configured.
+See the workload README for SOPS secret rotation; never print decrypted secrets
+when troubleshooting. Build/publish failures belong to GitHub Actions logs, while
+run failures belong to k3s and the audit table.
+
+---
 
 Entry-point reference for running, updating, and validating Phase 1 data acquisition.
 All commands are run from `scraper/UFC-Web-Scraping-main/` unless stated otherwise.
