@@ -35,6 +35,9 @@ except ImportError:
 
 def get_connection() -> PgConnection:
     """Return a psycopg2 connection using env-var credentials."""
+    database_url = os.environ.get("DATABASE_URL")
+    if database_url:
+        return psycopg2.connect(database_url)
     return psycopg2.connect(
         host=os.environ["POSTGRES_HOST"],
         port=int(os.environ.get("POSTGRES_PORT", 5432)),
